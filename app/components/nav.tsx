@@ -32,13 +32,19 @@ export const Navigation: React.FC = () => {
 							href="/projects"
 							className="duration-200 text-zinc-400 hover:text-zinc-100"
 						>
-							Projects
+							Atlikti Darbai
+						</Link>
+						<Link
+							href="/aboutus"
+							className="duration-200 text-zinc-400 hover:text-zinc-100"
+						>
+							Apie Mus
 						</Link>
 						<Link
 							href="/contact"
 							className="duration-200 text-zinc-400 hover:text-zinc-100"
 						>
-							Contact
+							Kontaktai
 						</Link>
 					</div>
 
