@@ -18,6 +18,12 @@ const socials = [
 		label: "LinkedIn",
 		handle: "@pavadinimas.agency",
 	},
+	{
+		icon: <Github size={20} />,
+		href: "https://github.com/chronark",
+		label: "Tel. Numeris",
+		handle: "+370 666 66 666",
+	},
 ];
 
 export default function Example() {
