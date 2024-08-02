@@ -1,5 +1,6 @@
 "use client";
 import { Navigation } from "../components/nav";
+import Link from "next/link";
 
 export default function AboutUs() {
     return (
