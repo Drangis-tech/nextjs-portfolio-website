@@ -26,7 +26,31 @@ const techData = [
   { name: "Laravel", description: "Laravel is a web application framework with expressive, elegant syntax." },
   { name: "React", description: "React is a JavaScript library for building user interfaces." },
   { name: "WooCommerce", description: "WooCommerce is a customizable, open-source eCommerce platform built on WordPress." },
+  { name: "JavaScript", description: "JavaScript is a programming language used to create dynamic website content." },
+  { name: "Python", description: "Python is a programming language that lets you work quickly and integrate systems more effectively." },
+  { name: "Docker", description: "Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers." },
   // Add more technologies as needed
+];
+
+const teamData = [
+  {
+    name: "Jonas Jonaitis",
+    role: "CEO",
+    linkedIn: "#",
+    twitter: "#",
+  },
+  {
+    name: "Petras Petraitis",
+    role: "CTO",
+    linkedIn: "#",
+    twitter: "#",
+  },
+  {
+    name: "Ona Onaitė",
+    role: "CFO",
+    linkedIn: "#",
+    twitter: "#",
+  },
 ];
 
 const ApieMus: React.FC = () => {
@@ -82,17 +106,41 @@ const ApieMus: React.FC = () => {
 
         <div className="mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
-          <div className="flex flex-wrap gap-8 mt-8">
-            {techData.map((tech, index) => (
-              <div
-                key={index}
-                className="relative w-24 h-24 border-2 border-zinc-500 hover:border-white transform hover:scale-110 transition-transform duration-300"
-              >
-                <div className="absolute inset-0 flex items-center justify-center p-2 text-zinc-400">
-                  <p className="text-center">{tech.name}</p>
+          <div className="flex justify-center mt-8">
+            <div className="relative grid gap-4">
+              {techData.map((tech, index) => (
+                <div
+                  key={index}
+                  className="relative w-24 h-24 border-2 border-zinc-500 hover:border-white transform hover:scale-110 transition-transform duration-300"
+                >
+                  <div className="absolute inset-0 flex items-center justify-center p-2 text-zinc-400">
+                    <p className="text-center">{tech.name}</p>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center p-2 text-zinc-200 bg-black bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-center text-xs">{tech.description}</p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center p-2 text-zinc-200 bg-black bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-center text-xs">{tech.description}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="hidden w-full h-px md:block bg-zinc-800" />
+
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mūsų komanda</h2>
+          <div className="grid gap-8 mt-8 sm:grid-cols-2 md:grid-cols-3">
+            {teamData.map((member, index) => (
+              <div key={index} className="p-4 bg-[#1c1c1e] text-zinc-400 rounded-lg text-center">
+                <div className="w-24 h-24 mx-auto mb-4 bg-zinc-600 rounded-full"></div>
+                <h3 className="text-xl font-bold text-zinc-100">{member.name}</h3>
+                <p className="mt-2">{member.role}</p>
+                <div className="flex justify-center mt-4 space-x-4">
+                  <Link href={member.linkedIn}>
+                    <a className="text-zinc-400 hover:text-white">LinkedIn</a>
+                  </Link>
+                  <Link href={member.twitter}>
+                    <a className="text-zinc-400 hover:text-white">Twitter</a>
+                  </Link>
                 </div>
               </div>
             ))}
