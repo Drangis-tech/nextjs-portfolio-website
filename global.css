@@ -64,4 +64,22 @@
   .apie-mus .content p {
     color: #bbb;
   }
+
+  .team-section {
+    text-align: center;
+  }
+
+  .team-section .team-members {
+    display: flex;
+    justify-content: center;
+  }
+
+  .team-member {
+    text-align: center;
+  }
+
+  .team-member .social-icons a {
+    display: inline-block;
+    margin: 0 5px;
+  }
 }
