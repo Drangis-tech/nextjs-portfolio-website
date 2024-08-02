@@ -1,5 +1,6 @@
 "use client";
 import { Navigation } from "../components/nav";
+import React from "react";
 import Particles from "../components/particles";
 
 const technologies = [
