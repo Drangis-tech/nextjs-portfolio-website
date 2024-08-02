@@ -17,7 +17,7 @@ export default function AboutUs() {
     return (
         <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
             <Navigation />
-            <Particles className="absolute inset-0 -z-10" quantity={100} />
+            <Particles className="absolute inset-0 -z-10 animate-fade-in" quantity={100} />
             <div className="container flex flex-col items-center justify-center min-h-screen px-4 mx-auto mt-32 sm:mt-0">
                 <div className="mb-16 text-center animate-fade-in">
                     <h1 className="text-3xl font-bold text-white">Apie Mus</h1>
