@@ -1,7 +1,5 @@
 "use client";
 import { Navigation } from "../components/nav";
-import Particles from "./components/particles";
-
 
 export default function AboutUs() {
     const technologies = [
