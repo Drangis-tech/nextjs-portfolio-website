@@ -22,9 +22,16 @@ const aboutUsData = [
   },
 ];
 
+const techData = [
+  { name: "Laravel", description: "Laravel is a web application framework with expressive, elegant syntax." },
+  { name: "React", description: "React is a JavaScript library for building user interfaces." },
+  { name: "WooCommerce", description: "WooCommerce is a customizable, open-source eCommerce platform built on WordPress." },
+  // Add more technologies as needed
+];
+
 const ApieMus: React.FC = () => {
   return (
-    <div className="relative pb-16">
+    <div className="relative pb-16 bg-[#161618]">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -38,7 +45,7 @@ const ApieMus: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col gap-8 lg:w-1/2">
             {aboutUsData.map((section, index) => (
-              <Card key={index}>
+              <Card key={index} className="bg-[#1c1c1e] hover:bg-[#2c2c2e]">
                 <article className="relative w-full h-full p-4 md:p-8 group">
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
@@ -64,14 +71,33 @@ const ApieMus: React.FC = () => {
 
           <div className="flex flex-col gap-8 lg:w-1/2">
             {aboutUsData.map((section, index) => (
-              <div key={index} className="p-4 bg-zinc-900 rounded-lg">
+              <div key={index} className="p-4 bg-[#1c1c1e] text-zinc-400 rounded-lg">
                 <h3 className="text-xl font-bold text-zinc-100">{section.title}</h3>
-                <p className="mt-2 text-zinc-400">{section.detailedText}</p>
+                <p className="mt-2">{section.detailedText}</p>
               </div>
             ))}
           </div>
         </div>
         <div className="hidden w-full h-px md:block bg-zinc-800" />
+
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
+          <div className="flex flex-wrap gap-8 mt-8">
+            {techData.map((tech, index) => (
+              <div
+                key={index}
+                className="relative w-24 h-24 border-2 border-zinc-500 hover:border-white transform hover:scale-110 transition-transform duration-300"
+              >
+                <div className="absolute inset-0 flex items-center justify-center p-2 text-zinc-400">
+                  <p className="text-center">{tech.name}</p>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center p-2 text-zinc-200 bg-black bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-center text-xs">{tech.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
