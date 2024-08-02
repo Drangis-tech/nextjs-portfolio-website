@@ -5,14 +5,14 @@ import Particles from "./components/particles";
 
 export default function AboutUs() {
     const technologies = [
-        { name: "JavaScript", description: "Modern JavaScript for dynamic web applications." },
-        { name: "React", description: "Building user interfaces with React." },
-        { name: "Next.js", description: "Server-side rendering with Next.js." },
-        { name: "Node.js", description: "Backend services with Node.js." },
-        { name: "Laravel", description: "Robust PHP framework for web artisans." },
-        { name: "Magento", description: "E-commerce platform for custom solutions." },
-        { name: "WooCommerce", description: "E-commerce plugin for WordPress." },
-        { name: "HTML & CSS", description: "Fundamentals of web development." },
+        { name: "JavaScript", description: "Šiuolaikinis JavaScript dinamiškoms svetainių programoms." },
+        { name: "React", description: "Vartotojo sąsajų kūrimas (user interfaces) naudojant React." },
+        { name: "Next.js", description: "Serverio pusės atvaizdavimas naudojant Next.js." },
+        { name: "Node.js", description: "Galinės paslaugos (Backend) naudojant Node.js." },
+        { name: "Laravel", description: "Patikima PHP sistema, skirta svetainių kūrimo meistrams." },
+        { name: "Magento", description: "Elektroninės prekybos platforma, skirta individualiems sprendimams." },
+        { name: "WooCommerce", description: "WordPress elektroninės komercijos įskiepis (plugin)." },
+        { name: "HTML & CSS", description: "Žiniatinklio kūrimo pagrindai." },
     ];
 
     return (
