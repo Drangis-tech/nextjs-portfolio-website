@@ -45,8 +45,8 @@ const ApieMus: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col gap-8 lg:w-1/2">
             {aboutUsData.map((section, index) => (
-              <Card key={index} className="bg-[#1c1c1e] hover:bg-[#2c2c2e]">
-                <article className="relative w-full h-full p-4 md:p-8 group">
+              <Card key={index}>
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[#1c1c1e] hover:bg-[#2c2c2e]">
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
                       <span>{section.title}</span>
