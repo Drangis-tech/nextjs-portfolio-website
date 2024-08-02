@@ -1,7 +1,12 @@
 "use client";
-import { Navigation } from "../components/nav";
 import Link from "next/link";
 import React from "react";
+
+const navigation = [
+    { name: "Atlikti Darbai", href: "/projects" },
+    { name: "Apie Mus", href: "/apie-mus" },
+    { name: "Kontaktai", href: "/contact" },
+  ];
 
 const technologies = [
   { name: "JavaScript", description: "Modern JavaScript for dynamic web applications." },
