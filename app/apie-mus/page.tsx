@@ -2,7 +2,6 @@
 import { Navigation } from "../components/nav";
 import Link from "next/link";
 import React from "react";
-import Particles from "../components/particles";
 
 const technologies = [
   { name: "JavaScript", description: "Modern JavaScript for dynamic web applications." },
