@@ -3,7 +3,6 @@ import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
-// Sample data for the About Us page
 const aboutUsData = [
   {
     title: "Mūsų Komanda",
