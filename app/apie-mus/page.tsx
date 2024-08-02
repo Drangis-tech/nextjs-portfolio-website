@@ -22,7 +22,7 @@ export default function AboutUs() {
                 <div className="mb-16 text-center animate-fade-in">
                     <h1 className="text-3xl font-bold text-white">Apie Mus</h1>
                     <p className="mt-4 text-zinc-400">
-                        Mes esame komanda, kuri specializuojasi kuriant novatoriškus IT sprendimus. 
+                        Mes esame komanda, kuri specializuojasi kuriant inovatyvius IT sprendimus. 
                         Mūsų tikslas – padėti verslams augti naudojant šiuolaikines technologijas.
                     </p>
                 </div>
