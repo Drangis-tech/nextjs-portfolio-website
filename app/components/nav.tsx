@@ -35,7 +35,7 @@ export const Navigation: React.FC = () => {
 							Atlikti Darbai
 						</Link>
 						<Link
-							href="/aboutus"
+							href="/apiemus"
 							className="duration-200 text-zinc-400 hover:text-zinc-100"
 						>
 							Apie Mus
