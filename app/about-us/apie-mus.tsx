@@ -1,22 +1,20 @@
-import React from 'react';
+"use client";
+import { Navigation } from "../components/nav";
 
-const ApieMus: React.FC = () => {
-  return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>Apie Mus</h1>
-      <p>
-        Sveiki atvykę į mūsų svetainę! Čia galite sužinoti daugiau apie mūsų
-        veiklą ir projektus.
-      </p>
-      <p>
-        Mūsų komanda yra sudaryta iš patyrusių specialistų, kurie dirba kartu,
-        kad pasiektų geriausius rezultatus.
-      </p>
-      <p>
-        Susisiekite su mumis, jei turite klausimų ar norite sužinoti daugiau.
-      </p>
-    </div>
-  );
-};
-
-export default ApieMus;
+export default function AboutUs() {
+    return (
+        <div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+            <Navigation />
+            <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
+                <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
+                    <div className="card">
+                        <h1 className="text-3xl font-bold text-center text-white">Apie Mus</h1>
+                        <p className="mt-4 text-center text-zinc-400">
+                            Čia yra mūsų istorija, vertybės ir misija.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
