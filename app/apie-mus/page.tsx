@@ -1,9 +1,9 @@
 // app/apie-mus/page.tsx
 import React from 'react';
-import Card from '@/components/card'; // Ensure this path is correct
+import { Card } from '@/components/card'; // Ensure this path and casing is correct
 import aboutUsData from '@/data/about-us'; // Ensure this path is correct
 
-const ApieMus = () => {
+const ApieMus: React.FC = () => {
   return (
     <div className="apie-mus">
       {aboutUsData.map((section, index) => (
@@ -25,7 +25,7 @@ const ApieMus = () => {
   );
 };
 
-const MesDirbameSu = () => {
+const MesDirbameSu: React.FC = () => {
   return (
     <div className="hexagon-container">
       {['Front-end', 'Testing Tools', 'Cloud', 'CMS/E-commerce', 'CI/CD', 'Back-end', 'Infrastructure', 'Framework', 'Data'].map((title, index) => (
@@ -37,7 +37,7 @@ const MesDirbameSu = () => {
   );
 };
 
-const MūsųKomanda = () => {
+const MūsųKomanda: React.FC = () => {
   const teamMembers = [
     { name: 'Jonas Jonaitis', position: 'CEO' },
     { name: 'Petras Petraitis', position: 'CTO' },
@@ -65,7 +65,7 @@ const MūsųKomanda = () => {
   );
 };
 
-const Page = () => {
+const Page: React.FC = () => {
   return (
     <div>
       <ApieMus />
