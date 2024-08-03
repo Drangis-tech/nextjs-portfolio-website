@@ -71,43 +71,45 @@ const ApieMus: React.FC = () => {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: '10px',
-    position: 'relative'
+    position: 'relative',
+    width: 'fit-content',
+    margin: '0 auto'
   };
 
   const hexagonStyle: React.CSSProperties = {
-    width: '100px',
-    height: '55px',
+    width: '80px',
+    height: '46px',
     backgroundColor: '#2c2c2e',
     position: 'relative',
-    margin: '27.5px 5px',
+    margin: '15px 5px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    fontSize: '14px',
+    fontSize: '12px',
     color: '#fff',
-    transition: 'transform 0.3s ease, background-color 0.3s ease'
+    transition: 'transform 0.3s ease, background-color 0.3s ease',
+    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
   };
 
   const hexagonBeforeAfterStyle: React.CSSProperties = {
     content: '""',
     position: 'absolute',
     width: '0',
-    borderLeft: '50px solid transparent',
-    borderRight: '50px solid transparent'
+    borderLeft: '40px solid transparent',
+    borderRight: '40px solid transparent'
   };
 
   const hexagonBeforeStyle: React.CSSProperties = {
     ...hexagonBeforeAfterStyle,
     bottom: '100%',
-    borderBottom: '27.5px solid #2c2c2e'
+    borderBottom: '23px solid #2c2c2e'
   };
 
   const hexagonAfterStyle: React.CSSProperties = {
     ...hexagonBeforeAfterStyle,
     top: '100%',
-    borderTop: '27.5px solid #2c2c2e'
+    borderTop: '23px solid #2c2c2e'
   };
 
   return (
@@ -154,8 +156,27 @@ const ApieMus: React.FC = () => {
         <div className="mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
           <div style={hexagonGridStyle}>
+            <div style={{
+              position: 'absolute',
+              width: '160px',
+              height: '92px',
+              backgroundColor: '#1c1c1e',
+              clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+              zIndex: 1
+            }}></div>
             {techData.map((tech, index) => (
-              <div key={index} style={hexagonStyle}>
+              <div 
+                key={index} 
+                style={hexagonStyle}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.1)';
+                  e.currentTarget.style.backgroundColor = '#3c3c3e';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.backgroundColor = '#2c2c2e';
+                }}
+              >
                 <span>{tech.name}</span>
                 <div style={hexagonBeforeStyle}></div>
                 <div style={hexagonAfterStyle}></div>
@@ -169,38 +190,43 @@ const ApieMus: React.FC = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {teamData.map((member, index) => (
               <Card key={index} className="card">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[#1c1c1e] hover:bg-[#2c2c2e]">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="text-xs text-zinc-100">
-                      <span>{member.role}</span>
-                    </div>
+              <article className="relative w-full h-full p-4 md:p-8 group bg-[#1c1c1e] hover:bg-[#2c2c2e]">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="text-xs text-zinc-100">
+                    <span>{member.role}</span>
                   </div>
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
-                    {member.name}
-                    </h2>
-                  <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                    {member.role}
-                  </p>
-                  <div className="mt-4 flex space-x-4">
-                    {member.linkedIn && (
-                      <a href={member.linkedIn} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20 0H4C1.791 0 0 1.791 0 4v16c0 2.209 1.791 4 4 4h16c2.209 0 4-1.791 4-4V4c0-2.209-1.791-4-4-4zM8.5 19H5.5v-8h3V19zM7 10.5h-.05c-1.11 0-1.8-.766-1.8-1.728 0-.987.697-1.73 1.789-1.73s1.8.743 1.8 1.73c0 .962-.689 1.728-1.8 1.728zm11.5 8h-3v-4.2c0-1.051-.02-2.404-1.464-2.404-1.463 0-1.684 1.144-1.684 2.322V19h-3v-8h2.865v1.089h.042c.398-.756 1.372-1.551 2.825-1.551 3.027 0 3.583 1.996 3.583 4.595V19z"/></svg>
-                      </a>
-                    )}
-                    {member.twitter && (
-                      <a href={member.twitter} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6.003c-.803.355-1.668.593-2.573.697.924-.553 1.63-1.428 1.962-2.474-.87.518-1.83.897-2.855 1.1-.817-.87-1.98-1.41-3.265-1.41-2.467 0-4.464 1.993-4.464 4.45 0 .348.042.692.121 1.02-3.712-.186-7.028-1.965-9.22-4.674-.386.662-.606 1.434-.606 2.259 0 1.558.793 2.928 1.992 3.737-.732-.021-1.418-.225-2.016-.558v.056c0 2.178 1.55 3.997 3.601 4.409-.377.103-.774.156-1.18.156-.287 0-.569-.028-.846-.079.572 1.751 2.226 3.028 4.182 3.061-1.537 1.207-3.474 1.923-5.564 1.923-.36 0-.718-.021-1.072-.063 1.989 1.283 4.35 2.028 6.9 2.028 8.29 0 12.82-6.877 12.82-12.861 0-.198-.004-.397-.014-.594.881-.635 1.658-1.428 2.271-2.339z"/></svg>
-                      </a>
-                    )}
-                  </div>
-                </article>
-              </Card>
+                </div>
+                <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+                  {member.name}
+                </h2>
+                <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                  {member.role}
+                </p>
+                <div className="mt-4 flex space-x-4">
+                  {member.linkedIn && (
+                    <a href={member.linkedIn} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
+                      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 0H4C1.791 0 0 1.791 0 4v16c0 2.209 1.791 4 4 4h16c2.209 0 4-1.791 4-4V4c0-2.209-1.791-4-4-4zM8.5 19H5.5v-8h3V19zM7 10.5h-.05c-1.11 0-1.8-.766-1.8-1.728 0-.987.697-1.73 1.789-1.73s1.8.743 1.8 1.73c0 .962-.689 1.728-1.8 1.728zm11.5 8h-3v-4.2c0-1.051-.02-2.404-1.464-2.404-1.463 0-1.684 1.144-1.684 2.322V19h-3v-8h2.865v1.089h.042c.398-.756 1.372-1.551 2.825-1.551 3.027 0 3.583 1.996 3.583 4.595V19z"/>
+                      </svg>
+                    </a>
+                  )}
+                  {member.twitter && (
+                    <a href={member.twitter} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
+                      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.46 6.003c-.803.355-1.668.593-2.573.697.924-.553 1.63-1.428 1.962-2.474-.87.518-1.83.897-2.855 1.1-.817-.87-1.98-1.41-3.265-1.41-2.467 0-4.464 1.993-4.464 4.45 0 .348.042.692.121 1.02-3.712-.186-7.028-1.965-9.22-4.674-.386.662-.606 1.434-.606 2.259 0 1.558.793 2.928 1.992 3.737-.732-.021-1.418-.225-2.016-.558v.056c0 2.178 1.55 3.997 3.601 4.409-.377.103-.774.156-1.18.156-.287 0-.569-.028-.846-.079.572 1.751 2.226 3.028 4.182 3.061-1.537 1.207-3.474 1.923-5.564 1.923-.36 0-.718-.021-1.072-.063 1.989 1.283 4.35 2.028 6.9 2.028 8.29 0 12.82-6.877 12.82-12.861 0-.198-.004-.397-.014-.594.881-.635 1.658-1.428 2.271-2.339z"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </article>
+            </Card>
             ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ApieMus;
+            </div>
+            </div>
+            </div>
+            </div>
+            );
+            };
+            
+            export default ApieMus;
+               
