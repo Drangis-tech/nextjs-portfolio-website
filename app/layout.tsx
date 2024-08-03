@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
+    default: "Pagerinkime Jūsų internetinį įvaizdį kartu su PAVADINIMAS!",
     template: "%s | chronark.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
   openGraph: {
-    title: "chronark.com",
+    title: "Pagerinkime Jūsų internetinį įvaizdį kartu su PAVADINIMAS!",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
+      "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
+    url: "https://darbo.xyz/",
     siteName: "pavadinimas.lt",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://c.files.bbci.co.uk/13278/production/_112565487_floyd.png",
         width: 1920,
         height: 1080,
       },
