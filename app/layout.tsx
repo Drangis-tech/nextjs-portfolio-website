@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "PAVADINIMAS",
     card: "summary_large_image",
   },
   icons: {
