@@ -1,6 +1,6 @@
 // app/apie-mus/page.tsx
 import React from 'react';
-import { Card } from '@/components/card'; // Ensure this path and casing is correct
+import { Card } from '../components/card'; // Updated import path
 import aboutUsData from '@/data/about-us'; // Ensure this path is correct
 
 const ApieMus: React.FC = () => {
@@ -8,7 +8,7 @@ const ApieMus: React.FC = () => {
     <div className="apie-mus">
       {aboutUsData.map((section, index) => (
         <div className="flex" key={index}>
-          <Card className="card">
+          <Card>
             <article className="relative w-full h-full p-4 md:p-8 group bg-[#1c1c1e] hover:bg-[#2c2c2e]">
               <div className="flex items-center justify-between gap-2">
                 <div className="text-xs text-zinc-100">{section.title}</div>
