@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import ParticlesComponent from "../components/Particles";
+import ParticlesComponent from "../components/particles";
 
 const aboutUsData = [
   {
