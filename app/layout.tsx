@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       "Co-founder of unkey.dev and founder of planetfall.io",
     url: "https://chronark.com",
-    siteName: "chronark.com",
+    siteName: "pavadinimas.lt",
     images: [
       {
         url: "https://chronark.com/og.png",

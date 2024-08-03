@@ -2,8 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import ParticlesComponent from "../components/Particles";
 
-// About Us Data
 const aboutUsData = [
   {
     title: "Mūsų Komanda",
@@ -22,7 +22,6 @@ const aboutUsData = [
   },
 ];
 
-// Tech Data
 const techData = [
   { name: "HTML", category: "Front-end" },
   { name: "CSS", category: "Front-end" },
@@ -31,22 +30,21 @@ const techData = [
   { name: "Nuxt.js", category: "Framework" },
   { name: "Bootstrap", category: "Framework" },
   { name: "Webpack", category: "Framework" },
-  { name: "jQuery", category: "Front-end" },
+  { name: "jQuery", category: "Framework" },
   { name: "PHPUnit", category: "Testing Tools" },
   { name: "Postman", category: "Testing Tools" },
   { name: "AWS", category: "Cloud" },
   { name: "Google Cloud", category: "Cloud" },
-  { name: "WordPress", category: "Back-end" },
-  { name: "GitHub", category: "Back-end" },
+  { name: "WordPress", category: "Framework" },
+  { name: "GitHub", category: "Cloud" },
   { name: "Python", category: "Back-end" },
   { name: "PHP", category: "Back-end" },
-  { name: "Docker", category: "Data" },
+  { name: "Docker", category: "Cloud" },
   { name: "Laravel", category: "Back-end" },
   { name: "MySQL", category: "Data" },
   { name: "Elasticsearch", category: "Data" },
 ];
 
-// Team Data
 const teamData = [
   {
     name: "Jonas Jonaitis",
@@ -69,7 +67,6 @@ const teamData = [
 ];
 
 const ApieMus: React.FC = () => {
-  // Inline styles for hexagon grid
   const hexagonGridStyle: React.CSSProperties = {
     display: 'flex',
     flexWrap: 'wrap',
@@ -81,7 +78,7 @@ const ApieMus: React.FC = () => {
   const hexagonStyle: React.CSSProperties = {
     width: '100px',
     height: '55px',
-    backgroundColor: '#2c2c2e',
+    backgroundColor: 'rgba(44, 44, 46, 0.6)', // transparent with blur effect
     position: 'relative',
     margin: '27.5px 5px',
     display: 'flex',
@@ -91,41 +88,57 @@ const ApieMus: React.FC = () => {
     fontSize: '14px',
     color: '#fff',
     transition: 'transform 0.3s ease, background-color 0.3s ease',
-    cursor: 'pointer'
+    backdropFilter: 'blur(5px)', // blur effect
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' // subtle shadow
   };
 
-  const hexagonBeforeAfterStyle: React.CSSProperties = {
-    content: '""',
+  const hexagonHoverStyle: React.CSSProperties = {
     position: 'absolute',
-    width: '0',
-    borderLeft: '50px solid transparent',
-    borderRight: '50px solid transparent'
+    width: '10px',
+    height: '10px',
+    backgroundColor: 'white',
+    borderRadius: '50%',
+    transform: 'translate(-50%, -50%)',
+    pointerEvents: 'none',
+    mixBlendMode: 'multiply'
   };
 
-  const hexagonBeforeStyle: React.CSSProperties = {
-    ...hexagonBeforeAfterStyle,
-    bottom: '100%',
-    borderBottom: '27.5px solid #2c2c2e'
+  const [hoverPosition, setHoverPosition] = React.useState<{ x: number; y: number } | null>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setHoverPosition({ x: e.clientX, y: e.clientY });
   };
 
-  const hexagonAfterStyle: React.CSSProperties = {
-    ...hexagonBeforeAfterStyle,
-    top: '100%',
-    borderTop: '27.5px solid #2c2c2e'
+  const handleMouseLeave = () => {
+    setHoverPosition(null);
   };
 
-  const renderHexagons = (category: string) => {
-    return techData.filter(tech => tech.category === category).map((tech, index) => (
-      <div key={index} style={hexagonStyle} title={tech.name}>
-        {tech.name}
-        <div style={hexagonBeforeStyle}></div>
-        <div style={hexagonAfterStyle}></div>
+  const renderHexagons = (category: string) => (
+    techData.filter(tech => tech.category === category).map((tech, index) => (
+      <div
+        key={index}
+        style={hexagonStyle}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        {hoverPosition && (
+          <div
+            style={{
+              ...hexagonHoverStyle,
+              top: `${hoverPosition.y}px`,
+              left: `${hoverPosition.x}px`,
+            }}
+          />
+        )}
+        <span>{tech.name}</span>
       </div>
-    ));
-  };
+    ))
+  );
 
   return (
-    <div className="relative pb-16 bg-[#161618]">
+    <div className="relative pb-16 bg-[#161618] overflow-hidden">
+      <ParticlesComponent className="absolute inset-0 -z-10 animate-fade-in" quantity={100} />
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -143,10 +156,9 @@ const ApieMus: React.FC = () => {
                 <article className="relative w-full h-full p-4 md:p-8 group bg-[#1c1c1e] hover:bg-[#2c2c2e]">
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
-                      <span>{section.title}</span>
+                    <span>{section.title}</span>
                     </div>
                   </div>
-
                   <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
                     {section.title}
                   </h2>
@@ -167,48 +179,26 @@ const ApieMus: React.FC = () => {
 
         <div className="mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
-
-          {/* Render Tech Stack Sections */}
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Front-end</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Front-end")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Framework</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Framework")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Data</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Data")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Testing Tools</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Testing Tools")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Cloud</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Cloud")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Back-end</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Back-end")}
-            </div>
+          <div style={hexagonGridStyle}>
+            {techData.map((tech, index) => (
+              <div
+                key={index}
+                style={hexagonStyle}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+              >
+                {hoverPosition && (
+                  <div
+                    style={{
+                      ...hexagonHoverStyle,
+                      top: `${hoverPosition.y}px`,
+                      left: `${hoverPosition.x}px`,
+                    }}
+                  />
+                )}
+                <span>{tech.name}</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -256,3 +246,4 @@ const ApieMus: React.FC = () => {
 };
 
 export default ApieMus;
+                   
