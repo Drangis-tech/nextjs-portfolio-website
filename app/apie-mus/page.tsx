@@ -43,7 +43,7 @@ const ApieMus: React.FC = () => {
   const hexagonStyle: React.CSSProperties = {
     width: '100px',
     height: '55px',
-    backgroundColor: '#2c2c2e',
+    backgroundColor: 'rgba(44, 44, 46, 0.8)', // Making the hexagons semi-transparent
     position: 'relative',
     margin: '27.5px 5px',
     display: 'flex',
@@ -67,13 +67,13 @@ const ApieMus: React.FC = () => {
   const hexagonBeforeStyle: React.CSSProperties = {
     ...hexagonBeforeAfterStyle,
     bottom: '100%',
-    borderBottom: '27.5px solid #2c2c2e'
+    borderBottom: '27.5px solid rgba(44, 44, 46, 0.8)' // Making the hexagons semi-transparent
   };
 
   const hexagonAfterStyle: React.CSSProperties = {
     ...hexagonBeforeAfterStyle,
     top: '100%',
-    borderTop: '27.5px solid #2c2c2e'
+    borderTop: '27.5px solid rgba(44, 44, 46, 0.8)' // Making the hexagons semi-transparent
   };
 
   const renderHexagons = (category: string) => {
@@ -102,7 +102,7 @@ const ApieMus: React.FC = () => {
           {aboutUsData.map((section, index) => (
             <div key={index} className="flex">
               <Card className="card">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[#1c1c1e] hover:bg-[#2c2c2e]">
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Making the cards semi-transparent */}
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
                       <span>{section.title}</span>
@@ -178,7 +178,7 @@ const ApieMus: React.FC = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {teamData.map((member, index) => (
               <Card key={index} className="card">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[#1c1c1e] hover:bg-[#2c2c2e]">
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Making the cards semi-transparent */}
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
                       <span>{member.role}</span>
@@ -191,12 +191,31 @@ const ApieMus: React.FC = () => {
                     {member.role}
                   </p>
                   <div className="mt-4 flex space-x-4">
-                    {member.linkedIn && (
-                      <a href={member.linkedIn} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 0H4C1.791 0 0 1.791 0 4v16c0 2.209 1.791 4 4 4h16c2.209 0 4-1.791 4-4V4c0-2.209-1.791-4-4-4zm-8 19h-3v-7h3v7zm-1.5-8.25c-0.966 0-1.75-0.784-1.75-1.75S10.534 7.25 11.5 7.25 13.25 8.034 13.25 9 12.466 10.75 11.5 10.75zM18 19h-3v-4c0-1.1-0.9-2-2-2s-2 0.9-2 2v4h-3v-7h3v1.073C11.44 12.402 12.691 12 14 12c2.209 0 4 1.791 4 4v3z"/>
-                        </svg>
-                      </a>
+                  {member.linkedIn && (
+                      <Link href={member.linkedIn} passHref>
+                        <a target="_blank" rel="noopener noreferrer">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            className="w-6 h-6 text-zinc-400 hover:text-zinc-100 transition-colors duration-150"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M16 8a6 6 0 00-12 0v8a6 6 0 0012 0V8z"
+                            />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 10v4M12 10v4M6.75 14h.75M17.25 14h.75M10.5 14h3M6.75 10.5h.75M17.25 10.5h.75M10.5 10.5h3"
+                            />
+                          </svg>
+                        </a>
+                      </Link>
                     )}
                   </div>
                 </article>
