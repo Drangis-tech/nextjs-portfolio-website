@@ -17,6 +17,17 @@ const aboutUsData = [
   // Add more sections as needed
 ];
 
+// Example data for `techData` (Replace this with your actual data)
+const techData = [
+  { category: 'Front-end', name: 'React', url: 'https://reactjs.org', color: '#61DAFB' },
+  { category: 'Front-end', name: 'Vue', url: 'https://vuejs.org', color: '#42b883' },
+  { category: 'Framework', name: 'Next.js', url: 'https://nextjs.org', color: '#000000' },
+  { category: 'Testing Tools', name: 'Jest', url: 'https://jestjs.io', color: '#99424F' },
+  { category: 'Cloud', name: 'AWS', url: 'https://aws.amazon.com', color: '#FF9900' },
+  { category: 'Data', name: 'MongoDB', url: 'https://www.mongodb.com', color: '#47A248' },
+  // Add more tech data as needed
+];
+
 const ApieMus: React.FC = () => {
   const hexagonGridStyle: React.CSSProperties = {
     display: 'flex',
