@@ -1,28 +1,20 @@
 import React from 'react';
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import Card from '../components/Card'; // Ensure correct path
+import Navigation from '../components/Navigation'; // Ensure correct path
 
-const techData = [
-  { name: "HTML", category: "Front-end", color: "#E34F26", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
-  { name: "CSS", category: "Front-end", color: "#1572B6", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-  { name: "JavaScript", category: "Front-end", color: "#F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-  { name: "Vue.js", category: "Framework", color: "#42B883", url: "https://vuejs.org/" },
-  { name: "Nuxt.js", category: "Framework", color: "#00C58E", url: "https://nuxtjs.org/" },
-  { name: "Bootstrap", category: "Framework", color: "#7952B3", url: "https://getbootstrap.com/" },
-  { name: "Webpack", category: "Framework", color: "#8DD6F9", url: "https://webpack.js.org/" },
-  { name: "jQuery", category: "Front-end", color: "#0769AD", url: "https://jquery.com/" },
-  { name: "PHPUnit", category: "Testing Tools", color: "#4F5B93", url: "https://phpunit.de/" },
-  { name: "Postman", category: "Testing Tools", color: "#FF6C37", url: "https://www.postman.com/" },
-  { name: "AWS", category: "Cloud", color: "#FF9900", url: "https://aws.amazon.com/" },
-  { name: "Google Cloud", category: "Cloud", color: "#4285F4", url: "https://cloud.google.com/" },
-  { name: "WordPress", category: "Back-end", color: "#21759B", url: "https://wordpress.org/" },
-  { name: "GitHub", category: "Back-end", color: "#181717", url: "https://github.com/" },
-  { name: "Python", category: "Back-end", color: "#3776AB", url: "https://www.python.org/" },
-  { name: "PHP", category: "Back-end", color: "#777BB4", url: "https://www.php.net/" },
-  { name: "Docker", category: "Data", color: "#2496ED", url: "https://www.docker.com/" },
-  { name: "Laravel", category: "Back-end", color: "#FF2D20", url: "https://laravel.com/" },
-  { name: "MySQL", category: "Data", color: "#4479A1", url: "https://www.mysql.com/" },
-  { name: "Elasticsearch", category: "Data", color: "#005571", url: "https://www.elastic.co/" },
+// Example data for `aboutUsData`
+const aboutUsData = [
+  {
+    title: "Our Vision",
+    description: "We strive to create innovative solutions for complex problems.",
+    detailedText: "Our team is dedicated to leveraging technology to drive progress and create value for our clients."
+  },
+  {
+    title: "Our Mission",
+    description: "To deliver exceptional service and solutions tailored to our clients' needs.",
+    detailedText: "We focus on understanding the unique challenges our clients face and provide tailored solutions that drive success."
+  },
+  // Add more sections as needed
 ];
 
 const ApieMus: React.FC = () => {
@@ -164,13 +156,6 @@ const ApieMus: React.FC = () => {
             <h3 className="text-xl font-bold text-zinc-100">Cloud</h3>
             <div style={hexagonGridStyle}>
               {renderHexagons("Cloud")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Back-end</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Back-end")}
             </div>
           </div>
 
