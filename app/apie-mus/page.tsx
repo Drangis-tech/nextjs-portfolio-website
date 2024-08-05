@@ -1,3 +1,7 @@
+import React from 'react';
+import Card from './Card'; // Make sure to import Card if it's a custom component
+import Navigation from './Navigation'; // Import the Navigation component
+
 const techData = [
   { name: "HTML", category: "Front-end", color: "#E34F26", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
   { name: "CSS", category: "Front-end", color: "#1572B6", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
@@ -152,7 +156,7 @@ const ApieMus: React.FC = () => {
           <div style={{ marginBottom: '20px' }}>
             <h3 className="text-xl font-bold text-zinc-100">Testing Tools</h3>
             <div style={hexagonGridStyle}>
-            {renderHexagons("Testing Tools")}
+              {renderHexagons("Testing Tools")}
             </div>
           </div>
 
