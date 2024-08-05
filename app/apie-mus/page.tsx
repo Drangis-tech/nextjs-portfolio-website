@@ -3,6 +3,34 @@ import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
+// Sample data for technologies
+const techData = [
+  { name: 'React', category: 'Front-end' },
+  { name: 'Vue', category: 'Front-end' },
+  { name: 'Next.js', category: 'Framework' },
+  { name: 'Express', category: 'Back-end' },
+  { name: 'AWS', category: 'Cloud' },
+  // Add more data as needed
+];
+
+const aboutUsData = [
+  {
+    title: "Our Mission",
+    description: "We strive to create impactful digital solutions.",
+    detailedText: "Our mission is to drive innovation and provide quality service."
+  },
+  // Add more sections as needed
+];
+
+const teamData = [
+  {
+    name: "John Doe",
+    role: "Lead Developer",
+    linkedIn: "https://linkedin.com/in/johndoe"
+  },
+  // Add more team members as needed
+];
+
 const ApieMus: React.FC = () => {
   const hexagonGridStyle: React.CSSProperties = {
     display: 'flex',
@@ -166,7 +194,7 @@ const ApieMus: React.FC = () => {
                     {member.linkedIn && (
                       <a href={member.linkedIn} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
                         <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M20 0H4C1.791 0 0 1.791 0 4v16c0 2.209 1.791 4 4 4h16c2.209 0 4-1.791 4-4V4c0-2.209-1.791-4-4-4zM8.5 19H5.5v-8h3V19zM7 10.5h-.05c-1.11 0-1.8-.766-1.8-1.728 0-.987.697-1.73 1.789-1.73s1.8.743 1.8 1.73c0 .962-.689 1                          .728-1.739 1.728zM19 19h-3v-4.497c0-1.125-.021-2.575-1.657-2.575-1.66 0-1.914 1.296-1.914 2.494V19h-3v-8h2.883v1.094h.041c.401-.766 1.377-1.573 2.835-1.573 3.031 0 3.592 1.996 3.592 4.592V19z"></path>
+                        <path d="M20 0H4C1.791 0 0 1.791 0 4v16c0 2.209 1.791 4 4 4h16c2.209 0 4-1.791 4-4V4c0-2.209-1.791-4-4-4zm-8 19h-3v-7h3v7zm-1.5-8.25c-0.966 0-1.75-0.784-1.75-1.75S10.534 7.25 11.5 7.25 13.25 8.034 13.25 9 12.466 10.75 11.5 10.75zM18 19h-3v-4c0-1.1-0.9-2-2-2s-2 0.9-2 2v4h-3v-7h3v1.073C11.44 12.402 12.691 12 14 12c2.209 0 4 1.791 4 4v3z"/>
                         </svg>
                       </a>
                     )}
