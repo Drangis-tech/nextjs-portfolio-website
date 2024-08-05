@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../components/card'; // Make sure to import Card if it's a custom component
-import Navigation from '../components/nav'; // Import the Navigation component
+import { Navigation } from "../components/nav";
+import { Card } from "../components/card";
 
 const techData = [
   { name: "HTML", category: "Front-end", color: "#E34F26", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
