@@ -180,7 +180,8 @@ const ApieMus: React.FC = () => {
             <div style={hexagonGridStyle}>
               {renderHexagons("Framework")}
             </div>
-            <div style={{ marginBottom: '20px' }}>
+          </div>
+          <div style={{ marginBottom: '20px' }}>
             <h3 className="text-xl font-bold text-zinc-100">Testing Tools</h3>
             <div style={hexagonGridStyle}>
               {renderHexagons("Testing Tools")}
