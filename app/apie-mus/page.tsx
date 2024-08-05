@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../components/card'; // Ensure correct path
-import Navigation from '../components/nav'; // Ensure correct path
+import { Navigation } from "../components/nav";
+import { Card } from "../components/card";
 
 // Example data for `aboutUsData`
 const aboutUsData = [
