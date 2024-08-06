@@ -113,7 +113,7 @@ const ApieMus: React.FC = () => {
           <div style={{ marginBottom: '20px' }}>
             <h3 className="text-xl font-bold text-zinc-100">Cloud</h3>
             <div style={hexagonGridStyle}>
-            {renderHexagons("Cloud")}
+              {renderHexagons("Cloud")}
             </div>
           </div>
 
