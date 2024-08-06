@@ -1,4 +1,4 @@
-// File: components/Hexagon.tsx
+// File: components/Octagon.tsx
 
 "use client"; // Enables the usage of client-side hooks
 
@@ -12,46 +12,45 @@ interface Tech {
   url: string; // URL for the technology
 }
 
-// Interface for Hexagon component properties
-interface HexagonProps {
+// Interface for Octagon component properties
+interface OctagonProps {
   tech: Tech; // Tech object containing details of the technology
 }
 
-// Hexagon component
-const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
-  // Style for the hexagon
-  const hexagonStyle: React.CSSProperties = {
+// Octagon component
+const Octagon: React.FC<OctagonProps> = ({ tech }) => {
+  // Style for the octagon
+  const octagonStyle: React.CSSProperties = {
     width: '100px',
-    height: '115px',
+    height: '100px',
     backgroundColor: 'transparent',
-    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-    border: `5px solid ${tech.color}`,
+    clipPath: 'polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%)',
+    border: `5px solid ${tech.color}`, // Border color based on tech color
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
     boxSizing: 'border-box',
     position: 'relative',
     margin: '0 auto',
   };
 
-  // Style for the hexagon when hovered
-  const hexagonHoverStyle: React.CSSProperties = {
+  // Style for the octagon when hovered
+  const octagonHoverStyle: React.CSSProperties = {
     transform: 'scale(1.1)',
     backgroundColor: tech.color,
     borderColor: tech.color,
   };
 
-  // Container to ensure the hexagon is not cut off
+  // Container to ensure the octagon is not cut off
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '130px', // Ensure the container is larger than the hexagon
-    height: '150px', // Ensure the container is larger than the hexagon
-    overflow: 'visible', // Allow the hexagon to be visible
+    width: '130px', // Ensure the container is larger than the octagon
+    height: '130px', // Ensure the container is larger than the octagon
+    overflow: 'visible', // Allow the octagon to be visible
     position: 'relative',
-    border: '1px solid red', // Border for visualization (can be removed later)
   };
 
-  // Style for centered text inside the hexagon
+  // Style for centered text inside the octagon
   const textStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
@@ -69,15 +68,15 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     pointerEvents: 'none',
   };
 
-  // Return the hexagon component
+  // Return the octagon component
   return (
     <div style={containerStyle}>
       <div
-        style={hexagonStyle}
+        style={octagonStyle}
         onMouseEnter={e => {
-          e.currentTarget.style.transform = hexagonHoverStyle.transform || '';
-          e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor || '';
-          e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor || '';
+          e.currentTarget.style.transform = octagonHoverStyle.transform || '';
+          e.currentTarget.style.backgroundColor = octagonHoverStyle.backgroundColor || '';
+          e.currentTarget.style.borderColor = octagonHoverStyle.borderColor || '';
         }}
         onMouseLeave={e => {
           e.currentTarget.style.transform = '';
@@ -95,4 +94,4 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
   );
 };
 
-export default Hexagon; // Export the Hexagon component as default
+export default Octagon; // Export the Octagon component as default
