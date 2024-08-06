@@ -26,26 +26,26 @@ const aboutUsData = [
 
 // Tech Data
 const techData = [
-  { name: "HTML", category: "Front-end", color: "#E34F26" },
-  { name: "CSS", category: "Front-end", color: "#1572B6" },
-  { name: "JavaScript", category: "Front-end", color: "#F7DF1E" },
-  { name: "Vue.js", category: "Framework", color: "#42b883" },
-  { name: "Nuxt.js", category: "Framework", color: "#00C58E" },
-  { name: "Bootstrap", category: "Framework", color: "#7952B3" },
-  { name: "Webpack", category: "Framework", color: "#8DD6F9" },
-  { name: "jQuery", category: "Front-end", color: "#0769AD" },
-  { name: "PHPUnit", category: "Testing Tools", color: "#4F5B93" },
-  { name: "Postman", category: "Testing Tools", color: "#FF6C37" },
-  { name: "AWS", category: "Cloud", color: "#FF9900" },
-  { name: "Google Cloud", category: "Cloud", color: "#4285F4" },
-  { name: "WordPress", category: "Back-end", color: "#21759B" },
-  { name: "GitHub", category: "Back-end", color: "#181717" },
-  { name: "Python", category: "Back-end", color: "#3776AB" },
-  { name: "PHP", category: "Back-end", color: "#777BB4" },
-  { name: "Docker", category: "Data", color: "#2496ED" },
-  { name: "Laravel", category: "Back-end", color: "#FF2D20" },
-  { name: "MySQL", category: "Data", color: "#4479A1" },
-  { name: "Elasticsearch", category: "Data", color: "#005571" },
+  { name: "HTML", category: "Front-end", color: "#E34F26", url: "https://example.com/html" },
+  { name: "CSS", category: "Front-end", color: "#1572B6", url: "https://example.com/css" },
+  { name: "JavaScript", category: "Front-end", color: "#F7DF1E", url: "https://example.com/javascript" },
+  { name: "Vue.js", category: "Framework", color: "#42b883", url: "https://example.com/vue" },
+  { name: "Nuxt.js", category: "Framework", color: "#00C58E", url: "https://example.com/nuxt" },
+  { name: "Bootstrap", category: "Framework", color: "#7952B3", url: "https://example.com/bootstrap" },
+  { name: "Webpack", category: "Framework", color: "#8DD6F9", url: "https://example.com/webpack" },
+  { name: "jQuery", category: "Front-end", color: "#0769AD", url: "https://example.com/jquery" },
+  { name: "PHPUnit", category: "Testing Tools", color: "#4F5B93", url: "https://example.com/phpunit" },
+  { name: "Postman", category: "Testing Tools", color: "#FF6C37", url: "https://example.com/postman" },
+  { name: "AWS", category: "Cloud", color: "#FF9900", url: "https://example.com/aws" },
+  { name: "Google Cloud", category: "Cloud", color: "#4285F4", url: "https://example.com/google-cloud" },
+  { name: "WordPress", category: "Back-end", color: "#21759B", url: "https://example.com/wordpress" },
+  { name: "GitHub", category: "Back-end", color: "#181717", url: "https://example.com/github" },
+  { name: "Python", category: "Back-end", color: "#3776AB", url: "https://example.com/python" },
+  { name: "PHP", category: "Back-end", color: "#777BB4", url: "https://example.com/php" },
+  { name: "Docker", category: "Data", color: "#2496ED", url: "https://example.com/docker" },
+  { name: "Laravel", category: "Back-end", color: "#FF2D20", url: "https://example.com/laravel" },
+  { name: "MySQL", category: "Data", color: "#4479A1", url: "https://example.com/mysql" },
+  { name: "Elasticsearch", category: "Data", color: "#005571", url: "https://example.com/elasticsearch" },
 ];
 
 // Team Data
@@ -101,7 +101,7 @@ const ApieMus: React.FC = () => {
           {aboutUsData.map((section, index) => (
             <div key={index} className="flex">
               <Card className="card">
-              <h3 className="text-2xl font-bold text-zinc-100">{section.title}</h3>
+                <h3 className="text-2xl font-bold text-zinc-100">{section.title}</h3>
                 <p className="mt-2 text-zinc-400">{section.description}</p>
                 <p className="mt-4 text-zinc-300">{section.detailedText}</p>
               </Card>
