@@ -1,54 +1,64 @@
 // File: components/Hexagon.tsx
 
-"use client";
+"use client"; // Enables the usage of client-side hooks
 
-import React from 'react';
+import React from 'react'; // Imports React
 
+// Interface for Tech properties
 interface Tech {
-  name: string;
-  category: string;
-  color: string;
-  url: string;
+  name: string; // Name of the technology
+  category: string; // Category of the technology
+  color: string; // Color associated with the technology
+  url: string; // URL for the technology
 }
 
+// Interface for Hexagon component properties
 interface HexagonProps {
-  tech: Tech;
+  tech: Tech; // Tech object containing details of the technology
 }
 
+// Hexagon component
 const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
+  // Style for the hexagon
   const hexagonStyle: React.CSSProperties = {
-    position: 'relative',
-    width: '110px', // Increased width to accommodate border
-    height: '125px', // Increased height to accommodate border
-    backgroundColor: 'transparent', // Default background is transparent
-    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-    border: `5px solid ${tech.color}`, // Border with tech color
-    transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
-    boxSizing: 'border-box', // Include border in the element's dimensions
+    position: 'relative', // Relative positioning to allow absolute positioning of inner elements
+    width: '110px', // Width of the hexagon
+    height: '125px', // Height of the hexagon
+    backgroundColor: 'transparent', // Default background color is transparent
+    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', // Shape of the hexagon
+    border: `5px solid ${tech.color}`, // Border color based on tech color
+    transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease', // Transition effects for hover
+    boxSizing: 'border-box', // Includes border in the element's dimensions
   };
 
+  // Style for the hexagon when hovered
   const hexagonHoverStyle: React.CSSProperties = {
-    transform: 'scale(1.1)',
-    backgroundColor: tech.color, // Background color on hover
-    borderColor: tech.color, // Ensure the border color stays the same on hover
+    transform: 'scale(1.1)', // Scale up the hexagon on hover
+    backgroundColor: tech.color, // Background color changes to tech color on hover
+    borderColor: tech.color, // Border color stays the same on hover
   };
 
+  // Return the hexagon component
   return (
     <div
-      style={hexagonStyle}
+      style={hexagonStyle} // Apply hexagon style
       onMouseEnter={e => {
+        // Apply hover style on mouse enter
         e.currentTarget.style.transform = hexagonHoverStyle.transform || '';
         e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor || '';
         e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor || '';
       }}
       onMouseLeave={e => {
+        // Revert to original style on mouse leave
         e.currentTarget.style.transform = '';
-        e.currentTarget.style.backgroundColor = 'transparent'; // Reset to transparent background
+        e.currentTarget.style.backgroundColor = 'transparent';
         e.currentTarget.style.borderColor = tech.color;
       }}
     >
       <a href={tech.url} target="_blank" rel="noopener noreferrer">
+        {/* Link to tech URL opening in a new tab */}
         <div className="flex items-center justify-center w-full h-full text-white">
+          {/* Centered text inside hexagon */}
           {tech.name}
         </div>
       </a>
@@ -56,4 +66,4 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
   );
 };
 
-export default Hexagon;
+export default Hexagon; // Export the Hexagon component as default
