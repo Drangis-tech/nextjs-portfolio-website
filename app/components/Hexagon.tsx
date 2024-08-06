@@ -17,71 +17,66 @@ interface OctagonProps {
   tech: Tech; // Tech object containing details of the technology
 }
 
-// Octagon component
+// Octagon component using SVG
 const Octagon: React.FC<OctagonProps> = ({ tech }) => {
-  // Style for the octagon
-  const octagonStyle: React.CSSProperties = {
-    width: '100px',
-    height: '100px',
-    backgroundColor: 'transparent',
-    clipPath: 'polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%)',
-    border: `5px solid ${tech.color}`,
-    transition: 'background-color 0.3s ease, border-color 0.3s ease',
-    position: 'relative',
-    zIndex: 1, // Ensure it is above the container
-    margin: 'auto',
-  };
-
   // Style for the container
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '130px', // Container size larger than the octagon
-    height: '130px', // Container size larger than the octagon
+    width: '120px', // Container size
+    height: '120px', // Container size
     position: 'relative',
-    overflow: 'visible', // Ensure octagon is not clipped
+    overflow: 'visible', // Ensure the SVG is not clipped
   };
 
-  // Style for centered text inside the octagon
+  // Style for the SVG
+  const svgStyle: React.CSSProperties = {
+    width: '100px',
+    height: '100px',
+    transition: 'transform 0.3s ease, background-color 0.3s ease, stroke 0.3s ease',
+  };
+
+  // Style for the centered text
   const textStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    height: '100%',
-    color: 'white',
-    textAlign: 'center',
-    fontSize: '14px',
-    fontWeight: 'bold',
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    color: 'white',
+    textAlign: 'center',
+    fontSize: '14px',
+    fontWeight: 'bold',
     pointerEvents: 'none', // Ensure text does not interfere with hover effects
-    zIndex: 2, // Ensure text is above the octagon
   };
 
-  // Return the octagon component
   return (
     <div style={containerStyle}>
-      <div
-        style={octagonStyle}
+      <svg
+        style={svgStyle}
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
         onMouseEnter={e => {
-          e.currentTarget.style.backgroundColor = tech.color;
-          e.currentTarget.style.borderColor = tech.color;
+          (e.currentTarget as SVGSVGElement).style.transform = 'scale(1.1)';
+          (e.currentTarget as SVGSVGElement).style.stroke = tech.color;
         }}
         onMouseLeave={e => {
-          e.currentTarget.style.backgroundColor = 'transparent';
-          e.currentTarget.style.borderColor = tech.color;
+          (e.currentTarget as SVGSVGElement).style.transform = '';
+          (e.currentTarget as SVGSVGElement).style.stroke = '#000'; // Default stroke color
         }}
       >
+        <polygon
+          points="50,0 100,20 100,80 50,100 0,80 0,20"
+          fill="transparent"
+          stroke={tech.color}
+          strokeWidth="5"
+        />
         <a href={tech.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>
-          <div style={textStyle}>
+          <text x="50%" y="50%" style={textStyle} dominantBaseline="middle" textAnchor="middle">
             {tech.name}
-          </div>
+          </text>
         </a>
-      </div>
+      </svg>
     </div>
   );
 };
