@@ -1,5 +1,7 @@
 // File: components/Hexagon.tsx
+
 "use client";
+
 import React from 'react';
 
 interface Tech {
@@ -18,15 +20,15 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     position: 'relative',
     width: '100px',
     height: '115px',
-    backgroundColor: tech.color,
+    backgroundColor: 'transparent', // Default background is transparent
     clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-    border: `5px solid ${tech.color}`, // Add border with tech color
+    border: `5px solid ${tech.color}`, // Border with tech color
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
   };
 
   const hexagonHoverStyle: React.CSSProperties = {
     transform: 'scale(1.1)',
-    backgroundColor: 'transparent',
+    backgroundColor: tech.color, // Background color on hover
     borderColor: tech.color, // Ensure the border color stays the same on hover
   };
 
@@ -40,7 +42,7 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
       }}
       onMouseLeave={e => {
         e.currentTarget.style.transform = '';
-        e.currentTarget.style.backgroundColor = tech.color;
+        e.currentTarget.style.backgroundColor = 'transparent'; // Reset to transparent background
         e.currentTarget.style.borderColor = tech.color;
       }}
     >
