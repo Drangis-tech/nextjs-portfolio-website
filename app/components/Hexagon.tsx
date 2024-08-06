@@ -1,5 +1,5 @@
 // File: components/Hexagon.tsx
-
+"use client";
 import React from 'react';
 
 interface Tech {
