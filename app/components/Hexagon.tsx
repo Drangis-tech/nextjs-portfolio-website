@@ -45,7 +45,8 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     justifyContent: 'center', // Center items horizontally
     width: '120px', // Container width slightly larger than the hexagon
     height: '140px', // Container height slightly larger than the hexagon
-    padding: '10px', // Padding to prevent cutting off borders
+    padding: '5px', // Adjusted padding to ensure the hexagon isn't cut off
+    overflow: 'hidden', // Hide any overflow to keep the hexagon within bounds
   };
 
   // Return the hexagon component
