@@ -167,7 +167,8 @@ const ApieMus: React.FC = () => {
 
         <div className="mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
-          <div className="w-full h-px bg-zinc-800" />
+        </div>
+        <div className="w-full h-px bg-zinc-800" />
 
           <div style={{ marginBottom: '20px' }}>
             <h3 className="text-xl font-bold text-zinc-100">Front-end</h3>
