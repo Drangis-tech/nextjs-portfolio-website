@@ -18,12 +18,13 @@ interface HexagonProps {
 const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
   const hexagonStyle: React.CSSProperties = {
     position: 'relative',
-    width: '100px',
-    height: '115px',
+    width: '110px', // Increased width to accommodate border
+    height: '125px', // Increased height to accommodate border
     backgroundColor: 'transparent', // Default background is transparent
     clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
     border: `5px solid ${tech.color}`, // Border with tech color
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
+    boxSizing: 'border-box', // Include border in the element's dimensions
   };
 
   const hexagonHoverStyle: React.CSSProperties = {
