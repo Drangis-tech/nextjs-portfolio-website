@@ -114,7 +114,7 @@ const ApieMus: React.FC = () => {
     borderTop: '27.5px solid rgba(44, 44, 46, 0.8)' // Making the hexagons semi-transparent
   };
 
-  const Hexagon: React.FC<{ tech: Tech }> = ({ tech }) => {
+  const Hexagon: React.FC<{ tech: HTML }> = ({ tech }) => {
     return (
       <a href={tech.url} target="_blank" rel="noopener noreferrer" className="hexagon">
         <div className="hexagon-content" style={{ backgroundColor: tech.color }}>
