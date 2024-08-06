@@ -1,70 +1,51 @@
 // File: components/Hexagon.tsx
 'use client';
+
 import React from 'react';
 
-interface HexagonProps {
-  tech: { name: string; url: string; color: string };
+interface Tech {
+  category: string;
+  name: string;
+  url: string;
+  color: string;
 }
 
-const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
+const Hexagon: React.FC<{ tech: Tech }> = ({ tech }) => {
+  const { name, url, color } = tech;
+
   const hexagonStyle: React.CSSProperties = {
-    width: '100px',
-    height: '55px',
-    position: 'relative',
-    margin: '27.5px 5px',
+    width: '104px',
+    height: '60px',
+    backgroundColor: color,
+    clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center',
-    fontSize: '14px',
-    color: '#fff',
     cursor: 'pointer',
-    transition: 'transform 0.3s ease, background-color 0.3s ease',
-    backgroundColor: 'transparent', // Default transparent background
-    border: '1px solid rgba(255, 255, 255, 0.2)', // Optional border for better visibility
+    margin: '0 2px',
   };
 
-  const hexagonBeforeAfterStyle: React.CSSProperties = {
-    content: '""',
-    position: 'absolute',
-    width: '0',
-    borderLeft: '50px solid transparent',
-    borderRight: '50px solid transparent',
+  const handleClick = () => {
+    window.open(url, '_blank');
   };
 
-  const hexagonBeforeStyle: React.CSSProperties = {
-    ...hexagonBeforeAfterStyle,
-    bottom: '100%',
-    borderBottomColor: 'transparent', // Default transparent border
-  };
-
-  const hexagonAfterStyle: React.CSSProperties = {
-    ...hexagonBeforeAfterStyle,
-    top: '100%',
-    borderTopColor: 'transparent', // Default transparent border
+  const textStyle: React.CSSProperties = {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: '12px',
+    padding: '0 5px'
   };
 
   return (
     <div
       style={hexagonStyle}
-      onClick={() => window.open(tech.url, '_blank')}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor = tech.color;
-        (e.currentTarget as HTMLElement).style.transform = 'scale(1.1)';
-        (e.currentTarget.querySelectorAll('div')[0] as HTMLElement).style.borderBottomColor = tech.color;
-        (e.currentTarget.querySelectorAll('div')[1] as HTMLElement).style.borderTopColor = tech.color;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
-        (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-        (e.currentTarget.querySelectorAll('div')[0] as HTMLElement).style.borderBottomColor = 'transparent';
-        (e.currentTarget.querySelectorAll('div')[1] as HTMLElement).style.borderTopColor = 'transparent';
-      }}
-      title={tech.name}
+      onClick={handleClick}
+      onMouseEnter={() => console.log(`Hovering over ${name}`)}
+      onMouseLeave={() => console.log(`Leaving ${name}`)}
+      title={name}
     >
-      {tech.name}
-      <div style={hexagonBeforeStyle}></div>
-      <div style={hexagonAfterStyle}></div>
+      <div style={textStyle}>{name}</div>
     </div>
   );
 };
