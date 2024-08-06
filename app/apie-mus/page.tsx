@@ -1,6 +1,8 @@
+// File: pages/apie-mus.tsx
 import React from 'react';
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import Hexagon from '../components/Hexagon';
 
 // Example data for `aboutUsData`
 const aboutUsData = [
@@ -37,64 +39,9 @@ const ApieMus: React.FC = () => {
     position: 'relative'
   };
 
-  const hexagonStyle: React.CSSProperties = {
-    width: '100px',
-    height: '55px',
-    position: 'relative',
-    margin: '27.5px 5px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    fontSize: '14px',
-    color: '#fff',
-    cursor: 'pointer',
-    transition: 'transform 0.3s ease, background-color 0.3s ease',
-  };
-
-  const hexagonBeforeAfterStyle: React.CSSProperties = {
-    content: '""',
-    position: 'absolute',
-    width: '0',
-    borderLeft: '50px solid transparent',
-    borderRight: '50px solid transparent'
-  };
-
-  const hexagonBeforeStyle: React.CSSProperties = {
-    ...hexagonBeforeAfterStyle,
-    bottom: '100%',
-  };
-
-  const hexagonAfterStyle: React.CSSProperties = {
-    ...hexagonBeforeAfterStyle,
-    top: '100%',
-  };
-
   const renderHexagons = (category: string) => {
     return techData.filter(tech => tech.category === category).map((tech, index) => (
-      <div
-        key={index}
-        style={{
-          ...hexagonStyle,
-          backgroundColor: 'rgba(44, 44, 46, 0.8)',
-          borderBottom: `27.5px solid rgba(44, 44, 46, 0.8)`,
-          borderTop: `27.5px solid rgba(44, 44, 46, 0.8)`,
-        }}
-        onClick={() => window.open(tech.url, '_blank')}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundColor = tech.color;
-          (e.currentTarget as HTMLElement).style.transform = 'scale(1.1)';
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(44, 44, 46, 0.8)';
-          (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-        }}
-        title={tech.name}
-      >
-        {tech.name}
-        <div style={{ ...hexagonBeforeStyle, borderBottomColor: tech.color }}></div>
-        <div style={{ ...hexagonAfterStyle, borderTopColor: tech.color }}></div>
-      </div>
+      <Hexagon key={index} tech={tech} />
     ));
   };
 
@@ -166,7 +113,7 @@ const ApieMus: React.FC = () => {
           <div style={{ marginBottom: '20px' }}>
             <h3 className="text-xl font-bold text-zinc-100">Cloud</h3>
             <div style={hexagonGridStyle}>
-              {renderHexagons("Cloud")}
+            {renderHexagons("Cloud")}
             </div>
           </div>
 
