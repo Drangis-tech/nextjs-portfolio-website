@@ -34,9 +34,9 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     <div
       style={hexagonStyle}
       onMouseEnter={e => {
-        e.currentTarget.style.transform = hexagonHoverStyle.transform;
-        e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor;
-        e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor;
+        e.currentTarget.style.transform = hexagonHoverStyle.transform || '';
+        e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor || '';
+        e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor || '';
       }}
       onMouseLeave={e => {
         e.currentTarget.style.transform = '';
