@@ -21,15 +21,15 @@ interface HexagonProps {
 const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
   // Style for the hexagon
   const hexagonStyle: React.CSSProperties = {
-    position: 'relative',
     width: '100px',
     height: '115px',
     backgroundColor: 'transparent',
     clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-    border: `5px solid ${tech.color}`,
+    border: `5px solid ${tech.color}`, // Border color based on tech color
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
     boxSizing: 'border-box',
-    margin: '0 auto',
+    position: 'relative',
+    margin: '0 auto', // Center horizontally
   };
 
   // Style for the hexagon when hovered
@@ -44,10 +44,10 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '130px', // Ensure enough space around the hexagon
-    height: '150px', // Ensure enough space around the hexagon
-    padding: '10px', // Ensure padding is enough
-    overflow: 'hidden', // Prevent clipping
+    width: '120px', // Slightly larger to accommodate the border
+    height: '140px', // Slightly larger to accommodate the border
+    padding: '10px', // Padding to ensure the hexagon is well within bounds
+    overflow: 'visible', // Allow the hexagon to be visible even if it exceeds container bounds
     position: 'relative',
   };
 
