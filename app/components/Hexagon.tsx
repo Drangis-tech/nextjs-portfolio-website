@@ -21,56 +21,65 @@ interface HexagonProps {
 const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
   // Style for the hexagon
   const hexagonStyle: React.CSSProperties = {
-    position: 'relative', // Relative positioning to allow absolute positioning of inner elements
+    position: 'relative',
     width: '100px', // Width of the hexagon
     height: '115px', // Height of the hexagon
-    backgroundColor: 'transparent', // Default background color is transparent
-    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', // Shape of the hexagon
+    backgroundColor: 'transparent',
+    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
     border: `5px solid ${tech.color}`, // Border color based on tech color
-    transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease', // Transition effects for hover
-    boxSizing: 'border-box', // Includes border in the element's dimensions
+    transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
+    boxSizing: 'border-box',
   };
 
   // Style for the hexagon when hovered
   const hexagonHoverStyle: React.CSSProperties = {
-    transform: 'scale(1.1)', // Scale up the hexagon on hover
-    backgroundColor: tech.color, // Background color changes to tech color on hover
-    borderColor: tech.color, // Border color stays the same on hover
+    transform: 'scale(1.1)',
+    backgroundColor: tech.color,
+    borderColor: tech.color,
   };
 
   // Container to ensure the hexagon is not cut off
   const containerStyle: React.CSSProperties = {
-    display: 'flex', // Flex display to center the hexagon
-    alignItems: 'center', // Center items vertically
-    justifyContent: 'center', // Center items horizontally
-    width: '120px', // Container width slightly larger than the hexagon
-    height: '140px', // Container height slightly larger than the hexagon
-    padding: '5px', // Adjusted padding to ensure the hexagon isn't cut off
-    overflow: 'hidden', // Hide any overflow to keep the hexagon within bounds
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '130px', // Increased width to accommodate the hexagon and its border
+    height: '150px', // Increased height to accommodate the hexagon and its border
+    padding: '5px', // Padding to ensure the hexagon is well within bounds
+    overflow: 'hidden',
+  };
+
+  // Style for centered text inside the hexagon
+  const textStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+    color: 'white',
+    textAlign: 'center',
+    fontSize: '14px', // Adjust font size if needed
+    fontWeight: 'bold', // Optional: make text bold
   };
 
   // Return the hexagon component
   return (
     <div style={containerStyle}>
       <div
-        style={hexagonStyle} // Apply hexagon style
+        style={hexagonStyle}
         onMouseEnter={e => {
-          // Apply hover style on mouse enter
           e.currentTarget.style.transform = hexagonHoverStyle.transform || '';
           e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor || '';
           e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor || '';
         }}
         onMouseLeave={e => {
-          // Revert to original style on mouse leave
           e.currentTarget.style.transform = '';
           e.currentTarget.style.backgroundColor = 'transparent';
           e.currentTarget.style.borderColor = tech.color;
         }}
       >
-        <a href={tech.url} target="_blank" rel="noopener noreferrer">
-          {/* Link to tech URL opening in a new tab */}
-          <div className="flex items-center justify-center w-full h-full text-white">
-            {/* Centered text inside hexagon */}
+        <a href={tech.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>
+          <div style={textStyle}>
             {tech.name}
           </div>
         </a>
