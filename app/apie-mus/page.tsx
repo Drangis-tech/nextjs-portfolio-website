@@ -49,9 +49,9 @@ const techData = [
 // Team Data
 const teamData = [
   {
-    name: "Jonas Jonaitis",
+    name: "Nojus Mykolaitis",
     role: "CEO",
-    linkedIn: "#",
+    linkedIn: "https://www.linkedin.com/in/nojus-mykolaitis",
     twitter: "#",
   },
   {
