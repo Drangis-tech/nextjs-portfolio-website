@@ -29,6 +29,7 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     border: `5px solid ${tech.color}`, // Border color based on tech color
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
     boxSizing: 'border-box',
+    margin: '0 auto', // Center horizontally
   };
 
   // Style for the hexagon when hovered
@@ -43,10 +44,11 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '130px', // Increased width to accommodate the hexagon and its border
-    height: '150px', // Increased height to accommodate the hexagon and its border
-    padding: '5px', // Padding to ensure the hexagon is well within bounds
+    width: '140px', // Increased width to accommodate the hexagon and its border
+    height: '160px', // Increased height to accommodate the hexagon and its border
+    padding: '10px', // Increased padding to ensure the hexagon is well within bounds
     overflow: 'hidden',
+    position: 'relative', // Ensure proper positioning
   };
 
   // Style for centered text inside the hexagon
