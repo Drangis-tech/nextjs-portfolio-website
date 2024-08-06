@@ -2,8 +2,19 @@
 
 import React from 'react';
 
-const Hexagon = ({ tech }) => {
-  const hexagonStyle = {
+interface Tech {
+  name: string;
+  category: string;
+  color: string;
+  url: string;
+}
+
+interface HexagonProps {
+  tech: Tech;
+}
+
+const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
+  const hexagonStyle: React.CSSProperties = {
     position: 'relative',
     width: '100px',
     height: '115px',
@@ -13,7 +24,7 @@ const Hexagon = ({ tech }) => {
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
   };
 
-  const hexagonHoverStyle = {
+  const hexagonHoverStyle: React.CSSProperties = {
     transform: 'scale(1.1)',
     backgroundColor: 'transparent',
     borderColor: tech.color, // Ensure the border color stays the same on hover
