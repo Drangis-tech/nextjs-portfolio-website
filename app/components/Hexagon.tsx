@@ -22,14 +22,13 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
   // Style for the hexagon
   const hexagonStyle: React.CSSProperties = {
     position: 'relative',
-    width: '100px', // Width of the hexagon
-    height: '115px', // Height of the hexagon
+    width: '100px',
+    height: '115px',
     backgroundColor: 'transparent',
     clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
     border: `5px solid ${tech.color}`, // Border color based on tech color
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
     boxSizing: 'border-box',
-    margin: '0 auto', // Center horizontally
   };
 
   // Style for the hexagon when hovered
@@ -44,11 +43,10 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '140px', // Increased width to accommodate the hexagon and its border
-    height: '160px', // Increased height to accommodate the hexagon and its border
-    padding: '10px', // Increased padding to ensure the hexagon is well within bounds
+    width: '120px', // Ensure enough space around the hexagon
+    height: '140px', // Ensure enough space around the hexagon
+    padding: '10px',
     overflow: 'hidden',
-    position: 'relative', // Ensure proper positioning
   };
 
   // Style for centered text inside the hexagon
@@ -60,8 +58,12 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     height: '100%',
     color: 'white',
     textAlign: 'center',
-    fontSize: '14px', // Adjust font size if needed
-    fontWeight: 'bold', // Optional: make text bold
+    fontSize: '14px',
+    fontWeight: 'bold',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   };
 
   // Return the hexagon component
