@@ -22,8 +22,8 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
   // Style for the hexagon
   const hexagonStyle: React.CSSProperties = {
     position: 'relative', // Relative positioning to allow absolute positioning of inner elements
-    width: '110px', // Width of the hexagon
-    height: '125px', // Height of the hexagon
+    width: '100px', // Width of the hexagon
+    height: '115px', // Height of the hexagon
     backgroundColor: 'transparent', // Default background color is transparent
     clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', // Shape of the hexagon
     border: `5px solid ${tech.color}`, // Border color based on tech color
@@ -38,30 +38,42 @@ const Hexagon: React.FC<HexagonProps> = ({ tech }) => {
     borderColor: tech.color, // Border color stays the same on hover
   };
 
+  // Container to ensure the hexagon is not cut off
+  const containerStyle: React.CSSProperties = {
+    display: 'flex', // Flex display to center the hexagon
+    alignItems: 'center', // Center items vertically
+    justifyContent: 'center', // Center items horizontally
+    width: '120px', // Container width slightly larger than the hexagon
+    height: '140px', // Container height slightly larger than the hexagon
+    padding: '10px', // Padding to prevent cutting off borders
+  };
+
   // Return the hexagon component
   return (
-    <div
-      style={hexagonStyle} // Apply hexagon style
-      onMouseEnter={e => {
-        // Apply hover style on mouse enter
-        e.currentTarget.style.transform = hexagonHoverStyle.transform || '';
-        e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor || '';
-        e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor || '';
-      }}
-      onMouseLeave={e => {
-        // Revert to original style on mouse leave
-        e.currentTarget.style.transform = '';
-        e.currentTarget.style.backgroundColor = 'transparent';
-        e.currentTarget.style.borderColor = tech.color;
-      }}
-    >
-      <a href={tech.url} target="_blank" rel="noopener noreferrer">
-        {/* Link to tech URL opening in a new tab */}
-        <div className="flex items-center justify-center w-full h-full text-white">
-          {/* Centered text inside hexagon */}
-          {tech.name}
-        </div>
-      </a>
+    <div style={containerStyle}>
+      <div
+        style={hexagonStyle} // Apply hexagon style
+        onMouseEnter={e => {
+          // Apply hover style on mouse enter
+          e.currentTarget.style.transform = hexagonHoverStyle.transform || '';
+          e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor || '';
+          e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor || '';
+        }}
+        onMouseLeave={e => {
+          // Revert to original style on mouse leave
+          e.currentTarget.style.transform = '';
+          e.currentTarget.style.backgroundColor = 'transparent';
+          e.currentTarget.style.borderColor = tech.color;
+        }}
+      >
+        <a href={tech.url} target="_blank" rel="noopener noreferrer">
+          {/* Link to tech URL opening in a new tab */}
+          <div className="flex items-center justify-center w-full h-full text-white">
+            {/* Centered text inside hexagon */}
+            {tech.name}
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
