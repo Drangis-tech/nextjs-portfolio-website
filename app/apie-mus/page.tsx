@@ -77,7 +77,8 @@ const ApieMus: React.FC = () => {
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: '10px',
-    position: 'relative'
+    padding: '10px', 
+    overflow: 'visible',
   };
 
   const renderHexagons = (category: string) => {
