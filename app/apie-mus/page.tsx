@@ -114,6 +114,16 @@ const ApieMus: React.FC = () => {
     borderTop: '27.5px solid rgba(44, 44, 46, 0.8)' // Making the hexagons semi-transparent
   };
 
+  const Hexagon: React.FC<{ tech: Tech }> = ({ tech }) => {
+    return (
+      <a href={tech.url} target="_blank" rel="noopener noreferrer" className="hexagon">
+        <div className="hexagon-content" style={{ backgroundColor: tech.color }}>
+          {tech.name}
+        </div>
+      </a>
+    );
+  };
+
   const renderHexagons = (category: string) => {
     return techData.filter(tech => tech.category === category).map((tech, index) => (
       <div key={index} style={hexagonStyle} title={tech.name}>
