@@ -25,29 +25,22 @@ const Octagon: React.FC<OctagonProps> = ({ tech }) => {
     height: '100px',
     backgroundColor: 'transparent',
     clipPath: 'polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%)',
-    border: `5px solid ${tech.color}`, // Border color based on tech color
-    transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
+    border: `5px solid ${tech.color}`,
+    transition: 'background-color 0.3s ease, border-color 0.3s ease',
     position: 'relative',
-    margin: '0 auto',
-    boxSizing: 'border-box',
+    zIndex: 1, // Ensure it is above the container
+    margin: 'auto',
   };
 
-  // Style for the octagon when hovered
-  const octagonHoverStyle: React.CSSProperties = {
-    transform: 'scale(1.1)',
-    backgroundColor: tech.color,
-    borderColor: tech.color,
-  };
-
-  // Container to ensure the octagon is not cut off
+  // Style for the container
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '120px', // Ensure the container is larger than the octagon
-    height: '120px', // Ensure the container is larger than the octagon
+    width: '130px', // Container size larger than the octagon
+    height: '130px', // Container size larger than the octagon
     position: 'relative',
-    overflow: 'hidden', // Ensure the container handles overflow
+    overflow: 'visible', // Ensure octagon is not clipped
   };
 
   // Style for centered text inside the octagon
@@ -65,8 +58,8 @@ const Octagon: React.FC<OctagonProps> = ({ tech }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    pointerEvents: 'none', // Ensure text doesn't interfere with hover effects
-    zIndex: 1, // Ensure text is above the octagon
+    pointerEvents: 'none', // Ensure text does not interfere with hover effects
+    zIndex: 2, // Ensure text is above the octagon
   };
 
   // Return the octagon component
@@ -75,12 +68,10 @@ const Octagon: React.FC<OctagonProps> = ({ tech }) => {
       <div
         style={octagonStyle}
         onMouseEnter={e => {
-          e.currentTarget.style.transform = octagonHoverStyle.transform || '';
-          e.currentTarget.style.backgroundColor = octagonHoverStyle.backgroundColor || '';
-          e.currentTarget.style.borderColor = octagonHoverStyle.borderColor || '';
+          e.currentTarget.style.backgroundColor = tech.color;
+          e.currentTarget.style.borderColor = tech.color;
         }}
         onMouseLeave={e => {
-          e.currentTarget.style.transform = '';
           e.currentTarget.style.backgroundColor = 'transparent';
           e.currentTarget.style.borderColor = tech.color;
         }}
