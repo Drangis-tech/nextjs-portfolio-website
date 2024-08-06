@@ -163,7 +163,6 @@ const ApieMus: React.FC = () => {
           ))}
         </div>
 
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
 
         <div className="mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
