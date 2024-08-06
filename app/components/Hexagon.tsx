@@ -1,59 +1,43 @@
 // File: components/Hexagon.tsx
-'use client';
 
 import React from 'react';
 
-interface Tech {
-  category: string;
-  name: string;
-  url: string;
-  color: string;
-}
-
-const Hexagon: React.FC<{ tech: Tech }> = ({ tech }) => {
-  const { name, url, color } = tech;
-
-  const hexagonStyle: React.CSSProperties = {
+const Hexagon = ({ tech }) => {
+  const hexagonStyle = {
+    position: 'relative',
     width: '100px',
-    height: '55px',
+    height: '115px',
+    backgroundColor: tech.color,
+    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+    border: `5px solid ${tech.color}`, // Add border with tech color
+    transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
+  };
+
+  const hexagonHoverStyle = {
+    transform: 'scale(1.1)',
     backgroundColor: 'transparent',
-    clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer',
-    margin: '0 2px',
-    transition: 'background-color 0.3s ease-in-out, transform 0.3s ease-in-out',
-    border: `2px solid ${color}`,
-  };
-
-  const handleClick = () => {
-    window.open(url, '_blank');
-  };
-
-  const textStyle: React.CSSProperties = {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontSize: '12px',
-    padding: '0 5px'
+    borderColor: tech.color, // Ensure the border color stays the same on hover
   };
 
   return (
     <div
       style={hexagonStyle}
-      onClick={handleClick}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = color;
-        e.currentTarget.style.transform = 'scale(1.2)';
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = hexagonHoverStyle.transform;
+        e.currentTarget.style.backgroundColor = hexagonHoverStyle.backgroundColor;
+        e.currentTarget.style.borderColor = hexagonHoverStyle.borderColor;
       }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = 'transparent';
-        e.currentTarget.style.transform = 'scale(1)';
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = '';
+        e.currentTarget.style.backgroundColor = tech.color;
+        e.currentTarget.style.borderColor = tech.color;
       }}
-      title={name}
     >
-      <div style={textStyle}>{name}</div>
+      <a href={tech.url} target="_blank" rel="noopener noreferrer">
+        <div className="flex items-center justify-center w-full h-full text-white">
+          {tech.name}
+        </div>
+      </a>
     </div>
   );
 };
