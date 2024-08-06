@@ -1,4 +1,4 @@
-// File: components/Hexagon.tsx
+// File: components/Octagon.tsx
 
 "use client"; // Enables the usage of client-side hooks
 
@@ -19,30 +19,39 @@ interface OctagonProps {
 
 // Octagon component
 const Octagon: React.FC<OctagonProps> = ({ tech }) => {
-  // Style for the container
-  const containerStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '130px', // Container size
-    height: '130px', // Container size
-    position: 'relative',
-    overflow: 'hidden', // Ensure the container handles overflow
-  };
-
-  // Style for the octagon using a pseudo-element
+  // Style for the octagon
   const octagonStyle: React.CSSProperties = {
     width: '100px',
     height: '100px',
     backgroundColor: 'transparent',
-    border: `5px solid ${tech.color}`,
+    clipPath: 'polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%)',
+    border: `5px solid ${tech.color}`, // Border color based on tech color
     transition: 'transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease',
     position: 'relative',
-    zIndex: 1, // Ensure content is above the pseudo-element
+    margin: '0 auto',
+    boxSizing: 'border-box',
   };
 
-  // Style for the octagon content
-  const contentStyle: React.CSSProperties = {
+  // Style for the octagon when hovered
+  const octagonHoverStyle: React.CSSProperties = {
+    transform: 'scale(1.1)',
+    backgroundColor: tech.color,
+    borderColor: tech.color,
+  };
+
+  // Container to ensure the octagon is not cut off
+  const containerStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '120px', // Ensure the container is larger than the octagon
+    height: '120px', // Ensure the container is larger than the octagon
+    position: 'relative',
+    overflow: 'hidden', // Ensure the container handles overflow
+  };
+
+  // Style for centered text inside the octagon
+  const textStyle: React.CSSProperties = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -56,23 +65,8 @@ const Octagon: React.FC<OctagonProps> = ({ tech }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    pointerEvents: 'none',
-    zIndex: 2, // Ensure text is above the pseudo-element
-  };
-
-  // Pseudo-element for octagon shape
-  const pseudoElementStyle: React.CSSProperties = {
-    content: '""',
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    width: '100%',
-    height: '100%',
-    clipPath: 'polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%)',
-    backgroundColor: 'transparent',
-    border: `5px solid ${tech.color}`,
-    zIndex: 0, // Ensure the pseudo-element is below content
-    transition: 'background-color 0.3s ease, border-color 0.3s ease',
+    pointerEvents: 'none', // Ensure text doesn't interfere with hover effects
+    zIndex: 1, // Ensure text is above the octagon
   };
 
   // Return the octagon component
@@ -81,9 +75,9 @@ const Octagon: React.FC<OctagonProps> = ({ tech }) => {
       <div
         style={octagonStyle}
         onMouseEnter={e => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.backgroundColor = tech.color;
-          e.currentTarget.style.borderColor = tech.color;
+          e.currentTarget.style.transform = octagonHoverStyle.transform || '';
+          e.currentTarget.style.backgroundColor = octagonHoverStyle.backgroundColor || '';
+          e.currentTarget.style.borderColor = octagonHoverStyle.borderColor || '';
         }}
         onMouseLeave={e => {
           e.currentTarget.style.transform = '';
@@ -91,9 +85,8 @@ const Octagon: React.FC<OctagonProps> = ({ tech }) => {
           e.currentTarget.style.borderColor = tech.color;
         }}
       >
-        <div style={pseudoElementStyle}></div> {/* Pseudo-element for the shape */}
         <a href={tech.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>
-          <div style={contentStyle}>
+          <div style={textStyle}>
             {tech.name}
           </div>
         </a>
