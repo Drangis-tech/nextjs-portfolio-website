@@ -28,21 +28,15 @@ export const Navigation: React.FC = () => {
         }`}
       >
         <div className="container flex items-center justify-between p-6 mx-auto">
+          {/* Back button positioned in the left corner */}
           <Link
             href="/"
-            className="flex items-center space-x-2 duration-200 text-zinc-300 hover:text-zinc-100"
+            className="flex items-center text-zinc-300 hover:text-zinc-100"
           >
-            {/* Add the logo here */}
-            <Image
-              src="/logo.png"
-              alt="WebForge Logo"
-              width={40}  // Adjust the width as needed
-              height={40}
-              className="block"
-            />
-            <span className="text-lg font-semibold">WebForge</span> {/* Optional: Add text if needed */}
+            <ArrowLeft className="w-6 h-6" />
           </Link>
 
+          {/* Navigation links aligned to the right */}
           <div className="flex gap-8">
             <Link
               href="/projects"
@@ -64,11 +58,19 @@ export const Navigation: React.FC = () => {
             </Link>
           </div>
 
+          {/* Logo positioned in the right corner */}
           <Link
             href="/"
-            className="duration-200 text-zinc-300 hover:text-zinc-100"
+            className="flex items-center space-x-2 duration-200 text-zinc-300 hover:text-zinc-100"
           >
-            <ArrowLeft className="w-6 h-6" />
+            <Image
+              src="/logo.png"
+              alt="WebForge Logo"
+              width={40} // Adjust the width as needed
+              height={40}
+              className="block"
+            />
+            <span className="hidden lg:inline text-lg font-semibold">WebForge</span> {/* Optional: Add text if needed */}
           </Link>
         </div>
       </div>
