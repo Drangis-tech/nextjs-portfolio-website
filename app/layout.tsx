@@ -1,54 +1,12 @@
 // app/layout.tsx
-"use client";  // Add this directive at the top
+"use client";  // Keep the use client directive
 
 import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
-import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
-import Image from "next/image";  // Import Image component from Next.js
-import { useEffect, useState } from "react";  // Import useEffect and useState
-
-export const metadata: Metadata = {
-  title: {
-    default: "Pagerinkime Jūsų internetinį įvaizdį kartu su WebForge!",
-    template: "%s | webforge.lt",
-  },
-  description: "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
-  openGraph: {
-    title: "Pagerinkime Jūsų internetinį įvaizdį kartu su WebForge!",
-    description: "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
-    url: "https://darbo.xyz/",
-    siteName: "webforge.lt",
-    images: [
-      {
-        url: "https://c.files.bbci.co.uk/13278/production/_112565487_floyd.png",
-        width: 1920,
-        height: 1080,
-      },
-    ],
-    locale: "en-US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  twitter: {
-    title: "WebForge",
-    card: "summary_large_image",
-  },
-  icons: {
-    shortcut: "/favicon.png",
-  },
-};
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
