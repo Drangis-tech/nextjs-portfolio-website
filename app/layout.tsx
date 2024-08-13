@@ -1,12 +1,10 @@
-"use client"; // Add this at the top
-
+// app/layout.tsx
 import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
-import AnimatedIntro from "./components/AnimatedIntro";
-import { useState, useEffect } from "react";
+import ClientLayout from "./ClientLayout"; // Import the client-side layout
 
 export const metadata: Metadata = {
   title: {
@@ -64,16 +62,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [showIntro, setShowIntro] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowIntro(false);
-    }, 3000); // Adjust the time as needed
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
@@ -84,7 +72,7 @@ export default function RootLayout({
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
         }`}
       >
-        {showIntro ? <AnimatedIntro /> : children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
