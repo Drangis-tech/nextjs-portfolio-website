@@ -33,13 +33,13 @@ export default function Home() {
       />
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
-          {/* Place the logo above the text */}
+          {/* Smaller logo size */}
           <Image
             src="/logo.png"
             alt="WebForge Logo"
-            width={128}  // Increase the size as needed
-            height={128}
-            className="mb-4 animate-fade-in"  // Add margin to the bottom to space it from the text
+            width={80}  // Reduced size to better fit above the text
+            height={80}
+            className="mb-4 animate-fade-in"
           />
           <h1 className="text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
             WebForge
