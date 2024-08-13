@@ -36,8 +36,8 @@ export const Navigation: React.FC = () => {
             <ArrowLeft className="w-6 h-6" />
           </Link>
 
-          {/* Navigation links aligned to the right */}
-          <div className="flex gap-8">
+          {/* Navigation links aligned to the center */}
+          <div className="flex-grow flex justify-center gap-8">
             <Link
               href="/projects"
               className="duration-200 text-zinc-400 hover:text-zinc-100"
