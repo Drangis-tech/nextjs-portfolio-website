@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";  // Import Image component
 import Particles from "./components/particles";
 
 const navigation = [
@@ -29,17 +30,28 @@ export default function Home() {
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={100}
       />
-      <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        WebForge
-      </h1>
+      <div className="flex flex-col items-center justify-center z-10">
+        <div className="relative flex items-center">
+          {/* Adding the logo next to the animated text */}
+          <Image
+            src="/logo.png"
+            alt="WebForge Logo"
+            width={64}
+            height={64}
+            className="mr-4 animate-fade-in"  // Optional: add animation to the logo if needed
+          />
+          <h1 className="py-3.5 px-0.5 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
+            WebForge
+          </h1>
+        </div>
+      </div>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 ">
-          Mes padedame verslams augti naudojant inovatyvius IT sprendimus.{" "}
+        <h2 className="text-sm text-zinc-500">
+          Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
         </h2>
       </div>
     </div>
   );
-
 }
