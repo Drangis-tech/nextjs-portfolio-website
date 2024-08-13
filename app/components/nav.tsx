@@ -2,60 +2,76 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export const Navigation: React.FC = () => {
-	const ref = useRef<HTMLElement>(null);
-	const [isIntersecting, setIntersecting] = useState(true);
+  const ref = useRef<HTMLElement>(null);
+  const [isIntersecting, setIntersecting] = useState(true);
 
-	useEffect(() => {
-		if (!ref.current) return;
-		const observer = new IntersectionObserver(([entry]) =>
-			setIntersecting(entry.isIntersecting),
-		);
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(([entry]) =>
+      setIntersecting(entry.isIntersecting)
+    );
 
-		observer.observe(ref.current);
-		return () => observer.disconnect();
-	}, []);
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
-	return (
-		<header ref={ref}>
-			<div
-				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b  ${
-					isIntersecting
-						? "bg-zinc-900/0 border-transparent"
-						: "bg-zinc-900/500  border-zinc-800 "
-				}`}
-			>
-				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-					<div className="flex justify-between gap-8">
-						<Link
-							href="/projects"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Atlikti Darbai
-						</Link>
-						<Link
-							href="/apie-mus"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Apie Mus
-						</Link>
-						<Link
-							href="/contact"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Kontaktai
-						</Link>
-					</div>
+  return (
+    <header ref={ref}>
+      <div
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
+          isIntersecting
+            ? "bg-zinc-900/0 border-transparent"
+            : "bg-zinc-900/500 border-zinc-800"
+        }`}
+      >
+        <div className="container flex items-center justify-between p-6 mx-auto">
+          <Link
+            href="/"
+            className="flex items-center space-x-2 duration-200 text-zinc-300 hover:text-zinc-100"
+          >
+            {/* Add the logo here */}
+            <Image
+              src="/logo.png"
+              alt="WebForge Logo"
+              width={40}  // Adjust the width as needed
+              height={40}
+              className="block"
+            />
+            <span className="text-lg font-semibold">WebForge</span> {/* Optional: Add text if needed */}
+          </Link>
 
-					<Link
-						href="/"
-						className="duration-200 text-zinc-300 hover:text-zinc-100"
-					>
-						<ArrowLeft className="w-6 h-6 " />
-					</Link>
-				</div>
-			</div>
-		</header>
-	);
+          <div className="flex gap-8">
+            <Link
+              href="/projects"
+              className="duration-200 text-zinc-400 hover:text-zinc-100"
+            >
+              Atlikti Darbai
+            </Link>
+            <Link
+              href="/apie-mus"
+              className="duration-200 text-zinc-400 hover:text-zinc-100"
+            >
+              Apie Mus
+            </Link>
+            <Link
+              href="/contact"
+              className="duration-200 text-zinc-400 hover:text-zinc-100"
+            >
+              Kontaktai
+            </Link>
+          </div>
+
+          <Link
+            href="/"
+            className="duration-200 text-zinc-300 hover:text-zinc-100"
+          >
+            <ArrowLeft className="w-6 h-6" />
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
 };
