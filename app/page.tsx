@@ -33,15 +33,17 @@ export default function Home() {
       />
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
-          {/* Smaller logo size */}
           <Image
             src="/logo.png"
             alt="WebForge Logo"
-            width={80}  // Reduced size to better fit above the text
+            width={80}
             height={80}
             className="mb-4 animate-fade-in"
           />
-          <h1 className="text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
+          <h1
+            className="text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text"
+            style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}  // Adjust line height and padding
+          >
             WebForge
           </h1>
         </div>
