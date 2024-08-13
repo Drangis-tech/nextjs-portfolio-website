@@ -1,6 +1,7 @@
+// app/page.tsx
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";  // Import Image component
+import Image from "next/image";
 import Particles from "./components/particles";
 
 const navigation = [
@@ -32,13 +33,13 @@ export default function Home() {
       />
       <div className="flex flex-col items-center justify-center z-10">
         <div className="relative flex items-center">
-          {/* Adding the logo next to the animated text */}
+          {/* Adjust the logo size to match the text */}
           <Image
             src="/logo.png"
             alt="WebForge Logo"
-            width={64}
-            height={64}
-            className="mr-4 animate-fade-in"  // Optional: add animation to the logo if needed
+            width={90}  // Adjust the width to match the height of the text
+            height={90}  // Adjust the height to match the height of the text
+            className="mr-4 animate-fade-in"
           />
           <h1 className="py-3.5 px-0.5 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
             WebForge
