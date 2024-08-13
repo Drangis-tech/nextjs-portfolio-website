@@ -33,13 +33,13 @@ export default function Home() {
       />
       <div className="flex flex-col items-center justify-center z-10">
         <div className="relative flex items-center">
-          {/* Adjust the logo size to match the text */}
+          {/* Increase the logo size and move it slightly to the left */}
           <Image
             src="/logo.png"
             alt="WebForge Logo"
-            width={90}  // Adjust the width to match the height of the text
-            height={90}  // Adjust the height to match the height of the text
-            className="mr-4 animate-fade-in"
+            width={128}  // Increase the width
+            height={128}  // Increase the height
+            className="mr-6 animate-fade-in"  // Increase the margin to move the logo to the left
           />
           <h1 className="py-3.5 px-0.5 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
             WebForge
