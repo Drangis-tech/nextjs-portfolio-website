@@ -1,3 +1,5 @@
+"use client"; // Add this at the top
+
 import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
@@ -62,11 +64,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // State to control the display of the animated intro
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    // Hide the intro after 3 seconds
     const timer = setTimeout(() => {
       setShowIntro(false);
     }, 3000); // Adjust the time as needed
@@ -84,11 +84,7 @@ export default function RootLayout({
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
         }`}
       >
-        {showIntro ? (
-          <AnimatedIntro />
-        ) : (
-          children
-        )}
+        {showIntro ? <AnimatedIntro /> : children}
       </body>
     </html>
   );
