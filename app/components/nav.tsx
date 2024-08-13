@@ -31,13 +31,13 @@ export const Navigation: React.FC = () => {
           {/* Back button positioned in the left corner */}
           <Link
             href="/"
-            className="flex items-center text-zinc-300 hover:text-zinc-100"
+            className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
           >
             <ArrowLeft className="w-6 h-6" />
           </Link>
 
           {/* Flex container to center navigation links */}
-          <div className="flex-grow flex justify-center mx-4">
+          <div className="flex-grow flex items-center justify-center">
             <div className="flex gap-8">
               <Link
                 href="/projects"
@@ -63,7 +63,7 @@ export const Navigation: React.FC = () => {
           {/* Logo positioned in the right corner */}
           <Link
             href="/"
-            className="flex items-center space-x-2 duration-200 text-zinc-300 hover:text-zinc-100"
+            className="flex items-center space-x-2 text-zinc-300 hover:text-zinc-100 ml-4"
           >
             <Image
               src="/logo.png"
@@ -72,7 +72,6 @@ export const Navigation: React.FC = () => {
               height={40}
               className="block"
             />
-            <span className="hidden lg:inline text-lg font-semibold">WebForge</span> {/* Optional: Add text if needed */}
           </Link>
         </div>
       </div>
