@@ -3,19 +3,20 @@ import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import AnimatedIntro from "./components/AnimatedIntro";
+import { useState, useEffect } from "react";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pagerinkime Jūsų internetinį įvaizdį kartu su PAVADINIMAS!",
-    template: "%s | chronark.com",
+    default: "Pagerinkime Jūsų internetinį įvaizdį kartu su WebForge!",
+    template: "%s | webforge.lt",
   },
   description: "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
   openGraph: {
-    title: "Pagerinkime Jūsų internetinį įvaizdį kartu su PAVADINIMAS!",
-    description:
-      "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
+    title: "Pagerinkime Jūsų internetinį įvaizdį kartu su WebForge!",
+    description: "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
     url: "https://darbo.xyz/",
-    siteName: "pavadinimas.lt",
+    siteName: "webforge.lt",
     images: [
       {
         url: "https://c.files.bbci.co.uk/13278/production/_112565487_floyd.png",
@@ -38,13 +39,14 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "PAVADINIMAS",
+    title: "WebForge",
     card: "summary_large_image",
   },
   icons: {
     shortcut: "/favicon.png",
   },
 };
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -60,16 +62,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // State to control the display of the animated intro
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    // Hide the intro after 3 seconds
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 3000); // Adjust the time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
         <Analytics />
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          }`}
+        className={`bg-black ${
+          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+        }`}
       >
-        {children}
+        {showIntro ? (
+          <AnimatedIntro />
+        ) : (
+          children
+        )}
       </body>
     </html>
   );
