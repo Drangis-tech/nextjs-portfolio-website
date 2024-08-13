@@ -1,5 +1,4 @@
 // app/layout.tsx
-"use client";  // Add this directive at the top
 
 import "../global.css";
 import { Inter } from "@next/font/google";
