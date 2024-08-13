@@ -27,7 +27,7 @@ export const Navigation: React.FC = () => {
             : "bg-zinc-900/500 border-zinc-800"
         }`}
       >
-        <div className="container flex items-center justify-between p-6 mx-auto">
+        <div className="container flex items-center p-6 mx-auto">
           {/* Back button positioned in the left corner */}
           <Link
             href="/"
@@ -36,26 +36,28 @@ export const Navigation: React.FC = () => {
             <ArrowLeft className="w-6 h-6" />
           </Link>
 
-          {/* Navigation links aligned to the center */}
-          <div className="flex-grow flex justify-center gap-8">
-            <Link
-              href="/projects"
-              className="duration-200 text-zinc-400 hover:text-zinc-100"
-            >
-              Atlikti Darbai
-            </Link>
-            <Link
-              href="/apie-mus"
-              className="duration-200 text-zinc-400 hover:text-zinc-100"
-            >
-              Apie Mus
-            </Link>
-            <Link
-              href="/contact"
-              className="duration-200 text-zinc-400 hover:text-zinc-100"
-            >
-              Kontaktai
-            </Link>
+          {/* Flex container to center navigation links */}
+          <div className="flex-grow flex justify-center mx-4">
+            <div className="flex gap-8">
+              <Link
+                href="/projects"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+              >
+                Atlikti Darbai
+              </Link>
+              <Link
+                href="/apie-mus"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+              >
+                Apie Mus
+              </Link>
+              <Link
+                href="/contact"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+              >
+                Kontaktai
+              </Link>
+            </div>
           </div>
 
           {/* Logo positioned in the right corner */}
