@@ -46,7 +46,7 @@ export const Navigation: React.FC = () => {
                 Atlikti Darbai
               </Link>
               <Link
-                href="/Paslaugos"
+                href="/paslaugos"
                 className="duration-200 text-zinc-400 hover:text-zinc-100"
               >
                 Paslaugos
