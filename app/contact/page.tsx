@@ -14,13 +14,13 @@ const socials = [
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
+		href: "https://linkedin.com/webforge",
 		label: "LinkedIn",
 		handle: "@Webforge",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
+		href: "https://github.com/webforge",
 		label: "Tel. Numeris",
 		handle: "+370 666 66 666",
 	},
