@@ -1,4 +1,5 @@
 // File: app/apie-mus/page.tsx
+"use client";
 
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
