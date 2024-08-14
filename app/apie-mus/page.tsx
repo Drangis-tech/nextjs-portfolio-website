@@ -1,7 +1,7 @@
 // File: app/apie-mus/page.tsx
 
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import Hexagon from '../components/Hexagon';
@@ -72,12 +72,37 @@ const teamData = [
 ];
 
 const ApieMus: React.FC = () => {
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      cardsRef.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
+
   const hexagonGridStyle: React.CSSProperties = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: '10px',
-    padding: '10px', 
+    padding: '10px',
     overflow: 'visible',
   };
 
@@ -101,7 +126,11 @@ const ApieMus: React.FC = () => {
 
         <div className="apie-mus">
           {aboutUsData.map((section, index) => (
-            <div key={index} className="flex">
+            <div
+              key={index}
+              className="flex transition-opacity opacity-0 duration-1000" 
+              ref={(el) => (cardsRef.current[index] = el)}
+            >
               <Card className="card">
                 <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Making the cards semi-transparent */}
                   <div className="flex items-center justify-between gap-2">
@@ -118,7 +147,7 @@ const ApieMus: React.FC = () => {
                   </p>
                 </article>
               </Card>
-              <div className="content">
+              <div className="content ml-4">
                 <h3 className="text-xl font-bold text-zinc-100">{section.title}</h3>
                 <p className="mt-2 text-zinc-400">{section.detailedText}</p>
               </div>
