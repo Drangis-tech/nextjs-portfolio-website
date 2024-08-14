@@ -44,10 +44,10 @@ const Paslaugos: React.FC = () => {
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="paslaugos">
+        <div className="space-y-8"> {/* Added space-y-8 for consistent spacing */}
           {servicesData.map((service, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-4">
-              <Card className="card flex-1">
+              <Card className="card flex-1 md:w-1/3"> {/* Set width to 1/3 for the left box */}
                 <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <h2 className="text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
                     {service.title}
@@ -57,7 +57,7 @@ const Paslaugos: React.FC = () => {
                   </p>
                 </article>
               </Card>
-              <div className="content flex-1">
+              <div className="content flex-1 md:w-2/3"> {/* Set width to 2/3 for the right text */}
                 <h3 className="text-xl font-bold text-zinc-100">{service.title}</h3>
                 <p className="mt-2 text-zinc-400">{service.detailedText}</p>
               </div>
