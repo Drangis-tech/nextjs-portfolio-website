@@ -1,28 +1,27 @@
+// File: app/apie-mus/page.tsx
+
+import Link from "next/link";
 import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import Hexagon from '../components/Hexagon';
-import { FaUsers, FaVision, FaHandsHelping } from 'react-icons/fa'; // Importing icons from react-icons
 
 // About Us Data
 const aboutUsData = [
   {
     title: "Mūsų Komanda",
     description: "Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.",
-    detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo.",
-    icon: <FaUsers className="text-4xl text-zinc-100" /> // Adding an icon for team
+    detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo."
   },
   {
     title: "Mūsų Vizija",
     description: "Siekiame revoliucionuoti pramonę su inovatyviais sprendimais ir neprilygstamu aptarnavimu.",
-    detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis.",
-    icon: <FaVision className="text-4xl text-zinc-100" /> // Adding an icon for vision
+    detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis."
   },
   {
     title: "Mūsų Vertybės",
     description: "Sąžiningumas, Tobulumas ir Bendradarbiavimas yra pagrindinės vertybės, kurios veda mus į sėkmę.",
-    detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais.",
-    icon: <FaHandsHelping className="text-4xl text-zinc-100" /> // Adding an icon for values
+    detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais."
   },
 ];
 
@@ -78,7 +77,8 @@ const ApieMus: React.FC = () => {
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: '10px',
-    padding: '10px',
+    padding: '10px', 
+    overflow: 'visible',
   };
 
   const renderHexagons = (category: string) => {
@@ -99,20 +99,26 @@ const ApieMus: React.FC = () => {
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="space-y-8 md:space-y-16">
+        <div className="apie-mus">
           {aboutUsData.map((section, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-6 items-center">
-              <Card className="card flex-1 text-center">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                  <div className="flex justify-center mb-4">
-                    {section.icon} {/* Render the icon */}
+            <div key={index} className="flex">
+              <Card className="card">
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Making the cards semi-transparent */}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-xs text-zinc-100">
+                      <span>{section.title}</span>
+                    </div>
                   </div>
+
+                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+                    {section.title}
+                  </h2>
                   <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                     {section.description}
                   </p>
                 </article>
               </Card>
-              <div className="flex-1">
+              <div className="content">
                 <h3 className="text-xl font-bold text-zinc-100">{section.title}</h3>
                 <p className="mt-2 text-zinc-400">{section.detailedText}</p>
               </div>
@@ -122,20 +128,51 @@ const ApieMus: React.FC = () => {
 
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
-        <div className="mt-16 space-y-8">
+        <div className="mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
 
           <div className="w-full h-px bg-zinc-800" />
 
-          <div className="space-y-8">
-          {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
-              <div key={category} className="space-y-4">
-                <h3 className="text-xl font-bold text-zinc-100">{category}</h3>
-                <div style={hexagonGridStyle}>
-                  {renderHexagons(category)}
-                </div>
-              </div>
-            ))}
+          <div style={{ marginBottom: '20px' }}>
+            <h3 className="text-xl font-bold text-zinc-100">Front-end</h3>
+            <div style={hexagonGridStyle}>
+              {renderHexagons("Front-end")}
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3 className="text-xl font-bold text-zinc-100">Framework</h3>
+            <div style={hexagonGridStyle}>
+              {renderHexagons("Framework")}
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3 className="text-xl font-bold text-zinc-100">Testing Tools</h3>
+            <div style={hexagonGridStyle}>
+              {renderHexagons("Testing Tools")}
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3 className="text-xl font-bold text-zinc-100">Cloud</h3>
+            <div style={hexagonGridStyle}>
+              {renderHexagons("Cloud")}
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3 className="text-xl font-bold text-zinc-100">Back-end</h3>
+            <div style={hexagonGridStyle}>
+              {renderHexagons("Back-end")}
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <h3 className="text-xl font-bold text-zinc-100">Data</h3>
+            <div style={hexagonGridStyle}>
+              {renderHexagons("Data")}
+            </div>
           </div>
         </div>
 
@@ -147,11 +184,14 @@ const ApieMus: React.FC = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
             {teamData.map((member, index) => (
               <Card key={index} className="card">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                  <div className="text-xs text-zinc-100">
-                    <span>{member.role}</span>
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Making the cards semi-transparent */}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-xs text-zinc-100">
+                      <span>{member.role}</span>
+                    </div>
                   </div>
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
+
+                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
                     {member.name}
                   </h2>
                   <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
