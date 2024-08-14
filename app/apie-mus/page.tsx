@@ -1,27 +1,28 @@
-// File: app/apie-mus/page.tsx
-
-import Link from "next/link";
 import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import Hexagon from '../components/Hexagon';
+import { FaUsers, FaVision, FaHandsHelping } from 'react-icons/fa'; // Importing icons from react-icons
 
 // About Us Data
 const aboutUsData = [
   {
     title: "Mūsų Komanda",
     description: "Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.",
-    detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo."
+    detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo.",
+    icon: <FaUsers className="text-4xl text-zinc-100" /> // Adding an icon for team
   },
   {
     title: "Mūsų Vizija",
     description: "Siekiame revoliucionuoti pramonę su inovatyviais sprendimais ir neprilygstamu aptarnavimu.",
-    detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis."
+    detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis.",
+    icon: <FaVision className="text-4xl text-zinc-100" /> // Adding an icon for vision
   },
   {
     title: "Mūsų Vertybės",
     description: "Sąžiningumas, Tobulumas ir Bendradarbiavimas yra pagrindinės vertybės, kurios veda mus į sėkmę.",
-    detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais."
+    detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais.",
+    icon: <FaHandsHelping className="text-4xl text-zinc-100" /> // Adding an icon for values
   },
 ];
 
@@ -100,15 +101,12 @@ const ApieMus: React.FC = () => {
 
         <div className="space-y-8 md:space-y-16">
           {aboutUsData.map((section, index) => (
-            <div key={index} className="flex flex-col md:flex-row gap-6">
-              <Card className="card flex-1">
+            <div key={index} className="flex flex-col md:flex-row gap-6 items-center">
+              <Card className="card flex-1 text-center">
                 <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                  <div className="text-xs text-zinc-100">
-                    <span>{section.title}</span>
+                  <div className="flex justify-center mb-4">
+                    {section.icon} {/* Render the icon */}
                   </div>
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
-                    {section.title}
-                  </h2>
                   <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                     {section.description}
                   </p>
@@ -126,46 +124,47 @@ const ApieMus: React.FC = () => {
 
         <div className="mt-16 space-y-8">
         <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
-          <div className="w-full h-px bg-zinc-800" />
 
-          <div className="space-y-8">
-            {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
-              <div key={category} className="space-y-4">
-                <h3 className="text-xl font-bold text-zinc-100">{category}</h3>
-                <div style={hexagonGridStyle}>
-                  {renderHexagons(category)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+<div className="w-full h-px bg-zinc-800" />
 
-        <div className="w-full h-px bg-zinc-800" />
-
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Komanda</h2>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
-            {teamData.map((member, index) => (
-              <Card key={index} className="card">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                  <div className="text-xs text-zinc-100">
-                    <span>{member.role}</span>
-                  </div>
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
-                    {member.name}
-                  </h2>
-                  <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                    <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
-                  </p>
-                </article>
-              </Card>
-            ))}
-          </div>
-        </div>
+<div className="space-y-8">
+  {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
+    <div key={category} className="space-y-4">
+      <h3 className="text-xl font-bold text-zinc-100">{category}</h3>
+      <div style={hexagonGridStyle}>
+        {renderHexagons(category)}
       </div>
     </div>
-  );
+  ))}
+</div>
+</div>
+
+<div className="w-full h-px bg-zinc-800" />
+
+<div className="mt-16">
+<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Komanda</h2>
+
+<div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
+  {teamData.map((member, index) => (
+    <Card key={index} className="card">
+      <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+        <div className="text-xs text-zinc-100">
+          <span>{member.role}</span>
+        </div>
+        <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
+          {member.name}
+        </h2>
+        <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+          <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
+        </p>
+      </article>
+    </Card>
+  ))}
+</div>
+</div>
+</div>
+</div>
+);
 };
 
 export default ApieMus;
