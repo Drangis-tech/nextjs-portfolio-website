@@ -1,8 +1,9 @@
+// File: pages/_app.tsx
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
-config.autoAddCss = false;
+config.autoAddCss = false; // Prevents fontawesome from adding its CSS automatically
 
-import '../styles/globals.css'; // Your global styles
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
