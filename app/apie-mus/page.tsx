@@ -123,48 +123,48 @@ const ApieMus: React.FC = () => {
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
         <div className="mt-16 space-y-8">
-        <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
 
-<div className="w-full h-px bg-zinc-800" />
+          <div className="w-full h-px bg-zinc-800" />
 
-<div className="space-y-8">
-  {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
-    <div key={category} className="space-y-4">
-      <h3 className="text-xl font-bold text-zinc-100">{category}</h3>
-      <div style={hexagonGridStyle}>
-        {renderHexagons(category)}
+          <div className="space-y-8">
+            {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
+              <div key={category} className="space-y-4">
+                <h3 className="text-xl font-bold text-zinc-100">{category}</h3>
+                <div style={hexagonGridStyle}>
+                  {renderHexagons(category)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="w-full h-px bg-zinc-800" />
+
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Komanda</h2>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
+            {teamData.map((member, index) => (
+              <Card key={index} className="card">
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+                  <div className="text-xs text-zinc-100">
+                    <span>{member.role}</span>
+                  </div>
+                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
+                    {member.name}
+                  </h2>
+                  <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                    <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
+                  </p>
+                </article>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
-  ))}
-</div>
-</div>
-
-<div className="w-full h-px bg-zinc-800" />
-
-<div className="mt-16">
-<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Komanda</h2>
-
-<div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
-  {teamData.map((member, index) => (
-    <Card key={index} className="card">
-      <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-        <div className="text-xs text-zinc-100">
-          <span>{member.role}</span>
-        </div>
-        <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
-          {member.name}
-        </h2>
-        <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-          <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
-        </p>
-      </article>
-    </Card>
-  ))}
-</div>
-</div>
-</div>
-</div>
-);
+  );
 };
 
 export default ApieMus;
