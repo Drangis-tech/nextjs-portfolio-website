@@ -128,7 +128,7 @@ const ApieMus: React.FC = () => {
           <div className="w-full h-px bg-zinc-800" />
 
           <div className="space-y-8">
-            {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
+          {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
               <div key={category} className="space-y-4">
                 <h3 className="text-xl font-bold text-zinc-100">{category}</h3>
                 <div style={hexagonGridStyle}>
