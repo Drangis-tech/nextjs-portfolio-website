@@ -77,8 +77,7 @@ const ApieMus: React.FC = () => {
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: '10px',
-    padding: '10px', 
-    overflow: 'visible',
+    padding: '10px',
   };
 
   const renderHexagons = (category: string) => {
@@ -99,18 +98,15 @@ const ApieMus: React.FC = () => {
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="apie-mus">
+        <div className="space-y-8 md:space-y-16">
           {aboutUsData.map((section, index) => (
-            <div key={index} className="flex">
-              <Card className="card">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Making the cards semi-transparent */}
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="text-xs text-zinc-100">
-                      <span>{section.title}</span>
-                    </div>
+            <div key={index} className="flex flex-col md:flex-row gap-6">
+              <Card className="card flex-1">
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+                  <div className="text-xs text-zinc-100">
+                    <span>{section.title}</span>
                   </div>
-
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
                     {section.title}
                   </h2>
                   <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
@@ -118,7 +114,7 @@ const ApieMus: React.FC = () => {
                   </p>
                 </article>
               </Card>
-              <div className="content">
+              <div className="flex-1">
                 <h3 className="text-xl font-bold text-zinc-100">{section.title}</h3>
                 <p className="mt-2 text-zinc-400">{section.detailedText}</p>
               </div>
@@ -128,51 +124,19 @@ const ApieMus: React.FC = () => {
 
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
-
+        <div className="mt-16 space-y-8">
+        <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Mes dirbame su</h2>
           <div className="w-full h-px bg-zinc-800" />
 
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Front-end</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Front-end")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Framework</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Framework")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Testing Tools</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Testing Tools")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Cloud</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Cloud")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Back-end</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Back-end")}
-            </div>
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <h3 className="text-xl font-bold text-zinc-100">Data</h3>
-            <div style={hexagonGridStyle}>
-              {renderHexagons("Data")}
-            </div>
+          <div className="space-y-8">
+            {["Front-end", "Framework", "Testing Tools", "Cloud", "Back-end", "Data"].map(category => (
+              <div key={category} className="space-y-4">
+                <h3 className="text-xl font-bold text-zinc-100">{category}</h3>
+                <div style={hexagonGridStyle}>
+                  {renderHexagons(category)}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -184,14 +148,11 @@ const ApieMus: React.FC = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-16">
             {teamData.map((member, index) => (
               <Card key={index} className="card">
-                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Making the cards semi-transparent */}
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="text-xs text-zinc-100">
-                      <span>{member.role}</span>
-                    </div>
+                <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+                  <div className="text-xs text-zinc-100">
+                    <span>{member.role}</span>
                   </div>
-
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">
+                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
                     {member.name}
                   </h2>
                   <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
