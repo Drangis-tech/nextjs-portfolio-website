@@ -4,15 +4,15 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pagerinkime Jūsų internetinį įvaizdį kartu su WebForge!",
-    template: "%s | webforge.lt",
+    default: "Pagerinkime Jūsų internetinį įvaizdį kartu su BrandForge!",
+    template: "%s | brandforge.lt",
   },
   description: "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
   openGraph: {
-    title: "Pagerinkime Jūsų internetinį įvaizdį kartu su WebForge!",
+    title: "Pagerinkime Jūsų internetinį įvaizdį kartu su BrandForge!",
     description: "Elektroninių puslapių, e-shopų kūrimas, marketingas, ir kt.",
     url: "https://darbo.xyz/",
-    siteName: "webforge.lt",
+    siteName: "brandforge.lt",
     images: [
       {
         url: "https://c.files.bbci.co.uk/13278/production/_112565487_floyd.png",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "WebForge",
+    title: "BrandForge",
     card: "summary_large_image",
   },
   icons: {

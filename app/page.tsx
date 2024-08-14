@@ -44,7 +44,7 @@ export default function Home() {
             className="text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text"
             style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}  // Adjust line height and padding
           >
-            WebForge
+            BrandForge
           </h1>
         </div>
       </div>

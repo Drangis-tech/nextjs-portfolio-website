@@ -10,13 +10,13 @@ const socials = [
 		icon: <Mail size={20} />,
 		href: "mailto:nojus@pavadinimas.lt",
 		label: "Elektroninis paštas",
-		handle: "nojus@webforge.lt",
+		handle: "nojus@brandforge.lt",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://linkedin.com/webforge",
+		href: "https://linkedin.com/brandforge",
 		label: "LinkedIn",
-		handle: "@Webforge",
+		handle: "@BrandForge",
 	},
 	{
 		icon: <Github size={20} />,
