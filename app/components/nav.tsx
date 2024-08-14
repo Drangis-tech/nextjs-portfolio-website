@@ -46,16 +46,16 @@ export const Navigation: React.FC = () => {
                 Atlikti Darbai
               </Link>
               <Link
-                href="/apie-mus"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
-              >
-                Apie Mus
-              </Link>
-              <Link
                 href="/paslaugos"
                 className="duration-200 text-zinc-400 hover:text-zinc-100"
               >
                 Paslaugos
+              </Link>
+              <Link
+                href="/apie-mus"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+              >
+                Apie Mus
               </Link>
               <Link
                 href="/contact"
