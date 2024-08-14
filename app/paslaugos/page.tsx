@@ -1,7 +1,6 @@
 // File: pages/paslaugos.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faPalette, faBullhorn, faChartLine } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
 import React from 'react';
 import { Navigation } from '../components/nav';
 
