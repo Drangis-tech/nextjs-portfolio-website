@@ -46,6 +46,24 @@ const technologies = [
 ];
 
 const Paslaugos: React.FC = () => {
+  // Define the openTypeform function directly in the component
+  const openTypeform = () => {
+    const script = document.createElement('script');
+    script.src = "//embed.typeform.com/next/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      (window as any).typeform.open({
+        url: 'https://your-typeform-url.com', // Replace with your Typeform URL
+      });
+    };
+
+    script.onload = () => {
+      document.body.removeChild(script);
+    };
+  };
+
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -126,6 +144,7 @@ const Paslaugos: React.FC = () => {
           </p>
           <MyInteractiveComponent
             label="Susisiekite"
+            onClick={openTypeform} // Pass the onClick prop
             className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
           />
         </div>
