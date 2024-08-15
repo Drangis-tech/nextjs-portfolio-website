@@ -1,0 +1,15 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+
+interface IconProps {
+  icon: IconDefinition;
+  size?: string;
+  color?: string;
+}
+
+const Icon: React.FC<IconProps> = ({ icon, size = '2x', color = 'white' }) => {
+  return <FontAwesomeIcon icon={icon} size={size} style={{ color }} />;
+};
+
+export default Icon;
