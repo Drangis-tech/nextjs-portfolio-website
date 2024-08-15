@@ -5,8 +5,10 @@ config.autoAddCss = false; // Prevents fontawesome from adding its CSS automatic
 
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+import type { AppProps } from 'next/app'; // Import the type for AppProps
+
+function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
 
-export default MyApp;
+export default MyApp; // Adding FontAwesome icons to the project
