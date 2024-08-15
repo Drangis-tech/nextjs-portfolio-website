@@ -9,4 +9,8 @@ function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 
+<<<<<<< HEAD
 export default MyApp;
+=======
+export default MyApp; // Adding FontAwesome icons to the project
+>>>>>>> dc8c563 (Your commit message)
