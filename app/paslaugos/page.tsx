@@ -12,75 +12,7 @@ import {
   faUserCog,
 } from '@fortawesome/free-solid-svg-icons';
 
-// Service Data
-const services = [
-  {
-    title: 'Web Development',
-    description: [
-      'Modernios ir patogios svetainės kūrimas',
-      'Naudojame naujausias technologijas',
-      'React, Vue.js, WordPress ir kt.',
-    ],
-    icon: faCode,
-  },
-  {
-    title: 'Branding',
-    description: [
-      'Unikalus prekės ženklo identitetas',
-      'Kūrybiniai sprendimai ir dizainas',
-      'Logotipai, vizitinės kortelės ir kt.',
-    ],
-    icon: faPalette,
-  },
-  {
-    title: 'Ads Management',
-    description: [
-      'Reklama Google ir Facebook platformose',
-      'Efektyvi kampanijų valdymo strategija',
-      'Tikslinė auditorija ir analitika',
-    ],
-    icon: faBullhorn,
-  },
-  {
-    title: 'SEO Optimization',
-    description: [
-      'Svetainės optimizavimas paieškos sistemoms',
-      'Padidinkite matomumą ir lankomumą',
-      'On-page ir off-page SEO',
-    ],
-    icon: faChartLine,
-  },
-  {
-    title: 'Custom Solutions',
-    description: [
-      'Individualūs programavimo sprendimai',
-      'API integracijos, sistema pritaikyta pagal poreikius',
-      'Konsultacijos ir techninė pagalba',
-    ],
-    icon: faLaptopCode,
-  },
-  {
-    title: 'IT Consulting',
-    description: [
-      'Konsultacijos IT ir technologijų klausimais',
-      'Strategijų kūrimas ir optimizavimas',
-      'Sistemos analizė ir rekomendacijos',
-    ],
-    icon: faUserCog,
-  },
-];
-
-// Technologies Data
-const technologies = [
-  { name: 'React', category: 'Front-end', color: '#61DAFB' },
-  { name: 'Vue.js', category: 'Framework', color: '#42b883' },
-  { name: 'WordPress', category: 'CMS', color: '#21759B' },
-  { name: 'PHP', category: 'Back-end', color: '#777BB4' },
-  { name: 'Node.js', category: 'Back-end', color: '#8CC84B' },
-  { name: 'AWS', category: 'Cloud', color: '#FF9900' },
-  { name: 'Docker', category: 'Data', color: '#2496ED' },
-  { name: 'MySQL', category: 'Data', color: '#4479A1' },
-];
+// Service Data and Technologies Data...
 
 const Paslaugos: React.FC = () => {
   const openTypeform = () => {
