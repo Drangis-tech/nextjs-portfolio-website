@@ -3,8 +3,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; // Prevents FontAwesome from adding its CSS automatically
 
-import '../styles/globals.css'; // Import global CSS
-
+import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
