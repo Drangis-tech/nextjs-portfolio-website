@@ -1,3 +1,4 @@
+// app/paslaugos/page.tsx
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
@@ -93,6 +94,11 @@ const Paslaugos: React.FC = () => {
         url: 'https://your-typeform-url.com', // Replace with your Typeform URL
       });
     };
+
+    // Cleanup script after loading
+    script.onload = () => {
+      document.body.removeChild(script);
+    };
   };
 
   return (
@@ -133,8 +139,8 @@ const Paslaugos: React.FC = () => {
 
         <div className="w-full h-px bg-zinc-800" />
 
-        {/* Technology Stack */}
-        <div className="text-center">
+                {/* Technology Stack */}
+                <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Naudojamos Technologijos
           </h2>
@@ -150,6 +156,7 @@ const Paslaugos: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
+                {/* Replace with appropriate icon for each technology */}
                 <Icon icon={faCode} size="2x" color="white" />
               </div>
               <div>
