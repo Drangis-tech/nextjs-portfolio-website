@@ -1,11 +1,9 @@
 // app/paslaugos/page.tsx
 
-"use clinet";
-
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
-import Button from '../components/Button'; // Import the Button component
+import MyInteractiveComponent from '../components/MyInteractiveComponent'; // Import the new component
 import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
 
 // Define the services array
@@ -48,23 +46,6 @@ const technologies = [
 ];
 
 const Paslaugos: React.FC = () => {
-  const openTypeform = () => {
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      (window as any).typeform.open({
-        url: 'https://your-typeform-url.com', // Replace with your Typeform URL
-      });
-    };
-
-    script.onload = () => {
-      document.body.removeChild(script);
-    };
-  };
-
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -143,9 +124,8 @@ const Paslaugos: React.FC = () => {
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
             šiandien ir aptarkime, kaip galime jums padėti.
           </p>
-          <Button
+          <MyInteractiveComponent
             label="Susisiekite"
-            onClick={openTypeform}
             className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
           />
         </div>
