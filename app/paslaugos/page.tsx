@@ -59,6 +59,7 @@ const Paslaugos: React.FC = () => {
       });
     };
 
+    // Ensure cleanup after script is loaded
     script.onload = () => {
       document.body.removeChild(script);
     };
@@ -142,11 +143,12 @@ const Paslaugos: React.FC = () => {
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
             šiandien ir aptarkime, kaip galime jums padėti.
           </p>
-          <MyInteractiveComponent
-            label="Susisiekite"
-            onClick={openTypeform} // Pass the onClick prop
-            className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
-          />
+          <div
+            onClick={openTypeform} // Use the onClick function directly
+            className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700 cursor-pointer"
+          >
+            Susisiekite
+          </div>
         </div>
       </div>
     </div>
