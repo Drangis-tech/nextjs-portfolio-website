@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import Particles from "./components/particles";
+import Button from '../components/Button'; // Import the Button component
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -12,6 +13,10 @@ const navigation = [
 ];
 
 export default function Home() {
+  const handleClick = () => {
+    console.log('Button clicked');
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
@@ -56,6 +61,7 @@ export default function Home() {
         <h2 className="text-sm text-zinc-500">
           Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
         </h2>
+        <Button label="Click me" onClick={handleClick} /> {/* Add the Button component */}
       </div>
     </div>
   );
