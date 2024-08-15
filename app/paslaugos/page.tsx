@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
 import {
@@ -81,18 +81,18 @@ const technologies = [
 ];
 
 const Paslaugos: React.FC = () => {
-  useEffect(() => {
-    // Load Typeform script
+  const openTypeform = () => {
+    // Load the Typeform script dynamically
     const script = document.createElement('script');
     script.src = "//embed.typeform.com/next/embed.js";
     script.async = true;
     document.body.appendChild(script);
-  }, []);
 
-  const openTypeform = () => {
-    (window as any).typeform.open({
-      url: 'https://your-typeform-url.com', // Replace with your Typeform URL
-    });
+    script.onload = () => {
+      (window as any).typeform.open({
+        url: 'https://your-typeform-url.com', // Replace with your Typeform URL
+      });
+    };
   };
 
   return (
