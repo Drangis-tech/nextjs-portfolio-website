@@ -6,22 +6,34 @@ import { Navigation } from '../components/nav';
 const services = [
   {
     title: 'Web Development',
-    description: 'Mes kuriame modernias ir patogias svetaines, naudojant naujausias technologijas.',
+    description: [
+      'Modernios ir patogios svetainės kūrimas',
+      'Naudojame naujausias technologijas',
+    ],
     icon: faCode,
   },
   {
     title: 'Branding',
-    description: 'Padedame sukurti unikalų ir atpažįstamą jūsų prekės ženklo identitetą.',
+    description: [
+      'Unikalus prekės ženklo identitetas',
+      'Kūrybiniai sprendimai ir dizainas',
+    ],
     icon: faPalette,
   },
   {
     title: 'Ads Management',
-    description: 'Efektyviai reklamuokite savo verslą naudojant Google ir Facebook platformas.',
+    description: [
+      'Reklama Google ir Facebook platformose',
+      'Efektyvi kampanijų valdymo strategija',
+    ],
     icon: faBullhorn,
   },
   {
     title: 'SEO Optimization',
-    description: 'Optimizuojame jūsų svetainę, kad ji būtų lengviau randama paieškos sistemose.',
+    description: [
+      'Svetainės optimizavimas paieškos sistemoms',
+      'Padidinkite matomumą ir lankomumą',
+    ],
     icon: faChartLine,
   },
 ];
@@ -39,15 +51,19 @@ const Paslaugos: React.FC = () => {
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="flex">
-              <div className="w-16 h-16 p-4 text-white bg-[rgba(28, 28, 30, 0.8)] rounded-lg flex items-center justify-center group hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Transparent background with hover effect */}
-                <FontAwesomeIcon icon={service.icon} size="2x" />
+            <div key={index} className="flex items-start space-x-6">
+              <div className="w-16 h-16 flex items-center justify-center border border-zinc-700 rounded-lg bg-transparent">
+                <FontAwesomeIcon icon={service.icon} size="2x" className="text-white" />
               </div>
-              <div className="ml-6">
+              <div>
                 <h3 className="text-2xl font-bold text-zinc-100">{service.title}</h3>
-                <p className="mt-2 text-zinc-400">{service.description}</p>
+                <ul className="mt-2 list-disc list-inside text-zinc-400">
+                  {service.description.map((item, i) => (
+                    <li key={i} className="mt-1">{item}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
