@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect } from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
@@ -91,6 +89,12 @@ const Paslaugos: React.FC = () => {
     document.body.appendChild(script);
   }, []);
 
+  const openTypeform = () => {
+    (window as any).typeform.open({
+      url: 'https://your-typeform-url.com', // Replace with your Typeform URL
+    });
+  };
+
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -169,18 +173,12 @@ const Paslaugos: React.FC = () => {
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
             šiandien ir aptarkime, kaip galime jums padėti.
           </p>
-          <div className="mt-6">
-            <a
-              href="/contact"
-              className="inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
-            >
-              Susisiekite
-            </a>
-            <div className="mt-6">
-              {/* Typeform Embed */}
-              <div data-tf-live="01J5AXZPRKH5FBHJWR4SVM0E5T"></div>
-            </div>
-          </div>
+          <button
+            onClick={openTypeform}
+            className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
+          >
+            Susisiekite
+          </button>
         </div>
       </div>
     </div>
