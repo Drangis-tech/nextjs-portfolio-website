@@ -58,11 +58,7 @@ const teamData = [
     twitter: "#",
   },
   {
-<<<<<<< HEAD
     name: "Petras Vanagas",
-=======
-    name: "Petras Petraitis",
->>>>>>> dc8c563 (Your commit message)
     role: "CTO",
     linkedIn: "#",
     twitter: "#",
