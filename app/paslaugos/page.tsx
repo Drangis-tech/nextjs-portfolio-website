@@ -16,12 +16,12 @@ const services = [
     icon: faPalette,
   },
   {
-    title: 'Google & Facebook Ads',
+    title: 'Ads Management',
     description: 'Efektyviai reklamuokite savo verslą naudojant Google ir Facebook platformas.',
     icon: faBullhorn,
   },
   {
-    title: 'SEO Optimizacija',
+    title: 'SEO Optimization',
     description: 'Optimizuojame jūsų svetainę, kad ji būtų lengviau randama paieškos sistemose.',
     icon: faChartLine,
   },
