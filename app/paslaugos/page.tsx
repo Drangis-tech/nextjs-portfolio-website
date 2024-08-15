@@ -1,4 +1,3 @@
-// File: pages/paslaugos.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faPalette, faBullhorn, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
@@ -43,7 +42,7 @@ const Paslaugos: React.FC = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {services.map((service, index) => (
             <div key={index} className="flex">
-              <div className="w-16 h-16 p-4 text-white bg-zinc-800 rounded-lg flex items-center justify-center">
+              <div className="w-16 h-16 p-4 text-white bg-[rgba(28, 28, 30, 0.8)] rounded-lg flex items-center justify-center group hover:bg-[rgba(44, 44, 46, 0.8)]"> {/* Transparent background with hover effect */}
                 <FontAwesomeIcon icon={service.icon} size="2x" />
               </div>
               <div className="ml-6">
