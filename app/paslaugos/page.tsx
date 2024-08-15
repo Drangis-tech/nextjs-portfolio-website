@@ -1,9 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog, faCloud, faDatabase,
-} from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Navigation } from '../components/nav';
+import technologyIcons from '../components/TechnologyIcons'; // Import the icons from the new component
 
 // Service Data
 const services = [
@@ -14,7 +12,7 @@ const services = [
       'Naudojame naujausias technologijas',
       'React, Vue.js, WordPress ir kt.',
     ],
-    icon: faCode,
+    icon: 'faCode',
   },
   {
     title: 'Branding',
@@ -23,7 +21,7 @@ const services = [
       'Kūrybiniai sprendimai ir dizainas',
       'Logotipai, vizitinės kortelės ir kt.',
     ],
-    icon: faPalette,
+    icon: 'faPalette',
   },
   {
     title: 'Ads Management',
@@ -32,7 +30,7 @@ const services = [
       'Efektyvi kampanijų valdymo strategija',
       'Tikslinė auditorija ir analitika',
     ],
-    icon: faBullhorn,
+    icon: 'faBullhorn',
   },
   {
     title: 'SEO Optimization',
@@ -41,7 +39,7 @@ const services = [
       'Padidinkite matomumą ir lankomumą',
       'On-page ir off-page SEO',
     ],
-    icon: faChartLine,
+    icon: 'faChartLine',
   },
   {
     title: 'Custom Solutions',
@@ -50,7 +48,7 @@ const services = [
       'API integracijos, sistema pritaikyta pagal poreikius',
       'Konsultacijos ir techninė pagalba',
     ],
-    icon: faLaptopCode,
+    icon: 'faLaptopCode',
   },
   {
     title: 'IT Consulting',
@@ -59,21 +57,9 @@ const services = [
       'Strategijų kūrimas ir optimizavimas',
       'Sistemos analizė ir rekomendacijos',
     ],
-    icon: faUserCog,
+    icon: 'faUserCog',
   },
 ];
-
-// Technology Icons Mapping
-const technologyIcons = {
-  'React': faCode,
-  'Vue.js': faCode,
-  'WordPress': faCode,
-  'PHP': faCode,
-  'Node.js': faCode,
-  'AWS': faCloud,
-  'Docker': faDatabase,
-  'MySQL': faDatabase,
-};
 
 // Technologies Data
 const technologies = [
@@ -108,7 +94,7 @@ const Paslaugos: React.FC = () => {
           {services.map((service, index) => (
             <div key={index} className="flex items-start space-x-6">
               <div className="w-16 h-16 flex items-center justify-center border border-zinc-700 rounded-lg bg-transparent">
-                <FontAwesomeIcon icon={service.icon} size="2x" className="text-white" />
+                <FontAwesomeIcon icon={technologyIcons[service.icon]} size="2x" className="text-white" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-zinc-100">{service.title}</h3>
@@ -135,7 +121,7 @@ const Paslaugos: React.FC = () => {
           {technologies.map((tech, index) => (
             <div key={index} className="flex items-center space-x-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-full" style={{ backgroundColor: tech.color }}>
-                <FontAwesomeIcon icon={technologyIcons[tech.name] || faCode} size="2x" className="text-white" />
+                <FontAwesomeIcon icon={technologyIcons[tech.name] || technologyIcons['faCode']} size="2x" className="text-white" />
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-zinc-100">{tech.name}</h4>
