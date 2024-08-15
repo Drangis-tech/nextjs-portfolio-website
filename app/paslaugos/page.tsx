@@ -2,6 +2,7 @@
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
+import Button from '../components/Button'; // Import the Button component
 import {
   faCode,
   faPalette,
@@ -139,8 +140,8 @@ const Paslaugos: React.FC = () => {
 
         <div className="w-full h-px bg-zinc-800" />
 
-                {/* Technology Stack */}
-                <div className="text-center">
+        {/* Technology Stack */}
+        <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Naudojamos Technologijos
           </h2>
@@ -180,12 +181,11 @@ const Paslaugos: React.FC = () => {
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
             šiandien ir aptarkime, kaip galime jums padėti.
           </p>
-          <button
+          <Button
+            label="Susisiekite"
             onClick={openTypeform}
             className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
-          >
-            Susisiekite
-          </button>
+          />
         </div>
       </div>
     </div>
