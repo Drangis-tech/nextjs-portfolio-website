@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
 import {
@@ -81,6 +81,14 @@ const technologies = [
 ];
 
 const Paslaugos: React.FC = () => {
+  useEffect(() => {
+    // Load Typeform script
+    const script = document.createElement('script');
+    script.src = "//embed.typeform.com/next/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -159,12 +167,18 @@ const Paslaugos: React.FC = () => {
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
             šiandien ir aptarkime, kaip galime jums padėti.
           </p>
-          <a
-            href="/contact"
-            className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
-          >
-            Susisiekite
-          </a>
+          <div className="mt-6">
+            <a
+              href="/contact"
+              className="inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
+            >
+              Susisiekite
+            </a>
+            <div className="mt-6">
+              {/* Typeform Embed */}
+              <div data-tf-live="01J5AXZPRKH5FBHJWR4SVM0E5T"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
