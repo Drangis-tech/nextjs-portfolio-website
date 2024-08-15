@@ -1,4 +1,7 @@
 // app/paslaugos/page.tsx
+
+"use clinet";
+
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
