@@ -1,5 +1,7 @@
 // components/MyInteractiveComponent.tsx
 
+"use client";
+
 import { useEffect } from 'react';
 
 const MyInteractiveComponent: React.FC = () => {
