@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  /* Enable smooth scrolling for the entire document */
+  html {
+    scroll-behavior: smooth;
+  }
+
   .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 
   .hexagon-container {
