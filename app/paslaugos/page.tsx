@@ -3,20 +3,49 @@ import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
 import Button from '../components/Button'; // Import the Button component
-import {
-  faCode,
-  faPalette,
-  faBullhorn,
-  faChartLine,
-  faLaptopCode,
-  faUserCog,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
 
-// Service Data and Technologies Data...
+// Define the services array
+const services = [
+  {
+    title: 'Web Development',
+    icon: faCode,
+    description: [
+      'Custom website development',
+      'Responsive design',
+      'E-commerce solutions',
+    ],
+  },
+  {
+    title: 'Graphic Design',
+    icon: faPalette,
+    description: [
+      'Logo design',
+      'Brand identity',
+      'Marketing materials',
+    ],
+  },
+  {
+    title: 'Digital Marketing',
+    icon: faBullhorn,
+    description: [
+      'SEO optimization',
+      'Social media management',
+      'Content creation',
+    ],
+  },
+  // Add more services as needed
+];
+
+// Define the technology stack
+const technologies = [
+  { name: 'React', category: 'Frontend', color: '#61DAFB' },
+  { name: 'Node.js', category: 'Backend', color: '#8CC84B' },
+  // Add more technologies as needed
+];
 
 const Paslaugos: React.FC = () => {
   const openTypeform = () => {
-    // Load the Typeform script dynamically
     const script = document.createElement('script');
     script.src = "//embed.typeform.com/next/embed.js";
     script.async = true;
@@ -28,7 +57,6 @@ const Paslaugos: React.FC = () => {
       });
     };
 
-    // Cleanup script after loading
     script.onload = () => {
       document.body.removeChild(script);
     };
@@ -89,7 +117,6 @@ const Paslaugos: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
-                {/* Replace with appropriate icon for each technology */}
                 <Icon icon={faCode} size="2x" color="white" />
               </div>
               <div>
