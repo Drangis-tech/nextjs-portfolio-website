@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import FontAwesome CSS */
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
+
 @layer base {
   .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 
   .hexagon-container {
@@ -72,14 +75,30 @@
   .team-section .team-members {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Ensure responsiveness */
   }
 
   .team-member {
     text-align: center;
+    margin: 10px; /* Add margin for spacing */
   }
 
   .team-member .social-icons a {
     display: inline-block;
     margin: 0 5px;
+    font-size: 1.25rem; /* Adjust icon size */
+    color: #ccc; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+
+  .team-member .social-icons a:hover {
+    color: #fff; /* Change icon color on hover */
+  }
+}
+
+/* Ensure FontAwesome icons are responsive */
+@media (max-width: 768px) {
+  .team-member .social-icons a {
+    font-size: 1rem; /* Adjust icon size for mobile */
   }
 }
