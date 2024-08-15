@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import Particles from "./components/particles";
-import Button from '../components/Button'; // Import the Button component
+import Button from '../components/Button';
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
