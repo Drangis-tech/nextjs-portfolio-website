@@ -112,7 +112,6 @@ const Paslaugos: React.FC = () => {
             Mūsų Paslaugos
           </h2>
           <p className="mt-4 text-zinc-400">
-            Atraskite mūsų įvairias paslaugas, kurios padės jūsų verslui augti ir pasiekti naujas aukštumas.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
