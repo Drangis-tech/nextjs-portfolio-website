@@ -1,8 +1,7 @@
-// app/paslaugos/page.tsx
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
-import Button from '../components/Button'; // Import the Button component
+import Button from '../components/Button';
 import {
   faCode,
   faPalette,
@@ -138,7 +137,6 @@ const Paslaugos: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
-                {/* Replace with appropriate icon for each technology */}
                 <Icon icon={faCode} size="2x" color="white" />
               </div>
               <div>
@@ -165,6 +163,7 @@ const Paslaugos: React.FC = () => {
           <Button
             label="Susisiekite"
             className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
+            icon={faBullhorn} // Example of adding an icon to the button
           />
         </div>
       </div>
