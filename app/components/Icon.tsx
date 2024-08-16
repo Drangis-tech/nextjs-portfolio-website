@@ -1,9 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 interface IconProps {
-  icon: any;
-  size?: string;
+  icon: IconProp;
+  size?: SizeProp; // Correctly typed SizeProp
   color?: string;
 }
 
