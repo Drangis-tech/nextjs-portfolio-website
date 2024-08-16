@@ -1,5 +1,3 @@
-@import 'path-to-your-imports.css'; /* Make sure this is at the top */
-
 /* Ensure all @import statements are at the top of the file */
 @tailwind base;
 @tailwind components;
