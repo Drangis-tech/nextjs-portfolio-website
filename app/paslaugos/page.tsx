@@ -10,7 +10,6 @@ import {
   faUserCog,
 } from '@fortawesome/free-solid-svg-icons';
 
-// Service Data
 const services = [
   { title: 'Web Development', description: ['...'], icon: faCode },
   { title: 'Branding', description: ['...'], icon: faPalette },
@@ -20,7 +19,6 @@ const services = [
   { title: 'IT Consulting', description: ['...'], icon: faUserCog },
 ];
 
-// Technologies Data
 const technologies = [
   { name: 'React', category: 'Front-end', color: '#61DAFB' },
   { name: 'Vue.js', category: 'Framework', color: '#42b883' },
@@ -37,7 +35,6 @@ const Paslaugos: React.FC = () => {
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
-        {/* Hero Section */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Mūsų Paslaugos
@@ -47,12 +44,10 @@ const Paslaugos: React.FC = () => {
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
-
-        {/* Service Categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="flex items-start space-x-6">
-              <div className="w-16 h-16 flex items-center justify-center border border-zinc-700 rounded-lg bg-transparent">
+              <div className="w-16 h-16 flex items-center justify-center border border-zinc-700 rounded-lg bg-transparent icon-container">
                 <Icon icon={service.icon} size="2x" color="white" />
               </div>
               <div>
@@ -68,17 +63,13 @@ const Paslaugos: React.FC = () => {
             </div>
           ))}
         </div>
-
         <div className="w-full h-px bg-zinc-800" />
-
-        {/* Technology Stack */}
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Naudojamos Technologijos
           </h2>
           <p className="mt-4 text-zinc-400">
-          Mes dirbame su įvairiomis pažangiomis technologijomis, kurios
-            užtikrina mūsų projektų kokybę ir efektyvumą.
+            Mes dirbame su įvairiomis pažangiomis technologijomis, kurios užtikrina mūsų projektų kokybę ir efektyvumą.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -88,7 +79,6 @@ const Paslaugos: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
-                {/* Replace with appropriate icon for each technology */}
                 <Icon icon={faCode} size="2x" color="white" />
               </div>
               <div>
@@ -100,19 +90,14 @@ const Paslaugos: React.FC = () => {
             </div>
           ))}
         </div>
-
         <div className="w-full h-px bg-zinc-800" />
-
-        {/* Call to Action */}
         <div className="text-center mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Susisiekite su Mumis
           </h2>
           <p className="mt-4 text-zinc-400">
-            Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
-            šiandien ir aptarkime, kaip galime jums padėti.
+            Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis šiandien ir aptarkime, kaip galime jums padėti.
           </p>
-          {/* Button component has been removed */}
         </div>
       </div>
     </div>
