@@ -20,7 +20,7 @@ const services = [
     description: [
       'Logo design',
       'Brand identity',
-      'Marketing materials',
+      'Marketing materialas',
     ],
   },
   {
