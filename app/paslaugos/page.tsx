@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
+import MyInteractiveComponent from '../components/MyInteractiveComponent'; // Import the new component
 import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
 
 // Define the services array
