@@ -1,16 +1,15 @@
 // app/components/Button.tsx
 import React from 'react';
 
-// Define the component props including className
 interface ButtonProps {
   label: string;
-  onClick?: () => void;  // onClick is optional
-  className?: string;    // className is optional
+  onClick?: () => void;
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({ label, onClick, className }) => {
   return (
-    <button onClick={onClick} className={className}> {/* Apply className here */}
+    <button onClick={onClick} className={`btn ${className}`}>
       {label}
     </button>
   );
