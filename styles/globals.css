@@ -87,4 +87,18 @@
     display: inline-block;
     margin: 0 5px;
   }
+
+  /* Ensure FontAwesome icons are visible */
+  .fa {
+    display: inline-block; /* Ensure icons are visible */
+    vertical-align: middle; /* Align icons properly */
+    font-style: normal; /* Prevent styles from affecting the icons */
+  }
+
+  /* Add a rule for icons container to avoid unexpected hiding */
+  .icon-container {
+    display: flex; /* Ensure the container is visible */
+    align-items: center;
+    justify-content: center;
+  }
 }
