@@ -71,14 +71,12 @@ const services = [
 
 // Technologies Data
 const technologies = [
-  { name: 'React', category: 'Front-end', color: '#61DAFB' },
-  { name: 'Vue.js', category: 'Framework', color: '#42b883' },
-  { name: 'WordPress', category: 'CMS', color: '#21759B' },
-  { name: 'PHP', category: 'Back-end', color: '#777BB4' },
-  { name: 'Node.js', category: 'Back-end', color: '#8CC84B' },
-  { name: 'AWS', category: 'Cloud', color: '#FF9900' },
-  { name: 'Docker', category: 'Data', color: '#2496ED' },
-  { name: 'MySQL', category: 'Data', color: '#4479A1' },
+  { name: 'React', category: 'Front-end', color: '#61DAFB', icon: faCode },
+  { name: 'Vue.js', category: 'Framework', color: '#42b883', icon: faPalette },
+  { name: 'WordPress', category: 'CMS', color: '#21759B', icon: faBullhorn },
+  { name: 'PHP', category: 'Back-end', color: '#777BB4', icon: faChartLine },
+  { name: 'Node.js', category: 'Back-end', color: '#8CC84B', icon: faLaptopCode },
+  { name: 'AWS', category: 'Cloud', color: '#FF9900', icon: faUserCog },
 ];
 
 const Paslaugos: React.FC = () => {
@@ -137,7 +135,7 @@ const Paslaugos: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
-                <Icon icon={faCode} size="2x" color="white" />
+                <Icon icon={tech.icon} size="2x" color="white" />
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-zinc-100">
@@ -163,7 +161,6 @@ const Paslaugos: React.FC = () => {
           <Button
             label="Susisiekite"
             className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
-            icon={faBullhorn} // Example of adding an icon to the button
           />
         </div>
       </div>
