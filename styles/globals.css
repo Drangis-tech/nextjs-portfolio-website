@@ -85,5 +85,12 @@
   .team-member .social-icons a {
     display: inline-block;
     margin: 0 5px;
+    font-size: 2rem; /* Ensure icons are visible */
+  }
+
+  @media (max-width: 768px) {
+    .team-member .social-icons a {
+      font-size: 1.5rem; /* Adjust as needed for mobile */
+    }
   }
 }
