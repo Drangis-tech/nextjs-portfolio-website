@@ -1,46 +1,84 @@
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
-import MyInteractiveComponent from '../components/MyInteractiveComponent'; // Import the new component
-import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
+import Button from '../components/Button'; // Import the Button component
+import {
+  faCode,
+  faPalette,
+  faBullhorn,
+  faChartLine,
+  faLaptopCode,
+  faUserCog,
+} from '@fortawesome/free-solid-svg-icons';
 
-// Define the services array
+// Service Data
 const services = [
   {
     title: 'Web Development',
+    description: [
+      'Modernios ir patogios svetainės kūrimas',
+      'Naudojame naujausias technologijas',
+      'React, Vue.js, WordPress ir kt.',
+    ],
     icon: faCode,
-    description: [
-      'Custom website development',
-      'Responsive design',
-      'E-commerce solutions',
-    ],
   },
   {
-    title: 'Graphic Design',
+    title: 'Branding',
+    description: [
+      'Unikalus prekės ženklo identitetas',
+      'Kūrybiniai sprendimai ir dizainas',
+      'Logotipai, vizitinės kortelės ir kt.',
+    ],
     icon: faPalette,
-    description: [
-      'Logo design',
-      'Brand identity',
-      'Marketing materials',
-    ],
   },
   {
-    title: 'Digital Marketing',
-    icon: faBullhorn,
+    title: 'Ads Management',
     description: [
-      'SEO optimization',
-      'Social media management',
-      'Content creation',
+      'Reklama Google ir Facebook platformose',
+      'Efektyvi kampanijų valdymo strategija',
+      'Tikslinė auditorija ir analitika',
     ],
+    icon: faBullhorn,
   },
-  // Add more services as needed
+  {
+    title: 'SEO Optimization',
+    description: [
+      'Svetainės optimizavimas paieškos sistemoms',
+      'Padidinkite matomumą ir lankomumą',
+      'On-page ir off-page SEO',
+    ],
+    icon: faChartLine,
+  },
+  {
+    title: 'Custom Solutions',
+    description: [
+      'Individualūs programavimo sprendimai',
+      'API integracijos, sistema pritaikyta pagal poreikius',
+      'Konsultacijos ir techninė pagalba',
+    ],
+    icon: faLaptopCode,
+  },
+  {
+    title: 'IT Consulting',
+    description: [
+      'Konsultacijos IT ir technologijų klausimais',
+      'Strategijų kūrimas ir optimizavimas',
+      'Sistemos analizė ir rekomendacijos',
+    ],
+    icon: faUserCog,
+  },
 ];
 
-// Define the technology stack
+// Technologies Data
 const technologies = [
-  { name: 'React', category: 'Frontend', color: '#61DAFB' },
-  { name: 'Node.js', category: 'Backend', color: '#8CC84B' },
-  // Add more technologies as needed
+  { name: 'React', category: 'Front-end', color: '#61DAFB' },
+  { name: 'Vue.js', category: 'Framework', color: '#42b883' },
+  { name: 'WordPress', category: 'CMS', color: '#21759B' },
+  { name: 'PHP', category: 'Back-end', color: '#777BB4' },
+  { name: 'Node.js', category: 'Back-end', color: '#8CC84B' },
+  { name: 'AWS', category: 'Cloud', color: '#FF9900' },
+  { name: 'Docker', category: 'Data', color: '#2496ED' },
+  { name: 'MySQL', category: 'Data', color: '#4479A1' },
 ];
 
 const Paslaugos: React.FC = () => {
@@ -99,6 +137,7 @@ const Paslaugos: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
+                {/* Replace with appropriate icon for each technology */}
                 <Icon icon={faCode} size="2x" color="white" />
               </div>
               <div>
@@ -122,11 +161,11 @@ const Paslaugos: React.FC = () => {
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
             šiandien ir aptarkime, kaip galime jums padėti.
           </p>
-          <div
-            className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700 cursor-pointer"
-          >
-            Susisiekite
-          </div>
+          <Button
+            label="Susisiekite"
+            onClick={() => {}}
+            className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
+          />
         </div>
       </div>
     </div>
