@@ -1,5 +1,12 @@
 // types/mdx.d.ts
+import { ReactNode } from 'react';
+
 declare module "*.mdx" {
-	let MDXComponent: (props: any) => JSX.Element;
-	export default MDXComponent;
+  interface MDXProps {
+    children?: ReactNode;
+    [key: string]: any; // Allow any additional props
   }
+  
+  let MDXComponent: (props: MDXProps) => JSX.Element;
+  export default MDXComponent;
+}
