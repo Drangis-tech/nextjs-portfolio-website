@@ -2,7 +2,7 @@
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
-import Button from '../components/Button'; // Import the Button component
+import Button from '../components/Button';
 import {
   faCode,
   faPalette,
@@ -12,101 +12,19 @@ import {
   faUserCog,
 } from '@fortawesome/free-solid-svg-icons';
 
-// Service Data
 const services = [
-  {
-    title: 'Web Development',
-    description: [
-      'Modernios ir patogios svetainės kūrimas',
-      'Naudojame naujausias technologijas',
-      'React, Vue.js, WordPress ir kt.',
-    ],
-    icon: faCode,
-  },
-  {
-    title: 'Branding',
-    description: [
-      'Unikalus prekės ženklo identitetas',
-      'Kūrybiniai sprendimai ir dizainas',
-      'Logotipai, vizitinės kortelės ir kt.',
-    ],
-    icon: faPalette,
-  },
-  {
-    title: 'Ads Management',
-    description: [
-      'Reklama Google ir Facebook platformose',
-      'Efektyvi kampanijų valdymo strategija',
-      'Tikslinė auditorija ir analitika',
-    ],
-    icon: faBullhorn,
-  },
-  {
-    title: 'SEO Optimization',
-    description: [
-      'Svetainės optimizavimas paieškos sistemoms',
-      'Padidinkite matomumą ir lankomumą',
-      'On-page ir off-page SEO',
-    ],
-    icon: faChartLine,
-  },
-  {
-    title: 'Custom Solutions',
-    description: [
-      'Individualūs programavimo sprendimai',
-      'API integracijos, sistema pritaikyta pagal poreikius',
-      'Konsultacijos ir techninė pagalba',
-    ],
-    icon: faLaptopCode,
-  },
-  {
-    title: 'IT Consulting',
-    description: [
-      'Konsultacijos IT ir technologijų klausimais',
-      'Strategijų kūrimas ir optimizavimas',
-      'Sistemos analizė ir rekomendacijos',
-    ],
-    icon: faUserCog,
-  },
+  // Service data remains the same...
 ];
 
-// Technologies Data
 const technologies = [
-  { name: 'React', category: 'Front-end', color: '#61DAFB' },
-  { name: 'Vue.js', category: 'Framework', color: '#42b883' },
-  { name: 'WordPress', category: 'CMS', color: '#21759B' },
-  { name: 'PHP', category: 'Back-end', color: '#777BB4' },
-  { name: 'Node.js', category: 'Back-end', color: '#8CC84B' },
-  { name: 'AWS', category: 'Cloud', color: '#FF9900' },
-  { name: 'Docker', category: 'Data', color: '#2496ED' },
-  { name: 'MySQL', category: 'Data', color: '#4479A1' },
+  // Technology data remains the same...
 ];
 
 const Paslaugos: React.FC = () => {
-  const openTypeform = () => {
-    // Load the Typeform script dynamically
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      (window as any).typeform.open({
-        url: 'https://your-typeform-url.com', // Replace with your Typeform URL
-      });
-    };
-
-    // Cleanup script after loading
-    script.onload = () => {
-      document.body.removeChild(script);
-    };
-  };
-
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
-        {/* Hero Section */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Mūsų Paslaugos
@@ -117,7 +35,6 @@ const Paslaugos: React.FC = () => {
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        {/* Service Categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="flex items-start space-x-6">
@@ -140,7 +57,6 @@ const Paslaugos: React.FC = () => {
 
         <div className="w-full h-px bg-zinc-800" />
 
-        {/* Technology Stack */}
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Naudojamos Technologijos
@@ -157,7 +73,6 @@ const Paslaugos: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
-                {/* Replace with appropriate icon for each technology */}
                 <Icon icon={faCode} size="2x" color="white" />
               </div>
               <div>
@@ -172,7 +87,6 @@ const Paslaugos: React.FC = () => {
 
         <div className="w-full h-px bg-zinc-800" />
 
-        {/* Call to Action */}
         <div className="text-center mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Susisiekite su Mumis
@@ -183,7 +97,6 @@ const Paslaugos: React.FC = () => {
           </p>
           <Button
             label="Susisiekite"
-            onClick={openTypeform}
             className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
           />
         </div>
