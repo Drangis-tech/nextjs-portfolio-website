@@ -1,12 +1,11 @@
 // app/components/Icon.tsx
 import React from 'react';
 import { FontAwesomeIcon, SizeProp } from '@fortawesome/react-fontawesome';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface IconProps {
   icon: IconProp;
-  size?: string;
+  size?: SizeProp;  // Correct type for size
   color?: string;
 }
 
