@@ -24,7 +24,7 @@ const services = [
     ],
   },
   {
-    title: 'Digital Marketing',
+    title: 'Digital Marketingas',
     icon: faBullhorn,
     description: [
       'SEO optimization',
