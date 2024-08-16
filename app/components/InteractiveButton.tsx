@@ -1,9 +1,13 @@
-// app/components/InteractiveButton.tsx
-'use client';
-
 import React from 'react';
 
-const InteractiveButton = ({ onClick, className, children }) => {
+// Define the props interface
+interface InteractiveButtonProps {
+  onClick?: () => void; // Define type for onClick (optional function)
+  className?: string;   // Define type for className (optional string)
+  children?: React.ReactNode; // Define type for children (optional ReactNode)
+}
+
+const InteractiveButton: React.FC<InteractiveButtonProps> = ({ onClick, className, children }) => {
   return (
     <button onClick={onClick} className={className}>
       {children}

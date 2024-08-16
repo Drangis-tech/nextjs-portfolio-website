@@ -1,7 +1,9 @@
+/* Ensure all @import statements are at the top of the file */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Use @layer directive correctly */
 @layer base {
   html {
     scroll-behavior: smooth;
