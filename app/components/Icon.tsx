@@ -10,18 +10,7 @@ interface IconProps {
 }
 
 const Icon: React.FC<IconProps> = ({ icon, size = '2x', color = 'white' }) => {
-  // Log the props for debugging
-  console.log('Icon props:', { icon, size, color });
-
-  return (
-    <FontAwesomeIcon
-      icon={icon}
-      size={size}
-      style={{ color }}
-      // Add a title for better debugging
-      title="FontAwesome Icon"
-    />
-  );
+  return <FontAwesomeIcon icon={icon} size={size} style={{ color }} />;
 };
 
 export default Icon;
