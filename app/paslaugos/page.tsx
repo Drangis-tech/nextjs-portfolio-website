@@ -179,7 +179,7 @@ const Paslaugos: React.FC = () => {
           </h2>
           <p className="mt-4 text-zinc-400">
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
-            šiandien ir aptarkime, kaip galime jums padėti.
+            šiandien ir aptarkime, kaip galime jums padėti!
           </p>
           <Button
             label="Susisiekite"
