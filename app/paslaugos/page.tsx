@@ -2,14 +2,8 @@
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
-import {
-  faCode,
-  faPalette,
-  faBullhorn,
-  faChartLine,
-  faLaptopCode,
-  faUserCog,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '../components/Button'; // Ensure Button component is imported
 
 // Service Data
 const services = [
@@ -81,6 +75,8 @@ const technologies = [
   { name: 'MySQL', category: 'Data', color: '#4479A1' },
 ];
 
+// Paslaugos Component
+const Paslaugos: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -168,5 +164,6 @@ const technologies = [
       </div>
     </div>
   );
+};
 
 export default Paslaugos;
