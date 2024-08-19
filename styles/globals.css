@@ -8,6 +8,16 @@
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 @layer base {
+  /* Gradient border */
+  .border-gradient {
+    border-image: linear-gradient(to right, #f97316, #fb923c, #fbbf24) 1;
+  }
+
+  /* Additional button styling */
+  .border-gradient-bg {
+    border-image: linear-gradient(to right, #f97316, #fb923c, #fbbf24) 1;
+  }
+
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
@@ -95,11 +105,6 @@
 
   .team-member .social-icons a:hover {
     color: #fff; /* Change icon color on hover */
-  }
-
-  /* Gradient border */
-  .border-gradient {
-    border-image: linear-gradient(to right, #f97316, #fb923c, #fbbf24) 1;
   }
 }
 

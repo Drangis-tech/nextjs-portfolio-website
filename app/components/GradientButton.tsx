@@ -10,9 +10,10 @@ const GradientButton: React.FC<GradientButtonProps> = ({ onClick, children }) =>
   return (
     <button
       onClick={onClick}
-      className="w-full py-2 px-4 border-2 border-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md bg-transparent transition duration-200 ease-in-out hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-700 hover:border-transparent active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400"
+      className="relative w-full py-2 px-4 text-white font-semibold rounded-md bg-transparent border-2 border-transparent transition-all duration-300 ease-in-out hover:border-transparent focus:outline-none focus:ring focus:ring-orange-400"
     >
-      {children}
+      <span className="absolute inset-0 rounded-md border-2 border-gradient bg-transparent"></span>
+      <span className="relative z-10">{children}</span>
     </button>
   );
 };
