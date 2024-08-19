@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import Particles from "./components/particles";
+import MeteorShower from "./components/MeteorShower";
+
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
