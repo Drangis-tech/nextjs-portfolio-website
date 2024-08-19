@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
 import {
@@ -82,6 +82,7 @@ const technologies = [
   { name: 'MySQL', category: 'Data', color: '#4479A1' },
 ];
 
+const Paslaugos = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -167,12 +168,11 @@ const technologies = [
             >
               Susisiekite
             </a>
-            <div className="mt-6">
-            </div>
           </div>
         </div>
       </div>
     </div>
   );
+};
 
 export default Paslaugos;
