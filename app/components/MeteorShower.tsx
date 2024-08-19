@@ -42,7 +42,7 @@ export default function MeteorShower({ className = "" }: MeteorShowerProps) {
 
     const length = Math.random() * 80 + 20;
     const speed = Math.random() * 10 + 2;
-    const x = Math.random() * canvasSize.current.w;
+    const x = Math.random() * canvasSize.current.w; // aa
     const y = -length;
     const angle = Math.PI / 4;
     const dx = Math.cos(angle) * speed;
