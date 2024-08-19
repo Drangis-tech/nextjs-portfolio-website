@@ -63,6 +63,23 @@ const services = [
   },
 ];
 
+// Technology Stack Data
+const technologies = [
+  {
+    name: 'React',
+    logo: '/path/to/react-logo.png',
+    color: '#61DAFB',
+    category: 'JavaScript Library',
+  },
+  {
+    name: 'Node.js',
+    logo: '/path/to/nodejs-logo.png',
+    color: '#8CC84B',
+    category: 'JavaScript Runtime',
+  },
+  // Add more technologies as needed
+];
+
 const Paslaugos = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
