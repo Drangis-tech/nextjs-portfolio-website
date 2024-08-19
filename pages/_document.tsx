@@ -6,7 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* Remove FontAwesome CDN link */}
+          {/* FontAwesome CDN link is removed, relying on local import */}
         </Head>
         <body>
           <Main />

@@ -98,19 +98,19 @@
 
   /* Ensure FontAwesome icons are mobile-friendly */
   .fa-icon {
-    font-size: inherit !important; /* Inherit font size for responsiveness */
+    font-size: inherit; /* Inherit font size for responsiveness */
     display: inline-block;
     width: auto;
     height: auto;
     max-width: 100%; /* Ensure icons do not exceed container size */
     max-height: 100%; /* Ensure icons do not exceed container size */
-    line-height: 1; /* Prevents vertical misalignment */
+    line-height: 1; /* Prevent vertical misalignment */
     color: currentColor; /* Ensure icon color inherits from parent */
   }
 
   @media (max-width: 600px) {
     .fa-icon {
-      font-size: 1.5rem !important; /* Increase size for better visibility on mobile */
+      font-size: 1.5rem; /* Increase size for better visibility on mobile */
     }
   }
 }
