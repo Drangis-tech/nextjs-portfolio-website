@@ -53,6 +53,7 @@ const PricingCalculator: React.FC = () => {
               className="relative w-full h-2 appearance-none bg-transparent cursor-pointer z-20"
               style={{
                 WebkitAppearance: "none", // Removes default appearance
+                outline: "none",            // Removes outline on focus
               }}
             />
             {/* Custom Slider Thumb */}
