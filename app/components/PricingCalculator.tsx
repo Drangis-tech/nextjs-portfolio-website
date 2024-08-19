@@ -1,5 +1,3 @@
-// app/kainos/PricingCalculator.tsx
-
 "use client";
 
 import React, { useState } from "react";
@@ -31,18 +29,16 @@ const PricingCalculator: React.FC = () => {
             Puslapių skaičius: {pages}
           </label>
           <div className="relative w-full">
+            {/* Full Slider Track */}
+            <div
+              className="absolute top-1/2 left-0 h-2 bg-zinc-700 rounded-full w-full"
+              style={{ transform: "translateY(-50%)" }}
+            ></div>
             {/* Slider Progress Line */}
             <div
               className="absolute top-1/2 left-0 h-2 bg-blue-500 rounded-full"
               style={{
                 width: `${(pages / 20) * 100}%`,
-                transform: "translateY(-50%)",
-              }}
-            ></div>
-            {/* Full Slider Track */}
-            <div
-              className="absolute top-1/2 left-0 h-2 bg-zinc-700 rounded-full w-full"
-              style={{
                 transform: "translateY(-50%)",
               }}
             ></div>
