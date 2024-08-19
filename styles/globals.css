@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Use @layer directive correctly */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+/* Import FontAwesome CSS */
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
 
+@layer base {
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
@@ -77,40 +75,30 @@
   .team-section .team-members {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Ensure responsiveness */
   }
 
   .team-member {
     text-align: center;
+    margin: 10px; /* Add margin for spacing */
   }
 
   .team-member .social-icons a {
     display: inline-block;
     margin: 0 5px;
-    font-size: 2rem; /* Ensure icons are visible */
-    color: inherit; /* Ensure color is inherited */
+    font-size: 1.25rem; /* Adjust icon size */
+    color: #ccc; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition */
   }
 
-  @media (max-width: 768px) {
-    .team-member .social-icons a {
-      font-size: 1.5rem; /* Adjust as needed for mobile */
-    }
+  .team-member .social-icons a:hover {
+    color: #fff; /* Change icon color on hover */
   }
+}
 
-  /* Ensure FontAwesome icons are mobile-friendly */
-  .fa-icon {
-    font-size: inherit; /* Inherit font size for responsiveness */
-    display: inline-block;
-    width: auto;
-    height: auto;
-    max-width: 100%; /* Ensure icons do not exceed container size */
-    max-height: 100%; /* Ensure icons do not exceed container size */
-    line-height: 1; /* Prevent vertical misalignment */
-    color: currentColor; /* Ensure icon color inherits from parent */
-  }
-
-  @media (max-width: 600px) {
-    .fa-icon {
-      font-size: 1.5rem; /* Increase size for better visibility on mobile */
-    }
+/* Ensure FontAwesome icons are responsive */
+@media (max-width: 768px) {
+  .team-member .social-icons a {
+    font-size: 1rem; /* Adjust icon size for mobile */
   }
 }
