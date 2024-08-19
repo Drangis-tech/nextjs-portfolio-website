@@ -82,15 +82,6 @@ const technologies = [
   { name: 'MySQL', category: 'Data', color: '#4479A1' },
 ];
 
-const Paslaugos: React.FC = () => {
-  useEffect(() => {
-    // Load Typeform script
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -185,6 +176,5 @@ const Paslaugos: React.FC = () => {
       </div>
     </div>
   );
-};
 
 export default Paslaugos;
