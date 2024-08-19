@@ -100,10 +100,24 @@
 @layer utilities {
   .border-gradient {
     border-image: linear-gradient(to right, #facc15, #fb923c) 1;
+    border-width: 2px;
   }
 
   .bg-clip-border {
     background-clip: border-box;
+  }
+
+  .bg-gradient-hover {
+    background-image: linear-gradient(to right, #fb923c, #facc15);
+    color: white;
+  }
+
+  .text-transparent-hover {
+    color: transparent;
+  }
+
+  .hover-text-visible {
+    color: white;
   }
 }
 
