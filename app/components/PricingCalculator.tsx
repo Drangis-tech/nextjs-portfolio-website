@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../kainos/PricingCalculator.css'; // Adjust the path as necessary
+import '../kainos/PricingCalculator.css'; // Adjust the path to your CSS file
 
-const PricingCalculator = () => {
+const PricingCalculator: React.FC = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

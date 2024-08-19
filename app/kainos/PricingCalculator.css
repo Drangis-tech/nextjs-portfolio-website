@@ -1,6 +1,9 @@
 .pricing-calculator {
     text-align: center;
     padding: 20px;
+    background-color: #1f2937; /* Adjust the background color as needed */
+    border-radius: 8px; /* Optional: Add some rounding to the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add some shadow */
   }
   
   .slider-container {
@@ -46,4 +49,5 @@
   .slider-value {
     margin-top: 20px;
     font-size: 16px;
+    color: #e5e7eb; /* Adjust text color for readability */
   }
