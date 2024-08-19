@@ -15,6 +15,10 @@ const PricingCalculator: React.FC = () => {
     return pages * 100 + design + ecommerceCost;
   };
 
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPages(Number(e.target.value));
+  };
+
   return (
     <Card className="card">
       <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)]">
@@ -25,18 +29,6 @@ const PricingCalculator: React.FC = () => {
             Puslapių skaičius: {pages}
           </label>
           <div className="relative w-full">
-            <input
-              type="range"
-              id="pages"
-              min={1}
-              max={20}
-              value={pages}
-              onChange={(e) => setPages(Number(e.target.value))}
-              className="w-full h-6 bg-transparent cursor-pointer appearance-none"
-              style={{
-                accentColor: "transparent", // Remove default color
-              }}
-            />
             {/* Progress Line */}
             <div
               className="absolute top-1/2 left-0 h-1.5 bg-blue-500 rounded-full"
@@ -45,14 +37,28 @@ const PricingCalculator: React.FC = () => {
                 transform: "translateY(-50%)",
               }}
             ></div>
+            {/* Slider */}
+            <input
+              type="range"
+              id="pages"
+              min={1}
+              max={20}
+              value={pages}
+              onChange={handleSliderChange}
+              className="w-full h-6 bg-transparent cursor-pointer appearance-none"
+              style={{
+                position: "relative",
+                zIndex: 10,
+              }}
+            />
             {/* Custom Slider Thumb */}
             <div
-              className="absolute top-1/2 transform -translate-y-1/2 bg-blue-600 rounded-full"
+              className="absolute top-1/2 transform -translate-y-1/2 bg-blue-600 rounded-full shadow-lg cursor-pointer"
               style={{
-                width: "24px",
-                height: "24px",
-                left: `${(pages / 20) * 100}%`,
-                marginLeft: "-12px", // Center the thumb over the progress line
+                width: "28px",
+                height: "28px",
+                left: `calc(${(pages / 20) * 100}% - 14px)`, // Center the thumb over the progress line
+                zIndex: 11,
               }}
             ></div>
           </div>
