@@ -1,4 +1,3 @@
-// page.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -26,7 +25,6 @@ const PricingCalculator: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    // Handle form submission here (e.g., send data to a server or an API)
     alert("Jūsų užklausa buvo išsiųsta!");
   };
 
@@ -153,7 +151,7 @@ const PricingCalculator: React.FC = () => {
 
         <button
           onClick={handleSubmit}
-          className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"
+          className="w-full py-2 px-4 bg-gray-700 text-white font-semibold rounded-md hover:bg-gray-600 transition duration-200"
         >
           Siųsti užklausą
         </button>
@@ -164,7 +162,7 @@ const PricingCalculator: React.FC = () => {
 
 const KainosPage: React.FC = () => {
   return (
-    <div className="relative pb-16 bg-gradient-to-tl from-black via-gray-900 to-black">
+    <div className="relative pb-16 bg-gradient-to-tl from-gray-900 via-gray-800 to-gray-900">
       <Navigation />
       <div className="absolute inset-0 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 opacity-90"></div>
       <div className="relative px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
