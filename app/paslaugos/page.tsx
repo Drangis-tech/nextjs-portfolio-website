@@ -67,17 +67,52 @@ const services = [
 const technologies = [
   {
     name: 'React',
-    logo: '/path/to/react-logo.png',
+    logo: '/logos/react.svg',
     color: '#61DAFB',
     category: 'JavaScript Library',
   },
   {
+    name: 'Vue.js',
+    logo: '/logos/vue.svg',
+    color: '#42b883',
+    category: 'JavaScript Framework',
+  },
+  {
+    name: 'WordPress',
+    logo: '/logos/wordpress.svg',
+    color: '#21759B',
+    category: 'Content Management System',
+  },
+  {
+    name: 'PHP',
+    logo: '/logos/php.svg',
+    color: '#777BB4',
+    category: 'Server-side Language',
+  },
+  {
     name: 'Node.js',
-    logo: '/path/to/nodejs-logo.png',
+    logo: '/logos/node.svg',
     color: '#8CC84B',
     category: 'JavaScript Runtime',
   },
-  // Add more technologies as needed
+  {
+    name: 'AWS',
+    logo: '/logos/aws.svg',
+    color: '#FF9900',
+    category: 'Cloud Services',
+  },
+  {
+    name: 'Docker',
+    logo: '/logos/docker.svg',
+    color: '#2496ED',
+    category: 'Containerization',
+  },
+  {
+    name: 'MySQL',
+    logo: '/logos/mysql.svg',
+    color: '#4479A1',
+    category: 'Database',
+  },
 ];
 
 const Paslaugos = () => {
