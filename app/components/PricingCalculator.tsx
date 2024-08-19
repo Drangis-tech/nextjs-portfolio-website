@@ -18,31 +18,41 @@ const PricingCalculator: React.FC = () => {
   return (
     <Card className="card">
       <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)]">
-        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">Apskaičiuokite savo svetainės kainą:</h3>
+        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">Apskaičiuokite savo svetainės kainą</h3>
 
         <div className="mb-8">
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-2">
             Puslapių skaičius: {pages}
           </label>
-          <div className="relative">
+          <div className="relative w-full">
             <input
               type="range"
               id="pages"
               min={1}
-              max={20}  // Set maximum value to 20
+              max={20}
               value={pages}
               onChange={(e) => setPages(Number(e.target.value))}
-              className="w-full h-6 bg-zinc-800 border-none rounded-full appearance-none cursor-pointer"
+              className="w-full h-6 bg-transparent cursor-pointer appearance-none"
               style={{
-                accentColor: "#61DAFB",
-                height: "1.5rem", // Increase slider height for better usability
+                accentColor: "transparent", // Remove default color
               }}
             />
+            {/* Progress Line */}
             <div
-              className="absolute top-1/2 left-0 h-1.5 rounded-full bg-blue-500"
+              className="absolute top-1/2 left-0 h-1.5 bg-blue-500 rounded-full"
               style={{
                 width: `${(pages / 20) * 100}%`,
                 transform: "translateY(-50%)",
+              }}
+            ></div>
+            {/* Custom Slider Thumb */}
+            <div
+              className="absolute top-1/2 transform -translate-y-1/2 bg-blue-600 rounded-full"
+              style={{
+                width: "24px",
+                height: "24px",
+                left: `${(pages / 20) * 100}%`,
+                marginLeft: "-12px", // Center the thumb over the progress line
               }}
             ></div>
           </div>
