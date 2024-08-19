@@ -151,7 +151,7 @@ const PricingCalculator: React.FC = () => {
 
         <button
           onClick={handleSubmit}
-          className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-500 active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300 transition duration-200"
+          className="w-full py-2 px-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-md hover:from-orange-400 hover:to-red-400 active:from-orange-600 active:to-red-600 focus:outline-none focus:ring focus:ring-orange-300 transition duration-200"
           >
           Siųsti užklausą
         </button>
