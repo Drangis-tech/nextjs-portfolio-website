@@ -22,22 +22,31 @@ const PricingCalculator: React.FC = () => {
   return (
     <Card className="card">
       <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)]">
-        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">Apskaičiuokite savo svetainės kainą</h3>
+        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">
+          Apskaičiuokite savo svetainės kainą
+        </h3>
 
         <div className="mb-8">
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-2">
             Puslapių skaičius: {pages}
           </label>
           <div className="relative w-full">
-            {/* Progress Line */}
+            {/* Slider Progress Line */}
             <div
-              className="absolute top-1/2 left-0 h-1.5 bg-blue-500 rounded-full"
+              className="absolute top-1/2 left-0 h-2 bg-blue-500 rounded-full"
               style={{
                 width: `${(pages / 20) * 100}%`,
                 transform: "translateY(-50%)",
               }}
             ></div>
-            {/* Slider */}
+            {/* Full Slider Track */}
+            <div
+              className="absolute top-1/2 left-0 h-2 bg-zinc-700 rounded-full w-full"
+              style={{
+                transform: "translateY(-50%)",
+              }}
+            ></div>
+            {/* Slider Input */}
             <input
               type="range"
               id="pages"
@@ -45,20 +54,20 @@ const PricingCalculator: React.FC = () => {
               max={20}
               value={pages}
               onChange={handleSliderChange}
-              className="w-full h-6 bg-transparent cursor-pointer appearance-none"
+              className="relative w-full h-2 appearance-none bg-transparent cursor-pointer z-20"
               style={{
-                position: "relative",
-                zIndex: 10,
+                WebkitAppearance: "none", // Removes default appearance
               }}
             />
             {/* Custom Slider Thumb */}
             <div
-              className="absolute top-1/2 transform -translate-y-1/2 bg-blue-600 rounded-full shadow-lg cursor-pointer"
+              className="absolute top-1/2 bg-blue-600 rounded-full shadow-lg cursor-pointer"
               style={{
-                width: "28px",
-                height: "28px",
-                left: `calc(${(pages / 20) * 100}% - 14px)`, // Center the thumb over the progress line
-                zIndex: 11,
+                width: "24px",
+                height: "24px",
+                left: `calc(${(pages / 20) * 100}% - 12px)`, // Center the thumb over the progress line
+                transform: "translateY(-50%)",
+                zIndex: 30,
               }}
             ></div>
           </div>
