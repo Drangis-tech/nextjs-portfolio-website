@@ -15,7 +15,7 @@ import {
 // Service Data
 const services = [
   {
-    title: 'Web Development',
+    title: 'Web Development', //Puslapiu kurimas
     description: [
       'Modernios ir patogios svetainės kūrimas',
       'Naudojame naujausias technologijas',
