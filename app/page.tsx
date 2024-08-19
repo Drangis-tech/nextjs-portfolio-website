@@ -8,6 +8,7 @@ const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
   { name: "Paslaugos", href: "/paslaugos" },
   { name: "Apie Mus", href: "/apie-mus" },
+  { name: "Kainos", href: "/kainos" },
   { name: "Kontaktai", href: "/contact" },
 ];
 
