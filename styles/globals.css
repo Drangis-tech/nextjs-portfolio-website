@@ -1,3 +1,4 @@
+/* Ensure Tailwind's base, components, and utilities are imported */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -107,17 +108,8 @@
     background-clip: border-box;
   }
 
-  .bg-gradient-hover {
+  .hover:bg-gradient-to-r {
     background-image: linear-gradient(to right, #fb923c, #facc15);
-    color: white;
-  }
-
-  .text-transparent-hover {
-    color: transparent;
-  }
-
-  .hover-text-visible {
-    color: white;
   }
 }
 
