@@ -28,15 +28,15 @@ const PricingCalculator: React.FC = () => {
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-2">
             Puslapių skaičius: {pages}
           </label>
-          <div className="relative w-full">
+          <div className="relative w-full h-10 flex items-center">
             {/* Full Slider Track */}
             <div
-              className="absolute top-1/2 left-0 h-2 bg-zinc-700 rounded-full w-full"
+              className="absolute top-1/2 left-0 h-2 rounded-full w-full bg-zinc-700"
               style={{ transform: "translateY(-50%)" }}
             ></div>
             {/* Slider Progress Line */}
             <div
-              className="absolute top-1/2 left-0 h-2 bg-blue-500 rounded-full"
+              className="absolute top-1/2 left-0 h-2 rounded-full bg-blue-500"
               style={{
                 width: `${(pages / 20) * 100}%`,
                 transform: "translateY(-50%)",
@@ -50,7 +50,7 @@ const PricingCalculator: React.FC = () => {
               max={20}
               value={pages}
               onChange={handleSliderChange}
-              className="relative w-full h-2 appearance-none bg-transparent cursor-pointer z-20"
+              className="relative w-full h-2 appearance-none bg-transparent z-10"
               style={{
                 WebkitAppearance: "none", // Removes default appearance
                 outline: "none",            // Removes outline on focus
@@ -58,13 +58,12 @@ const PricingCalculator: React.FC = () => {
             />
             {/* Custom Slider Thumb */}
             <div
-              className="absolute top-1/2 bg-blue-600 rounded-full shadow-lg cursor-pointer"
+              className="absolute top-1/2 bg-blue-600 rounded-full shadow-lg cursor-pointer z-20"
               style={{
                 width: "24px",
                 height: "24px",
                 left: `calc(${(pages / 20) * 100}% - 12px)`, // Center the thumb over the progress line
                 transform: "translateY(-50%)",
-                zIndex: 30,
               }}
             ></div>
           </div>
