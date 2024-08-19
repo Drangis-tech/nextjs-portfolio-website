@@ -14,7 +14,7 @@ import {
 // Service Data
 const services = [
   {
-    title: 'Web Development', //Puslapiu kurimas
+    title: 'Puslapių kūrimas', //Puslapiu kurimas
     description: [
       'Modernios ir patogios svetainės kūrimas',
       'Naudojame naujausias technologijas',
@@ -23,7 +23,7 @@ const services = [
     icon: faCode,
   },
   {
-    title: 'Branding',
+    title: 'Branding`as',
     description: [
       'Unikalus prekės ženklo identitetas',
       'Kūrybiniai sprendimai ir dizainas',
@@ -32,7 +32,7 @@ const services = [
     icon: faPalette,
   },
   {
-    title: 'Ads Management',
+    title: 'Marketing`as',
     description: [
       'Reklama Google ir Facebook platformose',
       'Efektyvi kampanijų valdymo strategija',
@@ -41,7 +41,7 @@ const services = [
     icon: faBullhorn,
   },
   {
-    title: 'SEO Optimization',
+    title: 'SEO Optimizacija',
     description: [
       'Svetainės optimizavimas paieškos sistemoms',
       'Padidinkite matomumą ir lankomumą',
@@ -50,7 +50,7 @@ const services = [
     icon: faChartLine,
   },
   {
-    title: 'Custom Solutions',
+    title: 'Individualūs sprendimai',
     description: [
       'Individualūs programavimo sprendimai',
       'API integracijos, sistema pritaikyta pagal poreikius',
@@ -59,7 +59,7 @@ const services = [
     icon: faLaptopCode,
   },
   {
-    title: 'IT Consulting',
+    title: 'IT Konsultacijos',
     description: [
       'Konsultacijos IT ir technologijų klausimais',
       'Strategijų kūrimas ir optimizavimas',
@@ -80,26 +80,6 @@ const technologies = [
   { name: 'Docker', category: 'Data', color: '#2496ED' },
   { name: 'MySQL', category: 'Data', color: '#4479A1' },
 ];
-
-const Paslaugos: React.FC = () => {
-  const openTypeform = () => {
-    // Load the Typeform script dynamically
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      (window as any).typeform.open({
-        url: 'https://your-typeform-url.com', // Replace with your Typeform URL
-      });
-    };
-
-    // Cleanup script after loading
-    script.onload = () => {
-      document.body.removeChild(script);
-    };
-  };
 
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
@@ -184,6 +164,5 @@ const Paslaugos: React.FC = () => {
       </div>
     </div>
   );
-};
 
 export default Paslaugos;
