@@ -28,11 +28,16 @@ const PricingCalculator: React.FC = () => {
             type="range"
             id="pages"
             min={1}
-            max={100}
+            max={20}  // Set maximum value to 20
             value={pages}
             onChange={(e) => setPages(Number(e.target.value))}
-            className="w-full"
+            className="w-full h-4 bg-zinc-800 border border-zinc-700 rounded-lg appearance-none cursor-pointer"
+            style={{ accentColor: "#61DAFB" }} // Customize slider color if desired
           />
+          <div className="flex justify-between text-sm text-zinc-400">
+            <span>1</span>
+            <span>20</span>
+          </div>
         </div>
 
         <div className="mb-4">
