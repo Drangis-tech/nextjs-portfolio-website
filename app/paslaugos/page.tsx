@@ -168,8 +168,6 @@ const technologies = [
               Susisiekite
             </a>
             <div className="mt-6">
-              {/* Typeform Embed */}
-              <div data-tf-live="01J5AXZPRKH5FBHJWR4SVM0E5T"></div>
             </div>
           </div>
         </div>
