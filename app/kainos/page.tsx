@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Navigation } from "../components/nav";
-import PricingCalculator from "./PricingCalculator"; // Adjust the path if necessary
+import PricingCalculator from "../components/PricingCalculator"; // Adjust the path if necessary
 
 const KainosPage: React.FC = () => {
   return (
