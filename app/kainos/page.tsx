@@ -1,17 +1,25 @@
-"use client";
 
 import React, { useState } from "react";
-import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
   const [design, setDesign] = useState<number>(500);
   const [ecommerce, setEcommerce] = useState<boolean>(false);
+  const [websiteType, setWebsiteType] = useState<string>("template");
+  const [seo, setSeo] = useState<boolean>(false);
+  const [contentCreation, setContentCreation] = useState<boolean>(false);
+  const [mobileResponsive, setMobileResponsive] = useState<boolean>(false);
+  const [comments, setComments] = useState<string>("");
 
   const calculatePrice = () => {
-    const ecommerceCost = ecommerce ? 2000 : 0;
-    return pages * 100 + design + ecommerceCost;
+    let basePrice = pages * 100 + design;
+    if (ecommerce) basePrice += 2000;
+    if (websiteType === "custom") basePrice += 1500;
+    if (seo) basePrice += 500;
+    if (contentCreation) basePrice += 300;
+    if (mobileResponsive) basePrice += 400;
+    return basePrice;
   };
 
   return (
@@ -49,6 +57,21 @@ const PricingCalculator: React.FC = () => {
           </select>
         </div>
 
+        <div className="mb-4">
+          <label htmlFor="websiteType" className="block text-sm font-medium text-zinc-100 mb-1">
+            Svetainės tipas:
+          </label>
+          <select
+            id="websiteType"
+            value={websiteType}
+            onChange={(e) => setWebsiteType(e.target.value)}
+            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
+          >
+            <option value="template">Šablonas</option>
+            <option value="custom">Individualus</option>
+          </select>
+        </div>
+
         <div className="mb-6">
           <label className="block text-sm font-medium text-zinc-100 mb-1">
             <input
@@ -62,6 +85,58 @@ const PricingCalculator: React.FC = () => {
           </label>
         </div>
 
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="seo"
+              checked={seo}
+              onChange={(e) => setSeo(e.target.checked)}
+              className="mr-2"
+            />
+            SEO optimizacija
+          </label>
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="contentCreation"
+              checked={contentCreation}
+              onChange={(e) => setContentCreation(e.target.checked)}
+              className="mr-2"
+            />
+            Turinio kūrimas
+          </label>
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="mobileResponsive"
+              checked={mobileResponsive}
+              onChange={(e) => setMobileResponsive(e.target.checked)}
+              className="mr-2"
+            />
+            Mobilios versijos
+          </label>
+        </div>
+
+        <div className="mb-6">
+          <label htmlFor="comments" className="block text-sm font-medium text-zinc-100 mb-1">
+            Papildomi komentarai:
+          </label>
+          <textarea
+            id="comments"
+            value={comments}
+            onChange={(e) => setComments(e.target.value)}
+            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
+            rows={4}
+          />
+        </div>
+
         <div className="text-xl font-bold text-zinc-100">
           Apskaičiuota kaina: €{calculatePrice()}
         </div>
@@ -72,7 +147,7 @@ const PricingCalculator: React.FC = () => {
 
 const KainosPage: React.FC = () => {
   return (
-    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900 via-zinc-900 to-zinc-900">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
