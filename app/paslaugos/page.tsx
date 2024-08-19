@@ -72,14 +72,14 @@ const services = [
 
 // Technologies Data
 const technologies = [
-  { name: 'React', category: 'Front-end', color: '#61DAFB' },
-  { name: 'Vue.js', category: 'Framework', color: '#42b883' },
-  { name: 'WordPress', category: 'CMS', color: '#21759B' },
-  { name: 'PHP', category: 'Back-end', color: '#777BB4' },
-  { name: 'Node.js', category: 'Back-end', color: '#8CC84B' },
-  { name: 'AWS', category: 'Cloud', color: '#FF9900' },
-  { name: 'Docker', category: 'Data', color: '#2496ED' },
-  { name: 'MySQL', category: 'Data', color: '#4479A1' },
+  { name: 'React', category: 'Front-end', color: '#61DAFB', logo: '/logos/react.svg' },
+  { name: 'Vue.js', category: 'Framework', color: '#42b883', logo: '/logos/vue.svg' },
+  { name: 'WordPress', category: 'CMS', color: '#21759B', logo: '/logos/wordpress.svg' },
+  { name: 'PHP', category: 'Back-end', color: '#777BB4', logo: '/logos/php.svg' },
+  { name: 'Node.js', category: 'Back-end', color: '#8CC84B', logo: '/logos/node.svg' },
+  { name: 'AWS', category: 'Cloud', color: '#FF9900', logo: '/logos/aws.svg' },
+  { name: 'Docker', category: 'Data', color: '#2496ED', logo: '/logos/docker.svg' },
+  { name: 'MySQL', category: 'Data', color: '#4479A1', logo: '/logos/mysql.svg' },
 ];
 
 const Paslaugos = () => {
