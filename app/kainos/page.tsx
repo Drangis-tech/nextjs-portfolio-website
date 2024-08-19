@@ -161,9 +161,9 @@ const PricingCalculator: React.FC = () => {
 
 const KainosPage: React.FC = () => {
   return (
-    <div className="relative pb-16 bg-gradient-to-tl from-black via-gray-800 to-black bg-cover bg-fixed">
+    <div className="relative pb-16 bg-[url('/path-to-your-background-image.jpg')] bg-cover bg-center bg-no-repeat">
       <Navigation />
-      <div className="absolute inset-0 bg-gradient-to-tl from-black via-gray-900 to-black opacity-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-black via-gray-900 to-black opacity-60"></div>
       <div className="relative px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Kainos</h2>
