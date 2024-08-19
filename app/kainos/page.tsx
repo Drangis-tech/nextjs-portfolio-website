@@ -1,5 +1,7 @@
+"use client"; // Ensure this is at the top of the file
 
 import React, { useState } from "react";
+import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
 const PricingCalculator: React.FC = () => {
