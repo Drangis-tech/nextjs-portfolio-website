@@ -162,7 +162,7 @@ const PricingCalculator: React.FC = () => {
 
 const KainosPage: React.FC = () => {
   return (
-    <div className="relative pb-16 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+    <div className="relative pb-16 bg-gradient-to-b from-black via-zinc-900 to-black">
       <Navigation />
       <div className="relative px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
