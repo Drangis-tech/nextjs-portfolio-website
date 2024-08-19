@@ -16,7 +16,7 @@ export default function MeteorShower({ className = "" }: MeteorShowerProps) {
       resizeCanvas();
       window.addEventListener("resize", resizeCanvas);
       setInterval(() => {
-        if (Math.random() < 0.05) { // 5% chance per second to create a meteor
+        if (Math.random() < 0.05) { // 5% chance per second to create a meteora
           drawMeteor();
         }
       }, 1000);
