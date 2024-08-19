@@ -13,7 +13,7 @@ import {
 // Service Data
 const services = [
   {
-    title: 'Puslapių kūrimas', //Puslapiu kurimas
+    title: 'Puslapių kūrimas',
     description: [
       'Modernios ir patogios svetainės kūrimas',
       'Naudojame naujausias technologijas',
@@ -122,7 +122,7 @@ const Paslaugos = () => {
         {/* Technology Stack */}
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Naudojamos Technologijos:
+            Naudojamos Technologijos
           </h2>
           <p className="mt-4 text-zinc-400">
             Mes dirbame su įvairiomis pažangiomis technologijomis, kurios
@@ -136,8 +136,7 @@ const Paslaugos = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
-                {/* Replace with appropriate icon for each technology */}
-                <Icon icon={faCode} size="2x" color="white" />
+                <Icon icon={faCode} size="2x" color="white" /> {/* Replace with appropriate tech icon */}
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-zinc-100">
@@ -164,6 +163,6 @@ const Paslaugos = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Paslaugos;
