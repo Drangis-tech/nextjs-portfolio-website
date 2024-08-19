@@ -24,6 +24,11 @@ const PricingCalculator: React.FC = () => {
     return basePrice;
   };
 
+  const handleSubmit = () => {
+    // Handle form submission here (e.g., send data to a server or an API)
+    alert("Jūsų užklausa buvo išsiųsta!");
+  };
+
   return (
     <Card className="card">
       <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
@@ -139,9 +144,16 @@ const PricingCalculator: React.FC = () => {
           />
         </div>
 
-        <div className="text-xl font-bold text-zinc-100">
+        <div className="text-xl font-bold text-zinc-100 mb-6">
           Apskaičiuota kaina: €{calculatePrice()}
         </div>
+
+        <button
+          onClick={handleSubmit}
+          className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"
+        >
+          Siųsti užklausą
+        </button>
       </article>
     </Card>
   );
