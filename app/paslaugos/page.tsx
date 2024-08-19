@@ -2,7 +2,6 @@
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
-import Button from '../components/Button'; // Import the Button component
 import {
   faCode,
   faPalette,
@@ -181,11 +180,6 @@ const Paslaugos: React.FC = () => {
             Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
             šiandien ir aptarkime, kaip galime jums padėti!
           </p>
-          <Button
-            label="Susisiekite"
-            onClick={openTypeform}
-            className="mt-6 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700"
-          />
         </div>
       </div>
     </div>
