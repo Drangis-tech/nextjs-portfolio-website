@@ -1,4 +1,3 @@
-// pages/_document.tsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
@@ -7,7 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* No need for FontAwesome CDN */}
+          {/* Remove FontAwesome CDN link */}
         </Head>
         <body>
           <Main />
