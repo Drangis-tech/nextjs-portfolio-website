@@ -1,108 +1,35 @@
-"use client";
+import React, { useState } from 'react';
+import '../kainos/PricingCalculator.css'; // Adjust the path as necessary
 
-import React, { useState } from "react";
-import { Card } from "../components/card";
+const PricingCalculator = () => {
+  const [value, setValue] = useState(0);
 
-const PricingCalculator: React.FC = () => {
-  const [pages, setPages] = useState<number>(1);
-  const [design, setDesign] = useState<number>(500);
-  const [ecommerce, setEcommerce] = useState<boolean>(false);
-
-  const calculatePrice = () => {
-    const ecommerceCost = ecommerce ? 2000 : 0;
-    return pages * 100 + design + ecommerceCost;
-  };
-
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPages(Number(e.target.value));
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(parseInt(event.target.value));
   };
 
   return (
-    <Card className="card">
-      <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)]">
-        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">
-          Apskaičiuokite savo svetainės kainą
-        </h3>
-
-        <div className="mb-8">
-          <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-2">
-            Puslapių skaičius: {pages}
-          </label>
-          <div className="relative w-full h-10 flex items-center">
-            {/* Full Slider Track */}
-            <div
-              className="absolute top-1/2 left-0 h-2 rounded-full w-full bg-zinc-700"
-              style={{ transform: "translateY(-50%)" }}
-            ></div>
-            {/* Slider Progress Line */}
-            <div
-              className="absolute top-1/2 left-0 h-2 rounded-full bg-blue-500"
-              style={{
-                width: `${(pages / 20) * 100}%`,
-                transform: "translateY(-50%)",
-              }}
-            ></div>
-            {/* Slider Input */}
-            <input
-              type="range"
-              id="pages"
-              min={1}
-              max={20}
-              value={pages}
-              onChange={handleSliderChange}
-              className="relative w-full h-2 appearance-none bg-transparent z-10"
-              style={{
-                WebkitAppearance: "none", // Removes default appearance
-                outline: "none",            // Removes outline on focus
-              }}
-            />
-            {/* Custom Slider Thumb */}
-            <div
-              className="absolute top-1/2 bg-blue-600 rounded-full shadow-lg cursor-pointer z-20"
-              style={{
-                width: "24px",
-                height: "24px",
-                left: `calc(${(pages / 20) * 100}% - 12px)`, // Center the thumb over the progress line
-                transform: "translateY(-50%)",
-              }}
-            ></div>
-          </div>
+    <div className="pricing-calculator">
+      <h2>Select your plan</h2>
+      <div className="slider-container">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value={value}
+          onChange={handleChange}
+          className="slider"
+        />
+        <div className="slider-labels">
+          <span>0</span>
+          <span>100</span>
         </div>
-
-        <div className="mb-4">
-          <label htmlFor="design" className="block text-sm font-medium text-zinc-100 mb-1">
-            Dizaino sudėtingumas:
-          </label>
-          <select
-            id="design"
-            value={design}
-            onChange={(e) => setDesign(Number(e.target.value))}
-            className="w-full p-3 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-          >
-            <option value={500}>Paprastas</option>
-            <option value={1000}>Vidutinis</option>
-            <option value={1500}>Sudėtingas</option>
-          </select>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <input
-              type="checkbox"
-              id="ecommerce"
-              checked={ecommerce}
-              onChange={(e) => setEcommerce(e.target.checked)}
-              className="mr-2"
-            />
-            E-komercijos funkcionalumas
-          </label>
-        </div>
-
-        <div className="text-xl font-bold text-zinc-100">
-          Apskaičiuota kaina: €{calculatePrice()}
-        </div>
-      </article>
-    </Card>
+      </div>
+      <div className="slider-value">
+        <p>Selected value: {value}</p>
+      </div>
+    </div>
   );
 };
 
