@@ -2,15 +2,6 @@
 
 import React from 'react';
 import { Navigation } from '../components/nav';
-import Icon from '../components/Icon';
-import {
-  faCode,
-  faPalette,
-  faBullhorn,
-  faChartLine,
-  faLaptopCode,
-  faUserCog,
-} from '@fortawesome/free-solid-svg-icons';
 
 // Service Data
 const services = [
@@ -138,7 +129,7 @@ const Paslaugos = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full"
                 style={{ backgroundColor: tech.color }}
               >
-                <Icon icon={faCode} size="2x" color="white" />
+                <img src={tech.logo} alt={tech.name} className="w-8 h-8" />
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-zinc-100">
