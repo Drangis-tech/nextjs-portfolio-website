@@ -18,7 +18,7 @@ const PricingCalculator: React.FC = () => {
   return (
     <Card className="card">
       <article className="relative w-full h-full p-4 md:p-8 group bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)]">
-        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">Apskaičiuokite savo svetainės kainą</h3>
+        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">Apskaičiuokite savo svetainės kainą:</h3>
 
         <div className="mb-8">
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-2">
