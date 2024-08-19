@@ -96,6 +96,17 @@
   }
 }
 
+/* Gradient border style */
+@layer utilities {
+  .border-gradient {
+    border-image: linear-gradient(to right, #facc15, #fb923c) 1;
+  }
+
+  .bg-clip-border {
+    background-clip: border-box;
+  }
+}
+
 /* Ensure FontAwesome icons are responsive */
 @media (max-width: 768px) {
   .team-member .social-icons a {
