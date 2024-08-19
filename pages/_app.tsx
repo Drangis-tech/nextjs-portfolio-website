@@ -1,8 +1,9 @@
-import '@fortawesome/fontawesome-svg-core/styles.css'; // Import FontAwesome CSS
+// pages/_app.tsx
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
-config.autoAddCss = false; // Prevents automatic CSS injection
+config.autoAddCss = false; // Prevents FontAwesome from adding its CSS automatically
 
-import '../styles/globals.css'; // Import your global styles
+import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
