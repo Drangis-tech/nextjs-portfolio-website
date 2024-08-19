@@ -168,8 +168,8 @@ const Paslaugos = () => {
           {technologies.map((tech, index) => (
             <div key={index} className="flex items-center space-x-4">
               <div
-                className="w-12 h-12 flex items-center justify-center rounded-full"
-                style={{ backgroundColor: tech.color }}
+                className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700"
+                style={{ backgroundColor: 'transparent' }}
               >
                 <img src={tech.logo} alt={tech.name} className="w-8 h-8" />
               </div>
