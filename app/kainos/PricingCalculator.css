@@ -1,53 +1,32 @@
-.pricing-calculator {
-    text-align: center;
-    padding: 20px;
-    background-color: #1f2937; /* Adjust the background color as needed */
-    border-radius: 8px; /* Optional: Add some rounding to the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add some shadow */
+/* PricingCalculator.css */
+
+.card {
+    background-color: #1f2937; /* Adjust based on your design needs */
+    border-radius: 8px;
   }
   
-  .slider-container {
-    position: relative;
-    width: 80%;
-    margin: 20px auto;
-  }
-  
-  .slider {
+  input[type="range"] {
+    -webkit-appearance: none;
     width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
     height: 8px;
-    background: #ddd;
-    outline: none;
+    background: #4a90e2; /* Slider track color */
     border-radius: 5px;
+    outline: none;
   }
   
-  .slider::-webkit-slider-thumb {
+  input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     width: 20px;
     height: 20px;
-    background: #4a90e2;
+    background: #ffffff; /* Slider thumb color */
     cursor: pointer;
     border-radius: 50%;
   }
   
-  .slider::-moz-range-thumb {
+  input[type="range"]::-moz-range-thumb {
     width: 20px;
     height: 20px;
-    background: #4a90e2;
+    background: #ffffff; /* Slider thumb color */
     cursor: pointer;
     border-radius: 50%;
-  }
-  
-  .slider-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .slider-value {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #e5e7eb; /* Adjust text color for readability */
   }
