@@ -3,7 +3,7 @@
 import React from 'react';
 import { Navigation } from '../components/nav';
 
-// Service Data
+// Service Data (unchanged)
 const services = [
   {
     title: 'Web Development',
