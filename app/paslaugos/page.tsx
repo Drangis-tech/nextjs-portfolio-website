@@ -1,4 +1,3 @@
-// app/paslaugos/page.tsx
 import React from 'react';
 import { Navigation } from '../components/nav';
 import Icon from '../components/Icon';
@@ -81,6 +80,7 @@ const technologies = [
   { name: 'MySQL', category: 'Data', color: '#4479A1' },
 ];
 
+const Paslaugos = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -164,5 +164,6 @@ const technologies = [
       </div>
     </div>
   );
+}
 
 export default Paslaugos;
