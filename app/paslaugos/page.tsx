@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Navigation } from '../components/nav';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
 
 // Service Data (unchanged)
 const services = [
@@ -61,18 +63,6 @@ const services = [
   },
 ];
 
-// Technologies Data
-const technologies = [
-  { name: 'React', category: 'Front-end', color: '#61DAFB', logo: '/logos/react.svg' },
-  { name: 'Vue.js', category: 'Framework', color: '#42b883', logo: '/logos/vue.svg' },
-  { name: 'WordPress', category: 'CMS', color: '#21759B', logo: '/logos/wordpress.svg' },
-  { name: 'PHP', category: 'Back-end', color: '#777BB4', logo: '/logos/php.svg' },
-  { name: 'Node.js', category: 'Back-end', color: '#8CC84B', logo: '/logos/node.svg' },
-  { name: 'AWS', category: 'Cloud', color: '#FF9900', logo: '/logos/aws.svg' },
-  { name: 'Docker', category: 'Data', color: '#2496ED', logo: '/logos/docker.svg' },
-  { name: 'MySQL', category: 'Data', color: '#4479A1', logo: '/logos/mysql.svg' },
-];
-
 const Paslaugos = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
@@ -94,7 +84,7 @@ const Paslaugos = () => {
           {services.map((service, index) => (
             <div key={index} className="flex items-start space-x-6">
               <div className="w-16 h-16 flex items-center justify-center border border-zinc-700 rounded-lg bg-transparent">
-                <Icon icon={service.icon} size="2x" color="white" />
+                <FontAwesomeIcon icon={service.icon} size="2x" className="text-white" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-zinc-100">{service.title}</h3>
