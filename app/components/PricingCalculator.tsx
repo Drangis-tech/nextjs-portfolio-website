@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../kainos/PricingCalculator.css'; // Adjust the path to your CSS file
+import '../kainos/PricingCalculator.css'; // Adjust path as needed
 
 const PricingCalculator: React.FC = () => {
   const [value, setValue] = useState(0);
@@ -10,7 +10,7 @@ const PricingCalculator: React.FC = () => {
 
   return (
     <div className="pricing-calculator">
-      <h2>Select your plan</h2>
+      <h2 className="text-2xl font-bold text-white">Select your plan</h2>
       <div className="slider-container">
         <input
           type="range"
@@ -27,7 +27,7 @@ const PricingCalculator: React.FC = () => {
         </div>
       </div>
       <div className="slider-value">
-        <p>Selected value: {value}</p>
+        <p className="text-white">Selected value: {value}</p>
       </div>
     </div>
   );

@@ -1,10 +1,8 @@
-// app/kainos/page.tsx
-
 "use client";
 
 import React from "react";
 import { Navigation } from "../components/nav";
-import PricingCalculator from "../components/PricingCalculator";
+import PricingCalculator from "../components/PricingCalculator"; // Adjust the path as necessary
 
 const KainosPage: React.FC = () => {
   return (
