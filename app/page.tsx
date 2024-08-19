@@ -1,10 +1,8 @@
-// app/page.tsx
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import Particles from "./components/particles";
 import MeteorShower from "./components/MeteorShower";
-
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -32,10 +30,8 @@ export default function Home() {
         </ul>
       </nav>
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={100}
-      />
+      <Particles className="absolute inset-0 -z-10 animate-fade-in" quantity={100} />
+      <MeteorShower className="absolute inset-0 -z-10" /> {/* Add MeteorShower here */}
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
           <Image
@@ -47,7 +43,7 @@ export default function Home() {
           />
           <h1
             className="text-4xl text-transparent bg-white bg-clip-text duration-1000 cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap"
-            style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}  // Adjust line height and padding
+            style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}
           >
             BrandForge
           </h1>
