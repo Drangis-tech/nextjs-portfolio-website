@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { Navigation } from "../components/nav";
-import { Card } from "../components/card"; // Assuming you have a Card component in your project
+import { Card } from "../components/card";
+import GradientButton from "../components/GradientButton"; // Import GradientButton
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -149,12 +150,9 @@ const PricingCalculator: React.FC = () => {
           Apskaičiuota kaina: €{calculatePrice()}
         </div>
 
-        <button
-            onClick={handleSubmit}
-            className="w-full py-2 px-4 border-2 border-transparent bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent font-semibold rounded-md bg-clip-text hover:bg-clip-padding hover:text-white hover:from-yellow-300 hover:to-orange-400 active:from-yellow-500 active:to-orange-600 focus:outline-none focus:ring focus:ring-yellow-300 transition duration-200"
-         >
-            Siųsti užklausą
-        </button>
+        <GradientButton onClick={handleSubmit}>
+          Siųsti užklausą
+        </GradientButton>
       </article>
     </Card>
   );
