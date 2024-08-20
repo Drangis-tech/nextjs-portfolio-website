@@ -1,5 +1,85 @@
 import React, { useEffect } from "react";
 
+// Define TypeScript types for Star and ShootingStar
+interface StarOptions {
+  x: number;
+  y: number;
+}
+
+class Star {
+  size: number;
+  speed: number;
+  x: number;
+  y: number;
+
+  constructor(options: StarOptions) {
+    this.size = Math.random() * 2;
+    this.speed = Math.random() * 0.1;
+    this.x = options.x;
+    this.y = options.y;
+  }
+
+  reset() {
+    this.size = Math.random() * 2;
+    this.speed = Math.random() * 0.1;
+    this.x = window.innerWidth;
+    this.y = Math.random() * window.innerHeight;
+  }
+
+  update(ctx: CanvasRenderingContext2D) {
+    this.x -= this.speed;
+    if (this.x < 0) {
+      this.reset();
+    } else {
+      ctx.fillRect(this.x, this.y, this.size, this.size);
+    }
+  }
+}
+
+class ShootingStar {
+  x: number;
+  y: number;
+  len: number;
+  speed: number;
+  size: number;
+  waitTime: number;
+  active: boolean;
+
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * window.innerWidth;
+    this.y = 0;
+    this.len = Math.random() * 80 + 10;
+    this.speed = Math.random() * 10 + 6;
+    this.size = Math.random() * 1 + 0.1;
+    this.waitTime = new Date().getTime() + Math.random() * 3000 + 500;
+    this.active = false;
+  }
+
+  update(ctx: CanvasRenderingContext2D) {
+    if (this.active) {
+      this.x -= this.speed;
+      this.y += this.speed;
+      if (this.x < 0 || this.y >= window.innerHeight) {
+        this.reset();
+      } else {
+        ctx.lineWidth = this.size;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.len, this.y - this.len);
+        ctx.stroke();
+      }
+    } else {
+      if (this.waitTime < new Date().getTime()) {
+        this.active = true;
+      }
+    }
+  }
+}
+
 const CanvasEffect = () => {
   useEffect(() => {
     const terCanvas = document.getElementById("terCanvas") as HTMLCanvasElement | null;
@@ -58,64 +138,7 @@ const CanvasEffect = () => {
     bgCtx.fillStyle = "#05004c";
     bgCtx.fillRect(0, 0, width, height);
 
-    function Star(options: { x: number; y: number }) {
-      this.size = Math.random() * 2;
-      this.speed = Math.random() * 0.1;
-      this.x = options.x;
-      this.y = options.y;
-    }
-
-    Star.prototype.reset = function () {
-      this.size = Math.random() * 2;
-      this.speed = Math.random() * 0.1;
-      this.x = width;
-      this.y = Math.random() * height;
-    };
-
-    Star.prototype.update = function () {
-      this.x -= this.speed;
-      if (this.x < 0) {
-        this.reset();
-      } else {
-        bgCtx.fillRect(this.x, this.y, this.size, this.size);
-      }
-    };
-
-    function ShootingStar() {
-      this.reset();
-    }
-
-    ShootingStar.prototype.reset = function () {
-      this.x = Math.random() * width;
-      this.y = 0;
-      this.len = Math.random() * 80 + 10;
-      this.speed = Math.random() * 10 + 6;
-      this.size = Math.random() * 1 + 0.1;
-      this.waitTime = new Date().getTime() + Math.random() * 3000 + 500;
-      this.active = false;
-    };
-
-    ShootingStar.prototype.update = function () {
-      if (this.active) {
-        this.x -= this.speed;
-        this.y += this.speed;
-        if (this.x < 0 || this.y >= height) {
-          this.reset();
-        } else {
-          bgCtx.lineWidth = this.size;
-          bgCtx.beginPath();
-          bgCtx.moveTo(this.x, this.y);
-          bgCtx.lineTo(this.x + this.len, this.y - this.len);
-          bgCtx.stroke();
-        }
-      } else {
-        if (this.waitTime < new Date().getTime()) {
-          this.active = true;
-        }
-      }
-    };
-
-    const entities = [];
+    const entities: (Star | ShootingStar)[] = [];
 
     for (let i = 0; i < height; i++) {
       entities.push(new Star({ x: Math.random() * width, y: Math.random() * height }));
@@ -130,14 +153,11 @@ const CanvasEffect = () => {
       bgCtx.fillStyle = "#ffffff";
       bgCtx.strokeStyle = "#ffffff";
 
-      let entLen = entities.length;
-
-      while (entLen--) {
-        entities[entLen].update();
-      }
+      entities.forEach(entity => entity.update(bgCtx));
 
       requestAnimationFrame(animate);
     }
+
     animate();
   }, []);
 
