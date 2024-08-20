@@ -1,7 +1,7 @@
 /* globals.css */
 
 /* Import FontAwesome CSS */
-@import "~@fortawesome/fontawesome-svg-core/styles.css";
+@import '@fortawesome/fontawesome-svg-core/styles.css';
 
 /* Tailwind CSS directives */
 @tailwind base;
