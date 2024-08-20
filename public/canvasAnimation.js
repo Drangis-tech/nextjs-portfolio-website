@@ -51,11 +51,11 @@ terCtx.lineTo(width, terrain.height);
 terCtx.lineTo(0, terrain.height);
 terCtx.lineTo(0, points[0]);
 terCtx.closePath();
-terCtx.fillStyle = '#4a4a4a'; // Update mountain color to gray
+terCtx.fillStyle = '#2c2c2c'; // Darker gray for the mountain
 terCtx.fill();
 
 // Second canvas used for the stars
-bgCtx.fillStyle = '#000000'; // Update sky color to black
+bgCtx.fillStyle = '#000000'; // Black for the sky
 bgCtx.fillRect(0, 0, width, height);
 
 // Stars
@@ -129,10 +129,10 @@ entities.push(new ShootingStar());
 
 // Animate background
 function animate() {
-  bgCtx.fillStyle = '#000000'; // Update sky color to black
+  bgCtx.fillStyle = '#000000'; // Black for the sky
   bgCtx.fillRect(0, 0, width, height);
-  bgCtx.fillStyle = '#ffffff'; // Update star color to white
-  bgCtx.strokeStyle = '#ffffff'; // Update shooting star color to white
+  bgCtx.fillStyle = '#ffffff'; // White for the stars
+  bgCtx.strokeStyle = '#ffffff'; // White for the shooting stars
 
   var entLen = entities.length;
 
