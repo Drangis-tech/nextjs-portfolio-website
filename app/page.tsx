@@ -74,7 +74,7 @@ export default function Home() {
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500">
+        <h2 className="text-sm text-zinc-500 shine-effect">
           Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
         </h2>
       </div>
