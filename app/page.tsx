@@ -17,15 +17,20 @@ export default function Home() {
     // Add no-scroll class to body
     document.body.classList.add('no-scroll');
 
+    // Prevent default touch actions on mobile
+    const preventDefault = (e: Event) => e.preventDefault();
+    document.body.addEventListener('touchmove', preventDefault, { passive: false });
+
     // Insert the JavaScript code for the canvas animation here
     const script = document.createElement("script");
     script.src = "/canvasAnimation.js"; // Move the JS code to a separate file (canvasAnimation.js)
     script.async = true;
     document.body.appendChild(script);
 
-    // Cleanup function to remove no-scroll class and script
+    // Cleanup function to remove no-scroll class, preventDefault event, and script
     return () => {
       document.body.classList.remove('no-scroll');
+      document.body.removeEventListener('touchmove', preventDefault);
       document.body.removeChild(script);
     };
   }, []);
