@@ -153,14 +153,14 @@
 
   /* FontAwesome specific icon size */
   .fa-icon {
-    font-size: 2rem; /* Adjust the size as needed */
+    font-size: 2rem !important; /* Adjust the size as needed and force it with !important */
   }
 }
 
 /* Ensure FontAwesome icons are responsive */
 @media (max-width: 768px) {
-  .team-member .social-icons a {
-    font-size: 1rem; /* Adjust icon size for mobile */
+  .fa-icon {
+    font-size: 1rem !important; /* Adjust icon size for mobile and force it */
   }
 }
 
