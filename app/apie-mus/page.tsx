@@ -4,6 +4,29 @@ import { Card } from "../components/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 
+// Team Data
+const teamData = [
+  {
+    name: "John Doe",
+    role: "CEO",
+    linkedIn: "https://www.linkedin.com/in/johndoe",
+    twitter: "https://twitter.com/johndoe",
+  },
+  {
+    name: "Jane Smith",
+    role: "CTO",
+    linkedIn: "https://www.linkedin.com/in/janesmith",
+    twitter: "https://twitter.com/janesmith",
+  },
+  {
+    name: "Alice Johnson",
+    role: "Lead Developer",
+    linkedIn: "https://www.linkedin.com/in/alicejohnson",
+    twitter: "https://twitter.com/alicejohnson",
+  },
+  // Add more team members as needed
+];
+
 // About Us Data
 const aboutUsData = [
   {
