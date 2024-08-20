@@ -1,11 +1,12 @@
 /* globals.css */
 
+/* Import FontAwesome CSS */
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
+
+/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import FontAwesome CSS */
-@import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 @layer base {
   /* Gradient border */

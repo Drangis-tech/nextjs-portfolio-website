@@ -7,10 +7,10 @@ interface StarOptions {
 }
 
 class Star {
-  size: number;
-  speed: number;
-  x: number;
-  y: number;
+  size: number = 0;
+  speed: number = 0;
+  x: number = 0;
+  y: number = 0;
 
   constructor(options: StarOptions) {
     this.size = Math.random() * 2;
@@ -36,13 +36,13 @@ class Star {
 }
 
 class ShootingStar {
-  x: number;
-  y: number;
-  len: number;
-  speed: number;
-  size: number;
-  waitTime: number;
-  active: boolean;
+  x: number = 0;
+  y: number = 0;
+  len: number = 0;
+  speed: number = 0;
+  size: number = 0;
+  waitTime: number = 0;
+  active: boolean = false;
 
   constructor() {
     this.reset();
@@ -97,13 +97,19 @@ const CanvasEffect: React.FC = () => {
       return;
     }
 
-    const width = window.innerWidth;
-    let height = window.innerHeight;
+    const resizeCanvas = () => {
+      const width = window.innerWidth;
+      let height = window.innerHeight;
 
-    if (height < 400) height = 400;
+      if (height < 400) height = 400;
 
-    terCanvas.width = bgCanvas.width = width;
-    terCanvas.height = bgCanvas.height = height;
+      terCanvas.width = bgCanvas.width = width;
+      terCanvas.height = bgCanvas.height = height;
+
+      return { width, height };
+    };
+
+    const { width, height } = resizeCanvas();
 
     let points: number[] = [];
     let displacement = 140;
@@ -150,6 +156,7 @@ const CanvasEffect: React.FC = () => {
     entities.push(new ShootingStar());
 
     function animate() {
+      const { width, height } = resizeCanvas(); // Ensure canvas is resized on window resize
       if (bgCtx) {
         bgCtx.clearRect(0, 0, width, height);
         bgCtx.fillStyle = "#05004c";
@@ -164,6 +171,12 @@ const CanvasEffect: React.FC = () => {
     }
 
     animate();
+
+    window.addEventListener("resize", resizeCanvas); // Handle window resizing
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+    };
   }, []);
 
   return null;
