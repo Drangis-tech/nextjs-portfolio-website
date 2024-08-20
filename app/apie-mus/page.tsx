@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -61,8 +60,8 @@ const ApieMus: React.FC = () => {
 
         <div className="space-y-12">
           {aboutUsData.map((section, index) => (
-            <div key={index} className="flex flex-col md:flex-row md:space-x-12">
-              <Card className="w-full md:w-1/2">
+            <div key={index} className="flex flex-col md:flex-row md:items-start md:space-x-12">
+              <Card className="w-full md:w-1/2 flex-shrink-0">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
                     <span>{section.title}</span>
