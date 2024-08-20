@@ -48,37 +48,35 @@ const ApieMus: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="px-6 pt-32 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-12 md:pt-40 lg:pt-48">
-        <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">Apie Mus</h2>
-          <p className="mt-2 text-zinc-400 text-sm sm:text-base">
+      <div className="px-6 pt-36 mx-auto space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-40 lg:pt-48">
+        <div className="max-w-3xl mx-auto lg:mx-0">
+          <h2 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">Apie Mus</h2>
+          <p className="mt-4 text-zinc-400 text-lg sm:text-xl">
             Sužinokite daugiau apie mūsų komandą, viziją ir vertybes, kurios veda mūsų misiją.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-12">
           {aboutUsData.map((section, index) => (
-            <div key={index} className="flex flex-col md:flex-row md:space-x-8">
+            <div key={index} className="flex flex-col md:flex-row md:space-x-12">
               <Card className="w-full md:w-1/2">
-                <article className="relative w-full h-full p-4 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="text-xs text-zinc-100">
-                      <span>{section.title}</span>
-                    </div>
+                <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+                  <div className="text-xs text-zinc-100">
+                    <span>{section.title}</span>
                   </div>
 
-                  <h2 className="mt-2 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
                     {section.title}
                   </h2>
-                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                  <p className="mt-4 leading-7 text-zinc-400 group-hover:text-zinc-300">
                     {section.description}
                   </p>
                 </article>
               </Card>
-              <div className="w-full md:w-1/2 mt-4 md:mt-0">
-                <h3 className="text-xl font-bold text-zinc-100">{section.title}</h3>
-                <p className="mt-2 text-zinc-400">{section.detailedText}</p>
+              <div className="w-full md:w-1/2 mt-6 md:mt-0">
+                <h3 className="text-2xl font-bold text-zinc-100">{section.title}</h3>
+                <p className="mt-2 text-zinc-400 text-lg">{section.detailedText}</p>
               </div>
             </div>
           ))}
@@ -87,22 +85,20 @@ const ApieMus: React.FC = () => {
         <div className="w-full h-px bg-zinc-800" />
 
         <div className="mt-16">
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">Komanda</h2>
+          <h2 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">Komanda</h2>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
             {teamData.map((member, index) => (
               <Card key={index} className="w-full">
-                <article className="relative w-full h-full p-4 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="text-xs text-zinc-100">
-                      <span>{member.role}</span>
-                    </div>
+                <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+                  <div className="text-xs text-zinc-100">
+                    <span>{member.role}</span>
                   </div>
 
-                  <h2 className="mt-2 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
                     {member.name}
                   </h2>
-                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                  <p className="mt-4 leading-7 text-zinc-400 group-hover:text-zinc-300">
                     <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
                   </p>
                 </article>
