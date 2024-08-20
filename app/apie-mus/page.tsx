@@ -4,7 +4,47 @@ import { Card } from "../components/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 
-// Team Data and About Us Data...
+// Team Data
+const teamData = [
+  {
+    name: "John Doe",
+    role: "CEO",
+    linkedIn: "https://www.linkedin.com/in/johndoe",
+    twitter: "https://twitter.com/johndoe",
+  },
+  {
+    name: "Jane Smith",
+    role: "CTO",
+    linkedIn: "https://www.linkedin.com/in/janesmith",
+    twitter: "https://twitter.com/janesmith",
+  },
+  {
+    name: "Alice Johnson",
+    role: "Lead Developer",
+    linkedIn: "https://www.linkedin.com/in/alicejohnson",
+    twitter: "https://twitter.com/alicejohnson",
+  },
+  // Add more team members as needed
+];
+
+// About Us Data
+const aboutUsData = [
+  {
+    title: "Mūsų Komanda",
+    description: "Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.",
+    detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo."
+  },
+  {
+    title: "Mūsų Vizija",
+    description: "Siekiame revoliucionuoti pramonę su inovatyviais sprendimais ir neprilygstamu aptarnavimu.",
+    detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis."
+  },
+  {
+    title: "Mūsų Vertybės",
+    description: "Sąžiningumas, Tobulumas ir Bendradarbiavimas yra pagrindinės vertybės, kurios veda mus į sėkmę.",
+    detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais."
+  },
+];
 
 const ApieMus: React.FC = () => {
   return (
@@ -26,7 +66,7 @@ const ApieMus: React.FC = () => {
             <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
               <Card className="w-full md:w-1/2 flex-shrink-0">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                  <div className="text-xs text-zinc-100">
+                  <div className="text-xs text-zinc-100 flex justify-center">
                     {/* Fixed icon size */}
                     {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} className="text-4xl" />}
                     {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} className="text-4xl" />}
