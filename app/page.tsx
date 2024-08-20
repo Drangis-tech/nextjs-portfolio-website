@@ -14,13 +14,18 @@ const navigation = [
 
 export default function Home() {
   useEffect(() => {
+    // Add no-scroll class to body
+    document.body.classList.add('no-scroll');
+
     // Insert the JavaScript code for the canvas animation here
     const script = document.createElement("script");
     script.src = "/canvasAnimation.js"; // Move the JS code to a separate file (canvasAnimation.js)
     script.async = true;
     document.body.appendChild(script);
 
+    // Cleanup function to remove no-scroll class and script
     return () => {
+      document.body.classList.remove('no-scroll');
       document.body.removeChild(script);
     };
   }, []);
