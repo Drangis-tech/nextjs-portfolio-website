@@ -2,10 +2,22 @@ import React, { useEffect } from "react";
 
 const CanvasEffect = () => {
   useEffect(() => {
-    const terCanvas = document.getElementById("terCanvas");
-    const bgCanvas = document.getElementById("bgCanvas");
+    const terCanvas = document.getElementById("terCanvas") as HTMLCanvasElement | null;
+    const bgCanvas = document.getElementById("bgCanvas") as HTMLCanvasElement | null;
+
+    if (!terCanvas || !bgCanvas) {
+      console.error("Canvas elements not found");
+      return;
+    }
+
     const terCtx = terCanvas.getContext("2d");
     const bgCtx = bgCanvas.getContext("2d");
+
+    if (!terCtx || !bgCtx) {
+      console.error("Canvas context not found");
+      return;
+    }
+
     let width = window.innerWidth;
     let height = document.body.offsetHeight;
 
@@ -14,7 +26,7 @@ const CanvasEffect = () => {
     terCanvas.width = bgCanvas.width = width;
     terCanvas.height = bgCanvas.height = height;
 
-    let points = [];
+    let points: number[] = [];
     let displacement = 140;
     const power = Math.pow(2, Math.ceil(Math.log(width) / Math.log(2)));
 
@@ -46,7 +58,7 @@ const CanvasEffect = () => {
     bgCtx.fillStyle = "#05004c";
     bgCtx.fillRect(0, 0, width, height);
 
-    function Star(options) {
+    function Star(options: { x: number; y: number }) {
       this.size = Math.random() * 2;
       this.speed = Math.random() * 0.1;
       this.x = options.x;
