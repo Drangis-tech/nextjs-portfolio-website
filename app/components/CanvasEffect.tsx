@@ -45,16 +45,6 @@ class ShootingStar {
   active: boolean;
 
   constructor() {
-    // Initialize properties with default values or via the reset method
-    this.x = 0;
-    this.y = 0;
-    this.len = 0;
-    this.speed = 0;
-    this.size = 0;
-    this.waitTime = 0;
-    this.active = false;
-
-    // Call reset method to set proper initial values
     this.reset();
   }
 
@@ -160,15 +150,17 @@ const CanvasEffect: React.FC = () => {
     entities.push(new ShootingStar());
 
     function animate() {
-      bgCtx.clearRect(0, 0, width, height);
-      bgCtx.fillStyle = "#05004c";
-      bgCtx.fillRect(0, 0, width, height);
-      bgCtx.fillStyle = "#ffffff";
-      bgCtx.strokeStyle = "#ffffff";
+      if (bgCtx) {
+        bgCtx.clearRect(0, 0, width, height);
+        bgCtx.fillStyle = "#05004c";
+        bgCtx.fillRect(0, 0, width, height);
+        bgCtx.fillStyle = "#ffffff";
+        bgCtx.strokeStyle = "#ffffff";
 
-      entities.forEach(entity => entity.update(bgCtx));
+        entities.forEach(entity => entity.update(bgCtx));
 
-      requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
+      }
     }
 
     animate();
