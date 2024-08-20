@@ -24,7 +24,7 @@ function resizeCanvas() {
 var { width, height } = resizeCanvas();
 
 // Adjust height for terrain
-var terrainHeight = height - 100; // Adjust this value as needed
+var terrainHeight = height * 0.8; // Adjust to ensure terrain is positioned correctly
 
 // Random points for terrain
 var points = [],
@@ -45,18 +45,18 @@ for (var i = 1; i < power; i *= 2) {
 
 // Draw the terrain
 function drawTerrain() {
-  terCtx.clearRect(0, 0, width, terrainHeight); // Clear previous drawings
+  terCtx.clearRect(0, 0, width, height); // Clear previous drawings
   terCtx.beginPath();
   for (var i = 0; i <= width; i++) {
     if (i === 0) {
       terCtx.moveTo(0, points[0]);
     } else if (points[i] !== undefined) {
-      terCtx.lineTo(i, points[i]);
+      terCtx.lineTo(i, points[i] + (height - terrainHeight)); // Adjust to position terrain correctly
     }
   }
-  terCtx.lineTo(width, terrainHeight);
-  terCtx.lineTo(0, terrainHeight);
-  terCtx.lineTo(0, points[0]);
+  terCtx.lineTo(width, height);
+  terCtx.lineTo(0, height);
+  terCtx.lineTo(0, points[0] + (height - terrainHeight));
   terCtx.closePath();
   terCtx.fillStyle = '#121212'; // Very dark gray
   terCtx.fill();
@@ -70,14 +70,14 @@ function setupBackground() {
 
 // Stars
 function Star(options) {
-  this.size = Math.random() * 2;
+  this.size = Math.random() * 1.5; // Reduced size for mobile optimization
   this.speed = Math.random() * 0.1;
   this.x = options.x;
   this.y = options.y;
 }
 
 Star.prototype.reset = function() {
-  this.size = Math.random() * 2;
+  this.size = Math.random() * 1.5; // Reduced size
   this.speed = Math.random() * 0.1;
   this.x = width;
   this.y = Math.random() * terrainHeight; // Ensure stars are within the terrain height
@@ -99,10 +99,10 @@ function ShootingStar() {
 ShootingStar.prototype.reset = function() {
   this.x = Math.random() * width;
   this.y = 0;
-  this.len = (Math.random() * 80) + 10;
-  this.speed = (Math.random() * 10) + 6;
-  this.size = (Math.random() * 1) + 0.1;
-  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
+  this.len = (Math.random() * 60) + 10; // Reduced length for mobile
+  this.speed = (Math.random() * 8) + 4; // Reduced speed for mobile
+  this.size = (Math.random() * 0.8) + 0.1; // Reduced size for mobile
+  this.waitTime = new Date().getTime() + (Math.random() * 2000) + 500; // Reduced wait time
   this.active = false;
 }
 
@@ -129,7 +129,7 @@ ShootingStar.prototype.update = function() {
 var entities = [];
 
 // Initialize stars
-for (var i = 0; i < height; i++) {
+for (var i = 0; i < Math.min(height, 100); i++) { // Limit number of stars for performance
   entities.push(new Star({ x: Math.random() * width, y: Math.random() * terrainHeight }));
 }
 
@@ -156,7 +156,7 @@ function animate() {
 // Handle resizing
 window.addEventListener('resize', function() {
   ({ width, height } = resizeCanvas());
-  terrainHeight = height - 100; // Adjust terrain height
+  terrainHeight = height * 0.8; // Adjust terrain height
   drawTerrain(); // Redraw terrain
   setupBackground(); // Redraw background
 });
