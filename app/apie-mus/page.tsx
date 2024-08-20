@@ -67,10 +67,10 @@ const ApieMus: React.FC = () => {
               <Card className="w-full md:w-1/2 flex-shrink-0">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
-                    {/* Apply font-awesome icon size class */}
-                    {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} className="fa-2x" />}
-                    {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} className="fa-2x" />}
-                    {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} className="fa-2x" />}
+                    {/* Apply FontAwesome icon size classes */}
+                    {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} className="fa-3x" />}
+                    {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} className="fa-3x" />}
+                    {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} className="fa-3x" />}
                   </div>
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {section.title}
