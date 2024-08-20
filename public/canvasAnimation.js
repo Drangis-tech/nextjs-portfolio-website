@@ -13,27 +13,26 @@ var terrain = document.getElementById("terCanvas"),
     bgCtx = background.getContext("2d"),
     width = window.innerWidth,
     height = document.body.offsetHeight;
-(height < 400) ? height = 400 : height;
 
-// Set canvas dimensions
-terrain.width = background.width = width;
-terrain.height = background.height = height;
+// Adjust height to ensure terrain is placed correctly
+var terrainHeight = height - 100; // Adjust this value to position the terrain lower
+terrain.height = background.height = terrainHeight;
 
 // Random points for terrain
 var points = [],
-    displacement = 120, // Reduced displacement for a smoother look
+    displacement = 120,
     power = Math.pow(2, Math.ceil(Math.log(width) / Math.log(2)));
 
 // Set start and end heights for terrain
-points[0] = (height - (Math.random() * height / 2)) - displacement;
-points[power] = (height - (Math.random() * height / 2)) - displacement;
+points[0] = (terrainHeight - (Math.random() * terrainHeight / 2)) - displacement;
+points[power] = (terrainHeight - (Math.random() * terrainHeight / 2)) - displacement;
 
 // Create terrain points
 for (var i = 1; i < power; i *= 2) {
   for (var j = (power / i) / 2; j < power; j += power / i) {
     points[j] = ((points[j - (power / i) / 2] + points[j + (power / i) / 2]) / 2) + Math.floor(Math.random() * -displacement + displacement);
   }
-  displacement *= 0.6; // Smooth out the terrain
+  displacement *= 0.6;
 }
 
 // Draw the terrain
@@ -47,11 +46,11 @@ for (var i = 0; i <= width; i++) {
   }
 }
 
-terCtx.lineTo(width, terrain.height);
-terCtx.lineTo(0, terrain.height);
+terCtx.lineTo(width, terrainHeight);
+terCtx.lineTo(0, terrainHeight);
 terCtx.lineTo(0, points[0]);
 terCtx.closePath();
-terCtx.fillStyle = '#1e1e1e'; // Dark gray for a better match with dark theme
+terCtx.fillStyle = '#121212'; // Very dark gray for a near-black appearance
 terCtx.fill();
 
 // Background canvas setup
@@ -70,7 +69,7 @@ Star.prototype.reset = function() {
   this.size = Math.random() * 2;
   this.speed = Math.random() * 0.1;
   this.x = width;
-  this.y = Math.random() * height;
+  this.y = Math.random() * terrainHeight; // Ensure stars are only within the terrain
 }
 
 Star.prototype.update = function() {
@@ -100,7 +99,7 @@ ShootingStar.prototype.update = function() {
   if (this.active) {
     this.x -= this.speed;
     this.y += this.speed;
-    if (this.x < 0 || this.y >= height) {
+    if (this.x < 0 || this.y >= terrainHeight) { // Ensure shooting stars are within the terrain
       this.reset();
     } else {
       bgCtx.lineWidth = this.size;
@@ -120,7 +119,7 @@ var entities = [];
 
 // Initialize stars
 for (var i = 0; i < height; i++) {
-  entities.push(new Star({ x: Math.random() * width, y: Math.random() * height }));
+  entities.push(new Star({ x: Math.random() * width, y: Math.random() * terrainHeight }));
 }
 
 // Add shooting stars
