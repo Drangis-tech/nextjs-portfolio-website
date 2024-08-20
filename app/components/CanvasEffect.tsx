@@ -30,9 +30,8 @@ class Star {
     this.x -= this.speed;
     if (this.x < 0) {
       this.reset();
-    } else {
-      ctx.fillRect(this.x, this.y, this.size, this.size);
     }
+    ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
 
@@ -99,7 +98,7 @@ const CanvasEffect: React.FC = () => {
     }
 
     const width = window.innerWidth;
-    let height = document.body.offsetHeight;
+    let height = window.innerHeight;
 
     if (height < 400) height = 400;
 
@@ -133,6 +132,8 @@ const CanvasEffect: React.FC = () => {
     terCtx.lineTo(width, height);
     terCtx.lineTo(0, height);
     terCtx.lineTo(0, points[0]);
+    terCtx.closePath(); // Ensure the path is closed before filling
+    terCtx.fillStyle = "#000000"; // Set the fill color
     terCtx.fill();
 
     bgCtx.fillStyle = "#05004c";
@@ -144,6 +145,7 @@ const CanvasEffect: React.FC = () => {
       entities.push(new Star({ x: Math.random() * width, y: Math.random() * height }));
     }
 
+    // Ensure there are at least two ShootingStars
     entities.push(new ShootingStar());
     entities.push(new ShootingStar());
 
