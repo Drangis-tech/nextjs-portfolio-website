@@ -6,7 +6,7 @@
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-// Terrain stuff.
+// Terrain setup
 var terrain = document.getElementById("terCanvas"),
     background = document.getElementById("bgCanvas"),
     terCtx = terrain.getContext("2d"),
@@ -19,21 +19,21 @@ var terrain = document.getElementById("terCanvas"),
 terrain.width = background.width = width;
 terrain.height = background.height = height;
 
-// Some random points
+// Random points for terrain
 var points = [],
-    displacement = 140,
+    displacement = 120, // Reduced displacement for a smoother look
     power = Math.pow(2, Math.ceil(Math.log(width) / Math.log(2)));
 
-// Set the start height and end height for the terrain
+// Set start and end heights for terrain
 points[0] = (height - (Math.random() * height / 2)) - displacement;
 points[power] = (height - (Math.random() * height / 2)) - displacement;
 
-// Create the rest of the points
+// Create terrain points
 for (var i = 1; i < power; i *= 2) {
   for (var j = (power / i) / 2; j < power; j += power / i) {
     points[j] = ((points[j - (power / i) / 2] + points[j + (power / i) / 2]) / 2) + Math.floor(Math.random() * -displacement + displacement);
   }
-  displacement *= 0.6;
+  displacement *= 0.6; // Smooth out the terrain
 }
 
 // Draw the terrain
@@ -51,10 +51,10 @@ terCtx.lineTo(width, terrain.height);
 terCtx.lineTo(0, terrain.height);
 terCtx.lineTo(0, points[0]);
 terCtx.closePath();
-terCtx.fillStyle = '#2c2c2c'; // Darker gray for the mountain
+terCtx.fillStyle = '#1e1e1e'; // Dark gray for a better match with dark theme
 terCtx.fill();
 
-// Second canvas used for the stars
+// Background canvas setup
 bgCtx.fillStyle = '#000000'; // Black for the sky
 bgCtx.fillRect(0, 0, width, height);
 
@@ -118,16 +118,16 @@ ShootingStar.prototype.update = function() {
 
 var entities = [];
 
-// Initialize the stars
+// Initialize stars
 for (var i = 0; i < height; i++) {
   entities.push(new Star({ x: Math.random() * width, y: Math.random() * height }));
 }
 
-// Add 2 shooting stars that just cycle
+// Add shooting stars
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
-// Animate background
+// Animate
 function animate() {
   bgCtx.fillStyle = '#000000'; // Black for the sky
   bgCtx.fillRect(0, 0, width, height);
