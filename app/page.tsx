@@ -21,7 +21,7 @@ export default function Home() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
+              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500" //comment
               aria-label={item.name}
             >
               {item.name}
@@ -31,7 +31,7 @@ export default function Home() {
       </nav>
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <Particles className="absolute inset-0 -z-10 animate-fade-in" quantity={100} />
-      <MeteorShower className="absolute inset-0 -z-10" /> {/* Add MeteorShower here */}
+      <MeteorShower className="absolute inset-0 -z-10" /> {/* Add MeteorShower here */} 
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
           <Image
