@@ -139,10 +139,10 @@ const CanvasEffect: React.FC = () => {
     terCtx.lineTo(0, height);
     terCtx.lineTo(0, points[0]);
     terCtx.closePath(); // Ensure the path is closed before filling
-    terCtx.fillStyle = "#000000"; // Set the fill color
+    terCtx.fillStyle = "#4a4a4a"; // Update mountain color to gray
     terCtx.fill();
 
-    bgCtx.fillStyle = "#05004c";
+    bgCtx.fillStyle = "#000000"; // Update sky color to black
     bgCtx.fillRect(0, 0, width, height);
 
     const entities: (Star | ShootingStar)[] = [];
@@ -159,7 +159,7 @@ const CanvasEffect: React.FC = () => {
       const { width, height } = resizeCanvas(); // Ensure canvas is resized on window resize
       if (bgCtx) {
         bgCtx.clearRect(0, 0, width, height);
-        bgCtx.fillStyle = "#05004c";
+        bgCtx.fillStyle = "#000000";
         bgCtx.fillRect(0, 0, width, height);
         bgCtx.fillStyle = "#ffffff";
         bgCtx.strokeStyle = "#ffffff";
