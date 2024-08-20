@@ -150,6 +150,11 @@
       left: 100%;
     }
   }
+
+  /* FontAwesome specific icon size */
+  .fa-icon {
+    font-size: 2rem; /* Adjust the size as needed */
+  }
 }
 
 /* Ensure FontAwesome icons are responsive */
