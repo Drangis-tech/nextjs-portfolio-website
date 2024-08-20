@@ -18,10 +18,10 @@ export default function MeteorShower({ className = "" }: MeteorShowerProps) {
       resizeCanvas();
       window.addEventListener("resize", resizeCanvas);
       setInterval(() => {
-        if (Math.random() < 0.2) { // Increased probability for testing
+        if (Math.random() < 0.2) { // Increased chance for more frequent meteors
           drawMeteor();
         }
-      }, 500); // Adjusted interval for smoother appearance
+      }, 500);
     }
 
     return () => {
@@ -42,11 +42,11 @@ export default function MeteorShower({ className = "" }: MeteorShowerProps) {
   const drawMeteor = () => {
     if (!context.current) return;
 
-    const length = Math.random() * 100 + 50; // Random length
-    const speed = Math.random() * 4 + 1; // Random speed
-    const startX = Math.random() * canvasSize.current.w; // Random start X position
-    const startY = Math.random() * canvasSize.current.h; // Random start Y position
-    const angle = Math.random() * (Math.PI / 3) + (Math.PI / 6); // Random angle
+    const length = Math.random() * 120 + 60;
+    const speed = Math.random() * 6 + 2;
+    const startX = Math.random() * canvasSize.current.w;
+    const startY = Math.random() * canvasSize.current.h * 0.5; // Starting from top half only
+    const angle = Math.random() * (Math.PI / 3) + (Math.PI / 6);
     const dx = Math.cos(angle) * speed;
     const dy = Math.sin(angle) * speed;
 
@@ -54,7 +54,7 @@ export default function MeteorShower({ className = "" }: MeteorShowerProps) {
 
     const animateMeteor = () => {
       if (context.current) {
-        context.current.clearRect(0, 0, canvasSize.current.w, canvasSize.current.h); // Clear canvas
+        context.current.clearRect(0, 0, canvasSize.current.w, canvasSize.current.h);
 
         context.current.beginPath();
         context.current.arc(meteor.x, meteor.y, 3, 0, Math.PI * 2, false); // Rounded front
@@ -64,15 +64,19 @@ export default function MeteorShower({ className = "" }: MeteorShowerProps) {
           meteor.y - dy * meteor.length
         );
         context.current.strokeStyle = `rgba(255, 255, 255, ${meteor.opacity})`;
-        context.current.lineWidth = 2;
+        context.current.lineWidth = 3; // Thicker for visibility
+        context.current.shadowBlur = 5; // Add glow effect
+        context.current.shadowColor = "rgba(255, 255, 255, 0.8)";
         context.current.stroke();
 
         meteor.x += dx;
         meteor.y += dy;
-        meteor.opacity -= 0.01; // Fade out effect
+        meteor.opacity -= 0.01; // Smooth fade out
 
-        if (meteor.opacity > 0) {
+        if (meteor.opacity > 0 && meteor.y < canvasSize.current.h) {
           requestAnimationFrame(animateMeteor);
+        } else {
+          context.current.clearRect(0, 0, canvasSize.current.w, canvasSize.current.h); // Prevent cut-off
         }
       }
     };
@@ -83,7 +87,12 @@ export default function MeteorShower({ className = "" }: MeteorShowerProps) {
     <canvas
       ref={canvasRef}
       className={className}
-      style={{ position: "absolute", inset: 0, zIndex: -10 }}
+      style={{
+        position: "absolute",
+        inset: 0,
+        zIndex: -20, // Behind all content
+        pointerEvents: "none",
+      }}
     />
   );
 }
