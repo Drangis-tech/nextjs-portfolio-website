@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { FaUsers, FaEye, FaBalanceScale } from "react-icons/fa"; // Import FontAwesome icons
 
 // About Us Data
 const aboutUsData = [
@@ -18,28 +19,6 @@ const aboutUsData = [
     title: "Mūsų Vertybės",
     description: "Sąžiningumas, Tobulumas ir Bendradarbiavimas yra pagrindinės vertybės, kurios veda mus į sėkmę.",
     detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais."
-  },
-];
-
-// Team Data
-const teamData = [
-  {
-    name: "Nojus Mykolaitis",
-    role: "CEO",
-    linkedIn: "https://www.linkedin.com/in/nojus-mykolaitis",
-    twitter: "#",
-  },
-  {
-    name: "Petras Vanagas",
-    role: "CTO",
-    linkedIn: "#",
-    twitter: "#",
-  },
-  {
-    name: "Ona Onaitė",
-    role: "CFO",
-    linkedIn: "#",
-    twitter: "#",
   },
 ];
 
@@ -64,7 +43,10 @@ const ApieMus: React.FC = () => {
               <Card className="w-full md:w-1/2 flex-shrink-0">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
-                    <span>{section.title}</span>
+                    {/* Only keep one title and replace duplicates with icons */}
+                    {index === 0 && <span>{section.title}</span>}
+                    {index === 1 && <FaEye className="text-zinc-100" />}
+                    {index === 2 && <FaBalanceScale className="text-zinc-100" />}
                   </div>
 
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
@@ -76,9 +58,7 @@ const ApieMus: React.FC = () => {
                 </article>
               </Card>
               <div className="w-full mt-6 md:mt-0 md:w-1/2">
-                <h4 className="text-xl font-semibold text-zinc-100">
-                  {section.title}
-                </h4>
+                {/* Removed title from the detailedText section */}
                 <p className="mt-2 text-zinc-400 text-base sm:text-lg">
                   {section.detailedText}
                 </p>
