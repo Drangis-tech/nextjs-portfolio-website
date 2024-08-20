@@ -80,7 +80,7 @@ class ShootingStar {
   }
 }
 
-const CanvasEffect = () => {
+const CanvasEffect: React.FC = () => {
   useEffect(() => {
     const terCanvas = document.getElementById("terCanvas") as HTMLCanvasElement | null;
     const bgCanvas = document.getElementById("bgCanvas") as HTMLCanvasElement | null;
@@ -98,7 +98,7 @@ const CanvasEffect = () => {
       return;
     }
 
-    let width = window.innerWidth;
+    const width = window.innerWidth;
     let height = document.body.offsetHeight;
 
     if (height < 400) height = 400;
@@ -148,6 +148,7 @@ const CanvasEffect = () => {
     entities.push(new ShootingStar());
 
     function animate() {
+      bgCtx.clearRect(0, 0, width, height);
       bgCtx.fillStyle = "#05004c";
       bgCtx.fillRect(0, 0, width, height);
       bgCtx.fillStyle = "#ffffff";
