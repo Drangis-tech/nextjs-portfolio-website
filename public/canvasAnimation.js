@@ -6,89 +6,85 @@
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-// Initialize canvases and contexts
+// Get canvas elements and contexts
 var terrain = document.getElementById("terCanvas"),
-    background = document.getElementById("bgCanvas"),
-    terCtx = terrain.getContext("2d"),
-    bgCtx = background.getContext("2d");
+  background = document.getElementById("bgCanvas"),
+  terCtx = terrain.getContext("2d"),
+  bgCtx = background.getContext("2d"),
+  width = window.innerWidth,
+  height = window.innerHeight;
 
-// Set canvas size
-function resizeCanvas() {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
-  terrain.width = background.width = width;
-  terrain.height = background.height = height;
-  return { width, height };
-}
+// Set canvas sizes
+terrain.width = background.width = width;
+terrain.height = background.height = height;
 
-var { width, height } = resizeCanvas();
-
-// Adjust height for terrain
-var terrainHeight = height * 0.8; // Adjust to ensure terrain is positioned correctly
-
-// Random points for terrain
+// Variables for terrain
 var points = [],
-    displacement = 120,
-    power = Math.pow(2, Math.ceil(Math.log(width) / Math.log(2)));
+  displacement = 140,
+  power = Math.pow(2, Math.ceil(Math.log(width) / Math.log(2)));
 
-// Set start and end heights for terrain
-points[0] = (terrainHeight - (Math.random() * terrainHeight / 2)) - displacement;
-points[power] = (terrainHeight - (Math.random() * terrainHeight / 2)) - displacement;
-
-// Create terrain points
-for (var i = 1; i < power; i *= 2) {
-  for (var j = (power / i) / 2; j < power; j += power / i) {
-    points[j] = ((points[j - (power / i) / 2] + points[j + (power / i) / 2]) / 2) + Math.floor(Math.random() * -displacement + displacement);
-  }
-  displacement *= 0.6;
+// Function to calculate terrain height
+function calculateTerrainHeight() {
+  // Calculate terrain height based on the viewport height
+  return height * 0.6; // Adjust the factor as needed
 }
 
-// Draw the terrain
+// Set the start height and end height for the terrain
 function drawTerrain() {
-  terCtx.clearRect(0, 0, width, height); // Clear previous drawings
+  var terrainHeight = calculateTerrainHeight();
+  points[0] = (height - (Math.random() * height / 2)) - displacement;
+  points[power] = (height - (Math.random() * height / 2)) - displacement;
+
+  for (var i = 1; i < power; i *= 2) {
+      for (var j = (power / i) / 2; j < power; j += power / i) {
+          points[j] = ((points[j - (power / i) / 2] + points[j + (power / i) / 2]) / 2) + Math.floor(Math.random() * -displacement + displacement);
+      }
+      displacement *= 0.6;
+  }
+
+  // Draw the terrain
   terCtx.beginPath();
   for (var i = 0; i <= width; i++) {
-    if (i === 0) {
-      terCtx.moveTo(0, points[0]);
-    } else if (points[i] !== undefined) {
-      terCtx.lineTo(i, points[i] + (height - terrainHeight)); // Adjust to position terrain correctly
-    }
+      if (i === 0) {
+          terCtx.moveTo(0, points[0]);
+      } else if (points[i] !== undefined) {
+          terCtx.lineTo(i, points[i]);
+      }
   }
-  terCtx.lineTo(width, height);
-  terCtx.lineTo(0, height);
-  terCtx.lineTo(0, points[0] + (height - terrainHeight));
+  terCtx.lineTo(width, height - (height - terrainHeight)); // Lower the terrain based on the calculated height
+  terCtx.lineTo(0, height - (height - terrainHeight)); // Lower the terrain based on the calculated height
+  terCtx.lineTo(0, points[0]);
   terCtx.closePath();
-  terCtx.fillStyle = '#121212'; // Very dark gray
+  terCtx.fillStyle = "#333"; // Darker gray for the terrain
   terCtx.fill();
 }
 
-// Background canvas setup
-function setupBackground() {
-  bgCtx.fillStyle = '#000000'; // Black for the sky
-  bgCtx.fillRect(0, 0, width, height);
-}
+// Draw stars on the background canvas
+bgCtx.fillStyle = '#000'; // Background color of stars canvas
+bgCtx.fillRect(0, 0, width, height);
 
-// Stars
+// Star and shooting star definitions
 function Star(options) {
-  this.size = Math.random() * 1.5; // Reduced size for mobile optimization
+  this.size = Math.random() * 2;
   this.speed = Math.random() * 0.1;
   this.x = options.x;
   this.y = options.y;
 }
 
-Star.prototype.reset = function() {
-  this.size = Math.random() * 1.5; // Reduced size
+Star.prototype.reset = function () {
+  this.size = Math.random() * 2;
   this.speed = Math.random() * 0.1;
   this.x = width;
-  this.y = Math.random() * terrainHeight; // Ensure stars are within the terrain height
+  this.y = Math.random() * height;
 }
 
-Star.prototype.update = function() {
+Star.prototype.update = function () {
   this.x -= this.speed;
   if (this.x < 0) {
-    this.reset();
+      this.reset();
   } else {
-    bgCtx.fillRect(this.x, this.y, this.size, this.size);
+      bgCtx.fillStyle = '#ffffff'; // White color for stars
+      bgCtx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
 
@@ -96,70 +92,71 @@ function ShootingStar() {
   this.reset();
 }
 
-ShootingStar.prototype.reset = function() {
+ShootingStar.prototype.reset = function () {
   this.x = Math.random() * width;
   this.y = 0;
-  this.len = (Math.random() * 60) + 10; // Reduced length for mobile
-  this.speed = (Math.random() * 8) + 4; // Reduced speed for mobile
-  this.size = (Math.random() * 0.8) + 0.1; // Reduced size for mobile
-  this.waitTime = new Date().getTime() + (Math.random() * 2000) + 500; // Reduced wait time
+  this.len = (Math.random() * 80) + 10;
+  this.speed = (Math.random() * 10) + 6;
+  this.size = (Math.random() * 1) + 0.1;
+  this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
   this.active = false;
 }
 
-ShootingStar.prototype.update = function() {
+ShootingStar.prototype.update = function () {
   if (this.active) {
-    this.x -= this.speed;
-    this.y += this.speed;
-    if (this.x < 0 || this.y >= terrainHeight) { // Ensure shooting stars are within the terrain height
-      this.reset();
-    } else {
-      bgCtx.lineWidth = this.size;
-      bgCtx.beginPath();
-      bgCtx.moveTo(this.x, this.y);
-      bgCtx.lineTo(this.x + this.len, this.y - this.len);
-      bgCtx.stroke();
-    }
+      this.x -= this.speed;
+      this.y += this.speed;
+      if (this.x < 0 || this.y >= height) {
+          this.reset();
+      } else {
+          bgCtx.lineWidth = this.size;
+          bgCtx.beginPath();
+          bgCtx.moveTo(this.x, this.y);
+          bgCtx.lineTo(this.x + this.len, this.y - this.len);
+          bgCtx.strokeStyle = '#ffffff'; // White color for shooting stars
+          bgCtx.stroke();
+      }
   } else {
-    if (this.waitTime < new Date().getTime()) {
-      this.active = true;
-    }
+      if (this.waitTime < new Date().getTime()) {
+          this.active = true;
+      }
   }
 }
 
 var entities = [];
-
-// Initialize stars
-for (var i = 0; i < Math.min(height, 100); i++) { // Limit number of stars for performance
-  entities.push(new Star({ x: Math.random() * width, y: Math.random() * terrainHeight }));
+for (var i = 0; i < height; i++) {
+  entities.push(new Star({ x: Math.random() * width, y: Math.random() * height }));
 }
-
-// Add shooting stars
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
-// Animate
+// Animate the stars
 function animate() {
-  setupBackground();
-  drawTerrain();
-  bgCtx.fillStyle = '#ffffff'; // White for the stars
-  bgCtx.strokeStyle = '#ffffff'; // White for the shooting stars
-
+  bgCtx.fillStyle = '#000'; // Background color of stars canvas
+  bgCtx.fillRect(0, 0, width, height);
   var entLen = entities.length;
-
   while (entLen--) {
-    entities[entLen].update();
+      entities[entLen].update();
   }
-
   requestAnimationFrame(animate);
 }
-
-// Handle resizing
-window.addEventListener('resize', function() {
-  ({ width, height } = resizeCanvas());
-  terrainHeight = height * 0.8; // Adjust terrain height
-  drawTerrain(); // Redraw terrain
-  setupBackground(); // Redraw background
-});
-
-// Start animation
 animate();
+
+// Handle window resize
+window.addEventListener("resize", function() {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  terrain.width = background.width = width;
+  terrain.height = background.height = height;
+  terCtx.clearRect(0, 0, width, height);
+  bgCtx.clearRect(0, 0, width, height);
+
+  drawTerrain(); // Redraw terrain on resize
+
+  bgCtx.fillStyle = '#000'; // Background color of stars canvas
+  bgCtx.fillRect(0, 0, width, height);
+
+  entities.forEach(entity => entity.reset());
+  entities.push(new ShootingStar());
+  entities.push(new ShootingStar());
+});
