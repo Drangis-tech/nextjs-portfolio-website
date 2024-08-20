@@ -48,7 +48,7 @@ const ApieMus: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-12 md:pt-16 lg:pt-20">
+      <div className="px-6 pt-32 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-12 md:pt-40 lg:pt-48">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">Apie Mus</h2>
           <p className="mt-2 text-zinc-400 text-sm sm:text-base">
