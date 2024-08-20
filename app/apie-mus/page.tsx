@@ -48,10 +48,12 @@ const ApieMus: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="px-6 pt-36 mx-auto space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-40 lg:pt-48">
-        <div className="max-w-3xl mx-auto lg:mx-0">
-          <h2 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">Apie Mus</h2>
-          <p className="mt-4 text-zinc-400 text-lg sm:text-xl">
+      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            Apie Mus
+          </h2>
+          <p className="mt-4 text-zinc-400">
             Sužinokite daugiau apie mūsų komandą, viziją ir vertybes, kurios veda mūsų misiją.
           </p>
         </div>
@@ -66,17 +68,21 @@ const ApieMus: React.FC = () => {
                     <span>{section.title}</span>
                   </div>
 
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
+                  <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {section.title}
-                  </h2>
-                  <p className="mt-4 leading-7 text-zinc-400 group-hover:text-zinc-300">
+                  </h3>
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
                     {section.description}
                   </p>
                 </article>
               </Card>
               <div className="w-full md:w-1/2 mt-6 md:mt-0">
-                <h3 className="text-2xl font-bold text-zinc-100">{section.title}</h3>
-                <p className="mt-2 text-zinc-400 text-lg">{section.detailedText}</p>
+                <h4 className="text-xl font-semibold text-zinc-100">
+                  {section.title}
+                </h4>
+                <p className="mt-2 text-zinc-400 text-base">
+                  {section.detailedText}
+                </p>
               </div>
             </div>
           ))}
@@ -85,7 +91,9 @@ const ApieMus: React.FC = () => {
         <div className="w-full h-px bg-zinc-800" />
 
         <div className="mt-16">
-          <h2 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">Komanda</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            Komanda
+          </h2>
 
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
             {teamData.map((member, index) => (
@@ -95,10 +103,10 @@ const ApieMus: React.FC = () => {
                     <span>{member.role}</span>
                   </div>
 
-                  <h2 className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl">
+                  <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {member.name}
-                  </h2>
-                  <p className="mt-4 leading-7 text-zinc-400 group-hover:text-zinc-300">
+                  </h3>
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
                     <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
                   </p>
                 </article>
