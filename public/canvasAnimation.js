@@ -6,17 +6,25 @@
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-// Terrain setup
+// Initialize canvases and contexts
 var terrain = document.getElementById("terCanvas"),
     background = document.getElementById("bgCanvas"),
     terCtx = terrain.getContext("2d"),
-    bgCtx = background.getContext("2d"),
-    width = window.innerWidth,
-    height = document.body.offsetHeight;
+    bgCtx = background.getContext("2d");
 
-// Adjust height to ensure terrain is placed correctly
-var terrainHeight = height - 100; // Adjust this value to position the terrain lower
-terrain.height = background.height = terrainHeight;
+// Set canvas size
+function resizeCanvas() {
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  terrain.width = background.width = width;
+  terrain.height = background.height = height;
+  return { width, height };
+}
+
+var { width, height } = resizeCanvas();
+
+// Adjust height for terrain
+var terrainHeight = height - 100; // Adjust this value as needed
 
 // Random points for terrain
 var points = [],
@@ -36,26 +44,29 @@ for (var i = 1; i < power; i *= 2) {
 }
 
 // Draw the terrain
-terCtx.beginPath();
-
-for (var i = 0; i <= width; i++) {
-  if (i === 0) {
-    terCtx.moveTo(0, points[0]);
-  } else if (points[i] !== undefined) {
-    terCtx.lineTo(i, points[i]);
+function drawTerrain() {
+  terCtx.clearRect(0, 0, width, terrainHeight); // Clear previous drawings
+  terCtx.beginPath();
+  for (var i = 0; i <= width; i++) {
+    if (i === 0) {
+      terCtx.moveTo(0, points[0]);
+    } else if (points[i] !== undefined) {
+      terCtx.lineTo(i, points[i]);
+    }
   }
+  terCtx.lineTo(width, terrainHeight);
+  terCtx.lineTo(0, terrainHeight);
+  terCtx.lineTo(0, points[0]);
+  terCtx.closePath();
+  terCtx.fillStyle = '#121212'; // Very dark gray
+  terCtx.fill();
 }
 
-terCtx.lineTo(width, terrainHeight);
-terCtx.lineTo(0, terrainHeight);
-terCtx.lineTo(0, points[0]);
-terCtx.closePath();
-terCtx.fillStyle = '#121212'; // Very dark gray for a near-black appearance
-terCtx.fill();
-
 // Background canvas setup
-bgCtx.fillStyle = '#000000'; // Black for the sky
-bgCtx.fillRect(0, 0, width, height);
+function setupBackground() {
+  bgCtx.fillStyle = '#000000'; // Black for the sky
+  bgCtx.fillRect(0, 0, width, height);
+}
 
 // Stars
 function Star(options) {
@@ -69,7 +80,7 @@ Star.prototype.reset = function() {
   this.size = Math.random() * 2;
   this.speed = Math.random() * 0.1;
   this.x = width;
-  this.y = Math.random() * terrainHeight; // Ensure stars are only within the terrain
+  this.y = Math.random() * terrainHeight; // Ensure stars are within the terrain height
 }
 
 Star.prototype.update = function() {
@@ -77,7 +88,7 @@ Star.prototype.update = function() {
   if (this.x < 0) {
     this.reset();
   } else {
-    bgCtx.fillRect(this.x, this.y, this.size, this.size); 
+    bgCtx.fillRect(this.x, this.y, this.size, this.size);
   }
 }
 
@@ -99,7 +110,7 @@ ShootingStar.prototype.update = function() {
   if (this.active) {
     this.x -= this.speed;
     this.y += this.speed;
-    if (this.x < 0 || this.y >= terrainHeight) { // Ensure shooting stars are within the terrain
+    if (this.x < 0 || this.y >= terrainHeight) { // Ensure shooting stars are within the terrain height
       this.reset();
     } else {
       bgCtx.lineWidth = this.size;
@@ -111,7 +122,7 @@ ShootingStar.prototype.update = function() {
   } else {
     if (this.waitTime < new Date().getTime()) {
       this.active = true;
-    }       
+    }
   }
 }
 
@@ -128,8 +139,8 @@ entities.push(new ShootingStar());
 
 // Animate
 function animate() {
-  bgCtx.fillStyle = '#000000'; // Black for the sky
-  bgCtx.fillRect(0, 0, width, height);
+  setupBackground();
+  drawTerrain();
   bgCtx.fillStyle = '#ffffff'; // White for the stars
   bgCtx.strokeStyle = '#ffffff'; // White for the shooting stars
 
@@ -141,4 +152,14 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
+
+// Handle resizing
+window.addEventListener('resize', function() {
+  ({ width, height } = resizeCanvas());
+  terrainHeight = height - 100; // Adjust terrain height
+  drawTerrain(); // Redraw terrain
+  setupBackground(); // Redraw background
+});
+
+// Start animation
 animate();
