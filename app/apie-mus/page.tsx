@@ -1,32 +1,3 @@
-import React from "react";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
-
-// Team Data
-const teamData = [
-  {
-    name: "John Doe",
-    role: "CEO",
-    linkedIn: "https://www.linkedin.com/in/johndoe",
-    twitter: "https://twitter.com/johndoe",
-  },
-  {
-    name: "Jane Smith",
-    role: "CTO",
-    linkedIn: "https://www.linkedin.com/in/janesmith",
-    twitter: "https://twitter.com/janesmith",
-  },
-  {
-    name: "Alice Johnson",
-    role: "Lead Developer",
-    linkedIn: "https://www.linkedin.com/in/alicejohnson",
-    twitter: "https://twitter.com/alicejohnson",
-  },
-  // Add more team members as needed
-];
-
 // About Us Data
 const aboutUsData = [
   {
@@ -67,10 +38,10 @@ const ApieMus: React.FC = () => {
               <Card className="w-full md:w-1/2 flex-shrink-0">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
-                    {/* Display the matching FontAwesome icon */}
-                    {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} size="2x" />}
-                    {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} size="2x" />}
-                    {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} size="2x" />}
+                    {/* Display the matching FontAwesome icon with a fixed size */}
+                    {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} style={{ fontSize: "2rem" }} />}
+                    {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} style={{ fontSize: "2rem" }} />}
+                    {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} style={{ fontSize: "2rem" }} />}
                   </div>
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {section.title}
