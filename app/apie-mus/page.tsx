@@ -47,12 +47,12 @@ const ApieMus: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+      <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl md:text-4xl">
             Apie Mus
           </h2>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg md:text-xl">
             Sužinokite daugiau apie mūsų komandą, viziją ir vertybes, kurios veda mūsų misiją.
           </p>
         </div>
@@ -60,7 +60,7 @@ const ApieMus: React.FC = () => {
 
         <div className="space-y-12">
           {aboutUsData.map((section, index) => (
-            <div key={index} className="flex flex-col md:flex-row md:items-start md:space-x-12">
+            <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
               <Card className="w-full md:w-1/2 flex-shrink-0">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
@@ -70,16 +70,16 @@ const ApieMus: React.FC = () => {
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {section.title}
                   </h3>
-                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300 text-base sm:text-lg">
                     {section.description}
                   </p>
                 </article>
               </Card>
-              <div className="w-full md:w-1/2 mt-6 md:mt-0">
+              <div className="w-full mt-6 md:mt-0 md:w-1/2">
                 <h4 className="text-xl font-semibold text-zinc-100">
                   {section.title}
                 </h4>
-                <p className="mt-2 text-zinc-400 text-base">
+                <p className="mt-2 text-zinc-400 text-base sm:text-lg">
                   {section.detailedText}
                 </p>
               </div>
@@ -90,7 +90,7 @@ const ApieMus: React.FC = () => {
         <div className="w-full h-px bg-zinc-800" />
 
         <div className="mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl md:text-4xl">
             Komanda
           </h2>
 
