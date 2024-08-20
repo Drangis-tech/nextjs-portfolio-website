@@ -68,9 +68,9 @@ const ApieMus: React.FC = () => {
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
                     {/* Apply font-awesome icon size class */}
-                    {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} className="fa-icon" />}
-                    {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} className="fa-icon" />}
-                    {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} className="fa-icon" />}
+                    {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} className="fa-2x" />}
+                    {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} className="fa-2x" />}
+                    {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} className="fa-2x" />}
                   </div>
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {section.title}
@@ -101,7 +101,16 @@ const ApieMus: React.FC = () => {
               <Card key={index} className="w-full">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
+                    {/* Team member role and social icons */}
                     <span>{member.role}</span>
+                    <div className="mt-2 flex justify-center space-x-4">
+                      <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">
+                        <FontAwesomeIcon icon={faUsers} className="fa-xs" />
+                      </a>
+                      <a href={member.twitter} className="text-blue-400 hover:text-blue-300">
+                        <FontAwesomeIcon icon={faUsers} className="fa-xs" />
+                      </a>
+                    </div>
                   </div>
 
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">

@@ -153,7 +153,45 @@
 
   /* FontAwesome specific icon size */
   .fa-icon {
-    font-size: 2rem !important; /* Adjust the size as needed and force it with !important */
+    font-size: 2rem; /* Set default size */
+  }
+
+  /* Ensures size consistency */
+  .fa-xs {
+    font-size: 0.75rem !important; /* Extra small size */
+  }
+  .fa-sm {
+    font-size: 1rem !important; /* Small size */
+  }
+  .fa-lg {
+    font-size: 1.25rem !important; /* Large size */
+  }
+  .fa-2x {
+    font-size: 2rem !important; /* 2x size */
+  }
+  .fa-3x {
+    font-size: 3rem !important; /* 3x size */
+  }
+  .fa-4x {
+    font-size: 4rem !important; /* 4x size */
+  }
+  .fa-5x {
+    font-size: 5rem !important; /* 5x size */
+  }
+  .fa-6x {
+    font-size: 6rem !important; /* 6x size */
+  }
+  .fa-7x {
+    font-size: 7rem !important; /* 7x size */
+  }
+  .fa-8x {
+    font-size: 8rem !important; /* 8x size */
+  }
+  .fa-9x {
+    font-size: 9rem !important; /* 9x size */
+  }
+  .fa-10x {
+    font-size: 10rem !important; /* 10x size */
   }
 }
 
