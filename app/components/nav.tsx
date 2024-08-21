@@ -121,7 +121,7 @@ export const Navigation: React.FC = () => {
             <Link href="/kainos" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
+            <Link href="/contact" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
