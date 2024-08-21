@@ -92,52 +92,52 @@ export const Navigation: React.FC = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-zinc-900 p-4">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden bg-gradient-to-br from-zinc-800 to-zinc-900 p-6 rounded-lg shadow-lg mt-2 mx-4">
+            <div className="flex flex-col space-y-6 text-center">
               <Link
                 href="/"
-                className="flex items-center space-x-2 text-zinc-300 hover:text-zinc-100"
+                className="flex items-center justify-center space-x-2 text-zinc-100 hover:text-white"
                 onClick={() => setIsOpen(false)} // Close menu on click
               >
                 <Image
                   src="/logo.png"
                   alt="WebForge Logo"
-                  width={40} // Adjust the width as needed
-                  height={40}
+                  width={50} // Slightly larger logo for emphasis
+                  height={50}
                   className="block"
                 />
               </Link>
               <Link
                 href="/projects"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="duration-200 text-zinc-300 hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 Atlikti Darbai
               </Link>
               <Link
                 href="/paslaugos"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="duration-200 text-zinc-300 hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 Paslaugos
               </Link>
               <Link
                 href="/apie-mus"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="duration-200 text-zinc-300 hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 Apie Mus
               </Link>
               <Link
                 href="/kainos"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="duration-200 text-zinc-300 hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 Kainos
               </Link>
               <Link
                 href="/contact"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="duration-200 text-zinc-300 hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 Kontaktai
