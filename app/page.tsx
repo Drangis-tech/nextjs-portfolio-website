@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { Navigation } from "../components/nav";
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -13,6 +14,8 @@ const navigation = [
 ];
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
   useEffect(() => {
     // Add no-scroll class to body
     document.body.classList.add('no-scroll');
@@ -20,6 +23,11 @@ export default function Home() {
     // Prevent default touch actions on mobile
     const preventDefault = (e: Event) => e.preventDefault();
     document.body.addEventListener('touchmove', preventDefault, { passive: false });
+
+    // Check screen width on initial load and on resize
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
     // Insert the JavaScript code for the canvas animation here
     const script = document.createElement("script");
@@ -31,6 +39,7 @@ export default function Home() {
     return () => {
       document.body.classList.remove('no-scroll');
       document.body.removeEventListener('touchmove', preventDefault);
+      document.body.removeEventListener('resize', handleResize);
       document.body.removeChild(script);
     };
   }, []);
@@ -39,20 +48,27 @@ export default function Home() {
     <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
-      <nav className="my-16 animate-fade-in z-10">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
-              aria-label={item.name}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
+
+      {/* Conditionally render Navigation component for mobile */}
+      {isMobile ? (
+        <Navigation />
+      ) : (
+        <nav className="my-16 animate-fade-in z-10">
+          <ul className="flex items-center justify-center gap-4">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
+                aria-label={item.name}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </ul>
+        </nav>
+      )}
+
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
@@ -74,9 +90,9 @@ export default function Home() {
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
-      <h2 className="text-sm text-zinc-500 shine-effect">
-        Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
-      </h2>
+        <h2 className="text-sm text-zinc-500 shine-effect">
+          Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
+        </h2>
       </div>
     </div>
   );
