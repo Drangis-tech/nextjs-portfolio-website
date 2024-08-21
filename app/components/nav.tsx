@@ -44,12 +44,12 @@ export const Navigation: React.FC = () => {
           </Link>
 
           {/* Hamburger Icon for Mobile aligned to the right */}
-          <div className="md:hidden flex items-center text-zinc-300">
+          <div className="md:hidden flex items-center">
             <FontAwesomeIcon 
               icon={isOpen ? faTimes : faBars} 
               onClick={toggleMenu} 
               size="2x" // Larger size for mobile
-              className="ml-auto cursor-pointer" // Aligns the icon to the right
+              className="text-zinc-300 cursor-pointer ml-auto" // Aligns the icon to the right
             />
           </div>
         </div>
@@ -61,56 +61,58 @@ export const Navigation: React.FC = () => {
           } transition-transform duration-500 ease-in-out`}
           style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
-          <div className="flex flex-col justify-center items-center h-full space-y-8 overflow-y-auto">
+          <div className="flex flex-col items-center justify-center h-full p-6 space-y-8 overflow-hidden">
             <Link
               href="/"
-              className="text-2xl font-semibold hover:text-white"
+              className="flex items-center flex-col mb-8"
               onClick={() => setIsOpen(false)} // Close menu on click
             >
               <Image
                 src="/logo.png"
                 alt="WebForge Logo"
-                width={60} // Larger logo for emphasis
-                height={60}
+                width={80} // Larger logo for emphasis
+                height={80}
                 className="block mb-4"
               />
-              WebForge
+              <span className="text-2xl font-semibold">WebForge</span>
             </Link>
-            <Link
-              href="/projects"
-              className="text-xl hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Atlikti Darbai
-            </Link>
-            <Link
-              href="/paslaugos"
-              className="text-xl hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Paslaugos
-            </Link>
-            <Link
-              href="/apie-mus"
-              className="text-xl hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Apie Mus
-            </Link>
-            <Link
-              href="/kainos"
-              className="text-xl hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Kainos
-            </Link>
-            <Link
-              href="/contact"
-              className="text-xl hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Kontaktai
-            </Link>
+            <nav className="flex flex-col space-y-6">
+              <Link
+                href="/projects"
+                className="text-2xl hover:text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Atlikti Darbai
+              </Link>
+              <Link
+                href="/paslaugos"
+                className="text-2xl hover:text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Paslaugos
+              </Link>
+              <Link
+                href="/apie-mus"
+                className="text-2xl hover:text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Apie Mus
+              </Link>
+              <Link
+                href="/kainos"
+                className="text-2xl hover:text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Kainos
+              </Link>
+              <Link
+                href="/contact"
+                className="text-2xl hover:text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Kontaktai
+              </Link>
+            </nav>
           </div>
         </div>
       </div>
