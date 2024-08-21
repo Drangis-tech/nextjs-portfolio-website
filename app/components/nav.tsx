@@ -61,7 +61,7 @@ export const Navigation: React.FC = () => {
           } transition-transform duration-500 ease-in-out`}
           style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
-          <div className="flex flex-col justify-center items-center h-full space-y-8">
+          <div className="flex flex-col justify-center items-center h-full space-y-8 overflow-y-auto">
             <Link
               href="/"
               className="text-2xl font-semibold hover:text-white"
