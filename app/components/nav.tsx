@@ -54,13 +54,16 @@ export const Navigation: React.FC = () => {
           </div>
         </div>
 
-        {/* Fullscreen Mobile Menu with animation */}
+        {/* Fullscreen Mobile Menu with background and animation */}
         <div
           className={`fixed inset-0 z-40 bg-zinc-900 text-zinc-100 transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-300 ease-in-out`}
           style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
+          {/* Background overlay for readability */}
+          <div className="absolute inset-0 bg-black opacity-70"></div>
+          {/* Main content area */}
           <div className="relative w-full h-full flex flex-col items-center justify-center p-6 space-y-8">
             {/* Close button */}
             <button 
@@ -70,7 +73,7 @@ export const Navigation: React.FC = () => {
               <FontAwesomeIcon icon={faTimes} />
             </button>
             {/* Logo and menu items */}
-            <div className="flex flex-col items-center space-y-8">
+            <div className="flex flex-col items-center space-y-8 z-10">
               <Link
                 href="/"
                 className="flex items-center flex-col mb-12"
