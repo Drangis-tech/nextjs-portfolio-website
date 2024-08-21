@@ -43,108 +43,75 @@ export const Navigation: React.FC = () => {
             <ArrowLeft className="w-8 h-8 md:w-6 md:h-6" /> {/* Larger size for mobile */}
           </Link>
 
-          {/* Flex container to center navigation links for desktop */}
-          <div className="hidden md:flex flex-grow items-center justify-center">
-            <div className="flex gap-8">
-              <Link
-                href="/projects"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
-              >
-                Atlikti Darbai
-              </Link>
-              <Link
-                href="/paslaugos"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
-              >
-                Paslaugos
-              </Link>
-              <Link
-                href="/apie-mus"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
-              >
-                Apie Mus
-              </Link>
-              <Link
-                href="/kainos"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
-              >
-                Kainos
-              </Link>
-              <Link
-                href="/contact"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
-              >
-                Kontaktai
-              </Link>
-            </div>
-          </div>
-
           {/* Hamburger Icon for Mobile aligned to the right */}
           <div className="md:hidden flex items-center text-zinc-300">
             <FontAwesomeIcon 
               icon={isOpen ? faTimes : faBars} 
               onClick={toggleMenu} 
               size="2x" // Larger size for mobile
-              className="ml-auto" // Aligns the icon to the right
+              className="ml-auto cursor-pointer" // Aligns the icon to the right
             />
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden bg-gradient-to-br from-zinc-800 to-zinc-900 p-6 rounded-lg shadow-lg mt-2 mx-4">
-            <div className="flex flex-col space-y-6 text-center">
-              <Link
-                href="/"
-                className="flex items-center justify-center space-x-2 text-zinc-100 hover:text-white"
-                onClick={() => setIsOpen(false)} // Close menu on click
-              >
-                <Image
-                  src="/logo.png"
-                  alt="WebForge Logo"
-                  width={50} // Slightly larger logo for emphasis
-                  height={50}
-                  className="block"
-                />
-              </Link>
-              <Link
-                href="/projects"
-                className="duration-200 text-zinc-300 hover:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                Atlikti Darbai
-              </Link>
-              <Link
-                href="/paslaugos"
-                className="duration-200 text-zinc-300 hover:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                Paslaugos
-              </Link>
-              <Link
-                href="/apie-mus"
-                className="duration-200 text-zinc-300 hover:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                Apie Mus
-              </Link>
-              <Link
-                href="/kainos"
-                className="duration-200 text-zinc-300 hover:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                Kainos
-              </Link>
-              <Link
-                href="/contact"
-                className="duration-200 text-zinc-300 hover:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                Kontaktai
-              </Link>
-            </div>
+        {/* Fullscreen Mobile Menu with animation */}
+        <div
+          className={`fixed inset-0 z-40 bg-zinc-900 text-zinc-100 transform ${
+            isOpen ? "translate-y-0" : "-translate-y-full"
+          } transition-transform duration-500 ease-in-out`}
+        >
+          <div className="flex flex-col justify-center items-center h-full space-y-8">
+            <Link
+              href="/"
+              className="text-2xl font-semibold hover:text-white"
+              onClick={() => setIsOpen(false)} // Close menu on click
+            >
+              <Image
+                src="/logo.png"
+                alt="WebForge Logo"
+                width={60} // Larger logo for emphasis
+                height={60}
+                className="block mb-4"
+              />
+              WebForge
+            </Link>
+            <Link
+              href="/projects"
+              className="text-xl hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Atlikti Darbai
+            </Link>
+            <Link
+              href="/paslaugos"
+              className="text-xl hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Paslaugos
+            </Link>
+            <Link
+              href="/apie-mus"
+              className="text-xl hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Apie Mus
+            </Link>
+            <Link
+              href="/kainos"
+              className="text-xl hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Kainos
+            </Link>
+            <Link
+              href="/contact"
+              className="text-xl hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Kontaktai
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
