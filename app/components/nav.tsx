@@ -2,7 +2,6 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -94,33 +93,28 @@ export const Navigation: React.FC = () => {
       <div className={`nav-overlay ${isOpen ? 'open' : ''}`}>
         <div className="nav-content">
           {/* Close button */}
-          <button onClick={toggleMenu}>
+          <button
+            className="close-button"
+            onClick={toggleMenu}
+          >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8 md:w-10 md:h-10" />
           </button>
 
           {/* Menu Links */}
-          <ul>
-            <li>
-              <Link href="/paslaugos" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-                Paslaugos
-              </Link>
-            </li>
-            <li>
-              <Link href="/apie-mus" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-                Apie Mus
-              </Link>
-            </li>
-            <li>
-              <Link href="/kainos" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-                Kainos
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-                Kontaktai
-              </Link>
-            </li>
-          </ul>
+          <nav className="menu-links">
+            <Link href="/paslaugos" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
+              Paslaugos
+            </Link>
+            <Link href="/apie-mus" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
+              Apie Mus
+            </Link>
+            <Link href="/kainos" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
+              Kainos
+            </Link>
+            <Link href="/contact" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
+              Kontaktai
+            </Link>
+          </nav>
         </div>
       </div>
     </header>
