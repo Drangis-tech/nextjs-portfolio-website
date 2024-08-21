@@ -89,12 +89,12 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {/* Fullscreen Menu */}
-      <div className={`fixed inset-0 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
-        <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
+      {/* Slide-in Menu (Not Fullscreen) */}
+      <div className={`fixed inset-y-0 right-0 w-4/5 max-w-sm bg-black bg-opacity-90 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+        <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8 p-4">
           {/* Close button */}
           <button
-            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
+            className="absolute top-4 left-4 text-zinc-300 hover:text-zinc-100"
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8 md:w-10 md:h-10" />
@@ -102,16 +102,16 @@ export const Navigation: React.FC = () => {
 
           {/* Menu Links */}
           <nav className="flex flex-col items-center space-y-6">
-            <Link href="/paslaugos" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/paslaugos" className="text-white text-2xl" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="text-white text-2xl" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kainos" className="text-white text-2xl" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kontaktai" className="text-white text-2xl" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
