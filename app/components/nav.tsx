@@ -56,15 +56,15 @@ export const Navigation: React.FC = () => {
 
         {/* Fullscreen Mobile Menu with background and animation */}
         <div
-          className={`fixed inset-0 z-40 bg-zinc-900 text-zinc-100 transform ${
+          className={`fixed inset-0 z-40 transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-300 ease-in-out`}
           style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
           {/* Background overlay for readability */}
-          <div className="absolute inset-0 bg-black opacity-70"></div>
+          <div className={`absolute inset-0 bg-zinc-900 opacity-90`}></div>
           {/* Main content area */}
-          <div className="relative w-full h-full flex flex-col items-center justify-center p-6 space-y-8">
+          <div className="relative w-full h-full flex flex-col items-center justify-center p-6 space-y-8 z-10">
             {/* Close button */}
             <button 
               className="absolute top-6 right-6 text-zinc-300 hover:text-zinc-100 text-3xl"
@@ -73,7 +73,8 @@ export const Navigation: React.FC = () => {
               <FontAwesomeIcon icon={faTimes} />
             </button>
             {/* Logo and menu items */}
-            <div className="flex flex-col items-center space-y-8 z-10">
+            <div className="flex flex-col items-center space-y-8">
+              {/* Logo */}
               <Link
                 href="/"
                 className="flex items-center flex-col mb-12"
@@ -88,38 +89,39 @@ export const Navigation: React.FC = () => {
                 />
                 <span className="text-3xl font-semibold">WebForge</span>
               </Link>
+              {/* Navigation Links */}
               <nav className="flex flex-col items-center space-y-6">
                 <Link
                   href="/projects"
-                  className="text-2xl hover:text-white"
+                  className="text-2xl text-white hover:text-gray-300"
                   onClick={() => setIsOpen(false)}
                 >
                   Atlikti Darbai
                 </Link>
                 <Link
                   href="/paslaugos"
-                  className="text-2xl hover:text-white"
+                  className="text-2xl text-white hover:text-gray-300"
                   onClick={() => setIsOpen(false)}
                 >
                   Paslaugos
                 </Link>
                 <Link
                   href="/apie-mus"
-                  className="text-2xl hover:text-white"
+                  className="text-2xl text-white hover:text-gray-300"
                   onClick={() => setIsOpen(false)}
                 >
                   Apie Mus
                 </Link>
                 <Link
                   href="/kainos"
-                  className="text-2xl hover:text-white"
+                  className="text-2xl text-white hover:text-gray-300"
                   onClick={() => setIsOpen(false)}
                 >
                   Kainos
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-2xl hover:text-white"
+                  className="text-2xl text-white hover:text-gray-300"
                   onClick={() => setIsOpen(false)}
                 >
                   Kontaktai
