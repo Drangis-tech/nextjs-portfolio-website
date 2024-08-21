@@ -25,6 +25,15 @@ export const Navigation: React.FC = () => {
     document.body.style.overflow = isOpen ? 'auto' : 'hidden'; // Prevent scrolling when menu is open
   };
 
+  useEffect(() => {
+    // Add or remove 'no-scroll' class based on menu state
+    if (isOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [isOpen]);
+
   return (
     <header ref={ref}>
       <div
