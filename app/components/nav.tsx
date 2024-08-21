@@ -2,15 +2,16 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { usePathname } from 'next/navigation'; // Import the usePathname hook from Next.js
+import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from "next/router"; // Import useRouter
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // Get the current path
+  const router = useRouter(); // Initialize useRouter
 
   useEffect(() => {
     if (!ref.current) return;
@@ -30,15 +31,15 @@ export const Navigation: React.FC = () => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-50 duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
-        }`}
+        } ${!isOpen && router.pathname !== "/" ? "backdrop-blur" : ""}`}
       >
         <div className="container flex items-center p-6 mx-auto">
-          {/* Conditionally render the back button */}
-          {pathname !== '/' && (
+          {/* Back button positioned in the left corner */}
+          {router.pathname !== "/" && (
             <Link
               href="/"
               className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
@@ -93,8 +94,12 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {/* Sidebar Menu */}
-      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+      {/* Side Slide-in Menu */}
+      <div
+        className={`fixed inset-y-0 right-0 w-64 bg-zinc-900 bg-opacity-90 transition-transform duration-300 ease-in-out transform ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        } z-50`}
+      >
         <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
           {/* Close button */}
           <button
