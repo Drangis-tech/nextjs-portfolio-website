@@ -56,7 +56,7 @@ export const Navigation: React.FC = () => {
 
         {/* Fullscreen Mobile Menu with background and animation */}
         <div
-          className={`fixed inset-0 z-40 transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-0 z-40 transition-transform duration-300 ease-in-out transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
           style={{ 
