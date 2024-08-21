@@ -59,7 +59,10 @@ export const Navigation: React.FC = () => {
           className={`fixed inset-0 z-40 transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
-          style={{ visibility: isOpen ? 'visible' : 'hidden' }}
+          style={{ 
+            visibility: isOpen ? 'visible' : 'hidden',
+            overflow: 'hidden' // Prevents scrolling when menu is open
+          }}
         >
           {/* Background overlay for readability */}
           <div className={`absolute inset-0 bg-zinc-900 opacity-90`} style={{ zIndex: 1 }}></div>
