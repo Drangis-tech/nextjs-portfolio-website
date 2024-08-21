@@ -26,7 +26,7 @@ export const Navigation: React.FC = () => {
   useEffect(() => {
     // Close menu when clicking outside of it
     const handleClickOutside = (event: MouseEvent) => {
-      if (overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
+      if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
         setIsOpen(false);
         document.body.style.overflow = 'auto'; // Re-enable scrolling
       }
@@ -117,7 +117,8 @@ export const Navigation: React.FC = () => {
       {/* Overlay to detect clicks outside the menu */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-auto'}`}
+        onClick={() => isOpen && setIsOpen(false)} // Close menu on click
       ></div>
 
       {/* Sidebar Menu */}
