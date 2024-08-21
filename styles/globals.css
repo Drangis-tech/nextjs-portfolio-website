@@ -46,7 +46,7 @@
     background: rgba(0, 0, 0, 0.9); /* Dark background */
     backdrop-filter: none; /* No blur for the main page's menu background */
     transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.4s ease-out; /* Smoother transition */
+    transition: transform 0.4s ease-in-out; /* Smooth transition for sliding in and out */
     z-index: 50; /* Ensure it's on top */
   }
 
@@ -67,7 +67,7 @@
   .close-button {
     position: absolute;
     top: 1rem;
-    right: 1rem; /* Adjusted for consistency */
+    left: 1rem; /* Adjusted for consistency */
     background: none;
     border: none;
     cursor: pointer;
@@ -89,27 +89,6 @@
 
   .menu-links a:hover {
     color: orange;
-  }
-
-  /* Smooth hiding of header content */
-  .header-content {
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-  }
-
-  /* Hide header content when menu is open */
-  .header-content.hidden {
-    opacity: 0;
-    transform: translateY(-10px); /* Subtle move up */
-  }
-
-  /* Smooth hiding of menu toggle button */
-  .menu-toggle {
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-  }
-
-  .menu-toggle.hidden {
-    opacity: 0;
-    transform: scale(0.9); /* Subtle scale down */
   }
 
   /* New class to prevent scrolling when menu is open */

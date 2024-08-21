@@ -24,21 +24,7 @@ export const Navigation: React.FC = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    document.body.style.overflow = !isOpen ? 'hidden' : 'auto'; // Prevent scrolling when menu is open
-
-    // Smooth transition for hiding/showing elements
-    const headerContent = document.querySelector('.header-content');
-    const menuToggle = document.querySelector('.menu-toggle');
-
-    if (headerContent && menuToggle) {
-      if (isOpen) {
-        headerContent.classList.add('hidden');
-        menuToggle.classList.add('hidden');
-      } else {
-        headerContent.classList.remove('hidden');
-        menuToggle.classList.remove('hidden');
-      }
-    }
+    document.body.style.overflow = isOpen ? 'auto' : 'hidden'; // Prevent scrolling when menu is open
   };
 
   return (
@@ -50,7 +36,7 @@ export const Navigation: React.FC = () => {
             : "bg-zinc-900/500 border-zinc-800"
         }`}
       >
-        <div className="container flex items-center p-6 mx-auto header-content">
+        <div className="container flex items-center p-6 mx-auto">
           {/* Conditionally render the back button */}
           {pathname !== '/' && (
             <Link
@@ -99,7 +85,7 @@ export const Navigation: React.FC = () => {
 
           {/* Hamburger Menu Button */}
           <button
-            className="flex items-center text-zinc-300 hover:text-zinc-100 md:hidden menu-toggle"
+            className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
@@ -108,7 +94,7 @@ export const Navigation: React.FC = () => {
       </div>
 
       {/* Sidebar Menu */}
-      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-400 ease-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
         <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
           {/* Close button */}
           <button
@@ -129,7 +115,7 @@ export const Navigation: React.FC = () => {
             <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/contact" className="text-white text-3xl" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
