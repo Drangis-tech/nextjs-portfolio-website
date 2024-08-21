@@ -207,17 +207,17 @@
   position: fixed;
   top: 0;
   right: 0; /* Position the menu to slide from the right */
-  width: 20vw; /* Set the width of the menu */
+  width: 80vw; /* Set the width of the menu to cover 80% of viewport width */
   height: 100vh;
   background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
   backdrop-filter: blur(3px); /* Slight blur effect */
   transform: translateX(100%); /* Start off-screen */
-  transition: transform 0.3s ease; /* Smooth slide-in transition */
+  transition: transform 0.3s ease-in-out; /* Smooth slide-in transition */
   z-index: 50; /* Ensure it's on top */
 }
 
 .nav-overlay.open {
-  transform: translateX(0); /* Slide into view */
+  transform: translateX(20vw); /* Slide into view, leaving 20% of screen width visible on the left */
 }
 
 .nav-content {

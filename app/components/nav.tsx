@@ -29,7 +29,7 @@ export const Navigation: React.FC = () => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-md duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
@@ -90,19 +90,19 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {/* Fullscreen Menu */}
-      <div className={`fixed inset-0 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
-        <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
+      {/* Slide-in Menu */}
+      <div className={`nav-overlay ${isOpen ? 'open' : ''}`}>
+        <div className="relative w-full h-full flex flex-col items-center justify-center nav-content">
           {/* Close button */}
           <button
-            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
+            className="close-button"
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8 md:w-10 md:h-10" />
           </button>
 
           {/* Menu Links */}
-          <nav className="flex flex-col items-center space-y-6">
+          <nav className="menu-links">
             <Link href="/paslaugos" className="text-white text-3xl" onClick={toggleMenu}>
               Paslaugos
             </Link>
