@@ -109,5 +109,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("tailwindcss-debug-screens"),
+    require('@tailwindcss/backdrop-filter'), // Add this line
   ],
 };
