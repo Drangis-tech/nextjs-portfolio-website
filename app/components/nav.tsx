@@ -22,7 +22,10 @@ export const Navigation: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    document.body.style.overflow = !isOpen ? 'hidden' : 'auto'; // Prevent scrolling when menu is open
+
     // Smooth transition for hiding/showing elements
     const headerContent = document.querySelector('.header-content');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -36,11 +39,6 @@ export const Navigation: React.FC = () => {
         menuToggle.classList.remove('hidden');
       }
     }
-  }, [isOpen]);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    document.body.style.overflow = isOpen ? 'auto' : 'hidden'; // Prevent scrolling when menu is open
   };
 
   return (
@@ -110,7 +108,7 @@ export const Navigation: React.FC = () => {
       </div>
 
       {/* Sidebar Menu */}
-      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-400 ease-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
         <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
           {/* Close button */}
           <button
