@@ -2,7 +2,7 @@
 
 /* Import FontAwesome CSS */
 @import '@fortawesome/fontawesome-svg-core/styles.css';
-@import 'some-file.css';
+
 /* other styles here */
 
 /* Tailwind CSS directives */
