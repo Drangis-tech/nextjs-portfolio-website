@@ -62,21 +62,27 @@ export const Navigation: React.FC = () => {
           style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
           <div className="flex flex-col items-center justify-center h-full p-6 space-y-8 overflow-hidden">
+            <button 
+              className="absolute top-6 right-6 text-zinc-300 hover:text-zinc-100 text-3xl"
+              onClick={toggleMenu}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
             <Link
               href="/"
-              className="flex items-center flex-col mb-8"
+              className="flex items-center flex-col mb-12"
               onClick={() => setIsOpen(false)} // Close menu on click
             >
               <Image
                 src="/logo.png"
                 alt="WebForge Logo"
-                width={80} // Larger logo for emphasis
-                height={80}
-                className="block mb-4"
+                width={120} // Larger logo for emphasis
+                height={120}
+                className="block mb-6"
               />
-              <span className="text-2xl font-semibold">WebForge</span>
+              <span className="text-3xl font-semibold">WebForge</span>
             </Link>
-            <nav className="flex flex-col space-y-6">
+            <nav className="flex flex-col items-center space-y-6">
               <Link
                 href="/projects"
                 className="text-2xl hover:text-white"
