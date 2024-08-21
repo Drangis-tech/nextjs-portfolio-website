@@ -42,7 +42,7 @@
     max-width: 320px; /* Limit the maximum width */
     height: 100vh;
     background: rgba(0, 0, 0, 0.9); /* Dark background */
-    backdrop-filter: blur(3px);
+    backdrop-filter: none; /* No blur for the main page's menu background */
     transform: translateX(100%); /* Start off-screen */
     transition: transform 0.3s ease-in-out;
     z-index: 50; /* Ensure it's on top */
