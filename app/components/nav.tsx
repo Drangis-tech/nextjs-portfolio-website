@@ -8,6 +8,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // Get the current path
@@ -22,27 +23,30 @@ export const Navigation: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Close menu when clicking outside of it
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     document.body.style.overflow = isOpen ? 'auto' : 'hidden'; // Prevent scrolling when menu is open
   };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (event.target instanceof Element && !ref.current?.contains(event.target)) {
-      setIsOpen(false);
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }
-  };
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('click', handleClickOutside);
-    } else {
-      window.removeEventListener('click', handleClickOutside);
-    }
-
-    return () => window.removeEventListener('click', handleClickOutside);
-  }, [isOpen]);
 
   return (
     <header ref={ref}>
@@ -58,7 +62,7 @@ export const Navigation: React.FC = () => {
           {pathname !== '/' && (
             <Link
               href="/"
-              className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
+              className={`flex items-center text-zinc-300 hover:text-zinc-100 mr-4 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
             >
               <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
             </Link>
@@ -102,7 +106,7 @@ export const Navigation: React.FC = () => {
 
           {/* Hamburger Menu Button */}
           <button
-            className="flex items-center text-zinc-300 hover:text-zinc-100 md:hidden"
+            className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
@@ -110,9 +114,16 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
+      {/* Overlay to detect clicks outside the menu */}
+      <div
+        ref={overlayRef}
+        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-auto'}`}
+        onClick={() => isOpen && setIsOpen(false)} // Close menu on click
+      ></div>
+
       {/* Sidebar Menu */}
-      <div className={`fixed inset-y-0 right-0 w-2/5 bg-gray-900 bg-opacity-90 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
-        <div className="relative w-full h-full flex flex-col items-center justify-center">
+      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+        <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
           {/* Close button */}
           <button
             className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
@@ -122,17 +133,17 @@ export const Navigation: React.FC = () => {
           </button>
 
           {/* Menu Links */}
-          <nav className="flex flex-col items-center space-y-4 mt-12">
-            <Link href="/paslaugos" className="text-white text-lg" onClick={toggleMenu}>
+          <nav className="flex flex-col items-center space-y-6">
+            <Link href="/paslaugos" className="text-white text-3xl" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="text-white text-lg" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="text-white text-3xl" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" className="text-white text-lg" onClick={toggleMenu}>
+            <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-lg" onClick={toggleMenu}>
+            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
