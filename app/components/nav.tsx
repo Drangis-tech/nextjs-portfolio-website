@@ -3,10 +3,13 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
+  const [isOpen, setIsOpen] = useState(false); // State to manage the mobile menu
 
   useEffect(() => {
     if (!ref.current) return;
@@ -17,6 +20,10 @@ export const Navigation: React.FC = () => {
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <header ref={ref}>
@@ -36,8 +43,13 @@ export const Navigation: React.FC = () => {
             <ArrowLeft className="w-6 h-6" />
           </Link>
 
+          {/* Hamburger Icon for Mobile */}
+          <div className="md:hidden text-zinc-300">
+            <FontAwesomeIcon icon={isOpen ? faTimes : faBars} onClick={toggleMenu} size="lg" />
+          </div>
+
           {/* Flex container to center navigation links */}
-          <div className="flex-grow flex items-center justify-center">
+          <div className="hidden md:flex flex-grow items-center justify-center">
             <div className="flex gap-8">
               <Link
                 href="/projects"
@@ -80,12 +92,55 @@ export const Navigation: React.FC = () => {
             <Image
               src="/logo.png"
               alt="WebForge Logo"
-              width={40} // Adjust the width as needed
+              width={40}
               height={40}
               className="block"
             />
           </Link>
         </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden bg-zinc-900 p-4">
+            <div className="flex flex-col space-y-4">
+              <Link
+                href="/projects"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                onClick={() => setIsOpen(false)} // Close menu on click
+              >
+                Atlikti Darbai
+              </Link>
+              <Link
+                href="/paslaugos"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                onClick={() => setIsOpen(false)}
+              >
+                Paslaugos
+              </Link>
+              <Link
+                href="/apie-mus"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                onClick={() => setIsOpen(false)}
+              >
+                Apie Mus
+              </Link>
+              <Link
+                href="/kainos"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                onClick={() => setIsOpen(false)}
+              >
+                Kainos
+              </Link>
+              <Link
+                href="/contact"
+                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                onClick={() => setIsOpen(false)}
+              >
+                Kontaktai
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
