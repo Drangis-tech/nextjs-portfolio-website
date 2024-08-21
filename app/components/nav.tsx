@@ -8,6 +8,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // Get the current path
@@ -21,6 +22,26 @@ export const Navigation: React.FC = () => {
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    // Close menu when clicking outside of it
+    const handleClickOutside = (event: MouseEvent) => {
+      if (overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -92,6 +113,12 @@ export const Navigation: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Overlay to detect clicks outside the menu */}
+      <div
+        ref={overlayRef}
+        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      ></div>
 
       {/* Sidebar Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
