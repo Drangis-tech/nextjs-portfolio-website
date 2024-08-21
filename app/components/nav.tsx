@@ -22,6 +22,22 @@ export const Navigation: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Smooth transition for hiding/showing elements
+    const headerContent = document.querySelector('.header-content');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    if (headerContent && menuToggle) {
+      if (isOpen) {
+        headerContent.classList.add('hidden');
+        menuToggle.classList.add('hidden');
+      } else {
+        headerContent.classList.remove('hidden');
+        menuToggle.classList.remove('hidden');
+      }
+    }
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     document.body.style.overflow = isOpen ? 'auto' : 'hidden'; // Prevent scrolling when menu is open
@@ -36,7 +52,7 @@ export const Navigation: React.FC = () => {
             : "bg-zinc-900/500 border-zinc-800"
         }`}
       >
-        <div className="container flex items-center p-6 mx-auto">
+        <div className="container flex items-center p-6 mx-auto header-content">
           {/* Conditionally render the back button */}
           {pathname !== '/' && (
             <Link
@@ -85,7 +101,7 @@ export const Navigation: React.FC = () => {
 
           {/* Hamburger Menu Button */}
           <button
-            className="flex items-center text-zinc-300 hover:text-zinc-100 md:hidden"
+            className="flex items-center text-zinc-300 hover:text-zinc-100 md:hidden menu-toggle"
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
