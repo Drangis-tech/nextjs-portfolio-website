@@ -123,4 +123,9 @@
     left: 0;
     touch-action: none;
   }
+
+  /* Apply blur effect */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px); /* Adjust blur amount as needed */
+  }
 }
