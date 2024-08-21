@@ -6,44 +6,12 @@ import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icon
 
 // Team Data
 const teamData = [
-  {
-    name: "John Doe",
-    role: "CEO",
-    linkedIn: "https://www.linkedin.com/in/johndoe",
-    twitter: "https://twitter.com/johndoe",
-  },
-  {
-    name: "Jane Smith",
-    role: "CTO",
-    linkedIn: "https://www.linkedin.com/in/janesmith",
-    twitter: "https://twitter.com/janesmith",
-  },
-  {
-    name: "Alice Johnson",
-    role: "Lead Developer",
-    linkedIn: "https://www.linkedin.com/in/alicejohnson",
-    twitter: "https://twitter.com/alicejohnson",
-  },
-  // Add more team members as needed
+  // (Your team data here)
 ];
 
 // About Us Data
 const aboutUsData = [
-  {
-    title: "Mūsų Komanda",
-    description: "Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.",
-    detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo."
-  },
-  {
-    title: "Mūsų Vizija",
-    description: "Siekiame revoliucionuoti pramonę su inovatyviais sprendimais ir neprilygstamu aptarnavimu.",
-    detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis."
-  },
-  {
-    title: "Mūsų Vertybės",
-    description: "Sąžiningumas, Tobulumas ir Bendradarbiavimas yra pagrindinės vertybės, kurios veda mus į sėkmę.",
-    detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais."
-  },
+  // (Your about us data here)
 ];
 
 const ApieMus: React.FC = () => {
@@ -64,7 +32,7 @@ const ApieMus: React.FC = () => {
         <div className="space-y-12">
           {aboutUsData.map((section, index) => (
             <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
-              <Card className="w-full md:w-1/2 flex-shrink-0">
+              <Card className="w-full md:w-1/2 flex-shrink-0 backdrop-blur-sm">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
                     {/* Apply FontAwesome icon size classes */}
@@ -80,7 +48,7 @@ const ApieMus: React.FC = () => {
                   </p>
                 </article>
               </Card>
-              <div className="w-full mt-6 md:mt-0 md:w-1/2">
+              <div className="w-full mt-6 md:mt-0 md:w-1/2 backdrop-blur-sm">
                 <p className="mt-2 text-zinc-400 text-base sm:text-lg">
                   {section.detailedText}
                 </p>
@@ -98,7 +66,7 @@ const ApieMus: React.FC = () => {
 
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
             {teamData.map((member, index) => (
-              <Card key={index} className="w-full">
+              <Card key={index} className="w-full backdrop-blur-sm">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
                     {/* Team member role and social icons */}
