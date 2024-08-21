@@ -67,7 +67,7 @@ export const Navigation: React.FC = () => {
           {/* Background overlay for readability */}
           <div className={`absolute inset-0 bg-zinc-900 opacity-90`} style={{ zIndex: 1 }}></div>
           {/* Main content area */}
-          <div className="relative w-full h-full flex flex-col items-center justify-center p-6 space-y-8 z-10">
+          <div className="relative w-full h-full flex flex-col items-center justify-center p-6 space-y-8 z-10 bg-zinc-900">
             {/* Close button */}
             <button 
               className="absolute top-6 right-6 text-zinc-300 hover:text-zinc-100 text-3xl"
