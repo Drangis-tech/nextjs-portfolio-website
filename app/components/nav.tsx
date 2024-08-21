@@ -57,8 +57,9 @@ export const Navigation: React.FC = () => {
         {/* Fullscreen Mobile Menu with animation */}
         <div
           className={`fixed inset-0 z-40 bg-zinc-900 text-zinc-100 transform ${
-            isOpen ? "translate-y-0" : "-translate-y-full"
+            isOpen ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-500 ease-in-out`}
+          style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
           <div className="flex flex-col justify-center items-center h-full space-y-8">
             <Link
