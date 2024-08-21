@@ -51,7 +51,7 @@ export const Navigation: React.FC = () => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-sm duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
@@ -117,33 +117,33 @@ export const Navigation: React.FC = () => {
       {/* Overlay to detect clicks outside the menu */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-auto'}`}
+        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-md transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => isOpen && setIsOpen(false)} // Close menu on click
       ></div>
 
       {/* Sidebar Menu */}
-      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
-        <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
+      <div className={`fixed inset-y-0 right-0 w-2/5 bg-black bg-opacity-90 backdrop-blur-md transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+        <div className="relative w-full h-full flex flex-col py-8 px-6">
           {/* Close button */}
           <button
-            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
+            className="absolute top-6 right-6 text-yellow-400 hover:text-yellow-300 transition-transform transform duration-300 ease-in-out"
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8 md:w-10 md:h-10" />
           </button>
 
           {/* Menu Links */}
-          <nav className="flex flex-col items-center space-y-6">
-            <Link href="/paslaugos" className="text-white text-3xl" onClick={toggleMenu}>
+          <nav className="flex flex-col space-y-6">
+            <Link href="/paslaugos" className="text-white text-xl hover:text-yellow-400 transition-transform transform duration-200 ease-in-out hover:scale-105">
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="text-white text-xl hover:text-yellow-400 transition-transform transform duration-200 ease-in-out hover:scale-105">
               Apie Mus
             </Link>
-            <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kainos" className="text-white text-xl hover:text-yellow-400 transition-transform transform duration-200 ease-in-out hover:scale-105">
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kontaktai" className="text-white text-xl hover:text-yellow-400 transition-transform transform duration-200 ease-in-out hover:scale-105">
               Kontaktai
             </Link>
           </nav>
