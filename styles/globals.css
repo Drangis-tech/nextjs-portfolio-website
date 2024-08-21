@@ -40,14 +40,15 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 80vw; /* Set width to 80% of the viewport */
+    width: 40vw; /* Set width to 40% of the viewport */
     max-width: 320px; /* Limit the maximum width */
     height: 100vh;
-    background: rgba(0, 0, 0, 0.9); /* Dark background */
-    backdrop-filter: none; /* No blur for the main page's menu background */
+    background: #2d2d2d; /* Darker background for better contrast */
+    backdrop-filter: blur(10px); /* Blur effect for the background */
     transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.4s ease-in-out; /* Smooth transition for sliding in and out */
+    transition: transform 0.3s ease-in-out;
     z-index: 50; /* Ensure it's on top */
+    overflow-y: auto; /* Allow scrolling if content overflows */
   }
 
   .nav-overlay.open {
@@ -62,33 +63,41 @@
     height: 100%;
     padding: 2rem;
     color: white;
+    text-align: center; /* Center-align text */
   }
 
   .close-button {
     position: absolute;
     top: 1rem;
-    left: 1rem; /* Adjusted for consistency */
+    right: 1rem;
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: white;
+    transition: color 0.3s ease;
+  }
+
+  .close-button:hover {
+    color: #f97316; /* Highlight color on hover */
   }
 
   .menu-links {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    font-size: 1rem; /* Smaller font size for a narrower menu */
   }
 
   .menu-links a {
-    font-size: 1.5rem;
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem; /* Add padding for touch targets */
   }
 
   .menu-links a:hover {
-    color: orange;
+    color: #f97316; /* Highlight color on hover */
   }
 
   /* New class to prevent scrolling when menu is open */
