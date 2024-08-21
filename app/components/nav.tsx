@@ -41,7 +41,7 @@ export const Navigation: React.FC = () => {
           {pathname !== '/' && (
             <Link
               href="/"
-              className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
+              className={`flex items-center text-zinc-300 hover:text-zinc-100 mr-4 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
             >
               <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
             </Link>
@@ -115,7 +115,7 @@ export const Navigation: React.FC = () => {
             <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/contact" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
