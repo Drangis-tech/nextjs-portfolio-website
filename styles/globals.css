@@ -3,6 +3,8 @@
 /* Import FontAwesome CSS */
 @import '@fortawesome/fontawesome-svg-core/styles.css';
 
+/* other styles here */
+
 /* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
@@ -33,18 +35,18 @@
     .fa-icon { font-size: 1rem !important; }
   }
 
-  /* Enhanced slide-in Menu Styles */
+  /* Slide-in Menu Styles */
   .nav-overlay {
     position: fixed;
     top: 0;
     right: 0;
-    width: 40vw; /* Adjusted to 2/5 of the viewport */
+    width: 80vw; /* Set width to 80% of the viewport */
     max-width: 320px; /* Limit the maximum width */
     height: 100vh;
     background: rgba(0, 0, 0, 0.9); /* Dark background */
-    backdrop-filter: blur(20px); /* Increased blur effect */
+    backdrop-filter: blur(10px); /* Enhanced blur effect */
     transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out; /* Smooth transition for sliding in and out */
+    transition: transform 0.4s ease-in-out; /* Smooth transition for sliding in and out */
     z-index: 50; /* Ensure it's on top */
   }
 
@@ -65,30 +67,53 @@
   .close-button {
     position: absolute;
     top: 1rem;
-    right: 1rem; /* Position in the same place as hamburger icon */
+    right: 1rem; /* Align with the hamburger icon */
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 2rem; /* Match the hamburger icon size */
     color: white;
   }
 
   .menu-links {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
     gap: 1.5rem;
   }
 
   .menu-links a {
-    font-size: 1.25rem; /* Slightly smaller font size */
+    font-size: 1.5rem;
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, transform 0.3s; /* Animation for color and scale */
+  }
+
+  .menu-links a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(to right, #f39c12, #e67e22); /* Gradient color */
+    transition: transform 0.3s;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+  }
+
+  .menu-links a:hover::before {
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .menu-links a:hover {
-    color: #f6c352; /* Color similar to yellow-orange gradient */
-    transform: scale(1.05); /* Slightly expand on hover */
+    color: transparent; /* Hide text to show background gradient */
+  }
+
+  .menu-links a:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
   }
 
   /* New class to prevent scrolling when menu is open */
