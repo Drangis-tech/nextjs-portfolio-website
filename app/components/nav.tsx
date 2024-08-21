@@ -36,12 +36,14 @@ export const Navigation: React.FC = () => {
       >
         <div className="container flex items-center p-6 mx-auto">
           {/* Back button positioned in the left corner */}
-          <Link
-            href="/"
-            className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
-          >
-            <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
-          </Link>
+          {!isOpen && (
+            <Link
+              href="/"
+              className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
+            >
+              <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
+            </Link>
+          )}
 
           {/* Flex container to center navigation links */}
           <div className="flex-grow flex items-center justify-center">
@@ -80,12 +82,14 @@ export const Navigation: React.FC = () => {
           </div>
 
           {/* Hamburger Menu Button */}
-          <button
-            className="flex items-center text-zinc-300 hover:text-zinc-100 md:hidden"
-            onClick={toggleMenu}
-          >
-            <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
-          </button>
+          {!isOpen && (
+            <button
+              className="flex items-center text-zinc-300 hover:text-zinc-100 md:hidden"
+              onClick={toggleMenu}
+            >
+              <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
+            </button>
+          )}
         </div>
       </div>
 
