@@ -40,7 +40,7 @@ export const Navigation: React.FC = () => {
             href="/"
             className="flex items-center text-zinc-300 hover:text-zinc-100"
           >
-            <ArrowLeft className="w-6 h-6" />
+            <ArrowLeft className="w-8 h-8 md:w-6 md:h-6" /> {/* Larger size for mobile */}
           </Link>
 
           {/* Flex container to center navigation links for desktop */}
@@ -84,7 +84,7 @@ export const Navigation: React.FC = () => {
             <FontAwesomeIcon 
               icon={isOpen ? faTimes : faBars} 
               onClick={toggleMenu} 
-              size="lg" 
+              size="2x" // Larger size for mobile
               className="ml-auto" // Aligns the icon to the right
             />
           </div>
