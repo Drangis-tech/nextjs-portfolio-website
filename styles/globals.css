@@ -114,7 +114,7 @@
     color: orange;
   }
 
-  /* New class to prevent scrolling */
+  /* New class to prevent scrolling when menu is open */
   .no-scroll {
     overflow: hidden;
     position: fixed;

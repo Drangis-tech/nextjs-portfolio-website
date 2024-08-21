@@ -35,6 +35,7 @@ export const Navigation: React.FC = () => {
         }`}
       >
         <div className="container flex items-center p-6 mx-auto">
+          {/* Back button positioned in the left corner */}
           <Link
             href="/"
             className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
@@ -42,6 +43,7 @@ export const Navigation: React.FC = () => {
             <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
           </Link>
 
+          {/* Flex container to center navigation links */}
           <div className="flex-grow flex items-center justify-center">
             <div className="hidden md:flex gap-8">
               <Link
@@ -95,11 +97,11 @@ export const Navigation: React.FC = () => {
             className="close-button"
             onClick={toggleMenu}
           >
-            <FontAwesomeIcon icon={faTimes} className="w-8 h-8 md:w-10 md:h-10" />
+            <FontAwesomeIcon icon={faTimes} />
           </button>
 
           {/* Menu Links */}
-          <div className="menu-links">
+          <nav className="menu-links">
             <Link href="/paslaugos" onClick={toggleMenu}>
               Paslaugos
             </Link>
@@ -112,7 +114,7 @@ export const Navigation: React.FC = () => {
             <Link href="/kontaktai" onClick={toggleMenu}>
               Kontaktai
             </Link>
-          </div>
+          </nav>
         </div>
       </div>
     </header>
