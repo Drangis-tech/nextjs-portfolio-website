@@ -3,8 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Navigation } from "../components/nav";
-
+import Navigation from "./components/nav"; // Adjust if necessary
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
   { name: "Paslaugos", href: "/paslaugos" },
