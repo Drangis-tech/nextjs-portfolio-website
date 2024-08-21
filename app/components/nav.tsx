@@ -2,7 +2,6 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -29,14 +28,13 @@ export const Navigation: React.FC = () => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-md duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
         }`}
       >
         <div className="container flex items-center p-6 mx-auto">
-          {/* Back button positioned in the left corner */}
           <Link
             href="/"
             className="flex items-center text-zinc-300 hover:text-zinc-100 mr-4"
@@ -44,7 +42,6 @@ export const Navigation: React.FC = () => {
             <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
           </Link>
 
-          {/* Flex container to center navigation links */}
           <div className="flex-grow flex items-center justify-center">
             <div className="hidden md:flex gap-8">
               <Link
@@ -90,9 +87,9 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {/* Slide-in Menu */}
+      {/* Fullscreen Menu */}
       <div className={`nav-overlay ${isOpen ? 'open' : ''}`}>
-        <div className="relative w-full h-full flex flex-col items-center justify-center nav-content">
+        <div className="nav-content">
           {/* Close button */}
           <button
             className="close-button"
@@ -102,20 +99,20 @@ export const Navigation: React.FC = () => {
           </button>
 
           {/* Menu Links */}
-          <nav className="menu-links">
-            <Link href="/paslaugos" className="text-white text-3xl" onClick={toggleMenu}>
+          <div className="menu-links">
+            <Link href="/paslaugos" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/apie-mus" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kainos" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kontaktai" onClick={toggleMenu}>
               Kontaktai
             </Link>
-          </nav>
+          </div>
         </div>
       </div>
     </header>
