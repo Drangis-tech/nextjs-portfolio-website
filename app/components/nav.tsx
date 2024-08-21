@@ -95,7 +95,7 @@ export const Navigation: React.FC = () => {
         <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
           {/* Logo */}
           <Image 
-            src="/path/to/logo.png" 
+            src="/logo.png" // Path to your logo image
             alt="Logo" 
             width={150} 
             height={150} 
@@ -121,7 +121,7 @@ export const Navigation: React.FC = () => {
             <Link href="/kainos" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/contact" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
+            <Link href="/kontaktai" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
