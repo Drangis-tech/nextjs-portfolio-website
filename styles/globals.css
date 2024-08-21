@@ -15,48 +15,22 @@
   }
 
   /* Ensures size consistency */
-  .fa-xs {
-    font-size: 0.75rem !important; /* Extra small size */
-  }
-  .fa-sm {
-    font-size: 1rem !important; /* Small size */
-  }
-  .fa-lg {
-    font-size: 1.25rem !important; /* Large size */
-  }
-  .fa-2x {
-    font-size: 2rem !important; /* 2x size */
-  }
-  .fa-3x {
-    font-size: 3rem !important; /* 3x size */
-  }
-  .fa-4x {
-    font-size: 4rem !important; /* 4x size */
-  }
-  .fa-5x {
-    font-size: 5rem !important; /* 5x size */
-  }
-  .fa-6x {
-    font-size: 6rem !important; /* 6x size */
-  }
-  .fa-7x {
-    font-size: 7rem !important; /* 7x size */
-  }
-  .fa-8x {
-    font-size: 8rem !important; /* 8x size */
-  }
-  .fa-9x {
-    font-size: 9rem !important; /* 9x size */
-  }
-  .fa-10x {
-    font-size: 10rem !important; /* 10x size */
-  }
+  .fa-xs { font-size: 0.75rem !important; }
+  .fa-sm { font-size: 1rem !important; }
+  .fa-lg { font-size: 1.25rem !important; }
+  .fa-2x { font-size: 2rem !important; }
+  .fa-3x { font-size: 3rem !important; }
+  .fa-4x { font-size: 4rem !important; }
+  .fa-5x { font-size: 5rem !important; }
+  .fa-6x { font-size: 6rem !important; }
+  .fa-7x { font-size: 7rem !important; }
+  .fa-8x { font-size: 8rem !important; }
+  .fa-9x { font-size: 9rem !important; }
+  .fa-10x { font-size: 10rem !important; }
 
   /* Ensure FontAwesome icons are responsive */
   @media (max-width: 768px) {
-    .fa-icon {
-      font-size: 1rem !important; /* Adjust icon size for mobile */
-    }
+    .fa-icon { font-size: 1rem !important; }
   }
 
   /* Slide-in Menu Styles */
@@ -64,12 +38,13 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 80vw;
+    width: 80vw; /* Set width to 80% of the viewport */
+    max-width: 320px; /* Limit the maximum width */
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background */
-    backdrop-filter: blur(3px); /* Slight blur effect */
+    background: rgba(0, 0, 0, 0.9); /* Dark background */
+    backdrop-filter: blur(3px);
     transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.3s ease-in-out; /* Smooth slide-in transition */
+    transition: transform 0.3s ease-in-out;
     z-index: 50; /* Ensure it's on top */
   }
 
@@ -90,7 +65,7 @@
   .close-button {
     position: absolute;
     top: 1rem;
-    right: 1rem; /* Changed to right to be consistent with positioning */
+    left: 1rem; /* Adjusted for consistency */
     background: none;
     border: none;
     cursor: pointer;
@@ -122,6 +97,6 @@
     height: 100%;
     top: 0;
     left: 0;
-    touch-action: none; /* Prevents touch gestures */
+    touch-action: none;
   }
 }
