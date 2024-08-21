@@ -3,8 +3,6 @@
 /* Import FontAwesome CSS */
 @import '@fortawesome/fontawesome-svg-core/styles.css';
 
-/* other styles here */
-
 /* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
@@ -48,6 +46,8 @@
     transform: translateX(100%); /* Start off-screen */
     transition: transform 0.4s ease-in-out; /* Smooth transition for sliding in and out */
     z-index: 50; /* Ensure it's on top */
+    /* Debugging border */
+    /* outline: 2px solid red; */
   }
 
   .nav-overlay.open {
@@ -110,9 +110,6 @@
 
   .menu-links a:hover {
     color: transparent; /* Hide text to show background gradient */
-  }
-
-  .menu-links a:hover {
     transform: scale(1.05); /* Slightly scale up on hover */
   }
 
