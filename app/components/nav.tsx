@@ -56,19 +56,20 @@ export const Navigation: React.FC = () => {
 
         {/* Fullscreen Mobile Menu with background and animation */}
         <div
-          className={`fixed inset-0 z-40 transform ${
+          className={`fixed inset-0 z-40 transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out`}
+          }`}
           style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
           {/* Background overlay for readability */}
-          <div className={`absolute inset-0 bg-zinc-900 opacity-90`}></div>
+          <div className={`absolute inset-0 bg-zinc-900 opacity-90`} style={{ zIndex: 1 }}></div>
           {/* Main content area */}
           <div className="relative w-full h-full flex flex-col items-center justify-center p-6 space-y-8 z-10">
             {/* Close button */}
             <button 
               className="absolute top-6 right-6 text-zinc-300 hover:text-zinc-100 text-3xl"
               onClick={toggleMenu}
+              style={{ zIndex: 2 }}
             >
               <FontAwesomeIcon icon={faTimes} />
             </button>
@@ -87,7 +88,7 @@ export const Navigation: React.FC = () => {
                   height={120}
                   className="block mb-6"
                 />
-                <span className="text-3xl font-semibold">WebForge</span>
+                <span className="text-3xl font-semibold text-white">WebForge</span>
               </Link>
               {/* Navigation Links */}
               <nav className="flex flex-col items-center space-y-6">
