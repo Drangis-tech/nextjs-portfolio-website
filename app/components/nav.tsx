@@ -90,36 +90,33 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {/* Slide-in Navigation Menu */}
+      {/* Slide-in Menu */}
       <div className={`nav-overlay ${isOpen ? 'open' : ''}`}>
         <div className="nav-content">
           {/* Close button */}
-          <button
-            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
-            onClick={toggleMenu}
-          >
+          <button onClick={toggleMenu}>
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8 md:w-10 md:h-10" />
           </button>
 
           {/* Menu Links */}
           <ul>
             <li>
-              <Link href="/paslaugos" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+              <Link href="/paslaugos" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
                 Paslaugos
               </Link>
             </li>
             <li>
-              <Link href="/apie-mus" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+              <Link href="/apie-mus" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
                 Apie Mus
               </Link>
             </li>
             <li>
-              <Link href="/kainos" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+              <Link href="/kainos" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
                 Kainos
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+              <Link href="/contact" className="text-white hover:text-orange-400 transition-colors" onClick={toggleMenu}>
                 Kontaktai
               </Link>
             </li>
