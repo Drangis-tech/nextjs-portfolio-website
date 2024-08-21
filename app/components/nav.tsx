@@ -21,18 +21,9 @@ export const Navigation: React.FC = () => {
   }, []);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(prevState => !prevState);
     document.body.style.overflow = isOpen ? 'auto' : 'hidden'; // Prevent scrolling when menu is open
   };
-
-  useEffect(() => {
-    // Add or remove 'no-scroll' class based on menu state
-    if (isOpen) {
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
-  }, [isOpen]);
 
   return (
     <header ref={ref}>
@@ -99,28 +90,28 @@ export const Navigation: React.FC = () => {
       </div>
 
       {/* Fullscreen Menu */}
-      <div className={`nav-overlay ${isOpen ? 'open' : ''}`}>
-        <div className="nav-content">
+      <div className={`fixed inset-0 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+        <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
           {/* Close button */}
           <button
-            className="close-button"
+            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
             onClick={toggleMenu}
           >
-            <FontAwesomeIcon icon={faTimes} />
+            <FontAwesomeIcon icon={faTimes} className="w-8 h-8 md:w-10 md:h-10" />
           </button>
 
           {/* Menu Links */}
-          <nav className="menu-links">
-            <Link href="/paslaugos" onClick={toggleMenu}>
+          <nav className="flex flex-col items-center space-y-6">
+            <Link href="/paslaugos" className="text-white text-3xl" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="text-white text-3xl" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" onClick={toggleMenu}>
+            <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" onClick={toggleMenu}>
+            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
