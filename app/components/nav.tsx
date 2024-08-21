@@ -90,18 +90,9 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
-      {/* Fullscreen Menu */}
-      <div className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-md transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
-        <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
-          {/* Logo */}
-          <Image 
-            src="/logo.png" // Path to your logo image
-            alt="Logo" 
-            width={150} 
-            height={150} 
-            className="mb-8" 
-          />
-          
+      {/* Slide-in Navigation Menu */}
+      <div className={`nav-overlay ${isOpen ? 'open' : ''}`}>
+        <div className="nav-content">
           {/* Close button */}
           <button
             className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
@@ -111,20 +102,28 @@ export const Navigation: React.FC = () => {
           </button>
 
           {/* Menu Links */}
-          <nav className="flex flex-col items-center space-y-6">
-            <Link href="/paslaugos" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-              Paslaugos
-            </Link>
-            <Link href="/apie-mus" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-              Apie Mus
-            </Link>
-            <Link href="/kainos" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-              Kainos
-            </Link>
-            <Link href="/contact" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
-              Kontaktai
-            </Link>
-          </nav>
+          <ul>
+            <li>
+              <Link href="/paslaugos" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+                Paslaugos
+              </Link>
+            </li>
+            <li>
+              <Link href="/apie-mus" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+                Apie Mus
+              </Link>
+            </li>
+            <li>
+              <Link href="/kainos" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+                Kainos
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="text-white hover:text-orange-400" onClick={toggleMenu}>
+                Kontaktai
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </header>

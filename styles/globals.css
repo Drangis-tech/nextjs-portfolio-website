@@ -214,47 +214,49 @@ canvas {
   font-size: 2rem; /* Adjust the size as needed */
 }
 
-/* Fullscreen menu styles */
-.fullscreen-menu {
+/* New navigation menu styles */
+.nav-overlay {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-  backdrop-filter: blur(5px); /* Optional: adds blur effect */
-  z-index: 50; /* Ensure it's on top */
-  overflow: hidden; /* Prevent scrolling */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  right: 0;
+  width: 20vw; /* 1/5 of the viewport width */
+  height: 100%;
+  background: rgba(255, 255, 255, 0); /* Transparent background */
+  backdrop-filter: blur(10px); /* Strong blur effect */
+  transform: translateX(100%); /* Initially hidden off-screen */
+  transition: transform 0.3s ease-in-out; /* Smooth slide-in animation */
+  z-index: 1000; /* Ensure it's above other content */
 }
 
-.fullscreen-menu.hidden {
-  opacity: 0;
-  visibility: hidden;
+.nav-overlay.open {
+  transform: translateX(0); /* Slide in when menu is open */
 }
 
-.fullscreen-menu.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.fullscreen-menu-content {
+.nav-overlay .nav-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100%;
-  padding: 2rem;
-  color: white;
-  text-align: center;
+  padding: 1rem;
+  overflow-y: auto; /* Scrollable content if necessary */
 }
 
-.fullscreen-menu button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 2rem;
+.nav-overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-overlay li {
+  margin: 1rem 0;
+}
+
+.nav-overlay a {
+  color: #fff; /* Text color for links */
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.nav-overlay a:hover {
+  color: #f0f0f0; /* Hover effect */
 }
