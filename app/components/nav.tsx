@@ -29,7 +29,7 @@ export const Navigation: React.FC = () => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-md duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
@@ -91,8 +91,17 @@ export const Navigation: React.FC = () => {
       </div>
 
       {/* Fullscreen Menu */}
-      <div className={`fixed inset-0 bg-black bg-opacity-80 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+      <div className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-md transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
         <div className="relative w-full h-full flex flex-col items-center justify-center space-y-8">
+          {/* Logo */}
+          <Image 
+            src="/path/to/logo.png" 
+            alt="Logo" 
+            width={150} 
+            height={150} 
+            className="mb-8" 
+          />
+          
           {/* Close button */}
           <button
             className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100"
@@ -103,16 +112,16 @@ export const Navigation: React.FC = () => {
 
           {/* Menu Links */}
           <nav className="flex flex-col items-center space-y-6">
-            <Link href="/paslaugos" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/paslaugos" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/kainos" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-3xl" onClick={toggleMenu}>
+            <Link href="/contact" className="text-white text-3xl hover:text-orange-400 transition-colors" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
