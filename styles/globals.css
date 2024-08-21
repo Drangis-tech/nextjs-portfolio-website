@@ -221,8 +221,10 @@ canvas {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9); /* Dark overlay with opacity */
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /* Optional: adds blur effect */
   z-index: 50; /* Ensure it's on top */
+  overflow: hidden; /* Prevent scrolling */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,14 +242,19 @@ canvas {
 }
 
 .fullscreen-menu-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100%;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.9); /* Same as background color */
-  z-index: 50; /* Ensure it's above background */
+  color: white;
+  text-align: center;
+}
+
+.fullscreen-menu button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
 }
