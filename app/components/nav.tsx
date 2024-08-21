@@ -43,12 +43,16 @@ export const Navigation: React.FC = () => {
   }, [isOpen]);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    document.body.style.overflow = isOpen ? 'auto' : 'hidden';
+    setIsOpen(prevState => {
+      const newState = !prevState;
+      document.body.style.overflow = newState ? 'hidden' : 'auto';
+      return newState;
+    });
   };
 
   return (
     <header ref={ref} className="relative">
+      {/* Main Header */}
       <div
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur-sm duration-200 border-b ${
           isIntersecting
@@ -110,12 +114,14 @@ export const Navigation: React.FC = () => {
         </div>
       </div>
 
+      {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
         className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => isOpen && setIsOpen(false)}
       ></div>
 
+      {/* Side Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-sm transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
         <div className="relative w-full h-full flex flex-col items-start justify-center space-y-8 px-8">
           <button
