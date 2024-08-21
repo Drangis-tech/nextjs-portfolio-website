@@ -48,7 +48,7 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <header ref={ref}>
+    <header ref={ref} className="relative">
       <div
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur-sm duration-200 border-b ${
           isIntersecting
@@ -112,7 +112,7 @@ export const Navigation: React.FC = () => {
 
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-auto'}`}
+        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => isOpen && setIsOpen(false)}
       ></div>
 
@@ -144,4 +144,3 @@ export const Navigation: React.FC = () => {
     </header>
   );
 };
-
