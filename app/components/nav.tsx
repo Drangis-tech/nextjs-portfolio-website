@@ -139,7 +139,7 @@ export const Navigation: React.FC = () => {
             </button>
           </div>
 
-          <nav className="flex flex-col items-start space-y-6 p-6">
+          <nav className="flex flex-col items-start space-y-6 p-6 flex-grow">
             <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Paslaugos
             </Link>
@@ -155,7 +155,7 @@ export const Navigation: React.FC = () => {
           </nav>
 
           {/* Contact Information */}
-          <div className="flex flex-col items-start space-y-4 text-gray-400 text-sm p-6">
+          <div className="flex flex-col items-start space-y-4 text-gray-400 text-sm p-6 mt-auto">
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
               <a href="mailto:info@brandforge.lt" className="text-gray-500">
