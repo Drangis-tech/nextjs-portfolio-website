@@ -102,3 +102,14 @@
     font-size: 1rem; /* Adjust icon size for mobile */
   }
 }
+
+/* Custom styles to remove blur on the left side when the menu is open */
+.menu-open .backdrop {
+  backdrop-filter: none; /* Remove the blur effect from the entire backdrop */
+  filter: none;
+}
+
+.menu-open .menu-content {
+  backdrop-filter: blur(10px); /* Apply blur only to the menu content */
+  filter: blur(10px);
+}
