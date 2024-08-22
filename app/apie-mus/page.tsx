@@ -2,7 +2,7 @@ import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faEye, faBalanceScale, faLinkedin, faTwitter } from '@fortawesome/free-solid-svg-icons';
 
 // Team Data
 const teamData = [
@@ -105,10 +105,10 @@ const ApieMus: React.FC = () => {
                     <span>{member.role}</span>
                     <div className="mt-2 flex justify-center space-x-4">
                       <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">
-                        <FontAwesomeIcon icon={faUsers} className="fa-xs" />
+                        <FontAwesomeIcon icon={faLinkedin} className="fa-xs" />
                       </a>
                       <a href={member.twitter} className="text-blue-400 hover:text-blue-300">
-                        <FontAwesomeIcon icon={faUsers} className="fa-xs" />
+                        <FontAwesomeIcon icon={faTwitter} className="fa-xs" />
                       </a>
                     </div>
                   </div>
@@ -116,9 +116,6 @@ const ApieMus: React.FC = () => {
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {member.name}
                   </h3>
-                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
-                    <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
-                  </p>
                 </article>
               </Card>
             ))}
