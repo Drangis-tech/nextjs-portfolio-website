@@ -11,8 +11,6 @@ export const Navigation: React.FC = () => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState('LT'); // Lithuanian as default
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -50,15 +48,6 @@ export const Navigation: React.FC = () => {
       document.body.style.overflow = newState ? 'hidden' : 'auto';
       return newState;
     });
-  };
-
-  const toggleDropdown = () => {
-    setDropdownOpen(prevState => !prevState);
-  };
-
-  const handleLanguageChange = (value: string) => {
-    setLanguage(value);
-    setDropdownOpen(false); // Close dropdown after selection
   };
 
   return (
@@ -141,58 +130,6 @@ export const Navigation: React.FC = () => {
           >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
           </button>
-
-          {/* Language Selector Inside Side Menu */}
-          <div className="flex items-center space-x-4 absolute top-4 left-4">
-            <div
-              className="language-icon cursor-pointer"
-              onClick={toggleDropdown}
-              style={{
-                backgroundImage: `url('/flags/${language === 'LT' ? 'Lithuania' : 'English'}.svg')`,
-                width: '32px',
-                height: '32px',
-                backgroundSize: 'contain',
-              }}
-            ></div>
-            {dropdownOpen && (
-              <ul className="absolute mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none">
-                <li
-                  onClick={() => handleLanguageChange('LT')}
-                  className="cursor-pointer py-1 flex items-center"
-                >
-                  <div
-                    className="language-icon"
-                    style={{
-                      backgroundImage: `url('/flags/Lithuania.svg')`,
-                      width: '32px',
-                      height: '32px',
-                      backgroundSize: 'contain',
-                      display: 'inline-block',
-                      marginRight: '8px'
-                    }}
-                  ></div>
-                  LT
-                </li>
-                <li
-                  onClick={() => handleLanguageChange('EN')}
-                  className="cursor-pointer py-1 flex items-center"
-                >
-                  <div
-                    className="language-icon"
-                    style={{
-                      backgroundImage: `url('/flags/English.svg')`,
-                      width: '32px',
-                      height: '32px',
-                      backgroundSize: 'contain',
-                      display: 'inline-block',
-                      marginRight: '8px'
-                    }}
-                  ></div>
-                  EN
-                </li>
-              </ul>
-            )}
-          </div>
 
           <nav className="flex flex-col items-start space-y-6">
             <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
