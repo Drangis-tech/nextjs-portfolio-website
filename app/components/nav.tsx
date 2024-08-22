@@ -144,7 +144,7 @@ export const Navigation: React.FC = () => {
 
           {/* Language Selector */}
           <div
-            className="absolute top-0 left-4 cursor-pointer"
+            className="absolute top-2 left-4 cursor-pointer"
             onClick={toggleDropdown}
           >
             <div
