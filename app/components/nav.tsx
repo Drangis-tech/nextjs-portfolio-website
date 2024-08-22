@@ -28,20 +28,16 @@ export const Navigation: React.FC = () => {
       if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
         setIsOpen(false);
         document.body.style.overflow = 'auto';
-        document.body.classList.remove('menu-open');
       }
     };
 
     if (isOpen) {
-      document.body.classList.add('menu-open');
       document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.body.classList.remove('menu-open');
       document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.body.classList.remove('menu-open');
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);
@@ -58,7 +54,7 @@ export const Navigation: React.FC = () => {
     <header ref={ref} className="relative">
       {/* Main Header */}
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-sm duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-40 backdrop-blur-sm duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
@@ -121,12 +117,12 @@ export const Navigation: React.FC = () => {
       {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-30`}
         onClick={() => isOpen && setIsOpen(false)}
       ></div>
 
       {/* Side Menu */}
-      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-sm transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
+      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
         <div className="relative w-full h-full flex flex-col items-start justify-center space-y-8 px-8">
           <button
             className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
