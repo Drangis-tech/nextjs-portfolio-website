@@ -8,13 +8,19 @@ interface LanguageSelectorProps {
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({ language, onLanguageChange }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(prevState => !prevState);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+    if (
+      containerRef.current &&
+      !containerRef.current.contains(event.target as Node) &&
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       setDropdownOpen(false);
     }
   };
@@ -39,7 +45,10 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ language, onLanguag
         }}
       ></div>
       {dropdownOpen && (
-        <ul className="absolute top-full left-0 mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none min-w-max">
+        <ul
+          className="absolute top-full left-0 mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none min-w-max"
+          ref={dropdownRef}
+        >
           <li
             onClick={() => {
               onLanguageChange('LT');
