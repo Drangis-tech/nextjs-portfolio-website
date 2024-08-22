@@ -42,11 +42,12 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ language, onLanguag
           width: '32px',
           height: '32px',
           backgroundSize: 'contain',
+          zIndex: 50 // Ensure it's above other content
         }}
       ></div>
       {dropdownOpen && (
         <ul
-          className="absolute top-full left-0 mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none min-w-max"
+          className="absolute top-full left-0 mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none min-w-max z-50" // Ensure it's above other content
           ref={dropdownRef}
         >
           <li
