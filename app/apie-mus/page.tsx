@@ -7,7 +7,7 @@ import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icon
 // Team Data
 const teamData = [
   {
-    name: "John Doe",
+    name: "Nojus Mykolaitis",
     role: "CEO",
     linkedIn: "https://www.linkedin.com/in/johndoe",
     twitter: "https://twitter.com/johndoe",
