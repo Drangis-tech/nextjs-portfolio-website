@@ -56,8 +56,8 @@ export const Navigation: React.FC = () => {
     setDropdownOpen(prevState => !prevState);
   };
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value);
+  const handleLanguageChange = (value: string) => {
+    setLanguage(value);
     setDropdownOpen(false); // Close dropdown after selection
   };
 
@@ -143,43 +143,57 @@ export const Navigation: React.FC = () => {
           </button>
 
           {/* Language Selector */}
-          <div className={`language-selector ${dropdownOpen ? 'open' : ''}`} onClick={toggleDropdown}>
+          <div className={`language-selector ${dropdownOpen ? 'open' : ''}`} onClick={toggleDropdown} style={{ position: 'absolute', top: '1rem', left: '1rem', cursor: 'pointer' }}>
             <div
               className="language-icon"
               style={{
                 backgroundImage: `url('/flags/${language === 'LT' ? 'Lithuania' : 'English'}.svg')`,
-                width: '20px',
-                height: '20px',
-                backgroundSize: 'cover',
-                marginRight: '8px'
+                width: '32px', // Match with close button size
+                height: '32px',
+                backgroundSize: 'contain',
+                display: 'inline-block',
               }}
             ></div>
-            <div className={`dropdown ${dropdownOpen ? 'open' : ''}`}>
-              {dropdownOpen && (
-                <ul className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none">
-                  {language !== 'LT' && (
-                    <li
-                      onClick={() => handleLanguageChange({ target: { value: 'LT' } } as React.ChangeEvent<HTMLSelectElement>)}
-                      className="cursor-pointer py-1"
-                    >
-                      <div
-                        className="language-icon"
-                        style={{
-                          backgroundImage: `url('/flags/Lithuania.svg')`,
-                          width: '20px',
-                          height: '20px',
-                          backgroundSize: 'cover',
-                          display: 'inline-block',
-                          marginRight: '8px'
-                        }}
-                      ></div>
-                      LT
-                    </li>
-                  )}
-                  {/* More languages can be added here in the future */}
-                </ul>
-              )}
-            </div>
+            {dropdownOpen && (
+              <ul className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none mt-2">
+                {language !== 'LT' && (
+                  <li
+                    onClick={() => handleLanguageChange('LT')}
+                    className="cursor-pointer py-1 flex items-center"
+                  >
+                    <div
+                      className="language-icon"
+                      style={{
+                        backgroundImage: `url('/flags/Lithuania.svg')`,
+                        width: '32px',
+                        height: '32px',
+                        backgroundSize: 'contain',
+                        display: 'inline-block',
+                        marginRight: '8px'
+                      }}
+                    ></div>
+                  </li>
+                )}
+                {language !== 'EN' && (
+                  <li
+                    onClick={() => handleLanguageChange('EN')}
+                    className="cursor-pointer py-1 flex items-center"
+                  >
+                    <div
+                      className="language-icon"
+                      style={{
+                        backgroundImage: `url('/flags/English.svg')`,
+                        width: '32px',
+                        height: '32px',
+                        backgroundSize: 'contain',
+                        display: 'inline-block',
+                        marginRight: '8px'
+                      }}
+                    ></div>
+                  </li>
+                )}
+              </ul>
+            )}
           </div>
 
           <nav className="flex flex-col items-start space-y-6">
