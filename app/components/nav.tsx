@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import LanguageSelector from './LanguageSelector'; // Import the LanguageSelector component
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
@@ -105,12 +106,19 @@ export const Navigation: React.FC = () => {
             </div>
           </div>
 
-          <button
-            className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
-            onClick={toggleMenu}
-          >
-            <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
-          </button>
+          <div className="flex items-center space-x-4">
+            {/* Add the LanguageSelector component */}
+            <LanguageSelector
+              language="LT" // Set the default language
+              onLanguageChange={(value) => console.log(`Language changed to ${value}`)}
+            />
+            <button
+              className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
+              onClick={toggleMenu}
+            >
+              <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
+            </button>
+          </div>
         </div>
       </div>
 
