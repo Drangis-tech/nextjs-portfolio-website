@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faEye, faBalanceScale, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'; // Added LinkedIn and Twitter icons
 
 // Team Data
 const teamData = [
@@ -47,9 +47,19 @@ const aboutUsData = [
 ];
 
 const ApieMus: React.FC = () => {
+  // State to manage the menu toggle
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Function to handle menu toggle
+  const handleMenuToggle = () => {
+    setIsMenuOpen(prevState => !prevState);
+    document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
+  };
+
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-      <Navigation />
+      {/* Pass the required props to Navigation */}
+      <Navigation isOpen={isMenuOpen} onMenuToggle={handleMenuToggle} />
       <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl md:text-4xl">
@@ -104,11 +114,11 @@ const ApieMus: React.FC = () => {
                     {/* Team member role and social icons */}
                     <span>{member.role}</span>
                     <div className="mt-2 flex justify-center space-x-4">
-                      <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">
-                        <FontAwesomeIcon icon={faUsers} className="fa-xs" />
+                      <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faLinkedin} className="fa-xs" />
                       </a>
-                      <a href={member.twitter} className="text-blue-400 hover:text-blue-300">
-                        <FontAwesomeIcon icon={faUsers} className="fa-xs" />
+                      <a href={member.twitter} className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faTwitter} className="fa-xs" />
                       </a>
                     </div>
                   </div>
