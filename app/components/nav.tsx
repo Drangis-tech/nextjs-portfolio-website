@@ -28,13 +28,16 @@ export const Navigation: React.FC = () => {
       if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
         setIsOpen(false);
         document.body.style.overflow = 'auto';
+        document.body.classList.remove('menu-open'); // Remove class when closing
       }
     };
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      document.body.classList.add('menu-open'); // Add class when opening
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.body.classList.remove('menu-open'); // Remove class when closing
     }
 
     return () => {
@@ -46,6 +49,11 @@ export const Navigation: React.FC = () => {
     setIsOpen(prevState => {
       const newState = !prevState;
       document.body.style.overflow = newState ? 'hidden' : 'auto';
+      if (newState) {
+        document.body.classList.add('menu-open'); // Add class when opening
+      } else {
+        document.body.classList.remove('menu-open'); // Remove class when closing
+      }
       return newState;
     });
   };
