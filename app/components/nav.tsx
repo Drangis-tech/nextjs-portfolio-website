@@ -12,6 +12,7 @@ export const Navigation: React.FC = () => {
   const [isIntersecting, setIntersecting] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState('LT'); // Lithuanian as default
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -51,6 +52,15 @@ export const Navigation: React.FC = () => {
     });
   };
 
+  const toggleDropdown = () => {
+    setDropdownOpen(prevState => !prevState);
+  };
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLanguage(e.target.value);
+    setDropdownOpen(false); // Close dropdown after selection
+  };
+
   return (
     <header ref={ref} className="relative">
       {/* Main Header */}
@@ -62,7 +72,7 @@ export const Navigation: React.FC = () => {
         }`}
       >
         <div className="container flex items-center p-6 mx-auto">
-          {pathname !== '/' && (
+        {pathname !== '/' && (
             <Link
               href="/"
               className={`flex items-center text-zinc-300 hover:text-zinc-100 mr-4 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
@@ -133,15 +143,17 @@ export const Navigation: React.FC = () => {
           </button>
 
           {/* Language Selector */}
-          <div className="absolute top-4 left-4 text-white flex items-center space-x-2">
-            <span>Language:</span>
-            <select
-              className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1"
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-            >
-              <option value="LT">LT</option>
-            </select>
+          <div className={`language-selector ${dropdownOpen ? 'open' : ''}`} onClick={toggleDropdown}>
+            <div className="flag-icon" style={{ backgroundImage: `url('/path/to/flag-icon.png')` }}></div>
+            <div className={`dropdown ${dropdownOpen ? 'open' : ''}`}>
+              <select
+                className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1"
+                value={language}
+                onChange={handleLanguageChange}
+              >
+                <option value="LT">LT</option>
+              </select>
+            </div>
           </div>
 
           <nav className="flex flex-col items-start space-y-6">
@@ -160,8 +172,8 @@ export const Navigation: React.FC = () => {
           </nav>
 
           {/* Contact Information */}
-          <div className="absolute bottom-4 left-4 text-gray-400 text-sm">
-            <p>Email: <a href="mailto:info@brandforge.lt" className="text-gray-300">info@example.com</a></p>
+          <div className="contact-info">
+            <p>Email: <a href="mailto:info@brandforge.lt" className="text-gray-300">info@brandforge.lt</a></p>
             <p>Phone: <a href="tel:+37000000000" className="text-gray-300">+370 000 00000</a></p>
           </div>
         </div>
