@@ -2,7 +2,7 @@ import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faEye, faBalanceScale, faLinkedin, faTwitter } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 
 // Team Data
 const teamData = [
@@ -101,21 +101,16 @@ const ApieMus: React.FC = () => {
               <Card key={index} className="w-full">
                 <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                   <div className="text-xs text-zinc-100">
-                    {/* Team member role and social icons */}
+                    {/* Team member role */}
                     <span>{member.role}</span>
-                    <div className="mt-2 flex justify-center space-x-4">
-                      <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">
-                        <FontAwesomeIcon icon={faLinkedin} className="fa-xs" />
-                      </a>
-                      <a href={member.twitter} className="text-blue-400 hover:text-blue-300">
-                        <FontAwesomeIcon icon={faTwitter} className="fa-xs" />
-                      </a>
-                    </div>
                   </div>
 
                   <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                     {member.name}
                   </h3>
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                    <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
+                  </p>
                 </article>
               </Card>
             ))}
