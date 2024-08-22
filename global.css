@@ -94,6 +94,89 @@
   .team-member .social-icons a:hover {
     color: #fff; /* Change icon color on hover */
   }
+
+  /* Style for the backdrop overlay */
+  .backdrop {
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    z-index: 30; /* Ensure it's behind the menu */
+  }
+
+  /* Style for the side menu */
+  .menu-content {
+    backdrop-filter: none; /* No blur effect on the menu */
+    z-index: 50; /* Ensure it's in front of the backdrop */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Language Selector */
+  .language-selector {
+    position: absolute;
+    top: 16px; /* Adjust according to the design */
+    left: 16px; /* Align with the close button */
+    display: flex;
+    align-items: center;
+    background-color: #333; /* Background color */
+    border: 1px solid #555; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 4px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    color: #fff; /* Text color */
+  }
+
+  .language-selector .flag-icon {
+    width: 24px; /* Icon size */
+    height: 24px; /* Icon size */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .language-selector .dropdown {
+    position: absolute;
+    top: 100%; /* Aligns below the selector */
+    left: 0;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    display: none;
+    flex-direction: column;
+    margin-top: 4px; /* Space between selector and dropdown */
+    z-index: 100; /* Ensure dropdown is on top */
+  }
+
+  .language-selector.open .dropdown {
+    display: flex;
+  }
+
+  .language-selector .dropdown select {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: #fff; /* White text color */
+    padding: 8px;
+    cursor: pointer; /* Pointer cursor */
+    font-size: 0.875rem; /* Font size */
+    outline: none; /* Remove outline */
+  }
+
+  .menu-content .contact-info {
+    color: #bbb; /* Grey color for contact info */
+    font-size: 0.875rem; /* Smaller font size */
+    position: absolute;
+    bottom: 16px; /* Space from the bottom */
+    left: 16px; /* Space from the left */
+    width: calc(100% - 32px); /* Full width minus padding */
+    text-align: center; /* Center align text */
+  }
+
+  .menu-content .contact-info a {
+    color: #ccc; /* Light grey color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition */
+  }
+
+  .menu-content .contact-info a:hover {
+    color: #fff; /* White color on hover */
+  }
 }
 
 /* Ensure FontAwesome icons are responsive */
@@ -101,15 +184,12 @@
   .team-member .social-icons a {
     font-size: 1rem; /* Adjust icon size for mobile */
   }
-}
 
-/* Custom styles to remove blur on the left side when the menu is open */
-.menu-open .backdrop {
-  backdrop-filter: none; /* Remove the blur effect from the entire backdrop */
-  filter: none;
-}
+  .menu-content .language-selector select {
+    font-size: 0.75rem; /* Smaller font size for select on mobile */
+  }
 
-.menu-open .menu-content {
-  backdrop-filter: blur(10px); /* Apply blur only to the menu content */
-  filter: blur(10px);
+  .menu-content .contact-info {
+    font-size: 0.75rem; /* Even smaller font size for mobile */
+  }
 }

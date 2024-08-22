@@ -161,7 +161,7 @@ export const Navigation: React.FC = () => {
 
           {/* Contact Information */}
           <div className="absolute bottom-4 left-4 text-gray-400 text-sm">
-            <p>Email: <a href="mailto:info@example.com" className="text-gray-300">info@example.com</a></p>
+            <p>Email: <a href="mailto:info@brandforge.lt" className="text-gray-300">info@example.com</a></p>
             <p>Phone: <a href="tel:+37000000000" className="text-gray-300">+370 000 00000</a></p>
           </div>
         </div>
