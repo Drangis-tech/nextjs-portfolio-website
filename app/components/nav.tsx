@@ -72,7 +72,7 @@ export const Navigation: React.FC = () => {
         }`}
       >
         <div className="container flex items-center p-6 mx-auto">
-        {pathname !== '/' && (
+          {pathname !== '/' && (
             <Link
               href="/"
               className={`flex items-center text-zinc-300 hover:text-zinc-100 mr-4 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
@@ -128,7 +128,7 @@ export const Navigation: React.FC = () => {
       {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-30`}
         onClick={() => isOpen && setIsOpen(false)}
       ></div>
 
@@ -152,6 +152,7 @@ export const Navigation: React.FC = () => {
                 onChange={handleLanguageChange}
               >
                 <option value="LT">LT</option>
+                {/* Add more languages here as needed */}
               </select>
             </div>
           </div>
@@ -166,7 +167,7 @@ export const Navigation: React.FC = () => {
             <Link href="/kainos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/kontaktai" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+            <Link href="/contact" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
