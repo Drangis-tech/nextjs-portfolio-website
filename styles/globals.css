@@ -97,7 +97,7 @@
 
   /* Style for the backdrop overlay */
   .backdrop {
-    backdrop-filter: blur(3px); /* Apply blur effect */
+    backdrop-filter: blur(2px); /* Apply blur effect * bluras kairej pusej ant burger meniu*/
     z-index: 30; /* Ensure it's behind the menu */
   }
 
