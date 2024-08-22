@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import LanguageSelector from './LanguageSelector'; // Import the LanguageSelector component
+import LanguageSelector from './LanguageSelector';
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
@@ -137,14 +137,6 @@ export const Navigation: React.FC = () => {
             >
               <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
             </button>
-          </div>
-
-          {/* Existing Line with Gaps */}
-          <div className="relative px-6 py-4">
-            <h1 className="text-3xl font-bold text-center">Paslaugos</h1>
-            <div className="absolute inset-x-0 bottom-0">
-              <hr className="border-gray-300 border-t-2 mx-auto" style={{ width: 'calc(100% - 4rem)' }} />
-            </div>
           </div>
 
           <nav className="flex flex-col items-start space-y-6 p-6">
