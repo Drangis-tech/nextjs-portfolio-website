@@ -139,19 +139,6 @@ export const Navigation: React.FC = () => {
             </button>
           </div>
 
-          {/* Page Title and Separator */}
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h1 className="text-3xl font-bold">Your Page Title</h1>
-            <div className="relative mt-4">
-              <div className="absolute inset-0 flex items-center">
-                <hr className="w-full border-gray-300 border-t-2" />
-              </div>
-              <div className="relative z-10 text-gray-500 bg-white px-4">
-                <span>Your Page Title</span>
-              </div>
-            </div>
-          </div>
-
           <nav className="flex flex-col items-start space-y-6 p-6">
             <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Paslaugos
