@@ -11,6 +11,7 @@ export const Navigation: React.FC = () => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [language, setLanguage] = useState('LT'); // Lithuanian as default
   const pathname = usePathname();
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export const Navigation: React.FC = () => {
     <header ref={ref} className="relative">
       {/* Main Header */}
       <div
-        className={`fixed inset-x-0 top-0 z-40 backdrop-blur-sm duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-sm duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
@@ -117,12 +118,12 @@ export const Navigation: React.FC = () => {
       {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-30`}
+        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => isOpen && setIsOpen(false)}
       ></div>
 
       {/* Side Menu */}
-      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
         <div className="relative w-full h-full flex flex-col items-start justify-center space-y-8 px-8">
           <button
             className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
@@ -130,6 +131,18 @@ export const Navigation: React.FC = () => {
           >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
           </button>
+
+          {/* Language Selector */}
+          <div className="absolute top-4 left-4 text-white flex items-center space-x-2">
+            <span>Language:</span>
+            <select
+              className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+            >
+              <option value="LT">LT</option>
+            </select>
+          </div>
 
           <nav className="flex flex-col items-start space-y-6">
             <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
@@ -141,10 +154,16 @@ export const Navigation: React.FC = () => {
             <Link href="/kainos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/contact" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+            <Link href="/kontaktai" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
+
+          {/* Contact Information */}
+          <div className="absolute bottom-4 left-4 text-gray-400 text-sm">
+            <p>Email: <a href="mailto:info@example.com" className="text-gray-300">info@example.com</a></p>
+            <p>Phone: <a href="tel:+37000000000" className="text-gray-300">+370 000 00000</a></p>
+          </div>
         </div>
       </div>
     </header>

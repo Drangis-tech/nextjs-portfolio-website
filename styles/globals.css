@@ -97,7 +97,7 @@
 
   /* Style for the backdrop overlay */
   .backdrop {
-    backdrop-filter: blur(0.5px); /* Apply blur effect * bluras kairej pusej ant burger meniu*/
+    backdrop-filter: blur(10px); /* Apply blur effect */
     z-index: 30; /* Ensure it's behind the menu */
   }
 
@@ -105,6 +105,62 @@
   .menu-content {
     backdrop-filter: none; /* No blur effect on the menu */
     z-index: 50; /* Ensure it's in front of the backdrop */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Language Selector */
+  .menu-content .language-selector {
+    position: absolute;
+    top: 16px; /* Adjust according to the design */
+    left: 16px; /* Align with the close button */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    background-color: #333; /* Background color */
+    border: 1px solid #555; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 4px 8px; /* Padding */
+    color: #fff; /* Text color */
+  }
+
+  .menu-content .language-selector select {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: #fff; /* White text color */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    outline: none; /* Remove outline */
+  }
+
+  .menu-content .language-selector select:focus {
+    outline: none; /* Remove default focus outline */
+  }
+
+  .menu-content .language-selector .language-icon {
+    width: 20px; /* Icon size */
+    height: 20px; /* Icon size */
+  }
+
+  /* Contact Information */
+  .menu-content .contact-info {
+    color: #bbb; /* Grey color for contact info */
+    font-size: 0.875rem; /* Smaller font size */
+    position: absolute;
+    bottom: 16px; /* Space from the bottom */
+    left: 16px; /* Space from the left */
+    width: calc(100% - 32px); /* Full width minus padding */
+    text-align: center; /* Center align text */
+  }
+
+  .menu-content .contact-info a {
+    color: #ccc; /* Light grey color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition */
+  }
+
+  .menu-content .contact-info a:hover {
+    color: #fff; /* White color on hover */
   }
 }
 
@@ -112,5 +168,13 @@
 @media (max-width: 768px) {
   .team-member .social-icons a {
     font-size: 1rem; /* Adjust icon size for mobile */
+  }
+
+  .menu-content .language-selector select {
+    font-size: 0.875rem; /* Smaller font size for select on mobile */
+  }
+
+  .menu-content .contact-info {
+    font-size: 0.75rem; /* Even smaller font size for mobile */
   }
 }
