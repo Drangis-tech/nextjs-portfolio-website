@@ -139,11 +139,11 @@ export const Navigation: React.FC = () => {
             </button>
           </div>
 
-          {/* Separator Line with Gaps */}
-          <div className="relative px-6 py-4 border-b border-gray-200">
+          {/* Existing Line with Gaps */}
+          <div className="relative px-6 py-4">
             <h1 className="text-3xl font-bold text-center">Paslaugos</h1>
-            <div className="absolute inset-0 flex items-center">
-              <hr className="w-1/3 border-gray-300 border-t-2 mx-auto" />
+            <div className="absolute inset-x-0 bottom-0">
+              <hr className="border-gray-300 border-t-2 mx-auto" style={{ width: 'calc(100% - 4rem)' }} />
             </div>
           </div>
 
