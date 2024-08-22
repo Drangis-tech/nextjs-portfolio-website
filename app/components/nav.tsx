@@ -136,7 +136,7 @@ export const Navigation: React.FC = () => {
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
         <div className="relative w-full h-full flex flex-col items-start justify-center space-y-8 px-8">
           <button
-            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
+            className="absolute top-12 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
             onClick={toggleMenu}
           >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
@@ -144,7 +144,7 @@ export const Navigation: React.FC = () => {
 
           {/* Language Selector */}
           <div
-            className="absolute top-0 left-4 cursor-pointer"
+            className="absolute top-12 left-4 cursor-pointer"
             onClick={toggleDropdown}
           >
             <div
@@ -213,16 +213,16 @@ export const Navigation: React.FC = () => {
           </nav>
 
           {/* Contact Information */}
-          <div className="contact-info flex flex-col items-start space-y-4 text-gray-400 text-sm">
+          <div className="contact-info flex flex-col items-start space-y-4 text-gray-600 text-sm">
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
-              <a href="mailto:info@brandforge.lt" className="text-gray-500">
+              <a href="mailto:info@brandforge.lt" className="text-gray-600">
                 info@brandforge.lt
               </a>
             </div>
             <div className="flex items-center space-x-2">
-            <FontAwesomeIcon icon={faPhone} className="text-xl" />
-              <a href="tel:+37000000000" className="text-gray-500">
+              <FontAwesomeIcon icon={faPhone} className="text-xl" />
+              <a href="tel:+37000000000" className="text-gray-600">
                 +370 000 00000
               </a>
             </div>
