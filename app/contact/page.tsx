@@ -8,9 +8,9 @@ import { useState } from "react";
 const socials = [
   {
     icon: <Mail size={20} />,
-    href: "mailto:nojus@pavadinimas.lt",
+    href: "mailto:info@pavadinimas.lt",
     label: "Elektroninis paštas",
-    handle: "nojus@brandforge.lt",
+    handle: "info@brandforge.lt",
   },
   {
     icon: <Github size={20} />,
