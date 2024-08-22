@@ -134,17 +134,10 @@ export const Navigation: React.FC = () => {
 
       {/* Side Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
-        <div className="relative w-full h-full flex flex-col items-start justify-center space-y-8 px-8">
-          <button
-            className="absolute top-12 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
-            onClick={toggleMenu}
-          >
-            <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
-          </button>
-
+        <div className="relative w-full h-full flex flex-col items-start justify-start space-y-8 px-8 pt-12">
           {/* Language Selector */}
           <div
-            className="absolute top-12 left-4 cursor-pointer"
+            className="absolute top-4 left-4 cursor-pointer flex items-center"
             onClick={toggleDropdown}
           >
             <div
@@ -196,6 +189,13 @@ export const Navigation: React.FC = () => {
               </ul>
             )}
           </div>
+
+          <button
+            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
+            onClick={toggleMenu}
+          >
+            <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
+          </button>
 
           <nav className="flex flex-col items-start space-y-6">
             <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
