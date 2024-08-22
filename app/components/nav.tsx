@@ -28,13 +28,22 @@ export const Navigation: React.FC = () => {
       if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
         setIsOpen(false);
         document.body.style.overflow = 'auto';
+        document.body.classList.remove('no-scroll'); // Remove no-scroll class
+        const backdrop = document.querySelector('.backdrop-blur');
+        if (backdrop) backdrop.classList.remove('active');
       }
     };
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      document.body.classList.add('no-scroll'); // Add no-scroll class
+      const backdrop = document.querySelector('.backdrop-blur');
+      if (backdrop) backdrop.classList.add('active');
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.body.classList.remove('no-scroll'); // Remove no-scroll class
+      const backdrop = document.querySelector('.backdrop-blur');
+      if (backdrop) backdrop.classList.remove('active');
     }
 
     return () => {
@@ -117,36 +126,39 @@ export const Navigation: React.FC = () => {
       {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => isOpen && setIsOpen(false)}
+        className={`backdrop-blur fixed inset-0 bg-black bg-opacity-70 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => isOpen && toggleMenu()}
       ></div>
 
       {/* Side Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-sm transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
         <div className="relative w-full h-full flex flex-col items-start justify-center space-y-8 px-8">
-          <button
-            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
-            onClick={toggleMenu}
-          >
-            <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
-          </button>
+        <button
+              className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
+              onClick={toggleMenu}
+            >
+              <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
+            </button>
 
-          <nav className="flex flex-col items-start space-y-6">
-            <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-              Paslaugos
-            </Link>
-            <Link href="/apie-mus" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-              Apie Mus
-            </Link>
-            <Link href="/kainos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-              Kainos
-            </Link>
-            <Link href="/kontaktai" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-              Kontaktai
-            </Link>
-          </nav>
+            <nav className="flex flex-col items-start space-y-6">
+              <Link href="/projects" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+                Atlikti Darbai
+              </Link>
+              <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+                Paslaugos
+              </Link>
+              <Link href="/apie-mus" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+                Apie Mus
+              </Link>
+              <Link href="/kainos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+                Kainos
+              </Link>
+              <Link href="/contact" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+                Kontaktai
+              </Link>
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
-  );
-};
+      </header>
+    );
+  };

@@ -28,7 +28,7 @@
     max-width: 320px; /* Max width set */
     height: 100vh;
     background: rgba(0, 0, 0, 0.9); /* Dark background */
-    backdrop-filter: blur(10px); /* Blur effect */
+    backdrop-filter: blur(10px); /* Blur effect for the menu */
     transform: translateX(100%); /* Off-screen initially */
     transition: transform 0.4s ease-in-out; /* Smooth slide-in/out */
     z-index: 100; /* Higher z-index to ensure visibility */
@@ -90,7 +90,7 @@
   }
 
   /* Apply blur effect */
-  .backdrop-blur-sm {
+  .backdrop-blur {
     backdrop-filter: blur(4px); /* Adjust blur amount as needed */
     z-index: 95; /* Ensure it's above page content but below the menu */
     position: fixed;
@@ -99,10 +99,11 @@
     width: 100%;
     height: 100%;
     display: none; /* Initially hidden */
+    pointer-events: none; /* Prevent interaction */
   }
 
   /* Show blur when active */
-  .backdrop-blur-sm.active {
+  .backdrop-blur.active {
     display: block;
   }
 }
