@@ -1,40 +1,28 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const navigation = [
-  { name: "Atlikti Darbai", href: "/projects" },
-  { name: "Paslaugos", href: "/paslaugos" },
-  { name: "Apie Mus", href: "/apie-mus" },
-  { name: "Kainos", href: "/kainos" },
-  { name: "Kontaktai", href: "/contact" },
-];
+interface NavigationProps {
+  isOpen: boolean;
+  onMenuToggle: () => void;
+}
 
-export const Navigation: React.FC<{ onMenuToggle: (isOpen: boolean) => void }> = ({ onMenuToggle }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsOpen(!isOpen);
-    onMenuToggle(!isOpen); // Notify parent component of the menu state
-  };
-
+const Navigation: React.FC<NavigationProps> = ({ isOpen, onMenuToggle }) => {
   return (
-    <nav>
-      <button onClick={handleMenuToggle} className="md:hidden">
-        <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="2x" />
+    <nav className="relative">
+      <button
+        onClick={onMenuToggle}
+        className="text-white focus:outline-none"
+      >
+        <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="lg" />
       </button>
-      <div className={`fixed inset-0 bg-gray-800/75 md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-        <ul className="flex flex-col items-center justify-center h-full space-y-4">
-          {navigation.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="text-white text-lg" onClick={() => setIsOpen(false)}>
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {isOpen && (
+        <div className="absolute top-0 right-0 bg-gray-800 text-white p-4">
+          {/* Menu items */}
+        </div>
+      )}
     </nav>
   );
 };
+
+export default Navigation;
