@@ -147,7 +147,7 @@ export const Navigation: React.FC = () => {
             <div
               className="language-icon"
               style={{
-                backgroundImage: `url('/flags/Lithuania.svg')`,
+                backgroundImage: `url('/flags/${language === 'LT' ? 'Lithuania' : 'English'}.svg')`,
                 width: '20px',
                 height: '20px',
                 backgroundSize: 'cover',
@@ -155,14 +155,30 @@ export const Navigation: React.FC = () => {
               }}
             ></div>
             <div className={`dropdown ${dropdownOpen ? 'open' : ''}`}>
-              <select
-                className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1"
-                value={language}
-                onChange={handleLanguageChange}
-              >
-                <option value="LT">LT</option>
-                {/* Add more languages here as needed */}
-              </select>
+              {dropdownOpen && (
+                <ul className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none">
+                  {language !== 'LT' && (
+                    <li
+                      onClick={() => handleLanguageChange({ target: { value: 'LT' } } as React.ChangeEvent<HTMLSelectElement>)}
+                      className="cursor-pointer py-1"
+                    >
+                      <div
+                        className="language-icon"
+                        style={{
+                          backgroundImage: `url('/flags/Lithuania.svg')`,
+                          width: '20px',
+                          height: '20px',
+                          backgroundSize: 'cover',
+                          display: 'inline-block',
+                          marginRight: '8px'
+                        }}
+                      ></div>
+                      LT
+                    </li>
+                  )}
+                  {/* More languages can be added here in the future */}
+                </ul>
+              )}
             </div>
           </div>
 
