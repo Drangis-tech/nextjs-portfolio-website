@@ -116,12 +116,70 @@ export const Navigation: React.FC = () => {
             </div>
           </div>
 
-          <button
-            className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
-            onClick={toggleMenu}
-          >
-            <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
-          </button>
+          <div className="flex items-center space-x-4">
+            {/* Language Selector */}
+            <div
+              className="cursor-pointer"
+              style={{ marginTop: '-4px' }} // Adjust the top margin to align with faBars
+              onClick={toggleDropdown}
+            >
+              <div
+                className="language-icon"
+                style={{
+                  backgroundImage: `url('/flags/${language === 'LT' ? 'Lithuania' : 'English'}.svg')`,
+                  width: '32px',
+                  height: '32px',
+                  backgroundSize: 'contain',
+                  display: 'inline-block',
+                }}
+              ></div>
+              {dropdownOpen && (
+                <ul className="absolute mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none">
+                  <li
+                    onClick={() => handleLanguageChange('LT')}
+                    className="cursor-pointer py-1 flex items-center"
+                  >
+                    <div
+                      className="language-icon"
+                      style={{
+                        backgroundImage: `url('/flags/Lithuania.svg')`,
+                        width: '32px',
+                        height: '32px',
+                        backgroundSize: 'contain',
+                        display: 'inline-block',
+                        marginRight: '8px'
+                      }}
+                    ></div>
+                    LT
+                  </li>
+                  <li
+                    onClick={() => handleLanguageChange('EN')}
+                    className="cursor-pointer py-1 flex items-center"
+                  >
+                    <div
+                      className="language-icon"
+                      style={{
+                        backgroundImage: `url('/flags/English.svg')`,
+                        width: '32px',
+                        height: '32px',
+                        backgroundSize: 'contain',
+                        display: 'inline-block',
+                        marginRight: '8px'
+                      }}
+                    ></div>
+                    EN
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            <button
+              className={`text-zinc-300 hover:text-zinc-100 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
+              onClick={toggleMenu}
+            >
+              <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -141,61 +199,6 @@ export const Navigation: React.FC = () => {
           >
             <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
           </button>
-
-          {/* Language Selector */}
-          <div
-            className="absolute top-0 left-4 cursor-pointer"
-            onClick={toggleDropdown}
-          >
-            <div
-              className="language-icon"
-              style={{
-                backgroundImage: `url('/flags/${language === 'LT' ? 'Lithuania' : 'English'}.svg')`,
-                width: '32px',
-                height: '32px',
-                backgroundSize: 'contain',
-                display: 'inline-block',
-              }}
-            ></div>
-            {dropdownOpen && (
-              <ul className="absolute mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none">
-                <li
-                  onClick={() => handleLanguageChange('LT')}
-                  className="cursor-pointer py-1 flex items-center"
-                >
-                  <div
-                    className="language-icon"
-                    style={{
-                      backgroundImage: `url('/flags/Lithuania.svg')`,
-                      width: '32px',
-                      height: '32px',
-                      backgroundSize: 'contain',
-                      display: 'inline-block',
-                      marginRight: '8px'
-                    }}
-                  ></div>
-                  LT
-                </li>
-                <li
-                  onClick={() => handleLanguageChange('EN')}
-                  className="cursor-pointer py-1 flex items-center"
-                >
-                  <div
-                    className="language-icon"
-                    style={{
-                      backgroundImage: `url('/flags/English.svg')`,
-                      width: '32px',
-                      height: '32px',
-                      backgroundSize: 'contain',
-                      display: 'inline-block',
-                      marginRight: '8px'
-                    }}
-                  ></div>
-                  EN
-                </li>
-              </ul>
-            )}
-          </div>
 
           <nav className="flex flex-col items-start space-y-6">
             <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
@@ -218,10 +221,10 @@ export const Navigation: React.FC = () => {
               <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
               <a href="mailto:info@brandforge.lt" className="text-gray-500">
                 info@brandforge.lt
-              </a>
+                </a>
             </div>
             <div className="flex items-center space-x-2">
-            <FontAwesomeIcon icon={faPhone} className="text-xl" />
+              <FontAwesomeIcon icon={faPhone} className="text-xl" />
               <a href="tel:+37000000000" className="text-gray-500">
                 +370 000 00000
               </a>
