@@ -106,19 +106,12 @@ export const Navigation: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
-            {/* Add the LanguageSelector component */}
-            <LanguageSelector
-              language="LT" // Set the default language
-              onLanguageChange={(value) => console.log(`Language changed to ${value}`)}
-            />
-            <button
-              className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
-              onClick={toggleMenu}
-            >
-              <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
-            </button>
-          </div>
+          <button
+            className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
+            onClick={toggleMenu}
+          >
+            <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
+          </button>
         </div>
       </div>
 
@@ -154,19 +147,30 @@ export const Navigation: React.FC = () => {
             </Link>
           </nav>
 
-          {/* Contact Information */}
-          <div className="contact-info flex flex-col items-start space-y-4 text-gray-400 text-sm">
-            <div className="flex items-center space-x-2">
-              <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
-              <a href="mailto:info@brandforge.lt" className="text-gray-500">
-                info@brandforge.lt
-              </a>
+          {/* Language Selector and Contact Information */}
+          <div className="flex flex-col items-start space-y-8 text-gray-400 text-sm">
+            {/* Language Selector */}
+            <div className="flex items-center space-x-4">
+              <LanguageSelector
+                language="LT" // Set the default language
+                onLanguageChange={(value) => console.log(`Language changed to ${value}`)}
+              />
             </div>
-            <div className="flex items-center space-x-2">
-              <FontAwesomeIcon icon={faPhone} className="text-xl" />
-              <a href="tel:+37000000000" className="text-gray-500">
-                +370 000 00000
-              </a>
+
+            {/* Contact Information */}
+            <div className="contact-info flex flex-col items-start space-y-4">
+              <div className="flex items-center space-x-2">
+                <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
+                <a href="mailto:info@brandforge.lt" className="text-gray-500">
+                  info@brandforge.lt
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <FontAwesomeIcon icon={faPhone} className="text-xl" />
+                <a href="tel:+37000000000" className="text-gray-500">
+                  +370 000 00000
+                </a>
+              </div>
             </div>
           </div>
         </div>
