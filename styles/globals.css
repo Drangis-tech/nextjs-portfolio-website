@@ -9,28 +9,14 @@
 @tailwind utilities;
 
 @layer base {
-  /* FontAwesome specific icon size */
+  /* FontAwesome icon sizes */
   .fa-icon {
-    font-size: 2rem; /* Set default size */
+    font-size: 2rem; /* Default size */
   }
 
-  /* Ensures size consistency */
-  .fa-xs { font-size: 0.75rem !important; }
-  .fa-sm { font-size: 1rem !important; }
-  .fa-lg { font-size: 1.25rem !important; }
-  .fa-2x { font-size: 2rem !important; }
-  .fa-3x { font-size: 3rem !important; }
-  .fa-4x { font-size: 4rem !important; }
-  .fa-5x { font-size: 5rem !important; }
-  .fa-6x { font-size: 6rem !important; }
-  .fa-7x { font-size: 7rem !important; }
-  .fa-8x { font-size: 8rem !important; }
-  .fa-9x { font-size: 9rem !important; }
-  .fa-10x { font-size: 10rem !important; }
-
-  /* Ensure FontAwesome icons are responsive */
+  /* Responsive FontAwesome icon sizes */
   @media (max-width: 768px) {
-    .fa-icon { font-size: 1rem !important; }
+    .fa-icon { font-size: 1rem; }
   }
 
   /* Slide-in Menu Styles */
@@ -38,14 +24,14 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 80vw; /* Set width to 80% of the viewport */
-    max-width: 320px; /* Limit the maximum width */
+    width: 80vw; /* Width set to 80% of viewport */
+    max-width: 320px; /* Max width set */
     height: 100vh;
     background: rgba(0, 0, 0, 0.9); /* Dark background */
-    backdrop-filter: blur(10px); /* Enhanced blur effect */
-    transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.4s ease-in-out; /* Smooth transition for sliding in and out */
-    z-index: 50; /* Ensure it's on top */
+    backdrop-filter: blur(10px); /* Blur effect */
+    transform: translateX(100%); /* Off-screen initially */
+    transition: transform 0.4s ease-in-out; /* Smooth slide-in/out */
+    z-index: 100; /* Higher z-index to ensure visibility */
   }
 
   .nav-overlay.open {
@@ -55,7 +41,7 @@
   .nav-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
+    align-items: flex-start;
     justify-content: center;
     height: 100%;
     padding: 2rem;
@@ -65,18 +51,17 @@
   .close-button {
     position: absolute;
     top: 1rem;
-    right: 1rem; /* Align with the hamburger icon */
+    right: 1rem;
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 2rem; /* Match the hamburger icon size */
+    font-size: 2rem;
     color: white;
   }
 
   .menu-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
     gap: 1.5rem;
   }
 
@@ -84,34 +69,15 @@
     font-size: 1.5rem;
     color: white;
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s, transform 0.3s; /* Animation for color and scale */
+    transition: color 0.3s, transform 0.3s;
   }
 
-  .menu-links a::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(to right, #f39c12, #e67e22); /* Gradient color */
-    transition: transform 0.3s;
-    transform: translate(-50%, -50%) scale(0);
-    z-index: 0;
-  }
-
-  .menu-links a:hover::before {
-    transform: translate(-50%, -50%) scale(1);
-  }
-
+  /* Optional: Gradient effect on hover */
   .menu-links a:hover {
-    color: transparent; /* Hide text to show background gradient */
-    transform: scale(1.05); /* Slightly scale up on hover */
+    transform: scale(1.05); /* Slight scale-up on hover */
   }
 
-  /* New class to prevent scrolling when menu is open */
+  /* Prevent scrolling when menu is open */
   .no-scroll {
     overflow: hidden;
     position: fixed;
@@ -120,36 +86,23 @@
     top: 0;
     left: 0;
     touch-action: none;
-    z-index: 40; /* Ensure it's below the overlay */
+    z-index: 90; /* Ensure it's below the overlay */
   }
 
   /* Apply blur effect */
   .backdrop-blur-sm {
     backdrop-filter: blur(4px); /* Adjust blur amount as needed */
-  }
-
-  /* Consistent z-index for elements */
-  .backdrop-blur-sm,
-  .nav-overlay,
-  .nav-content,
-  .menu-links,
-  .overlay {
-    z-index: 50; /* Adjust based on your layout */
-  }
-
-  /* Ensure blur effect visibility */
-  .backdrop-blur {
+    z-index: 95; /* Ensure it's above page content but below the menu */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(4px); /* Adjust blur amount as needed */
-    z-index: 45; /* Ensure it's below the overlay but above page content */
-    display: none; /* Ensure it's not visible initially */
+    display: none; /* Initially hidden */
   }
 
-  .backdrop-blur.active {
+  /* Show blur when active */
+  .backdrop-blur-sm.active {
     display: block;
   }
 }
