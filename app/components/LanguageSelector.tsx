@@ -50,46 +50,50 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ language, onLanguag
           className="absolute top-full left-0 mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none min-w-max z-50" // Ensure it's above other content
           ref={dropdownRef}
         >
-          <li
-            onClick={() => {
-              onLanguageChange('LT');
-              setDropdownOpen(false);
-            }}
-            className="cursor-pointer py-1 flex items-center"
-          >
-            <div
-              className="language-icon"
-              style={{
-                backgroundImage: `url('/flags/Lithuania.svg')`,
-                width: '32px',
-                height: '32px',
-                backgroundSize: 'contain',
-                display: 'inline-block',
-                marginRight: '8px'
+          {language !== 'LT' && (
+            <li
+              onClick={() => {
+                onLanguageChange('LT');
+                setDropdownOpen(false);
               }}
-            ></div>
-            LT
-          </li>
-          <li
-            onClick={() => {
-              onLanguageChange('EN');
-              setDropdownOpen(false);
-            }}
-            className="cursor-pointer py-1 flex items-center"
-          >
-            <div
-              className="language-icon"
-              style={{
-                backgroundImage: `url('/flags/English.svg')`,
-                width: '32px',
-                height: '32px',
-                backgroundSize: 'contain',
-                display: 'inline-block',
-                marginRight: '8px'
+              className="cursor-pointer py-1 flex items-center"
+            >
+              <div
+                className="language-icon"
+                style={{
+                  backgroundImage: `url('/flags/Lithuania.svg')`,
+                  width: '32px',
+                  height: '32px',
+                  backgroundSize: 'contain',
+                  display: 'inline-block',
+                  marginRight: '8px'
+                }}
+              ></div>
+              LT
+            </li>
+          )}
+          {language !== 'EN' && (
+            <li
+              onClick={() => {
+                onLanguageChange('EN');
+                setDropdownOpen(false);
               }}
-            ></div>
-            EN
-          </li>
+              className="cursor-pointer py-1 flex items-center"
+            >
+              <div
+                className="language-icon"
+                style={{
+                  backgroundImage: `url('/flags/English.svg')`,
+                  width: '32px',
+                  height: '32px',
+                  backgroundSize: 'contain',
+                  display: 'inline-block',
+                  marginRight: '8px'
+                }}
+              ></div>
+              EN
+            </li>
+          )}
         </ul>
       )}
     </div>
