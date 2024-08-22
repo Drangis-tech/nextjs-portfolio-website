@@ -21,7 +21,7 @@ const socials = [
     icon: <Github size={20} />,
     href: "https://github.com/webforge",
     label: "Tel. Numeris",
-    handle: "+370 666 66 666",
+    handle: "+370 666 66 667",
   },
 ];
 
