@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link'; // Import Link from next/link
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'; // Import useState for state management
 import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
 
@@ -14,6 +14,8 @@ const navigation = [
 ];
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false); // State to manage menu open/close
+
   useEffect(() => {
     // Add no-scroll class to body
     document.body.classList.add('no-scroll');
@@ -36,6 +38,10 @@ export default function Home() {
     };
   }, []);
 
+  const handleMenuToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
@@ -43,7 +49,7 @@ export default function Home() {
 
       {/* Include Navigation for mobile */}
       <div className="md:hidden">
-        <Navigation />
+        <Navigation isOpen={isOpen} onMenuToggle={handleMenuToggle} />
       </div>
 
       <nav className="hidden md:flex my-16 animate-fade-in z-10">
