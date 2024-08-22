@@ -25,7 +25,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({ language, onLanguag
         }}
       ></div>
       {dropdownOpen && (
-        <ul className="absolute top-full right-0 mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none">
+        <ul className="absolute top-full left-full ml-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none w-32">
           <li
             onClick={() => {
               onLanguageChange('LT');
