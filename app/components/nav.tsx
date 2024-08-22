@@ -6,11 +6,15 @@ import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export const Navigation: React.FC = () => {
+interface NavigationProps {
+  isOpen: boolean;
+  onMenuToggle: () => void;
+}
+
+export const Navigation: React.FC<NavigationProps> = ({ isOpen, onMenuToggle }) => {
   const ref = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -26,7 +30,7 @@ export const Navigation: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
-        setIsOpen(false);
+        onMenuToggle();
         document.body.style.overflow = 'auto';
         document.body.classList.remove('no-scroll'); // Remove no-scroll class
         const backdrop = document.querySelector('.backdrop-blur');
@@ -49,15 +53,7 @@ export const Navigation: React.FC = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isOpen]);
-
-  const toggleMenu = () => {
-    setIsOpen(prevState => {
-      const newState = !prevState;
-      document.body.style.overflow = newState ? 'hidden' : 'auto';
-      return newState;
-    });
-  };
+  }, [isOpen, onMenuToggle]);
 
   return (
     <header ref={ref} className="relative">
@@ -116,7 +112,7 @@ export const Navigation: React.FC = () => {
 
           <button
             className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
-            onClick={toggleMenu}
+            onClick={onMenuToggle}
           >
             <FontAwesomeIcon icon={faBars} className="w-8 h-8 md:w-10 md:h-10" />
           </button>
@@ -127,38 +123,38 @@ export const Navigation: React.FC = () => {
       <div
         ref={overlayRef}
         className={`backdrop-blur fixed inset-0 bg-black bg-opacity-70 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        onClick={() => isOpen && toggleMenu()}
+        onClick={() => isOpen && onMenuToggle()}
       ></div>
 
       {/* Side Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-sm transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
         <div className="relative w-full h-full flex flex-col items-start justify-center space-y-8 px-8">
-        <button
-              className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
-              onClick={toggleMenu}
-            >
-              <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
-            </button>
+          <button
+            className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
+            onClick={onMenuToggle}
+          >
+            <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
+          </button>
 
-            <nav className="flex flex-col items-start space-y-6">
-              <Link href="/projects" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-                Atlikti Darbai
-              </Link>
-              <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-                Paslaugos
-              </Link>
-              <Link href="/apie-mus" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-                Apie Mus
-              </Link>
-              <Link href="/kainos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-                Kainos
-              </Link>
-              <Link href="/contact" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
-                Kontaktai
-              </Link>
-            </nav>
-          </div>
+          <nav className="flex flex-col items-start space-y-6">
+            <Link href="/projects" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={onMenuToggle}>
+              Atlikti Darbai
+            </Link>
+            <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={onMenuToggle}>
+              Paslaugos
+            </Link>
+            <Link href="/apie-mus" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={onMenuToggle}>
+              Apie Mus
+            </Link>
+            <Link href="/kainos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={onMenuToggle}>
+              Kainos
+            </Link>
+            <Link href="/contact" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={onMenuToggle}>
+              Kontaktai
+            </Link>
+          </nav>
         </div>
-      </header>
-    );
-  };
+      </div>
+    </header>
+  );
+};
