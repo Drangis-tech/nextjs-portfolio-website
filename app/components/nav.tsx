@@ -126,18 +126,17 @@ export const Navigation: React.FC = () => {
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
         <div className="relative w-full h-full flex flex-col">
           <div className="flex items-center justify-between p-6 border-b border-gray-700">
+            {/* Language Selector */}
+            <LanguageSelector
+              language="LT" // Set the default language
+              onLanguageChange={(value) => console.log(`Language changed to ${value}`)}
+            />
             <button
               className="text-zinc-300 hover:text-zinc-100 w-10 h-10 flex items-center justify-center"
               onClick={toggleMenu}
             >
               <FontAwesomeIcon icon={faTimes} className="w-8 h-8" />
             </button>
-
-            {/* Language Selector */}
-            <LanguageSelector
-              language="LT" // Set the default language
-              onLanguageChange={(value) => console.log(`Language changed to ${value}`)}
-            />
           </div>
 
           <nav className="flex flex-col items-start space-y-6 p-6">
