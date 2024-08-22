@@ -92,7 +92,7 @@
   /* Apply blur effect */
   .backdrop-blur-sm {
     backdrop-filter: blur(4px); /* Adjust blur amount as needed */
-    z-index: 95; /* Ensure it's above page content but below the menu */
+    z-index: 9999; /* Ensure it's above page content but below the menu */
     position: fixed;
     top: 0;
     left: 0;
