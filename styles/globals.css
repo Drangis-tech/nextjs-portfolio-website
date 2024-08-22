@@ -87,4 +87,30 @@
     display: inline-block;
     margin: 0 5px;
     font-size: 1.25rem; /* Adjust icon size */
-   
+    color: #ccc; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+
+  .team-member .social-icons a:hover {
+    color: #fff; /* Change icon color on hover */
+  }
+
+  /* Style for the backdrop overlay */
+  .backdrop {
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    z-index: 30; /* Ensure it's behind the menu */
+  }
+
+  /* Style for the side menu */
+  .menu-content {
+    backdrop-filter: none; /* No blur effect on the menu */
+    z-index: 50; /* Ensure it's in front of the backdrop */
+  }
+}
+
+/* Ensure FontAwesome icons are responsive */
+@media (max-width: 768px) {
+  .team-member .social-icons a {
+    font-size: 1rem; /* Adjust icon size for mobile */
+  }
+}
