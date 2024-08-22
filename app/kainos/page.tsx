@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Navigation } from '../components/Navigation'; // Adjust the path as needed
+import { Navigation } from '../components/nav'; // Adjust the path as needed
 import { Card } from '../components/Card'; // Adjust the path as needed
 import GradientButton from '../components/GradientButton'; // Adjust the path as needed
 
