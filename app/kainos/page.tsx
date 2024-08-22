@@ -32,120 +32,17 @@ const PricingCalculator: React.FC = () => {
 
   return (
     <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-4 md:p-8">
-      <article className="relative w-full h-full p-4 md:p-8 bg-[rgba(28, 28, 30, 0.8)] rounded-lg backdrop-blur-sm">
+      {/* Debugging Style Added */}
+      <article
+        className="relative w-full h-full p-4 md:p-8 bg-[rgba(28, 28, 30, 0.8)] rounded-lg backdrop-blur-sm"
+        style={{ border: '2px solid red', backgroundColor: 'rgba(255, 0, 0, 0.1)' }}
+      >
         <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">
           Apskaičiuokite savo svetainės kainą
         </h3>
 
-        <div className="mb-4">
-          <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
-            Puslapių skaičius:
-          </label>
-          <input
-            type="number"
-            id="pages"
-            value={pages}
-            onChange={(e) => setPages(Number(e.target.value))}
-            min={1}
-            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="design" className="block text-sm font-medium text-zinc-100 mb-1">
-            Dizaino sudėtingumas:
-          </label>
-          <select
-            id="design"
-            value={design}
-            onChange={(e) => setDesign(Number(e.target.value))}
-            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-          >
-            <option value={500}>Paprastas</option>
-            <option value={1000}>Vidutinis</option>
-            <option value={1500}>Sudėtingas</option>
-          </select>
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="websiteType" className="block text-sm font-medium text-zinc-100 mb-1">
-            Svetainės tipas:
-          </label>
-          <select
-            id="websiteType"
-            value={websiteType}
-            onChange={(e) => setWebsiteType(e.target.value)}
-            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-          >
-            <option value="template">Šablonas</option>
-            <option value="custom">Individualus</option>
-          </select>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <input
-              type="checkbox"
-              id="ecommerce"
-              checked={ecommerce}
-              onChange={(e) => setEcommerce(e.target.checked)}
-              className="mr-2"
-            />
-            E-komercijos funkcionalumas
-          </label>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <input
-              type="checkbox"
-              id="seo"
-              checked={seo}
-              onChange={(e) => setSeo(e.target.checked)}
-              className="mr-2"
-            />
-            SEO optimizacija
-          </label>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <input
-              type="checkbox"
-              id="contentCreation"
-              checked={contentCreation}
-              onChange={(e) => setContentCreation(e.target.checked)}
-              className="mr-2"
-            />
-            Turinio kūrimas
-          </label>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <input
-              type="checkbox"
-              id="mobileResponsive"
-              checked={mobileResponsive}
-              onChange={(e) => setMobileResponsive(e.target.checked)}
-              className="mr-2"
-            />
-            Mobilios versijos
-          </label>
-        </div>
-
-        <div className="mb-6">
-          <label htmlFor="comments" className="block text-sm font-medium text-zinc-100 mb-1">
-            Papildomi komentarai:
-          </label>
-          <textarea
-            id="comments"
-            value={comments}
-            onChange={(e) => setComments(e.target.value)}
-            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-            rows={4}
-          />
-        </div>
+        {/* The rest of your form and content here */}
+        {/* ... */}
 
         <div className="text-xl font-bold text-zinc-100 mb-6">
           Apskaičiuota kaina: €{calculatePrice()}
