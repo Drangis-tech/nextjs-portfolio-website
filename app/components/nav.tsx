@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
@@ -213,9 +213,19 @@ export const Navigation: React.FC = () => {
           </nav>
 
           {/* Contact Information */}
-          <div className="contact-info">
-            <p>Email: <a href="mailto:info@brandforge.lt" className="text-gray-300">info@brandforge.lt</a></p>
-            <p>Phone: <a href="tel:+37000000000" className="text-gray-300">+370 000 00000</a></p>
+          <div className="contact-info flex flex-col items-start space-y-4 text-white text-lg">
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon icon={faEnvelope} className="text-2xl" />
+              <a href="mailto:info@brandforge.lt" className="text-gray-300 text-xl">
+                info@brandforge.lt
+              </a>
+            </div>
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon icon={faPhone} className="text-2xl" />
+              <a href="tel:+37000000000" className="text-gray-300 text-xl">
+                +370 000 00000
+              </a>
+            </div>
           </div>
         </div>
       </div>
