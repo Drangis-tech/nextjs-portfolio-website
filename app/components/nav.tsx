@@ -144,7 +144,16 @@ export const Navigation: React.FC = () => {
 
           {/* Language Selector */}
           <div className={`language-selector ${dropdownOpen ? 'open' : ''}`} onClick={toggleDropdown}>
-            <div className="flag-icon" style={{ backgroundImage: `url('/path/to/flag-icon.png')` }}></div>
+            <div
+              className="language-icon"
+              style={{
+                backgroundImage: `url('/flags/Lithuania.svg')`,
+                width: '20px',
+                height: '20px',
+                backgroundSize: 'cover',
+                marginRight: '8px'
+              }}
+            ></div>
             <div className={`dropdown ${dropdownOpen ? 'open' : ''}`}>
               <select
                 className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1"
