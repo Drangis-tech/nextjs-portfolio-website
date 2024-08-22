@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav'; // Adjust the path as needed
-import { Card } from '../components/Card'; // Adjust the path as needed
+import { Card } from '../components/card'; // Adjust the path as needed
 import GradientButton from '../components/GradientButton'; // Adjust the path as needed
 
 const KainosPage: React.FC = () => {
