@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Navigation } from '../components/nav'; // Adjust the import path if necessary
+import React from 'react';
+import { Navigation } from '../components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
 
-// Service Data
+// Service Data (unchanged)
 const services = [
   {
     title: 'Web Development',
@@ -116,15 +116,9 @@ const technologies = [
 ];
 
 const Paslaugos = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-      <Navigation isOpen={isOpen} onMenuToggle={handleMenuToggle} />
+      <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
         {/* Hero Section */}
         <div className="max-w-2xl mx-auto lg:mx-0">
