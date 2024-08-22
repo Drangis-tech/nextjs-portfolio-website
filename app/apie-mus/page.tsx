@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import Navigation from '../components/nav'; // No curly braces for default exportimport { Card } from "../components/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 

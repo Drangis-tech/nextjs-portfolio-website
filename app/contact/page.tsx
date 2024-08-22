@@ -1,8 +1,7 @@
 "use client";
 import { Github, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import Navigation from '../components/nav'; // No curly braces for default exportimport { Card } from "../components/card";
 import { useState } from "react";
 
 const socials = [
