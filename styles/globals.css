@@ -97,7 +97,7 @@
 
   /* Style for the backdrop overlay */
   .backdrop {
-    backdrop-filter: blur(10px); /* Apply blur effect */
+    backdrop-filter: blur(4px); /* Apply blur effect */
     z-index: 30; /* Ensure it's behind the menu */
   }
 
