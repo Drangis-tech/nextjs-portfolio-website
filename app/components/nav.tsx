@@ -143,55 +143,56 @@ export const Navigation: React.FC = () => {
           </button>
 
           {/* Language Selector */}
-          <div className={`language-selector ${dropdownOpen ? 'open' : ''}`} onClick={toggleDropdown} style={{ position: 'absolute', top: '1rem', left: '1rem', cursor: 'pointer' }}>
+          <div
+            className="absolute top-4 left-4 cursor-pointer"
+            onClick={toggleDropdown}
+          >
             <div
               className="language-icon"
               style={{
                 backgroundImage: `url('/flags/${language === 'LT' ? 'Lithuania' : 'English'}.svg')`,
-                width: '32px', // Match with close button size
+                width: '32px',
                 height: '32px',
                 backgroundSize: 'contain',
                 display: 'inline-block',
               }}
             ></div>
             {dropdownOpen && (
-              <ul className="bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none mt-2">
-                {language !== 'LT' && (
-                  <li
-                    onClick={() => handleLanguageChange('LT')}
-                    className="cursor-pointer py-1 flex items-center"
-                  >
-                    <div
-                      className="language-icon"
-                      style={{
-                        backgroundImage: `url('/flags/Lithuania.svg')`,
-                        width: '32px',
-                        height: '32px',
-                        backgroundSize: 'contain',
-                        display: 'inline-block',
-                        marginRight: '8px'
-                      }}
-                    ></div>
-                  </li>
-                )}
-                {language !== 'EN' && (
-                  <li
-                    onClick={() => handleLanguageChange('EN')}
-                    className="cursor-pointer py-1 flex items-center"
-                  >
-                    <div
-                      className="language-icon"
-                      style={{
-                        backgroundImage: `url('/flags/English.svg')`,
-                        width: '32px',
-                        height: '32px',
-                        backgroundSize: 'contain',
-                        display: 'inline-block',
-                        marginRight: '8px'
-                      }}
-                    ></div>
-                  </li>
-                )}
+              <ul className="absolute mt-2 bg-gray-700 text-white border border-gray-600 rounded px-2 py-1 list-none">
+                <li
+                  onClick={() => handleLanguageChange('LT')}
+                  className="cursor-pointer py-1 flex items-center"
+                >
+                  <div
+                    className="language-icon"
+                    style={{
+                      backgroundImage: `url('/flags/Lithuania.svg')`,
+                      width: '32px',
+                      height: '32px',
+                      backgroundSize: 'contain',
+                      display: 'inline-block',
+                      marginRight: '8px'
+                    }}
+                  ></div>
+                  LT
+                </li>
+                <li
+                  onClick={() => handleLanguageChange('EN')}
+                  className="cursor-pointer py-1 flex items-center"
+                >
+                  <div
+                    className="language-icon"
+                    style={{
+                      backgroundImage: `url('/flags/English.svg')`,
+                      width: '32px',
+                      height: '32px',
+                      backgroundSize: 'contain',
+                      display: 'inline-block',
+                      marginRight: '8px'
+                    }}
+                  ></div>
+                  EN
+                </li>
               </ul>
             )}
           </div>
