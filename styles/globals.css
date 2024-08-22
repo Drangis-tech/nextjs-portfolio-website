@@ -105,10 +105,4 @@
   .backdrop-blur-sm.active {
     display: block;
   }
-
-  /* Debugging border and background */
-  .backdrop-blur-sm {
-    border: 2px solid red; /* Temporary for debugging */
-    background-color: rgba(255, 0, 0, 0.1); /* Light red overlay */
-  }
 }

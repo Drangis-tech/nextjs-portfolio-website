@@ -25,23 +25,15 @@ export const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        isOpen &&
-        overlayRef.current &&
-        !overlayRef.current.contains(event.target as Node) &&
-        !ref.current?.contains(event.target as Node)
-      ) {
+      if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
         setIsOpen(false);
         document.body.style.overflow = 'auto';
-        document.body.classList.remove('backdrop-blur-sm');
       }
     };
 
     if (isOpen) {
-      document.body.classList.add('backdrop-blur-sm');
       document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.body.classList.remove('backdrop-blur-sm');
       document.removeEventListener('mousedown', handleClickOutside);
     }
 
@@ -54,11 +46,6 @@ export const Navigation: React.FC = () => {
     setIsOpen(prevState => {
       const newState = !prevState;
       document.body.style.overflow = newState ? 'hidden' : 'auto';
-      if (newState) {
-        document.body.classList.add('backdrop-blur-sm');
-      } else {
-        document.body.classList.remove('backdrop-blur-sm');
-      }
       return newState;
     });
   };
