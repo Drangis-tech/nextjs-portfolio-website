@@ -8,9 +8,9 @@ const socials = [
 
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:nojus@pavadinimas.lt",
+		href: "mailto:info@pavadinimas.lt",
 		label: "Elektroninis paštas",
-		handle: "nojus@brandforge.lt",
+		handle: "info@brandforge.lt",
 	},
 	{
 		icon: <Github size={20} />,
@@ -20,7 +20,7 @@ const socials = [
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/webforge",
+		href: "",
 		label: "Tel. Numeris",
 		handle: "+370 666 66 666",
 	},
