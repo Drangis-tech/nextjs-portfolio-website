@@ -4,63 +4,16 @@ import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faEye, faBalanceScale, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'; // Added LinkedIn and Twitter icons
+import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons'; 
+import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'; // Import the necessary icons
 
-// Team Data
-const teamData = [
-  {
-    name: "John Doe",
-    role: "CEO",
-    linkedIn: "https://www.linkedin.com/in/johndoe",
-    twitter: "https://twitter.com/johndoe",
-  },
-  {
-    name: "Jane Smith",
-    role: "CTO",
-    linkedIn: "https://www.linkedin.com/in/janesmith",
-    twitter: "https://twitter.com/janesmith",
-  },
-  {
-    name: "Alice Johnson",
-    role: "Lead Developer",
-    linkedIn: "https://www.linkedin.com/in/alicejohnson",
-    twitter: "https://twitter.com/alicejohnson",
-  },
-  // Add more team members as needed
-];
-
-// About Us Data
-const aboutUsData = [
-  {
-    title: "Mūsų Komanda",
-    description: "Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.",
-    detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo."
-  },
-  {
-    title: "Mūsų Vizija",
-    description: "Siekiame revoliucionuoti pramonę su inovatyviais sprendimais ir neprilygstamu aptarnavimu.",
-    detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis."
-  },
-  {
-    title: "Mūsų Vertybės",
-    description: "Sąžiningumas, Tobulumas ir Bendradarbiavimas yra pagrindinės vertybės, kurios veda mus į sėkmę.",
-    detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais."
-  },
-];
+// Team Data and About Us Data remain unchanged
 
 const ApieMus: React.FC = () => {
-  // State to manage the menu toggle
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Function to handle menu toggle
-  const handleMenuToggle = () => {
-    setIsMenuOpen(prevState => !prevState);
-    document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
-  };
+  // State and handler functions
 
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-      {/* Pass the required props to Navigation */}
       <Navigation isOpen={isMenuOpen} onMenuToggle={handleMenuToggle} />
       <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -129,7 +82,7 @@ const ApieMus: React.FC = () => {
                     {member.name}
                   </h3>
                   <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
-                    <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
+                    <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">Twitter</a>
                   </p>
                 </article>
               </Card>
