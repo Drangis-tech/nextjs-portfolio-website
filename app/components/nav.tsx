@@ -26,15 +26,21 @@ export const Navigation: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && overlayRef.current && !overlayRef.current.contains(event.target as Node) && !ref.current?.contains(event.target as Node)) {
+      if (
+        isOpen &&
+        overlayRef.current &&
+        !overlayRef.current.contains(event.target as Node) &&
+        !ref.current?.contains(event.target as Node)
+      ) {
         setIsOpen(false);
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'auto'; // Reset overflow to allow scrolling
       }
     };
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
+      document.body.style.overflow = 'auto'; // Ensure overflow is reset when menu is closed
       document.removeEventListener('mousedown', handleClickOutside);
     }
 
@@ -46,7 +52,7 @@ export const Navigation: React.FC = () => {
   const toggleMenu = () => {
     setIsOpen(prevState => {
       const newState = !prevState;
-      document.body.style.overflow = newState ? 'hidden' : 'auto';
+      document.body.style.overflow = newState ? 'hidden' : 'auto'; // Toggle overflow
       return newState;
     });
   };
