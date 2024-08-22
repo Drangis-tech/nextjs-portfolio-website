@@ -1,9 +1,9 @@
+// ../components/nav.tsx
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-// Define the navigation items
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
   { name: "Paslaugos", href: "/paslaugos" },
@@ -12,11 +12,9 @@ const navigation = [
   { name: "Kontaktai", href: "/contact" },
 ];
 
-// Navigation component
 export const Navigation: React.FC<{ isOpen: boolean; onMenuToggle: () => void }> = ({ isOpen, onMenuToggle }) => {
-  // Handle menu toggle
   const handleMenuToggle = () => {
-    onMenuToggle(); // Notify parent component of the menu state
+    onMenuToggle();
   };
 
   return (
