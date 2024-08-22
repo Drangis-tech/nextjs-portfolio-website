@@ -144,7 +144,7 @@ export const Navigation: React.FC = () => {
 
           {/* Language Selector */}
           <div
-            className="absolute top-4 left-4 cursor-pointer"
+            className="absolute top-0 left-4 cursor-pointer"
             onClick={toggleDropdown}
           >
             <div
@@ -213,16 +213,16 @@ export const Navigation: React.FC = () => {
           </nav>
 
           {/* Contact Information */}
-          <div className="contact-info flex flex-col items-start space-y-4 text-white text-lg">
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon icon={faEnvelope} className="text-2xl" />
-              <a href="mailto:info@brandforge.lt" className="text-gray-300 text-xl">
+          <div className="contact-info flex flex-col items-start space-y-4 text-gray-400 text-sm">
+            <div className="flex items-center space-x-2">
+              <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
+              <a href="mailto:info@brandforge.lt" className="text-gray-500">
                 info@brandforge.lt
               </a>
             </div>
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon icon={faPhone} className="text-2xl" />
-              <a href="tel:+37000000000" className="text-gray-300 text-xl">
+            <div className="flex items-center space-x-2">
+            <FontAwesomeIcon icon={faPhone} className="text-xl" />
+              <a href="tel:+37000000000" className="text-gray-500">
                 +370 000 00000
               </a>
             </div>
