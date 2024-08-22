@@ -1,109 +1,119 @@
-/* globals.css */
-
-/* Import FontAwesome CSS */
-@import '@fortawesome/fontawesome-svg-core/styles.css';
-
-/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Import FontAwesome CSS */
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
+
 @layer base {
-  /* FontAwesome icon sizes */
-  .fa-icon {
-    font-size: 2rem; /* Default size */
+  .text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 
-  /* Responsive FontAwesome icon sizes */
-  @media (max-width: 768px) {
-    .fa-icon { font-size: 1rem; }
-  }
-
-  /* Slide-in Menu Styles */
-  .nav-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80vw; /* Width set to 80% of viewport */
-    max-width: 320px; /* Max width set */
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9); /* Dark background */
-    backdrop-filter: blur(10px); /* Blur effect for the menu */
-    transform: translateX(100%); /* Off-screen initially */
-    transition: transform 0.4s ease-in-out; /* Smooth slide-in/out */
-    z-index: 100; /* Higher z-index to ensure visibility */
-  }
-
-  .nav-overlay.open {
-    transform: translateX(0); /* Slide into view */
-  }
-
-  .nav-content {
+  .hexagon-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
     justify-content: center;
-    height: 100%;
-    padding: 2rem;
-    color: white;
+    gap: 10px;
+    margin-top: 20px;
   }
 
-  .close-button {
+  .hexagon {
+    position: relative;
+    width: 100px;
+    height: 55px;
+    background-color: #1c1c1e;
+    margin: 27.5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .hexagon span {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 2rem;
-    color: white;
+    width: 100%;
+    text-align: center;
+    line-height: 55px;
   }
 
-  .menu-links {
+  .apie-mus {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 20px;
   }
 
-  .menu-links a {
+  .apie-mus .flex {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .apie-mus .card {
+    flex: 1;
+  }
+
+  .apie-mus .content {
+    flex: 2;
+    padding-left: 20px;
+  }
+
+  .apie-mus .content h3 {
     font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s, transform 0.3s;
+    margin-bottom: 10px;
   }
 
-  /* Optional: Gradient effect on hover */
-  .menu-links a:hover {
-    transform: scale(1.05); /* Slight scale-up on hover */
+  .apie-mus .content p {
+    color: #bbb;
   }
 
-  /* Prevent scrolling when menu is open */
-  .no-scroll {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    touch-action: none;
-    z-index: 90; /* Ensure it's below the overlay */
+  .team-section {
+    text-align: center;
   }
 
-  /* Apply blur effect */
-  .backdrop-blur {
-    backdrop-filter: blur(4px); /* Adjust blur amount as needed */
-    z-index: 95; /* Ensure it's above page content but below the menu */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none; /* Initially hidden */
-    pointer-events: none; /* Prevent interaction */
+  .team-section .team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensure responsiveness */
   }
 
-  /* Show blur when active */
-  .backdrop-blur.active {
-    display: block;
+  .team-member {
+    text-align: center;
+    margin: 10px; /* Add margin for spacing */
+  }
+
+  .team-member .social-icons a {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 1.25rem; /* Adjust icon size */
+    color: #ccc; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+
+  .team-member .social-icons a:hover {
+    color: #fff; /* Change icon color on hover */
+  }
+
+  /* Remove blur from body content when menu is open */
+  body.menu-open .main-content {
+    filter: none; /* Ensure no blur effect is applied */
+  }
+
+  /* Style for the backdrop overlay */
+  .backdrop {
+    backdrop-filter: blur(10px); /* Apply blur effect */
+  }
+
+  /* Style for the side menu */
+  .menu-content {
+    backdrop-filter: blur(10px); /* Apply blur effect */
+  }
+}
+
+/* Ensure FontAwesome icons are responsive */
+@media (max-width: 768px) {
+  .team-member .social-icons a {
+    font-size: 1rem; /* Adjust icon size for mobile */
   }
 }
