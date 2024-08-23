@@ -11,51 +11,61 @@ const projects = [
     title: "Projektas 1",
     image: "/images/project1.jpg",
     description: "Tai yra pirmo projekto aprašymas. Tai apima dizaino darbus ir svetainės kūrimą.",
+    technologies: "React, Tailwind CSS",
   },
   {
     title: "Projektas 2",
     image: "/images/project2.jpg",
     description: "Tai yra antro projekto aprašymas. Tai apima rinkodaros strategijos kūrimą.",
+    technologies: "JavaScript, SEO",
   },
   {
     title: "Projektas 3",
     image: "/images/project3.jpg",
     description: "Tai yra trečio projekto aprašymas. Tai apima SEO optimizaciją.",
+    technologies: "Node.js, Express",
   },
   {
     title: "Projektas 4",
     image: "/images/project4.jpg",
     description: "Tai yra ketvirto projekto aprašymas. Tai apima aplikacijų kūrimą.",
+    technologies: "Vue.js, Vuetify",
   },
   {
     title: "Projektas 5",
     image: "/images/project5.jpg",
     description: "Tai yra penkto projekto aprašymas. Tai apima socialinės medijos valdymą.",
+    technologies: "Python, Flask",
   },
   {
     title: "Projektas 6",
     image: "/images/project6.jpg",
     description: "Tai yra šešto projekto aprašymas. Tai apima vaizdo įrašų redagavimą.",
+    technologies: "Adobe Premiere Pro, After Effects",
   },
   {
     title: "Projektas 7",
     image: "/images/project7.jpg",
     description: "Tai yra septinto projekto aprašymas. Tai apima grafikos dizainą.",
+    technologies: "Adobe Illustrator, Photoshop",
   },
   {
     title: "Projektas 8",
     image: "/images/project8.jpg",
     description: "Tai yra aštunto projekto aprašymas. Tai apima verslo konsultacijas.",
+    technologies: "Business Intelligence, Data Analysis",
   },
   {
     title: "Projektas 9",
     image: "/images/project9.jpg",
     description: "Tai yra devinto projekto aprašymas. Tai apima UX/UI dizainą.",
+    technologies: "Figma, Sketch",
   },
   {
     title: "Projektas 10",
     image: "/images/project10.jpg",
     description: "Tai yra dešimto projekto aprašymas. Tai apima elektroninės komercijos sprendimus.",
+    technologies: "Magento, WooCommerce",
   },
 ];
 
@@ -85,10 +95,10 @@ const AtliktiDarbai: React.FC = () => {
         {projects.map((project, index) => (
           <Card
             key={index}
-            className="relative bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300 overflow-hidden rounded-lg"
+            className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300"
             onClick={() => setSelectedProject(index)}
           >
-            <div className="relative h-64 w-full">
+            <div className={`relative ${index % 3 === 0 ? 'h-72' : index % 3 === 1 ? 'h-96' : 'h-80'} w-full`}>
               <Image
                 src={project.image}
                 alt={project.title}
@@ -97,8 +107,8 @@ const AtliktiDarbai: React.FC = () => {
                 className="transition-transform duration-500 transform group-hover:scale-110"
               />
             </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center p-4 text-center">
-              <h2 className="text-2xl text-zinc-100 mb-2">{project.title}</h2>
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center">
+              <h2 className="text-xl text-zinc-100">{project.title}</h2>
             </div>
           </Card>
         ))}
@@ -112,17 +122,21 @@ const AtliktiDarbai: React.FC = () => {
           className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
         >
           {/* Overlay */}
-          <div className="fixed inset-0 bg-black opacity-70" aria-hidden="true"></div>
+          <div
+            className="fixed inset-0 bg-black opacity-70"
+            aria-hidden="true"
+            onClick={() => setSelectedProject(null)}
+          ></div>
           
           {/* Dialog Content */}
-          <div className="bg-black bg-opacity-90 rounded-lg p-8 max-w-4xl w-full relative">
+          <div className="bg-black bg-opacity-90 rounded-lg p-8 max-w-5xl w-full relative">
             <button
               className="absolute top-4 right-4 text-white text-2xl"
               onClick={() => setSelectedProject(null)}
             >
               &times;
             </button>
-            <div className="relative w-full h-80 mb-4">
+            <div className="relative w-full h-96 mb-6">
               <Image
                 src={projects[selectedProject].image}
                 alt={projects[selectedProject].title}
@@ -133,6 +147,7 @@ const AtliktiDarbai: React.FC = () => {
             </div>
             <h2 className="text-3xl text-white mt-4">{projects[selectedProject].title}</h2>
             <p className="text-gray-300 mt-4 text-lg">{projects[selectedProject].description}</p>
+            <p className="text-gray-400 mt-2 text-sm">{`Technologies: ${projects[selectedProject].technologies}`}</p>
           </div>
         </Dialog>
       )}
