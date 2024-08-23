@@ -174,7 +174,7 @@ export const Navigation: React.FC = () => {
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faPhone} className="text-xl" />
               <a href="tel:+37000000000" className="text-gray-500">
-                +370 000 00000
+                +370 000 00009
               </a>
             </div>
           </div>
