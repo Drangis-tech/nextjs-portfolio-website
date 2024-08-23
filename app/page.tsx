@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
@@ -10,7 +11,7 @@ export default function Home() {
     document.body.classList.add('no-scroll');
 
     // Prevent default touch actions on mobile
-    const preventDefault = (e) => e.preventDefault();
+    const preventDefault = (e: Event) => e.preventDefault();
     document.body.addEventListener('touchmove', preventDefault, { passive: false });
 
     // Insert the JavaScript code for the canvas animation here
@@ -32,14 +33,14 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Include Navigation Component */}
+      {/* Include Navigation component for all devices */}
       <Navigation />
 
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
           <Image
             src="/logo.png"
-            alt="BrandForge Logo"
+            alt="WebForge Logo"
             width={80}
             height={80}
             className="mb-4 animate-fade-in"
