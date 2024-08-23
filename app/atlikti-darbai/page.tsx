@@ -91,14 +91,16 @@ const AtliktiDarbai: React.FC = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="relative container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="relative overflow-hidden group cursor-pointer rounded-lg transition-transform duration-300 transform hover:scale-105"
+            className={`relative overflow-hidden group cursor-pointer rounded-lg transition-transform duration-300 transform ${
+              index % 3 === 0 ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'
+            }`}
             onClick={() => setSelectedProject(index)}
           >
-            <div className="relative w-full h-64">
+            <div className="relative w-full h-full">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -106,8 +108,8 @@ const AtliktiDarbai: React.FC = () => {
                 objectFit="cover"
                 className="transition-transform duration-500 transform group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="text-center text-white p-4">
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                <div className="text-center text-white">
                   <h2 className="text-xl font-bold">{project.title}</h2>
                   <p className="mt-2">{project.description}</p>
                 </div>
