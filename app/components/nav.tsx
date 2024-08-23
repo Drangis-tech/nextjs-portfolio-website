@@ -80,7 +80,7 @@ export const Navigation: React.FC = () => {
           <div className="flex-grow flex items-center justify-center">
             <div className="hidden md:flex gap-8">
               <Link
-                href="/projects"
+                href="/atlikti-darbai"
                 className="duration-200 text-zinc-400 hover:text-zinc-100"
               >
                 Atlikti Darbai
@@ -146,6 +146,9 @@ export const Navigation: React.FC = () => {
           </div>
 
           <nav className="flex flex-col items-start space-y-6 p-6 flex-grow">
+            <Link href="/atlikti-darbai" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
+              Atlikti Darbai
+            </Link>
             <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Paslaugos
             </Link>
