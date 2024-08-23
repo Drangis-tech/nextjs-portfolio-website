@@ -4,9 +4,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Dialog } from "@headlessui/react";
-import { Navigation } from "../components/nav";
+import { Navigation } from "../components/nav";  // Ensure you have a Navigation component
 
-// Projects array
 const projects = [
   {
     title: "Projektas 1",
@@ -14,7 +13,60 @@ const projects = [
     description: "Tai yra pirmo projekto aprašymas.",
     technologies: "React, Tailwind CSS",
   },
-  // Add more projects if available
+  {
+    title: "Projektas 2",
+    image: "/images/project2.jpg",
+    description: "Tai yra antro projekto aprašymas.",
+    technologies: "JavaScript, SEO",
+  },
+  {
+    title: "Projektas 3",
+    image: "/images/project3.jpg",
+    description: "Tai yra trečio projekto aprašymas.",
+    technologies: "Node.js, Express",
+  },
+  {
+    title: "Projektas 4",
+    image: "/images/project4.jpg",
+    description: "Tai yra ketvirto projekto aprašymas.",
+    technologies: "Vue.js, Vuetify",
+  },
+  {
+    title: "Projektas 5",
+    image: "/images/project5.jpg",
+    description: "Tai yra penkto projekto aprašymas.",
+    technologies: "Python, Flask",
+  },
+  {
+    title: "Projektas 6",
+    image: "/images/project6.jpg",
+    description: "Tai yra šešto projekto aprašymas.",
+    technologies: "Adobe Premiere Pro, After Effects",
+  },
+  {
+    title: "Projektas 7",
+    image: "/images/project7.jpg",
+    description: "Tai yra septinto projekto aprašymas.",
+    technologies: "Adobe Illustrator, Photoshop",
+  },
+  {
+    title: "Projektas 8",
+    image: "/images/project8.jpg",
+    description: "Tai yra aštunto projekto aprašymas.",
+    technologies: "Business Intelligence, Data Analysis",
+  },
+  {
+    title: "Projektas 9",
+    image: "/images/project9.jpg",
+    description: "Tai yra devinto projekto aprašymas.",
+    technologies: "Figma, Sketch",
+  },
+  {
+    title: "Projektas 10",
+    image: "/images/project10.jpg",
+    description: "Tai yra dešimto projekto aprašymas.",
+    technologies: "Magento, WooCommerce",
+  },
 ];
 
 const AtliktiDarbai: React.FC = () => {
@@ -39,14 +91,14 @@ const AtliktiDarbai: React.FC = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="relative container mx-auto p-6 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="relative container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-lg bg-gray-800 cursor-pointer group transition-transform duration-300 hover:scale-105"
+            className="relative overflow-hidden group cursor-pointer rounded-lg transition-transform duration-300 transform hover:scale-105"
             onClick={() => setSelectedProject(index)}
           >
-            <div className="relative w-full h-80">
+            <div className="relative w-full h-64">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -54,7 +106,7 @@ const AtliktiDarbai: React.FC = () => {
                 objectFit="cover"
                 className="transition-transform duration-500 transform group-hover:scale-110"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center text-white p-4">
                   <h2 className="text-xl font-bold">{project.title}</h2>
                   <p className="mt-2">{project.description}</p>
