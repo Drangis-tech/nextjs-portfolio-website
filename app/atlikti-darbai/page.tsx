@@ -51,7 +51,10 @@ const AtliktiDarbai: React.FC = () => {
           onClose={() => setSelectedProject(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-70" />
+          {/* Overlay */}
+          <div className="fixed inset-0 bg-black opacity-70" aria-hidden="true"></div>
+          
+          {/* Dialog Content */}
           <div className="bg-black bg-opacity-90 rounded-lg p-6 max-w-lg w-full relative">
             <button
               className="absolute top-2 right-2 text-white text-xl"
