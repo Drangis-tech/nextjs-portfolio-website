@@ -6,6 +6,7 @@ import { Dialog } from "@headlessui/react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
+// Projects array
 const projects = [
   {
     title: "Projektas 1",
@@ -91,7 +92,7 @@ const AtliktiDarbai: React.FC = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="relative container mx-auto p-6 grid gap-6">
+      <div className="relative container mx-auto p-6 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {projects.map((project, index) => (
           <Card
             key={index}
