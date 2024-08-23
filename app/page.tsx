@@ -33,10 +33,12 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Include Navigation component for all devices */}
-      <Navigation />
+      {/* Align Navigation component to match other pages */}
+      <div className="absolute top-0 w-full z-10">
+        <Navigation />
+      </div>
 
-      <div className="flex flex-col items-center justify-center z-10">
+      <div className="flex flex-col items-center justify-center z-10 pt-20">
         <div className="flex flex-col items-center">
           <Image
             src="/logo.png"
