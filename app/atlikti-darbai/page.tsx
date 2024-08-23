@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Dialog } from "@headlessui/react";
+import { Card } from "../components/card";  // Assuming you have a Card component in your project
 
 const projects = [
   {
@@ -16,20 +17,74 @@ const projects = [
     image: "/images/project2.jpg",
     description: "Tai yra antro projekto aprašymas. Tai apima rinkodaros strategijos kūrimą.",
   },
-  // Add more projects as needed
+  {
+    title: "Projektas 3",
+    image: "/images/project3.jpg",
+    description: "Tai yra trečio projekto aprašymas. Tai apima SEO optimizaciją.",
+  },
+  {
+    title: "Projektas 4",
+    image: "/images/project4.jpg",
+    description: "Tai yra ketvirto projekto aprašymas. Tai apima aplikacijų kūrimą.",
+  },
+  {
+    title: "Projektas 5",
+    image: "/images/project5.jpg",
+    description: "Tai yra penkto projekto aprašymas. Tai apima socialinės medijos valdymą.",
+  },
+  {
+    title: "Projektas 6",
+    image: "/images/project6.jpg",
+    description: "Tai yra šešto projekto aprašymas. Tai apima vaizdo įrašų redagavimą.",
+  },
+  {
+    title: "Projektas 7",
+    image: "/images/project7.jpg",
+    description: "Tai yra septinto projekto aprašymas. Tai apima grafikos dizainą.",
+  },
+  {
+    title: "Projektas 8",
+    image: "/images/project8.jpg",
+    description: "Tai yra aštunto projekto aprašymas. Tai apima verslo konsultacijas.",
+  },
+  {
+    title: "Projektas 9",
+    image: "/images/project9.jpg",
+    description: "Tai yra devinto projekto aprašymas. Tai apima UX/UI dizainą.",
+  },
+  {
+    title: "Projektas 10",
+    image: "/images/project10.jpg",
+    description: "Tai yra dešimto projekto aprašymas. Tai apima elektroninės komercijos sprendimus.",
+  },
 ];
 
 const AtliktiDarbai: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-4xl text-center text-white mb-12">Atlikti Darbai</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+      {/* Header Section */}
+      <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl md:text-6xl">
+            Atlikti Projektai
+          </h2>
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg md:text-xl">
+            Sužinokite daugiau apie mūsų atliktus darbus, kurie atspindi mūsų kompetenciją ir patirtį.
+          </p>
+        </div>
+        <div className="w-full h-px bg-zinc-800" />
+      </div>
+
+      {/* Projects Section */}
+      <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
-          <div
+          <Card
             key={index}
-            className="relative bg-opacity-20 bg-white p-4 rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
+            className={`relative bg-opacity-20 bg-white p-4 rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300 ${
+              index % 2 === 0 ? "col-span-1" : "col-span-2"
+            }`}
             onClick={() => setSelectedProject(index)}
           >
             <Image
@@ -40,7 +95,7 @@ const AtliktiDarbai: React.FC = () => {
               className="rounded-lg"
             />
             <h2 className="text-xl text-white mt-4">{project.title}</h2>
-          </div>
+          </Card>
         ))}
       </div>
 
