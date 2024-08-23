@@ -1,11 +1,10 @@
-// /app/atlikti-darbai/page.tsx
 "use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
 import { Dialog } from "@headlessui/react";
 import { Navigation } from "../components/nav";
-import { Card } from "../components/card";  // Assuming you have a Card component in your project
+import { Card } from "../components/card"; // Assuming the Card component is in your project
 
 const projects = [
   {
@@ -65,6 +64,9 @@ const AtliktiDarbai: React.FC = () => {
 
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+      {/* Navigation */}
+      <Navigation />
+      
       {/* Header Section */}
       <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -83,19 +85,19 @@ const AtliktiDarbai: React.FC = () => {
         {projects.map((project, index) => (
           <Card
             key={index}
-            className={`relative bg-opacity-20 bg-white p-4 rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300 ${
-              index % 2 === 0 ? "col-span-1" : "col-span-2"
-            }`}
+            className="relative bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300"
             onClick={() => setSelectedProject(index)}
           >
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={400}
-              height={300}
-              className="rounded-lg"
-            />
-            <h2 className="text-xl text-white mt-4">{project.title}</h2>
+            <div className="relative w-full h-48 overflow-hidden rounded-lg">
+              <Image
+                src={project.image}
+                alt={project.title}
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-500 transform group-hover:scale-105"
+              />
+            </div>
+            <h2 className="text-xl text-zinc-100 mt-4">{project.title}</h2>
           </Card>
         ))}
       </div>
