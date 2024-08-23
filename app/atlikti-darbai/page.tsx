@@ -91,14 +91,19 @@ const AtliktiDarbai: React.FC = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="relative container mx-auto p-6 grid gap-6">
         {projects.map((project, index) => (
           <Card
             key={index}
             className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300"
             onClick={() => setSelectedProject(index)}
+            style={{
+              gridRow: `span ${Math.floor(Math.random() * 3) + 1}`,
+              gridColumn: `span ${Math.floor(Math.random() * 3) + 1}`,
+              transform: `rotate(${Math.floor(Math.random() * 10) - 5}deg)`,
+            }}
           >
-            <div className={`relative ${index % 3 === 0 ? 'h-72' : index % 3 === 1 ? 'h-96' : 'h-80'} w-full`}>
+            <div className="relative w-full h-full">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -106,9 +111,9 @@ const AtliktiDarbai: React.FC = () => {
                 objectFit="cover"
                 className="transition-transform duration-500 transform group-hover:scale-110"
               />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center">
-              <h2 className="text-xl text-zinc-100">{project.title}</h2>
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center">
+                <h2 className="text-xl text-zinc-100">{project.title}</h2>
+              </div>
             </div>
           </Card>
         ))}
@@ -119,17 +124,17 @@ const AtliktiDarbai: React.FC = () => {
         <Dialog
           open={selectedProject !== null}
           onClose={() => setSelectedProject(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black opacity-70"
+            className="fixed inset-0 bg-gray-800 opacity-80"
             aria-hidden="true"
             onClick={() => setSelectedProject(null)}
           ></div>
           
           {/* Dialog Content */}
-          <div className="bg-black bg-opacity-90 rounded-lg p-8 max-w-5xl w-full relative">
+          <div className="relative bg-gray-900 rounded-lg p-8 max-w-5xl w-full">
             <button
               className="absolute top-4 right-4 text-white text-2xl"
               onClick={() => setSelectedProject(null)}
