@@ -6,65 +6,77 @@ import { Dialog } from "@headlessui/react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
+// Importing images
+import project1Image from "../../public/images/project1.jpg";
+import project2Image from "../../public/images/project2.jpg";
+import project3Image from "../../public/images/project3.jpg";
+import project4Image from "../../public/images/project4.jpg";
+import project5Image from "../../public/images/project5.jpg";
+import project6Image from "../../public/images/project6.jpg";
+import project7Image from "../../public/images/project7.jpg";
+import project8Image from "../../public/images/project8.jpg";
+import project9Image from "../../public/images/project9.jpg";
+import project10Image from "../../public/images/project10.jpg";
+
 // Projects array
 const projects = [
   {
     title: "Projektas 1",
-    image: "/images/project1.jpg",
+    image: project1Image,
     description: "Tai yra pirmo projekto aprašymas. Tai apima dizaino darbus ir svetainės kūrimą.",
     technologies: "React, Tailwind CSS",
   },
   {
     title: "Projektas 2",
-    image: "/images/project2.jpg",
+    image: project2Image,
     description: "Tai yra antro projekto aprašymas. Tai apima rinkodaros strategijos kūrimą.",
     technologies: "JavaScript, SEO",
   },
   {
     title: "Projektas 3",
-    image: "/images/project3.jpg",
+    image: project3Image,
     description: "Tai yra trečio projekto aprašymas. Tai apima SEO optimizaciją.",
     technologies: "Node.js, Express",
   },
   {
     title: "Projektas 4",
-    image: "/images/project4.jpg",
+    image: project4Image,
     description: "Tai yra ketvirto projekto aprašymas. Tai apima aplikacijų kūrimą.",
     technologies: "Vue.js, Vuetify",
   },
   {
     title: "Projektas 5",
-    image: "/images/project5.jpg",
+    image: project5Image,
     description: "Tai yra penkto projekto aprašymas. Tai apima socialinės medijos valdymą.",
     technologies: "Python, Flask",
   },
   {
     title: "Projektas 6",
-    image: "/images/project6.jpg",
+    image: project6Image,
     description: "Tai yra šešto projekto aprašymas. Tai apima vaizdo įrašų redagavimą.",
     technologies: "Adobe Premiere Pro, After Effects",
   },
   {
     title: "Projektas 7",
-    image: "/images/project7.jpg",
+    image: project7Image,
     description: "Tai yra septinto projekto aprašymas. Tai apima grafikos dizainą.",
     technologies: "Adobe Illustrator, Photoshop",
   },
   {
     title: "Projektas 8",
-    image: "/images/project8.jpg",
+    image: project8Image,
     description: "Tai yra aštunto projekto aprašymas. Tai apima verslo konsultacijas.",
     technologies: "Business Intelligence, Data Analysis",
   },
   {
     title: "Projektas 9",
-    image: "/images/project9.jpg",
+    image: project9Image,
     description: "Tai yra devinto projekto aprašymas. Tai apima UX/UI dizainą.",
     technologies: "Figma, Sketch",
   },
   {
     title: "Projektas 10",
-    image: "/images/project10.jpg",
+    image: project10Image,
     description: "Tai yra dešimto projekto aprašymas. Tai apima elektroninės komercijos sprendimus.",
     technologies: "Magento, WooCommerce",
   },
@@ -98,11 +110,6 @@ const AtliktiDarbai: React.FC = () => {
             key={index}
             className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300"
             onClick={() => setSelectedProject(index)}
-            style={{
-              gridRow: `span ${Math.floor(Math.random() * 3) + 1}`,
-              gridColumn: `span ${Math.floor(Math.random() * 3) + 1}`,
-              transform: `rotate(${Math.floor(Math.random() * 10) - 5}deg)`,
-            }}
           >
             <div className="relative w-full h-full">
               <Image
@@ -112,8 +119,8 @@ const AtliktiDarbai: React.FC = () => {
                 objectFit="cover"
                 className="transition-transform duration-500 transform group-hover:scale-110"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center">
-                <h2 className="text-xl text-zinc-100">{project.title}</h2>
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-4 text-center">
+                <h2 className="text-xl text-zinc-100 font-bold">{project.title}</h2>
               </div>
             </div>
           </Card>
