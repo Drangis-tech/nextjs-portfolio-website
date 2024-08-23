@@ -109,11 +109,6 @@
     overflow: hidden;
   }
 
-  /* Adjusting the logo's z-index to be behind other elements */
-  .flex.flex-col.items-center.justify-center.z-10 {
-    z-index: 0; /* Set to 0 to ensure it's behind everything */
-  }
-
   /* Language Selector */
   .menu-content .language-selector {
     position: absolute;
