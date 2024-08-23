@@ -1,9 +1,17 @@
 "use client";
 
-import Link from 'next/link';
+import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { Navigation } from './components/nav';
+import { Navigation } from './components/nav'; // Import Navigation
+
+const navigation = [
+  { name: "Atlikti Darbai", href: "/projects" },
+  { name: "Paslaugos", href: "/paslaugos" },
+  { name: "Apie Mus", href: "/apie-mus" },
+  { name: "Kainos", href: "/kainos" },
+  { name: "Kontaktai", href: "/contact" },
+];
 
 export default function Home() {
   useEffect(() => {
@@ -33,12 +41,28 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Use a consistent wrapper for the Navigation */}
-      <header className="absolute top-0 w-full z-10">
+      {/* Include Navigation for mobile */}
+      <div className="md:hidden">
         <Navigation />
-      </header>
+      </div>
 
-      <div className="flex flex-col items-center justify-center z-10 pt-24"> {/* Adjust padding to align with other pages */}
+      <nav className="hidden md:flex my-16 animate-fade-in z-10">
+        <ul className="flex items-center justify-center gap-4">
+          {navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
+              aria-label={item.name}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+      <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
           <Image
             src="/logo.png"
