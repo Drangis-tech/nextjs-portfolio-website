@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Dialog } from "@headlessui/react";
+import { Navigation } from "../components/nav";
 import { Card } from "../components/card";  // Assuming you have a Card component in your project
 
 const projects = [
