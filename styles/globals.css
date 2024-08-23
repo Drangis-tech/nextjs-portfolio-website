@@ -115,7 +115,7 @@
 
   /* Ensure the logo and BrandForge text are behind the menu */
   .flex.flex-col.items-center.justify-center.z-10 {
-    z-index: 900; /* Lower z-index for logo and text */
+    z-index: 0; /* Set to 0 to ensure it's behind everything */
   }
 
   /* Language Selector */
