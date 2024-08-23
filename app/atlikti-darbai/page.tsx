@@ -6,11 +6,10 @@ import { Dialog } from "@headlessui/react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
-// Importing images
+// Importing the placeholder image
 import project1Image from "../../public/images/project1.jpg";
 
-
-// Projects array
+// Projects array with placeholder image
 const projects = [
   {
     title: "Projektas 1",
@@ -20,55 +19,55 @@ const projects = [
   },
   {
     title: "Projektas 2",
-    image: project2Image,
+    image: project1Image,
     description: "Tai yra antro projekto aprašymas. Tai apima rinkodaros strategijos kūrimą.",
     technologies: "JavaScript, SEO",
   },
   {
     title: "Projektas 3",
-    image: project3Image,
+    image: project1Image,
     description: "Tai yra trečio projekto aprašymas. Tai apima SEO optimizaciją.",
     technologies: "Node.js, Express",
   },
   {
     title: "Projektas 4",
-    image: project4Image,
+    image: project1Image,
     description: "Tai yra ketvirto projekto aprašymas. Tai apima aplikacijų kūrimą.",
     technologies: "Vue.js, Vuetify",
   },
   {
     title: "Projektas 5",
-    image: project5Image,
+    image: project1Image,
     description: "Tai yra penkto projekto aprašymas. Tai apima socialinės medijos valdymą.",
     technologies: "Python, Flask",
   },
   {
     title: "Projektas 6",
-    image: project6Image,
+    image: project1Image,
     description: "Tai yra šešto projekto aprašymas. Tai apima vaizdo įrašų redagavimą.",
     technologies: "Adobe Premiere Pro, After Effects",
   },
   {
     title: "Projektas 7",
-    image: project7Image,
+    image: project1Image,
     description: "Tai yra septinto projekto aprašymas. Tai apima grafikos dizainą.",
     technologies: "Adobe Illustrator, Photoshop",
   },
   {
     title: "Projektas 8",
-    image: project8Image,
+    image: project1Image,
     description: "Tai yra aštunto projekto aprašymas. Tai apima verslo konsultacijas.",
     technologies: "Business Intelligence, Data Analysis",
   },
   {
     title: "Projektas 9",
-    image: project9Image,
+    image: project1Image,
     description: "Tai yra devinto projekto aprašymas. Tai apima UX/UI dizainą.",
     technologies: "Figma, Sketch",
   },
   {
     title: "Projektas 10",
-    image: project10Image,
+    image: project1Image,
     description: "Tai yra dešimto projekto aprašymas. Tai apima elektroninės komercijos sprendimus.",
     technologies: "Magento, WooCommerce",
   },
@@ -143,7 +142,7 @@ const AtliktiDarbai: React.FC = () => {
             </button>
             <div className="relative w-full h-96 mb-6">
               <Image
-                src={projects[selectedProject].image}
+                src={project1Image}
                 alt={projects[selectedProject].title}
                 layout="fill"
                 objectFit="cover"
