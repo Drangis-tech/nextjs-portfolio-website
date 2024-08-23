@@ -102,7 +102,7 @@ const AtliktiDarbai: React.FC = () => {
             className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300"
             onClick={() => setSelectedProject(index)}
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-60">
               <Image
                 src={project.image}
                 alt={project.title}
