@@ -6,497 +6,175 @@
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 @layer base {
-  /* Text Outline */
   .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
-    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 
-  /* Hexagon Container */
   .hexagon-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .hexagon {
     position: relative;
-    width: 120px;
-    height: 70px;
+    width: 100px;
+    height: 55px;
     background-color: #1c1c1e;
-    margin: 35px 10px;
+    margin: 27.5px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     text-align: center;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-  }
-
-  .hexagon:hover {
-    background-color: #333;
   }
 
   .hexagon span {
     position: absolute;
     width: 100%;
     text-align: center;
-    line-height: 70px;
+    line-height: 55px;
   }
 
-  /* Apie Mus Section */
   .apie-mus {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding: 40px;
+    gap: 20px;
   }
 
   .apie-mus .flex {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
   }
 
   .apie-mus .card {
     flex: 1;
-    background-color: #1c1c1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   .apie-mus .content {
     flex: 2;
-    padding-left: 40px;
+    padding-left: 20px;
   }
 
   .apie-mus .content h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
   }
 
   .apie-mus .content p {
     color: #bbb;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
-  /* Team Section */
   .team-section {
     text-align: center;
-    padding: 60px 0;
   }
 
   .team-section .team-members {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
+    flex-wrap: wrap; /* Ensure responsiveness */
   }
 
   .team-member {
     text-align: center;
-    margin: 20px;
-    padding: 20px;
-    background-color: #1c1c1e;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 10px; /* Add margin for spacing */
   }
 
   .team-member .social-icons a {
     display: inline-block;
-    margin: 0 8px;
-    font-size: 1.5rem;
-    color: #ccc;
-    transition: color 0.3s ease;
+    margin: 0 5px;
+    font-size: 1.25rem; /* Adjust icon size */
+    color: #ccc; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition */
   }
 
   .team-member .social-icons a:hover {
-    color: #fff;
+    color: #fff; /* Change icon color on hover */
   }
 
-  /* Backdrop and Menu Styles */
+  /* Style for the backdrop overlay */
   .backdrop {
-    backdrop-filter: blur(15px);
-    z-index: 30;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    z-index: 30; /* Ensure it's behind the menu */
   }
 
+  /* Style for the side menu */
   .menu-content {
-    backdrop-filter: none;
-    z-index: 50;
+    backdrop-filter: none; /* No blur effect on the menu */
+    z-index: 50; /* Ensure it's in front of the backdrop */
     position: relative;
     overflow: hidden;
-    background-color: #1c1c1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   }
 
   /* Language Selector */
   .menu-content .language-selector {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 16px; /* Adjust according to the design */
+    left: 16px; /* Align with the close button */
     display: flex;
     align-items: center;
-    gap: 10px;
-    background-color: #333;
-    border: 1px solid #555;
-    border-radius: 6px;
-    padding: 6px 10px;
-    color: #fff;
+    gap: 8px; /* Space between icon and text */
+    background-color: #333; /* Background color */
+    border: 1px solid #555; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 4px 8px; /* Padding */
+    color: #fff; /* Text color */
   }
 
   .menu-content .language-selector select {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    outline: none;
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: #fff; /* White text color */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    outline: none; /* Remove outline */
+  }
+
+  .menu-content .language-selector select:focus {
+    outline: none; /* Remove default focus outline */
   }
 
   .menu-content .language-selector .language-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Icon size */
+    height: 20px; /* Icon size */
   }
 
   /* Contact Information */
   .menu-content .contact-info {
-    color: #bbb;
-    font-size: 1rem;
+    color: #bbb; /* Grey color for contact info */
+    font-size: 0.875rem; /* Smaller font size */
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: calc(100% - 40px);
-    text-align: center;
+    bottom: 16px; /* Space from the bottom */
+    left: 16px; /* Space from the left */
+    width: calc(100% - 32px); /* Full width minus padding */
+    text-align: center; /* Center align text */
   }
 
   .menu-content .contact-info a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
+    color: #ccc; /* Light grey color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition */
   }
 
   .menu-content .contact-info a:hover {
-    color: #fff;
-  }
-
-  /* Gallery Styles */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 40px;
-    margin: 40px 0;
-    padding: 0 20px;
-  }
-
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    background-color: #333;
-  }
-
-  .gallery-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.15);
-  }
-
-  .gallery-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    color: #fff;
-    padding: 30px;
-    text-align: center;
-  }
-
-  .gallery-item:hover .overlay {
-    opacity: 1;
-  }
-
-  .gallery-item .overlay h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-  }
-
-  .gallery-item .overlay p {
-    font-size: 1.25rem;
-  }
-
-  /* Modal Styles */
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-  }
-
-  .modal-content {
-    background: #1c1c1e;
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 80%;
-    margin: 20px;
-    position: relative;
-    text-align: center;
-    color: #fff;
-  }
-
-  .modal-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    margin-bottom: 20px;
-  }
-
-  .modal-content h2 {
-    font-size: 2.5rem;
-    margin: 20px 0;
-  }
-
-  .modal-content p {
-    font-size: 1.25rem;
-    color: #ddd;
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .modal-close:hover {
-    color: #ddd;
+    color: #fff; /* White color on hover */
   }
 }
 
-/* Responsive Styles */
+/* Ensure FontAwesome icons are responsive */
 @media (max-width: 768px) {
   .team-member .social-icons a {
-    font-size: 1.25rem;
+    font-size: 1rem; /* Adjust icon size for mobile */
   }
 
   .menu-content .language-selector select {
-    font-size: 0.875rem;
+    font-size: 0.875rem; /* Smaller font size for select on mobile */
   }
 
   .menu-content .contact-info {
-    font-size: 0.875rem;
+    font-size: 0.75rem; /* Even smaller font size for mobile */
   }
-
-  .gallery-item .overlay h2 {
-    font-size: 1.75rem;
-  }
-
-  .gallery-item .overlay p {
-    font-size: 1.125rem;
-  }
-
-  .modal-content h2 {
-    font-size: 2rem;
-  }
-  .modal-content p {
-    font-size: 1.125rem;
-  }
-
-  .modal-close {
-    font-size: 1.75rem;
-  }
-}
-
-/* Additional Global Styles */
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 20px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-p {
-  margin: 0 0 20px;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #ccc;
-}
-
-/* Button Styles */
-.button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover {
-  background-color: #555;
-  transform: translateY(-3px);
-}
-
-/* Section Spacing */
-.section {
-  padding: 80px 0;
-}
-
-.section-light {
-  background-color: #1c1c1e;
-  color: #fff;
-}
-
-.section-dark {
-  background-color: #000;
-  color: #fff;
-}
-
-/* Adjustments for Image Contrast and Display */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #1c1c1e;
-  color: #bbb;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.footer p {
-  margin: 0;
-  font-size: 0.875rem;
-}
-
-.footer a {
-  color: #fff;
-  margin: 0 10px;
-  font-size: 1.25rem;
-}
-
-.footer a:hover {
-  color: #ccc;
-}
-
-/* Form Styles */
-input, textarea, select {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #555;
-  background-color: #1c1c1e;
-  color: #fff;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: #888;
-}
-
-/* Header and Navigation Styles */
-.header {
-  padding: 20px 0;
-  text-align: center;
-  background-color: #1c1c1e;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header .logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  font-size: 1.125rem;
-}
-
-.navbar a {
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  position: relative;
-  padding: 5px 10px;
-  transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-  color: #ccc;
-}
-
-/* Hover Effect for Navbar Links */
-.navbar a::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #fff;
-  transition: width .3s;
-  margin-top: 5px;
-}
-
-.navbar a:hover::after {
-  width: 100%;
 }
