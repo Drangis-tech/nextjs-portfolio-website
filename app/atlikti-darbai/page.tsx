@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Dialog } from "@headlessui/react";
 import { Navigation } from "../components/nav";
-import { Card } from "../components/card"; // Assuming the Card component is in your project
+import { Card } from "../components/card";
 
 const projects = [
   {
@@ -66,7 +66,7 @@ const AtliktiDarbai: React.FC = () => {
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       {/* Navigation */}
       <Navigation />
-      
+
       {/* Header Section */}
       <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -85,19 +85,21 @@ const AtliktiDarbai: React.FC = () => {
         {projects.map((project, index) => (
           <Card
             key={index}
-            className="relative bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300"
+            className="relative bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300 overflow-hidden rounded-lg"
             onClick={() => setSelectedProject(index)}
           >
-            <div className="relative w-full h-48 overflow-hidden rounded-lg">
+            <div className="relative h-64 w-full">
               <Image
                 src={project.image}
                 alt={project.title}
                 layout="fill"
                 objectFit="cover"
-                className="transition-transform duration-500 transform group-hover:scale-105"
+                className="transition-transform duration-500 transform group-hover:scale-110"
               />
             </div>
-            <h2 className="text-xl text-zinc-100 mt-4">{project.title}</h2>
+            <div className="absolute inset-0 flex flex-col justify-center items-center p-4 text-center">
+              <h2 className="text-2xl text-zinc-100 mb-2">{project.title}</h2>
+            </div>
           </Card>
         ))}
       </div>
@@ -113,22 +115,24 @@ const AtliktiDarbai: React.FC = () => {
           <div className="fixed inset-0 bg-black opacity-70" aria-hidden="true"></div>
           
           {/* Dialog Content */}
-          <div className="bg-black bg-opacity-90 rounded-lg p-6 max-w-lg w-full relative">
+          <div className="bg-black bg-opacity-90 rounded-lg p-8 max-w-4xl w-full relative">
             <button
-              className="absolute top-2 right-2 text-white text-xl"
+              className="absolute top-4 right-4 text-white text-2xl"
               onClick={() => setSelectedProject(null)}
             >
               &times;
             </button>
-            <Image
-              src={projects[selectedProject].image}
-              alt={projects[selectedProject].title}
-              width={400}
-              height={300}
-              className="rounded-lg"
-            />
-            <h2 className="text-2xl text-white mt-4">{projects[selectedProject].title}</h2>
-            <p className="text-gray-300 mt-4">{projects[selectedProject].description}</p>
+            <div className="relative w-full h-80 mb-4">
+              <Image
+                src={projects[selectedProject].image}
+                alt={projects[selectedProject].title}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
+            </div>
+            <h2 className="text-3xl text-white mt-4">{projects[selectedProject].title}</h2>
+            <p className="text-gray-300 mt-4 text-lg">{projects[selectedProject].description}</p>
           </div>
         </Dialog>
       )}
