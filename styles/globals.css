@@ -103,15 +103,19 @@
 
   /* Style for the side menu */
   .menu-content {
+    position: fixed; /* Ensure it stays on top of everything */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     backdrop-filter: none; /* No blur effect on the menu */
-    z-index: 100; /* Ensure it's in front of the backdrop */
-    position: relative;
+    z-index: 1000; /* Ensure it's in front of everything else */
     overflow: hidden;
   }
 
-  /* Adjust z-index for logo and text elements to ensure menu-content is on top */
+  /* Ensure the logo and BrandForge text are behind the menu */
   .flex.flex-col.items-center.justify-center.z-10 {
-    z-index: 20; /* Lower z-index for logo and text */
+    z-index: 900; /* Lower z-index for logo and text */
   }
 
   /* Language Selector */
