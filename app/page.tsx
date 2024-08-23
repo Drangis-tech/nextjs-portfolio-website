@@ -1,9 +1,9 @@
 "use client";
 
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { Navigation } from './components/nav'; // Import Navigation
+import { Navigation } from './components/nav';
 
 export default function Home() {
   useEffect(() => {
@@ -33,12 +33,12 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Align Navigation component to match other pages */}
-      <div className="absolute top-0 w-full z-10">
+      {/* Use a consistent wrapper for the Navigation */}
+      <header className="absolute top-0 w-full z-10">
         <Navigation />
-      </div>
+      </header>
 
-      <div className="flex flex-col items-center justify-center z-10 pt-20">
+      <div className="flex flex-col items-center justify-center z-10 pt-24"> {/* Adjust padding to align with other pages */}
         <div className="flex flex-col items-center">
           <Image
             src="/logo.png"
