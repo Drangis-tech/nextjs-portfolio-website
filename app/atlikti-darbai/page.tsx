@@ -8,15 +8,7 @@ import { Card } from "../components/card";
 
 // Importing images
 import project1Image from "../../public/images/project1.jpg";
-import project2Image from "../../public/images/project2.jpg";
-import project3Image from "../../public/images/project3.jpg";
-import project4Image from "../../public/images/project4.jpg";
-import project5Image from "../../public/images/project5.jpg";
-import project6Image from "../../public/images/project6.jpg";
-import project7Image from "../../public/images/project7.jpg";
-import project8Image from "../../public/images/project8.jpg";
-import project9Image from "../../public/images/project9.jpg";
-import project10Image from "../../public/images/project10.jpg";
+
 
 // Projects array
 const projects = [
