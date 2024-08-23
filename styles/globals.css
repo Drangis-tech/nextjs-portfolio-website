@@ -6,10 +6,12 @@
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 @layer base {
+  /* Text Outline */
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 
+  /* Hexagon Container */
   .hexagon-container {
     display: flex;
     flex-wrap: wrap;
@@ -39,6 +41,7 @@
     line-height: 55px;
   }
 
+  /* Apie Mus Section */
   .apie-mus {
     display: flex;
     flex-direction: column;
@@ -68,6 +71,7 @@
     color: #bbb;
   }
 
+  /* Team Section */
   .team-section {
     text-align: center;
   }
@@ -95,13 +99,12 @@
     color: #fff; /* Change icon color on hover */
   }
 
-  /* Style for the backdrop overlay */
+  /* Backdrop and Menu Styles */
   .backdrop {
     backdrop-filter: blur(10px); /* Apply blur effect */
     z-index: 30; /* Ensure it's behind the menu */
   }
 
-  /* Style for the side menu */
   .menu-content {
     backdrop-filter: none; /* No blur effect on the menu */
     z-index: 50; /* Ensure it's in front of the backdrop */
@@ -166,32 +169,34 @@
   /* Gallery Styles */
   .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust minmax value */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 20px;
-    margin: 20px auto; /* Center align the gallery */
-    max-width: 1200px; /* Set a max-width for the gallery */
-    padding: 0 10px; /* Add horizontal padding */
+    margin: 20px 0;
   }
 
   .gallery-item {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     background-color: #333;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
 
   .gallery-item img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    display: block;
+    transition: transform 0.3s ease-in-out;
   }
 
-  .gallery-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  .gallery-item:hover img {
+    transform: scale(1.1);
   }
 
   .gallery-item .overlay {
@@ -280,11 +285,25 @@
   }
 }
 
-/* Ensure FontAwesome icons are responsive */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .team-member .social-icons a {
     font-size: 1rem; /* Adjust icon size for mobile */
   }
 
   .menu-content .language-selector select {
-    font-size
+    font-size: 0.875rem; /* Smaller font size for select on mobile */
+  }
+
+  .menu-content .contact-info {
+    font-size: 0.75rem; /* Even smaller font size for mobile */
+  }
+
+  .gallery-item .overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-item .overlay p {
+    font-size: 1rem;
+  }
+}
