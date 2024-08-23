@@ -1,11 +1,12 @@
+// pages/atlikti-darbai.tsx
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { Card } from "../components/card";
+import { Dialog } from "@headlessui/react";
+import { Navigation } from "../components/nav";
 
-// Sample projects array
+// Projects array
 const projects = [
   {
     title: "Projektas 1",
@@ -13,45 +14,54 @@ const projects = [
     description: "Tai yra pirmo projekto aprašymas.",
     technologies: "React, Tailwind CSS",
   },
-  // Add other projects here
+  // Add more projects if available
 ];
 
-const InteractiveGallery: React.FC = () => {
+const AtliktiDarbai: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
-    <div className="relative pb-16 bg-gray-900">
+    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+      {/* Navigation */}
+      <Navigation />
+
       {/* Header Section */}
       <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
-        <h2 className="text-4xl font-bold tracking-tight text-white">Atlikti Projektai</h2>
-        <p className="mt-4 text-gray-400 text-base sm:text-lg md:text-xl">
-          Sužinokite daugiau apie mūsų atliktus darbus.
-        </p>
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl md:text-6xl">
+            Atlikti Projektai
+          </h2>
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg md:text-xl">
+            Sužinokite daugiau apie mūsų atliktus darbus, kurie atspindi mūsų kompetenciją ir patirtį.
+          </p>
+        </div>
+        <div className="w-full h-px bg-zinc-800" />
       </div>
 
-      {/* Interactive Gallery */}
+      {/* Projects Section */}
       <div className="relative container mx-auto p-6 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {projects.map((project, index) => (
-          <motion.div
+          <div
             key={index}
-            className="relative overflow-hidden rounded-lg bg-gray-800 cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="relative overflow-hidden rounded-lg bg-gray-800 cursor-pointer group transition-transform duration-300 hover:scale-105"
             onClick={() => setSelectedProject(index)}
           >
-            <div className="relative w-full h-60">
+            <div className="relative w-full h-80">
               <Image
                 src={project.image}
                 alt={project.title}
                 layout="fill"
                 objectFit="cover"
-                className="transition-transform duration-500 transform"
+                className="transition-transform duration-500 transform group-hover:scale-110"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center">
-                <h2 className="text-xl text-white font-bold">{project.title}</h2>
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="text-center text-white p-4">
+                  <h2 className="text-xl font-bold">{project.title}</h2>
+                  <p className="mt-2">{project.description}</p>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
@@ -60,17 +70,17 @@ const InteractiveGallery: React.FC = () => {
         <Dialog
           open={selectedProject !== null}
           onClose={() => setSelectedProject(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
         >
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            className="fixed inset-0 bg-black opacity-50"
             aria-hidden="true"
             onClick={() => setSelectedProject(null)}
           ></div>
-          
+
           {/* Dialog Content */}
-          <div className="relative bg-gray-900 rounded-lg p-8 max-w-5xl w-full">
+          <div className="relative bg-gray-900 rounded-lg p-8 max-w-4xl w-full">
             <button
               className="absolute top-4 right-4 text-white text-2xl"
               onClick={() => setSelectedProject(null)}
@@ -96,4 +106,4 @@ const InteractiveGallery: React.FC = () => {
   );
 };
 
-export default InteractiveGallery;
+export default AtliktiDarbai;
