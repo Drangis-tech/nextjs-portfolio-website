@@ -1,5 +1,5 @@
 /* Import FontAwesome CSS at the top */
-@import "~@fortawesome/fontawesome-svg-core/styles.css";
+@import "@fortawesome/fontawesome-svg-core/styles.css";
 
 /* Apply Tailwind CSS directives */
 @tailwind base;
