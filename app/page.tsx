@@ -3,16 +3,25 @@
 import React, { useEffect } from 'react';
 import styles from '../styles/page.module.css'; // Ensure this path is correct
 
+// Define a type for Particle
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  speedX: number;
+  speedY: number;
+}
+
 const ParticleCanvas = () => {
   useEffect(() => {
     const canvas = document.getElementById('particleCanvas') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      // Your particle animation code here (from CodePen)
-      const particles = [];
+      const particles: Particle[] = [];
       const numParticles = 100;
-      
+
+      // Initialize particles
       for (let i = 0; i < numParticles; i++) {
         particles.push({
           x: Math.random() * canvas.width,
@@ -22,29 +31,30 @@ const ParticleCanvas = () => {
           speedY: Math.random() * 3 - 1.5,
         });
       }
-      
+
+      // Animation function
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
+
         particles.forEach(particle => {
           particle.x += particle.speedX;
           particle.y += particle.speedY;
-          
+
           if (particle.size > 0) {
             ctx.beginPath();
             ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
             ctx.fillStyle = '#fff';
             ctx.fill();
           }
-          
+
           if (particle.size > 0.2) {
             particle.size -= 0.1;
           }
         });
-        
+
         requestAnimationFrame(animate);
       }
-      
+
       animate();
     }
   }, []);
