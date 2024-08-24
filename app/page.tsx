@@ -1,3 +1,5 @@
+"use client";
+
 // pages/page.tsx
 import React from 'react';
 import styles from '../styles/page.module.css'; // Import the CSS module here
