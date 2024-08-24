@@ -6,6 +6,42 @@
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 @layer base {
+  /* CodePen Design Styles */
+  body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: Arial, sans-serif;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .title {
+    color: white;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .description {
+    color: gray;
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Existing Custom Styles */
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
