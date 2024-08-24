@@ -1,10 +1,10 @@
+/* Import FontAwesome CSS */
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
+
 /* Global Styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import FontAwesome CSS */
-@import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 @layer base {
   /* Ensure no conflict with the new homepage design */
