@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import styles from './page.module.css'; // Assuming CSS is imported as a module
+import styles from '../styles/page.module.css'; // Updated path
 
 const ParticleCanvas = () => {
   useEffect(() => {
