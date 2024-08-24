@@ -1,10 +1,12 @@
+/* Import FontAwesome CSS at the top */
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
+
+/* Apply Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import FontAwesome CSS */
-@import "~@fortawesome/fontawesome-svg-core/styles.css";
-
+/* Define base styles */
 @layer base {
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
