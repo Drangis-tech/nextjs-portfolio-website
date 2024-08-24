@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react';
 import styles from '../styles/page.module.css'; // Ensure this path is correct
 
-// Define a type for Particle
 interface Particle {
   x: number;
   y: number;
@@ -36,7 +35,7 @@ const ParticleCanvas = () => {
 
     // Animation function
     function animate() {
-      if (!ctx) return; // Check again if ctx is valid
+      if (!ctx || !canvas) return; // Check if ctx and canvas are valid
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
