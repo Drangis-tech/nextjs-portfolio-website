@@ -1,9 +1,10 @@
 "use client";
 
-import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
-import { Navigation } from './components/nav'; // Import Navigation
+import { Navigation } from './components/nav'; // Import your existing Navigation component
+import Homepage from './components/Homepage'; // Import your renamed Homepage component
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -49,14 +50,15 @@ export default function Home() {
       <nav className="hidden md:flex my-16 animate-fade-in z-10">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
-              aria-label={item.name}
-            >
-              {item.name}
-            </Link>
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
+                aria-label={item.name}
+              >
+                {item.name}
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>
@@ -79,6 +81,9 @@ export default function Home() {
           </h1>
         </div>
       </div>
+
+      {/* Integrate the renamed Homepage component */}
+      <Homepage />
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
