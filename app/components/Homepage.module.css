@@ -1,0 +1,24 @@
+/* Homepage.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000; /* Background color for the container */
+  }
+  
+  .item {
+    color: #fff; /* Text color */
+    font-size: 2rem; /* Font size for the items */
+    margin: 10px 0; /* Spacing between items */
+    opacity: 0; /* Start items as invisible */
+    transform: translateY(20px); /* Start items slightly shifted down */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+  }
+  
+  .item.in {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to position */
+  }
