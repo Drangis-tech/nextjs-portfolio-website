@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from 'react';
 import styles from './page.module.css'; // Assuming CSS is imported as a module
 
