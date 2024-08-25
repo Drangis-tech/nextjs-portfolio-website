@@ -19,8 +19,8 @@ background.height = height;
 
 // Create gradient background similar to the "Apie Mus" page
 var gradient = bgCtx.createLinearGradient(0, 0, 0, height);
-gradient.addColorStop(0, '#121212'); // Dark gray-black at the top
-gradient.addColorStop(1, '#282828'); // Lighter gray-black at the bottom
+gradient.addColorStop(0, '#000000'); // Pure black at the top
+gradient.addColorStop(1, '#1a1a1a'); // Slightly lighter black/gray at the bottom
 
 bgCtx.fillStyle = gradient;
 bgCtx.fillRect(0, 0, width, height);
