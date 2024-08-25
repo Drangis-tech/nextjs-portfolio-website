@@ -20,13 +20,13 @@ terrain.height = background.height = height;
 
 // Some random points
 var points = [],
-    displacement = 100,  // Reduced displacement to lessen sharp peaks
+    displacement = 80,  // Further reduced displacement to lower the peaks
     smoothness = 2,      // Added smoothness factor
     power = Math.pow(2, Math.ceil(Math.log(width) / (Math.log(2))));
 
 // Set the start height and end height for the terrain
-points[0] = (height - (Math.random() * height / 2)) - displacement;
-points[power] = (height - (Math.random() * height / 2)) - displacement;
+points[0] = (height - (Math.random() * height / 3)) - displacement;
+points[power] = (height - (Math.random() * height / 3)) - displacement;
 
 // Create the rest of the points with smoothing
 for(var i = 1; i < power; i *= 2){
@@ -37,11 +37,11 @@ for(var i = 1; i < power; i *= 2){
   displacement *= 0.6;
 }
 
-// Create a gradient for the mountains similar to the Paslaugos page
-var gradient = terCtx.createLinearGradient(0, 0, width, height);
-gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');  // Transparent at the top left (like `from-zinc-900/0`)
-gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.8)');  // Dark gray in the middle (like `via-zinc-900`)
-gradient.addColorStop(1, 'rgba(0, 0, 0, 1)');  // Black at the bottom right (like `to-zinc-900/0`)
+// Create a horizontal gradient for the mountains
+var gradient = terCtx.createLinearGradient(0, 0, width, 0);
+gradient.addColorStop(0, '#BBBBBB');  // Lighter color on the left
+gradient.addColorStop(0.3, '#666666');  // Intermediate gray
+gradient.addColorStop(1, '#000000');  // Black on the right
 
 // Draw the terrain with the gradient fill
 terCtx.fillStyle = gradient;
