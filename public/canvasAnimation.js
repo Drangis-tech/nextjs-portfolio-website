@@ -20,7 +20,7 @@ terrain.height = background.height = height;
 
 // Some random points
 var points = [],
-    displacement = 80,  // Further reduced displacement to lower the peaks
+    displacement = 80,  // Reduced displacement to lower the peaks
     smoothness = 2,      // Added smoothness factor
     power = Math.pow(2, Math.ceil(Math.log(width) / (Math.log(2))));
 
@@ -37,11 +37,11 @@ for(var i = 1; i < power; i *= 2){
   displacement *= 0.6;
 }
 
-// Create a vertical gradient for the mountains (lighter at bottom, darker at top)
-var gradient = terCtx.createLinearGradient(0, height, 0, 0);
-gradient.addColorStop(0, '#333333');  // Darker grey at the bottom
-gradient.addColorStop(0.5, '#111111');  // Almost black in the middle
-gradient.addColorStop(1, '#000000');  // Black at the top
+// Create a gradient for the mountains (solid black at the top, fading to lighter at the bottom)
+var gradient = terCtx.createLinearGradient(0, 0, 0, height);
+gradient.addColorStop(0, '#000000');  // Solid black at the top
+gradient.addColorStop(0.8, '#333333');  // Dark grey around the middle
+gradient.addColorStop(1, '#555555');  // Lighter grey towards the bottom
 
 // Draw the terrain with the gradient fill
 terCtx.fillStyle = gradient;
