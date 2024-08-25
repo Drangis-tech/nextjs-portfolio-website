@@ -6,7 +6,7 @@
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-// Terrain stuff.
+// Terrain setup
 var terrain = document.getElementById("terCanvas"),
     background = document.getElementById("bgCanvas"),
     terCtx = terrain.getContext("2d"),
@@ -18,12 +18,12 @@ var terrain = document.getElementById("terCanvas"),
 terrain.width = background.width = width;
 terrain.height = background.height = height;
 
-// Some random points
+// Generate terrain points
 var points = [],
     displacement = 140,
     power = Math.pow(2, Math.ceil(Math.log(width) / (Math.log(2))));
 
-// Set the start height and end height for the terrain
+// Start height and end height for the terrain
 points[0] = (height - (Math.random() * height / 2)) - displacement;
 points[power] = (height - (Math.random() * height / 2)) - displacement;
 
@@ -35,8 +35,8 @@ for (var i = 1; i < power; i *= 2) {
   displacement *= 0.6;
 }
 
-// Draw the terrain
-terCtx.fillStyle = '#000000'; // Set mountains color to black
+// Draw the terrain with a black fill and no bottom outline
+terCtx.fillStyle = '#000000'; 
 terCtx.beginPath();
 for (var i = 0; i <= width; i++) {
   if (i === 0) {
@@ -45,21 +45,77 @@ for (var i = 0; i <= width; i++) {
     terCtx.lineTo(i, points[i]);
   }
 }
-terCtx.lineTo(width, terrain.height);
-terCtx.lineTo(0, terrain.height);
+terCtx.lineTo(width, points[width]);
 terCtx.lineTo(0, points[0]);
 terCtx.fill();
 
-// Add a white outline to the mountains
-terCtx.strokeStyle = '#D3D3D3'; // Set the outline color to grey (use '#FFFFFF' for white)
-terCtx.lineWidth = 2; // Set the outline width
+// Add a gray outline only at the top of the mountains
+terCtx.strokeStyle = '#52525B'; 
+terCtx.lineWidth = 2;
+terCtx.beginPath();
+for (var i = 0; i <= width; i++) {
+  if (points[i] !== undefined) {
+    if (i === 0) {
+      terCtx.moveTo(i, points[i]);
+    } else {
+      terCtx.lineTo(i, points[i]);
+    }
+  }
+}
 terCtx.stroke();
 
-// Second canvas used for the stars
-bgCtx.fillStyle = '#003366'; // Change the sky color to a different blue
+// Sky background color set to black
+bgCtx.fillStyle = '#000000';
 bgCtx.fillRect(0, 0, width, height);
 
-// Stars
+// Particle effect inside the mountains
+function Particle(options) {
+  this.x = options.x;
+  this.y = options.y;
+  this.size = Math.random() * 2;
+  this.speed = Math.random() * 0.5 + 0.5;
+  this.direction = Math.random() * Math.PI * 2;
+}
+
+Particle.prototype.update = function() {
+  this.x += Math.cos(this.direction) * this.speed;
+  this.y += Math.sin(this.direction) * this.speed;
+
+  // Check if particle is still within the terrain
+  var terrainY = points[Math.round(this.x)];
+  if (this.y > terrainY) {
+    this.y = terrainY;
+    this.direction = -this.direction;
+  }
+
+  terCtx.fillRect(this.x, this.y, this.size, this.size);
+}
+
+// Initialize particles
+var particles = [];
+for (var i = 0; i < 100; i++) {
+  particles.push(new Particle({
+    x: Math.random() * width,
+    y: Math.random() * height
+  }));
+}
+
+// Animate particles
+function animateParticles() {
+  terCtx.fillStyle = '#000000';
+  terCtx.fillRect(0, 0, width, height);
+  terCtx.fillStyle = '#FFFFFF';
+
+  particles.forEach(function(particle) {
+    particle.update();
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+// Stars setup
 function Star(options) {
   this.size = Math.random() * 2;
   this.speed = Math.random() * .1;
@@ -83,6 +139,7 @@ Star.prototype.update = function() {
   }
 }
 
+// Shooting stars setup
 function ShootingStar() {
   this.reset();
 }
@@ -117,33 +174,28 @@ ShootingStar.prototype.update = function() {
   }
 }
 
+// Initialize stars and shooting stars
 var entities = [];
-
-// Adjust number of stars based on screen width
 var numStars = (width > 768) ? height : Math.max(height / 2, 50);
-
-// Init the stars
 for (var i = 0; i < numStars; i++) {
   entities.push(new Star({ x: Math.random() * width, y: Math.random() * height }));
 }
-
-// Add 2 shooting stars that just cycle.
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
-// Animate background
-function animate() {
-  bgCtx.fillStyle = '#003366'; // Keep the sky color consistent during animation
+// Animate the background with stars and shooting stars
+function animateBackground() {
+  bgCtx.fillStyle = '#000000';
   bgCtx.fillRect(0, 0, width, height);
-  bgCtx.fillStyle = '#ffffff';
-  bgCtx.strokeStyle = '#ffffff';
+  bgCtx.fillStyle = '#FFFFFF';
+  bgCtx.strokeStyle = '#FFFFFF';
 
   var entLen = entities.length;
-
   while (entLen--) {
     entities[entLen].update();
   }
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animateBackground);
 }
-animate();
+
+animateBackground();
