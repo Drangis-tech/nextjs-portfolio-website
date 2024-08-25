@@ -20,17 +20,19 @@ terrain.height = background.height = height;
 
 // Some random points
 var points = [],
-    displacement = 140,
+    displacement = 100,  // Reduced displacement to lessen sharp peaks
+    smoothness = 2,      // Added smoothness factor
     power = Math.pow(2, Math.ceil(Math.log(width) / (Math.log(2))));
 
 // Set the start height and end height for the terrain
 points[0] = (height - (Math.random() * height / 2)) - displacement;
 points[power] = (height - (Math.random() * height / 2)) - displacement;
 
-// Create the rest of the points
+// Create the rest of the points with smoothing
 for(var i = 1; i < power; i *= 2){
   for(var j = (power / i) / 2; j < power; j += power / i){
-    points[j] = ((points[j - (power / i) / 2] + points[j + (power / i) / 2]) / 2) + Math.floor(Math.random() * -displacement + displacement);
+    points[j] = ((points[j - (power / i) / 2] + points[j + (power / i) / 2]) / 2) 
+                  + Math.floor(Math.random() * -displacement + displacement) / smoothness;
   }
   displacement *= 0.6;
 }
