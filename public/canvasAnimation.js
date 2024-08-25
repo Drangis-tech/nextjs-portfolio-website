@@ -15,6 +15,10 @@ var background = document.getElementById("bgCanvas"),
 background.width = width;
 background.height = height;
 
+// Clear canvas and fill background with black
+bgCtx.fillStyle = '#000000';  // Black background for the stars
+bgCtx.fillRect(0, 0, width, height);
+
 // Stars
 function Star(options) {
   this.size = Math.random() * 2;
@@ -73,18 +77,12 @@ ShootingStar.prototype.update = function() {
   }
 }
 
-// Clear canvas and fill background with black
-bgCtx.fillStyle = '#000000';  // Black background for the stars
-bgCtx.fillRect(0, 0, width, height);
-
-// Initialize stars
+// Initialize stars and shooting stars
 var entities = [];
 var numStars = (width > 768) ? height : Math.max(height / 2, 50);
 for (var i = 0; i < numStars; i++) {
   entities.push(new Star({x: Math.random() * width, y: Math.random() * height}));
 }
-
-// Add 2 shooting stars that just cycle
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
