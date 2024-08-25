@@ -1,42 +1,101 @@
-// Import React and necessary libraries
 import React from 'react';
-import styles from './CustomPage.module.css'; // Importing the CSS module
+import styles from './CustomPage.module.css';
 
-const Page: React.FC = () => {
+const Page = () => {
+  // JS function for the toggle (equivalent to inline JS)
+  const toggleGoldClass = () => {
+    document.body.classList.toggle(styles.gold);
+  };
+
   return (
-    <div className={styles.pageContainer}>
-      {/* Header section */}
-      <header className={styles.header}>
-        <h1>Welcome to My Custom Page</h1>
-      </header>
+    <>
+      <div className={styles.header}>
+        <h2>
+          <a
+            href="https://codepen.io/RAFA3L"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            RAFA
+          </a>
+        </h2>
+        <div
+          className={styles.midSpot}
+          onClick={toggleGoldClass}
+        ></div>
+        <button className={styles.contactBtn}>
+          <span className={styles.glow}></span>
+          <span className={styles.contactBtnContent}>Contact Us</span>
+        </button>
 
-      {/* Main content section */}
-      <main className={styles.mainContent}>
-        <section className={styles.introSection}>
-          <h2>Introduction</h2>
-          <p>
-            This is a demo page using Next.js and CSS modules. The layout is styled using modular and scoped CSS.
-          </p>
-        </section>
+        <div className={styles.spotlight}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
 
-        <section className={styles.contentSection}>
-          <h2>Main Content</h2>
-          <p>
-            Here is the main content of the page. You can add more sections or components here as needed.
-          </p>
-        </section>
+      <canvas id="particleCanvas"></canvas>
 
-        <section className={styles.buttonSection}>
-          <h2>Action Section</h2>
-          <button className={styles.primaryButton}>Click Me</button>
-        </section>
-      </main>
+      <div className={styles.accentLines}>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
 
-      {/* Footer section */}
-      <footer className={styles.footer}>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
-      </footer>
-    </div>
+      <div className={styles.heroSubP}>
+        <p>Introducing</p>
+      </div>
+
+      <div className={styles.hero}>
+        <div className={styles.heroT}>
+          <h2>Curiosity</h2>
+          <h2>Curiosity</h2>
+        </div>
+      </div>
+
+      <p className={styles.heroP}>
+        The world's best platform,
+        <br />
+        powered by EclipxOS + React.
+      </p>
+
+      <div className={styles.mountains}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div className={styles.heroSpacer}></div>
+
+      <div className={styles.contentSection}>
+        <div className={styles.contentAcc}>
+          <div></div>
+          <div></div>
+        </div>
+        <p className={styles.subt}>Revolutionary by design</p>
+        <h3 className={styles.title}>
+          Harness. Empower.
+          <br />
+          Unmatched Versatility.
+        </h3>
+        <p className={styles.subp}>
+          At the core lies our revolutionary framework,
+          <br />
+          ensuring adaptability across all application architectures.
+        </p>
+      </div>
+    </>
   );
 };
 
