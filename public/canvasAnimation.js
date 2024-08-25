@@ -37,8 +37,13 @@ for(var i = 1; i < power; i *= 2){
   displacement *= 0.6;
 }
 
-// Fill the mountain with solid black
-terCtx.fillStyle = '#000000';  // Solid black color
+// Create a gradient for the mountain
+var gradient = terCtx.createLinearGradient(0, 0, 0, height);
+gradient.addColorStop(0, '#000000');  // Black at the top
+gradient.addColorStop(1, '#333333');  // Dark grey at the bottom
+
+// Fill the mountain with the gradient
+terCtx.fillStyle = gradient;
 terCtx.beginPath();
 for(var i = 0; i <= width; i++){
   if(i === 0){
