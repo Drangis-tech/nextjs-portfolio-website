@@ -37,10 +37,11 @@ for(var i = 1; i < power; i *= 2){
   displacement *= 0.6;
 }
 
-// Create a gradient for the mountains (solid black at the top, fading to lighter at the bottom)
+// Create a gradient for the mountains (solid black at the top, transitioning to lighter)
 var gradient = terCtx.createLinearGradient(0, 0, 0, height);
-gradient.addColorStop(0, '#000000');  // Solid black at the top
-gradient.addColorStop(0.8, '#333333');  // Dark grey around the middle
+gradient.addColorStop(0, '#000000');  // Solid black at the top (30%)
+gradient.addColorStop(0.3, '#000000'); // Continue solid black for the top 30%
+gradient.addColorStop(0.3, '#333333'); // Dark grey starting from 30% height
 gradient.addColorStop(1, '#555555');  // Lighter grey towards the bottom
 
 // Draw the terrain with the gradient fill
