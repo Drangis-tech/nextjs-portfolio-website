@@ -37,11 +37,11 @@ for(var i = 1; i < power; i *= 2){
   displacement *= 0.6;
 }
 
-// Create a horizontal gradient for the mountains
-var gradient = terCtx.createLinearGradient(0, 0, width, 0);
-gradient.addColorStop(0, '#BBBBBB');  // Lighter color on the left
-gradient.addColorStop(0.3, '#666666');  // Intermediate gray
-gradient.addColorStop(1, '#000000');  // Black on the right
+// Create a vertical gradient for the mountains (lighter at bottom, darker at top)
+var gradient = terCtx.createLinearGradient(0, height, 0, 0);
+gradient.addColorStop(0, '#333333');  // Darker grey at the bottom
+gradient.addColorStop(0.5, '#111111');  // Almost black in the middle
+gradient.addColorStop(1, '#000000');  // Black at the top
 
 // Draw the terrain with the gradient fill
 terCtx.fillStyle = gradient;
