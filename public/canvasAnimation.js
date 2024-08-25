@@ -37,10 +37,11 @@ for(var i = 1; i < power; i *= 2){
   displacement *= 0.6;
 }
 
-// Create a vertical gradient for the mountains
-var gradient = terCtx.createLinearGradient(0, 0, 0, height);
-gradient.addColorStop(0, '#000000');   // Black color at the top
-gradient.addColorStop(1, '#d3d3d3');   // Light grey color at the bottom
+// Create a gradient for the mountains similar to the Paslaugos page
+var gradient = terCtx.createLinearGradient(0, 0, width, height);
+gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');  // Transparent at the top left (like `from-zinc-900/0`)
+gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.8)');  // Dark gray in the middle (like `via-zinc-900`)
+gradient.addColorStop(1, 'rgba(0, 0, 0, 1)');  // Black at the bottom right (like `to-zinc-900/0`)
 
 // Draw the terrain with the gradient fill
 terCtx.fillStyle = gradient;
