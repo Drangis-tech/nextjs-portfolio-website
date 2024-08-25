@@ -5,7 +5,6 @@ config.autoAddCss = false; // Prevents FontAwesome from adding its CSS automatic
 
 
 import '../styles/globals.css';
-import '../styles/page.module.css'; // if needed for page-specific styles
 import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
