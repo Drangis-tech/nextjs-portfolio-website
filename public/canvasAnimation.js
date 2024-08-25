@@ -17,8 +17,12 @@ var background = document.getElementById("bgCanvas"),
 background.width = width;
 background.height = height;
 
-// Clear canvas and fill background with dark blue
-bgCtx.fillStyle = '#05004c';
+// Create gradient background similar to the "Apie Mus" page
+var gradient = bgCtx.createLinearGradient(0, 0, 0, height);
+gradient.addColorStop(0, '#121212'); // Dark gray-black at the top
+gradient.addColorStop(1, '#282828'); // Lighter gray-black at the bottom
+
+bgCtx.fillStyle = gradient;
 bgCtx.fillRect(0, 0, width, height);
 
 // Stars
@@ -75,7 +79,7 @@ ShootingStar.prototype.update = function() {
   } else {
     if (this.waitTime < new Date().getTime()) {
       this.active = true;
-    }      
+    }     
   }
 }
 
@@ -84,18 +88,18 @@ var entities = [];
 // Adjust number of stars based on screen width
 var numStars = (width > 768) ? height : Math.max(height / 2, 50);
 
-// Initialize stars
+// Init the stars
 for (var i = 0; i < numStars; i++) {
   entities.push(new Star({x: Math.random() * width, y: Math.random() * height}));
 }
 
-// Add 2 shooting stars that just cycle
+// Add 2 shooting stars that just cycle.
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
 // Animate background
 function animate() {
-  bgCtx.fillStyle = '#05004c';  // Keep the background color consistent during animation
+  bgCtx.fillStyle = gradient;  // Keep the gradient during animation
   bgCtx.fillRect(0, 0, width, height);
   bgCtx.fillStyle = '#ffffff';
   bgCtx.strokeStyle = '#ffffff';
