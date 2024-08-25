@@ -20,8 +20,8 @@ terrain.height = background.height = height;
 
 // Some random points
 var points = [],
-    displacement = 80,  // Reduced displacement to lower the peaks
-    smoothness = 2,      // Added smoothness factor
+    displacement = 80,  // Adjusted for smoother peaks
+    smoothness = 2,     // Adjusted for smoother lines
     power = Math.pow(2, Math.ceil(Math.log(width) / (Math.log(2))));
 
 // Set the start height and end height for the terrain
@@ -40,40 +40,36 @@ for(var i = 1; i < power; i *= 2){
 // Create a gradient for the mountain
 var gradient = terCtx.createLinearGradient(0, 0, 0, height);
 
-// The top 70% should be solid black
+// Apply black color for the top 70% and dark grey for the remaining 30%
 gradient.addColorStop(0, '#000000');  // Solid black at the top
-gradient.addColorStop(0.7, '#000000');  // Still black till 70%
-
-// The gradient from 70% to 100%
+gradient.addColorStop(0.7, '#000000');  // Black continues till 70%
 gradient.addColorStop(0.7, '#333333');  // Dark grey starts at 70%
 gradient.addColorStop(1, '#333333');  // Dark grey at the bottom
 
-// Fill the mountain with the gradient
+// Draw the mountain with the gradient
 terCtx.fillStyle = gradient;
 terCtx.beginPath();
-for(var i = 0; i <= width; i++){
-  if(i === 0){
-    terCtx.moveTo(0, points[0]);
-  } else if(points[i] !== undefined){
+terCtx.moveTo(0, height);  // Start from bottom-left
+for (var i = 0; i <= width; i++) {
+  if (points[i] !== undefined) {
     terCtx.lineTo(i, points[i]);
   }
 }
-terCtx.lineTo(width, terrain.height);
-terCtx.lineTo(0, terrain.height);
-terCtx.lineTo(0, points[0]);
+terCtx.lineTo(width, height);  // Bottom-right
+terCtx.closePath();  // Close path to ensure fill area
 terCtx.fill();
 
-// Draw the outline only on the top of the mountains
+// Draw the outline on the top of the mountains
 terCtx.strokeStyle = '#D3D3D3';  // Set the outline color to grey
 terCtx.lineWidth = 2;
 terCtx.beginPath();
-for(var i = 0; i <= width; i++){
-  if(i === 0){
-    terCtx.moveTo(0, points[0]);
-  } else if(points[i] !== undefined){
+terCtx.moveTo(0, height);  // Start from bottom-left
+for (var i = 0; i <= width; i++) {
+  if (points[i] !== undefined) {
     terCtx.lineTo(i, points[i]);
   }
 }
+terCtx.lineTo(width, height);  // Bottom-right
 terCtx.stroke();
 
 // Second canvas used for the stars
@@ -97,7 +93,7 @@ Star.prototype.reset = function() {
 
 Star.prototype.update = function() {
   this.x -= this.speed;
-  if(this.x < 0) {
+  if (this.x < 0) {
     this.reset();
   } else {
     bgCtx.fillRect(this.x, this.y, this.size, this.size); 
@@ -119,10 +115,10 @@ ShootingStar.prototype.reset = function() {
 }
 
 ShootingStar.prototype.update = function() {
-  if(this.active) {
+  if (this.active) {
     this.x -= this.speed;
     this.y += this.speed;
-    if(this.x < 0 || this.y >= height) {
+    if (this.x < 0 || this.y >= height) {
       this.reset();
     } else {
       bgCtx.lineWidth = this.size;
@@ -132,9 +128,9 @@ ShootingStar.prototype.update = function() {
       bgCtx.stroke();
     }
   } else {
-    if(this.waitTime < new Date().getTime()) {
+    if (this.waitTime < new Date().getTime()) {
       this.active = true;
-    }			
+    }     
   }
 }
 
@@ -144,7 +140,7 @@ var entities = [];
 var numStars = (width > 768) ? height : Math.max(height / 2, 50);
 
 // Init the stars
-for(var i = 0; i < numStars; i++) {
+for (var i = 0; i < numStars; i++) {
   entities.push(new Star({x: Math.random() * width, y: Math.random() * height}));
 }
 
@@ -161,7 +157,7 @@ function animate() {
 
   var entLen = entities.length;
   
-  while(entLen--) {
+  while (entLen--) {
     entities[entLen].update();
   }
   
