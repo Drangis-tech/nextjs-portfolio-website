@@ -39,8 +39,14 @@ for(var i = 1; i < power; i *= 2){
 
 // Create a gradient for the mountain
 var gradient = terCtx.createLinearGradient(0, 0, 0, height);
-gradient.addColorStop(0, '#000000');  // Black at the top
-gradient.addColorStop(1, '#333333');  // Dark grey at the bottom
+
+// The top 70% should be solid black
+gradient.addColorStop(0, '#000000');  // Solid black at the top (70%)
+gradient.addColorStop(0.7, '#000000');  // Still black till 70%
+
+// The gradient from 70% to 100%
+gradient.addColorStop(0.7, '#333333');  // Dark grey starts at 70%
+gradient.addColorStop(1, '#333333');  // Dark grey at the bottom (100%)
 
 // Fill the mountain with the gradient
 terCtx.fillStyle = gradient;
