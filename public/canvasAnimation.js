@@ -6,75 +6,14 @@
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-// Terrain setup
-var terrain = document.getElementById("terCanvas"),
-    background = document.getElementById("bgCanvas"),
-    terCtx = terrain.getContext("2d"),
+// Canvas setup
+var background = document.getElementById("bgCanvas"),
     bgCtx = background.getContext("2d"),
     width = window.innerWidth,
-    height = document.body.offsetHeight;
-(height < 400) ? height = 400 : height;
+    height = window.innerHeight;  // Use the full viewport height
 
-terrain.width = background.width = width;
-terrain.height = background.height = height;
-
-// Some random points
-var points = [],
-    displacement = 80,  // Adjusted for smoother peaks
-    smoothness = 2,     // Adjusted for smoother lines
-    power = Math.pow(2, Math.ceil(Math.log(width) / (Math.log(2))));
-
-// Set the start height and end height for the terrain
-points[0] = (height - (Math.random() * height / 3)) - displacement;
-points[power] = (height - (Math.random() * height / 3)) - displacement;
-
-// Create the rest of the points with smoothing
-for(var i = 1; i < power; i *= 2){
-  for(var j = (power / i) / 2; j < power; j += power / i){
-    points[j] = ((points[j - (power / i) / 2] + points[j + (power / i) / 2]) / 2) 
-                  + Math.floor(Math.random() * -displacement + displacement) / smoothness;
-  }
-  displacement *= 0.6;
-}
-
-// Create a gradient for the mountain
-var gradient = terCtx.createLinearGradient(0, 0, 0, height);
-
-// Apply black color for the top 70% and dark grey for the remaining 30%
-gradient.addColorStop(0, '#000000');  // Solid black at the top
-gradient.addColorStop(0.7, '#000000');  // Black continues till 70%
-gradient.addColorStop(0.7, '#333333');  // Dark grey starts at 70%
-gradient.addColorStop(1, '#333333');  // Dark grey at the bottom
-
-// Draw the mountain with the gradient
-terCtx.fillStyle = gradient;
-terCtx.beginPath();
-terCtx.moveTo(0, height);  // Start from bottom-left
-for (var i = 0; i <= width; i++) {
-  if (points[i] !== undefined) {
-    terCtx.lineTo(i, points[i]);
-  }
-}
-terCtx.lineTo(width, height);  // Bottom-right
-terCtx.closePath();  // Close path to ensure fill area
-terCtx.fill();
-
-// Draw the outline on the top of the mountains
-terCtx.strokeStyle = '#D3D3D3';  // Set the outline color to grey
-terCtx.lineWidth = 2;
-terCtx.beginPath();
-terCtx.moveTo(0, height);  // Start from bottom-left
-for (var i = 0; i <= width; i++) {
-  if (points[i] !== undefined) {
-    terCtx.lineTo(i, points[i]);
-  }
-}
-terCtx.lineTo(width, height);  // Bottom-right
-terCtx.stroke();
-
-// Second canvas used for the stars
-bgCtx.fillStyle = '#000000';  // Change the sky color to black
-bgCtx.fillRect(0, 0, width, height);
+background.width = width;
+background.height = height;
 
 // Stars
 function Star(options) {
@@ -134,17 +73,18 @@ ShootingStar.prototype.update = function() {
   }
 }
 
+// Clear canvas and fill background with black
+bgCtx.fillStyle = '#000000';  // Black background for the stars
+bgCtx.fillRect(0, 0, width, height);
+
+// Initialize stars
 var entities = [];
-
-// Adjust number of stars based on screen width
 var numStars = (width > 768) ? height : Math.max(height / 2, 50);
-
-// Init the stars
 for (var i = 0; i < numStars; i++) {
   entities.push(new Star({x: Math.random() * width, y: Math.random() * height}));
 }
 
-// Add 2 shooting stars that just cycle.
+// Add 2 shooting stars that just cycle
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
 
@@ -152,11 +92,8 @@ entities.push(new ShootingStar());
 function animate() {
   bgCtx.fillStyle = '#000000';  // Keep the sky color consistent during animation
   bgCtx.fillRect(0, 0, width, height);
-  bgCtx.fillStyle = '#ffffff';
-  bgCtx.strokeStyle = '#ffffff';
 
   var entLen = entities.length;
-  
   while (entLen--) {
     entities[entLen].update();
   }
