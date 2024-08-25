@@ -1,19 +1,19 @@
 (function() {
   var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || 
-                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function( callback ){
+                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(callback){
         window.setTimeout(callback, 1000 / 60);
       };
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-// Terrain stuff.
+// Terrain setup
 var terrain = document.getElementById("terCanvas"),
     background = document.getElementById("bgCanvas"),
     terCtx = terrain.getContext("2d"),
     bgCtx = background.getContext("2d"),
     width = window.innerWidth,
     height = document.body.offsetHeight;
-(height < 400)?height = 400:height;
+(height < 400) ? height = 400 : height;
 
 terrain.width = background.width = width;
 terrain.height = background.height = height;
@@ -37,8 +37,13 @@ for(var i = 1; i < power; i *= 2){
   displacement *= 0.6;
 }
 
-// Draw the terrain with a black fill
-terCtx.fillStyle = '#000000';  // Set mountains color to black
+// Create a vertical gradient for the mountains
+var gradient = terCtx.createLinearGradient(0, 0, 0, height);
+gradient.addColorStop(0, '#000000');   // Black color at the top
+gradient.addColorStop(1, '#d3d3d3');   // Light grey color at the bottom
+
+// Draw the terrain with the gradient fill
+terCtx.fillStyle = gradient;
 terCtx.beginPath();
 for(var i = 0; i <= width; i++){
   if(i === 0){
