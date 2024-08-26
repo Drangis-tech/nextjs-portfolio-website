@@ -228,7 +228,7 @@
     text-decoration: none; /* Remove default underline */
   }
 
-  .nav-link::before {
+  .nav-link::after {
     content: "";
     position: absolute;
     left: 0;
@@ -245,7 +245,7 @@
     color: white; /* Change text color to white on hover */
   }
 
-  .nav-link:hover::before {
+  .nav-link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
     background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b); /* Gradient color */
