@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
@@ -47,7 +45,7 @@ export default function Home() {
       </div>
 
       <nav className="hidden md:flex my-16 animate-fade-in z-10">
-        <ul className="flex items-center justify-center gap-12"> {/* Increased gap to accommodate larger text */}
+        <ul className="flex items-center justify-center gap-8"> {/* Increase gap to accommodate larger text */}
           {navigation.map((item) => (
             <li key={item.href}>
               <Link
