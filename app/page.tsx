@@ -5,14 +5,6 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
 
-const navigation = [
-  { name: "Atlikti Darbai", href: "/projects" },
-  { name: "Paslaugos", href: "/paslaugos" },
-  { name: "Apie Mus", href: "/apie-mus" },
-  { name: "Kainos", href: "/kainos" },
-  { name: "Kontaktai", href: "/contact" },
-];
-
 export default function Home() {
   useEffect(() => {
     // Add no-scroll class to body
@@ -41,25 +33,8 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Include Navigation for mobile */}
-      <div className="md:hidden">
-        <Navigation />
-      </div>
-
-      <nav className="hidden md:flex my-16 animate-fade-in z-10">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
-              aria-label={item.name}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
+      {/* Include Navigation Component */}
+      <Navigation />
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="flex flex-col items-center justify-center z-10">
