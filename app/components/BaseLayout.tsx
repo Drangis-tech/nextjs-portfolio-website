@@ -1,6 +1,6 @@
 // components/BaseLayout.tsx
 import React from 'react';
-import { Navigation } from './nav'; // Correctly import from /components/nav
+import { Navigation } from './nav'; // Correct path to Navigation component
 
 interface BaseLayoutProps {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ interface BaseLayoutProps {
 const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => (
   <div className="relative">
     <Navigation />
-    <main className="pt-16">{children}</main> {/* Adjust padding if necessary */}
+    <main className="pt-16">{children}</main>
   </div>
 );
 

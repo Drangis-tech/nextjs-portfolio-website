@@ -5,7 +5,8 @@ config.autoAddCss = false; // Prevent FontAwesome from adding its CSS automatica
 
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import BaseLayout from '../components/BaseLayout'; // Adjust if the path is different
+import BaseLayout from '../components/BaseLayout'; // Ensure path is correct
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <BaseLayout>
