@@ -82,31 +82,31 @@ export const Navigation: React.FC = () => {
             <div className="hidden md:flex gap-8">
               <Link
                 href="/atlikti-darbai"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Atlikti Darbai
               </Link>
               <Link
                 href="/paslaugos"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Paslaugos
               </Link>
               <Link
                 href="/apie-mus"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Apie Mus
               </Link>
               <Link
                 href="/kainos"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Kainos
               </Link>
               <Link
                 href="/contact"
-                className="duration-200 text-zinc-400 hover:text-zinc-100"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Kontaktai
               </Link>
@@ -169,7 +169,7 @@ export const Navigation: React.FC = () => {
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
               <a href="mailto:info@brandforge.lt" className="text-gray-500">
-                info@brandforge.lt
+              info@brandforge.lt
               </a>
             </div>
             <div className="flex items-center space-x-2">
