@@ -29,8 +29,10 @@ export default function Home() {
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
       {/* Wrapper for consistent alignment */}
-      <div className="w-full absolute top-0 left-0 flex justify-center">
-        <Navigation />
+      <div className="w-full absolute top-0 left-0">
+        <div className="container mx-auto px-6">
+          <Navigation />
+        </div>
       </div>
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
