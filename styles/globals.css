@@ -33,14 +33,6 @@
     scrollbar-width: none;
   }
 
-  /* Adjust container padding and alignment */
-  .container {
-    padding-left: 24px; /* Increased padding to match consistent alignment */
-    padding-right: 24px; /* Increased padding to match consistent alignment */
-    margin: 0 auto; /* Center the container */
-    max-width: 1200px; /* Optional: limit container width for better structure */
-  }
-
   /* Text Edge Outline */
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
@@ -94,7 +86,7 @@
 
   .apie-mus .content {
     flex: 2;
-    padding-left: 24px; /* Adjusted padding for better alignment */
+    padding-left: 20px;
   }
 
   .apie-mus .content h3 {
@@ -146,15 +138,13 @@
     z-index: 50; /* Ensure it's in front of the backdrop */
     position: relative;
     overflow: hidden;
-    padding-left: 24px; /* Align side menu with global padding */
-    padding-right: 24px; /* Align side menu with global padding */
   }
 
   /* Language Selector */
   .menu-content .language-selector {
     position: absolute;
     top: 16px; /* Adjust according to the design */
-    left: 24px; /* Align with increased padding */
+    left: 16px; /* Align with the close button */
     display: flex;
     align-items: center;
     gap: 8px; /* Space between icon and text */
@@ -189,8 +179,8 @@
     font-size: 0.875rem; /* Smaller font size */
     position: absolute;
     bottom: 16px; /* Space from the bottom */
-    left: 24px; /* Space from the left, aligned with padding */
-    width: calc(100% - 48px); /* Full width minus padding */
+    left: 16px; /* Space from the left */
+    width: calc(100% - 32px); /* Full width minus padding */
     text-align: center; /* Center align text */
   }
 
