@@ -42,7 +42,9 @@ export default function Home() {
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
       {/* Include Navigation component for both mobile and desktop */}
-      <Navigation />
+      <header className="w-full">
+        <Navigation />
+      </header>
 
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
