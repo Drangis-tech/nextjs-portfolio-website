@@ -25,14 +25,12 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
-      <canvas id="bgCanvas" className="absolute top-0 left-0" />
-      <canvas id="terCanvas" className="absolute top-0 left-0" />
+      <canvas id="bgCanvas" className="absolute top-0 left-0 w-full h-full" />
+      <canvas id="terCanvas" className="absolute top-0 left-0 w-full h-full" />
 
       {/* Wrapper for consistent alignment */}
-      <div className="w-full absolute top-0 left-0">
-        <div className="container mx-auto px-6">
-          <Navigation />
-        </div>
+      <div className="absolute top-0 left-0 w-full flex justify-center z-40">
+        <Navigation />
       </div>
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />

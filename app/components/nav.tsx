@@ -1,4 +1,5 @@
 "use client";
+
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
@@ -58,7 +59,7 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <header ref={ref} className="relative z-50">
+    <header ref={ref} className="relative">
       {/* Main Header */}
       <div
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur-sm duration-200 border-b ${
@@ -67,7 +68,7 @@ export const Navigation: React.FC = () => {
             : "bg-zinc-900/500 border-zinc-800"
         }`}
       >
-        <div className="container flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
+        <div className="container mx-auto flex items-center justify-between p-6">
           {pathname !== '/' && (
             <Link
               href="/"
@@ -124,7 +125,7 @@ export const Navigation: React.FC = () => {
       {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-40`}
+        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-30`}
         onClick={() => isOpen && setIsOpen(false)}
       ></div>
 
