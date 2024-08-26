@@ -82,31 +82,31 @@ export const Navigation: React.FC = () => {
             <div className="hidden md:flex gap-8">
               <Link
                 href="/atlikti-darbai"
-                className="nav-link"
+                className="nav-link text-base md:text-lg lg:text-xl"
               >
                 Atlikti Darbai
               </Link>
               <Link
                 href="/paslaugos"
-                className="nav-link"
+                className="nav-link text-base md:text-lg lg:text-xl"
               >
                 Paslaugos
               </Link>
               <Link
                 href="/apie-mus"
-                className="nav-link"
+                className="nav-link text-base md:text-lg lg:text-xl"
               >
                 Apie Mus
               </Link>
               <Link
                 href="/kainos"
-                className="nav-link"
+                className="nav-link text-base md:text-lg lg:text-xl"
               >
                 Kainos
               </Link>
               <Link
                 href="/contact"
-                className="nav-link"
+                className="nav-link text-base md:text-lg lg:text-xl"
               >
                 Kontaktai
               </Link>
@@ -147,19 +147,19 @@ export const Navigation: React.FC = () => {
           </div>
 
           <nav className="flex flex-col items-start space-y-6 p-6 flex-grow">
-            <Link href="/atlikti-darbai" className="nav-link" onClick={toggleMenu}>
+            <Link href="/atlikti-darbai" className="nav-link text-2xl md:text-3xl lg:text-4xl" onClick={toggleMenu}>
               Atlikti Darbai
             </Link>
-            <Link href="/paslaugos" className="nav-link" onClick={toggleMenu}>
+            <Link href="/paslaugos" className="nav-link text-2xl md:text-3xl lg:text-4xl" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="nav-link" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="nav-link text-2xl md:text-3xl lg:text-4xl" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" className="nav-link" onClick={toggleMenu}>
+            <Link href="/kainos" className="nav-link text-2xl md:text-3xl lg:text-4xl" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/contact" className="nav-link" onClick={toggleMenu}>
+            <Link href="/contact" className="nav-link text-2xl md:text-3xl lg:text-4xl" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
