@@ -47,12 +47,12 @@ export default function Home() {
       </div>
 
       <nav className="hidden md:flex my-16 animate-fade-in z-10">
-        <ul className="flex items-center justify-center gap-4">
+        <ul className="flex items-center justify-center gap-8"> {/* Increase gap to accommodate larger text */}
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
+              className="nav-link"
               aria-label={item.name}
             >
               {item.name}
@@ -82,7 +82,7 @@ export default function Home() {
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 shine-effect">
+        <h2 className="text-sm text-white shine-effect">
           Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
         </h2>
       </div>
