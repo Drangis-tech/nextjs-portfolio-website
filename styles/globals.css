@@ -212,7 +212,7 @@
   }
 
   .menu-content .contact-info a:hover {
-    color: #ce0808; /* White color on hover */
+    color: #fff; /* White color on hover */
   }
 
   /* Navigation Link Styles */
@@ -248,7 +248,6 @@
   .nav-link:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
-    background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b); /* Gradient color */
   }
 
   /* Specific text styles */
