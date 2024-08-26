@@ -67,11 +67,11 @@ export const Navigation: React.FC = () => {
             : "bg-zinc-900/500 border-zinc-800"
         }`}
       >
-        <div className="container flex items-center p-6 mx-auto">
+        <div className="container flex items-center justify-between p-6 mx-auto">
           {pathname !== '/' && (
             <Link
               href="/"
-              className={`flex items-center text-zinc-300 hover:text-zinc-100 mr-4 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
+              className={`flex items-center text-zinc-300 hover:text-zinc-100 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
             >
               <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
             </Link>
