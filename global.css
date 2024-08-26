@@ -219,8 +219,8 @@
   .nav-link {
     position: relative;
     display: inline-block;
-    color: white; /* Ensure text color is visible */
-    font-size: 1.5rem; /* Increase font size for desktop */
+    color: #ddd; /* Slightly darker color for default */
+    font-size: 1rem; /* Similar size to other subpages */
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.5rem 1rem; /* Add padding for better spacing */
@@ -239,6 +239,10 @@
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: white; /* Change text color to white on hover */
   }
 
   .nav-link:hover::before {
@@ -262,6 +266,6 @@
   }
 
   .nav-link {
-    font-size: 1.25rem; /* Slightly smaller font size for mobile */
+    font-size: 0.875rem; /* Smaller font size for mobile */
   }
 }
