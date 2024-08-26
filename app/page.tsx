@@ -41,28 +41,9 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Include Navigation for mobile */}
-      <div className="md:hidden">
-        <Navigation />
-      </div>
+      {/* Include Navigation component for both mobile and desktop */}
+      <Navigation />
 
-      <nav className="hidden md:flex my-16 animate-fade-in z-10">
-        <ul className="flex items-center justify-center gap-8"> {/* Increase gap to accommodate larger text */}
-          {navigation.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="nav-link"
-                aria-label={item.name}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center">
           <Image
