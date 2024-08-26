@@ -1,5 +1,5 @@
 // components/BaseLayout.tsx
-import { Navigation } from './Navigation';
+import { Navigation } from './nav';
 import React from 'react';
 
 interface BaseLayoutProps {
