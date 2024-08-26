@@ -1,26 +1,21 @@
 "use client";
 
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { Navigation } from './components/nav'; // Import Navigation
+import { Navigation } from './components/nav';
 
 export default function Home() {
   useEffect(() => {
-    // Add no-scroll class to body
     document.body.classList.add('no-scroll');
-
-    // Prevent default touch actions on mobile
     const preventDefault = (e: Event) => e.preventDefault();
     document.body.addEventListener('touchmove', preventDefault, { passive: false });
 
-    // Insert the JavaScript code for the canvas animation here
     const script = document.createElement("script");
-    script.src = "/canvasAnimation.js"; // Move the JS code to a separate file (canvasAnimation.js)
+    script.src = "/canvasAnimation.js";
     script.async = true;
     document.body.appendChild(script);
 
-    // Cleanup function to remove no-scroll class, preventDefault event, and script
     return () => {
       document.body.classList.remove('no-scroll');
       document.body.removeEventListener('touchmove', preventDefault);
@@ -33,8 +28,10 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Include Navigation Component */}
-      <Navigation />
+      {/* Wrapper for consistent alignment */}
+      <div className="w-full absolute top-0 left-0 flex justify-center">
+        <Navigation />
+      </div>
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="flex flex-col items-center justify-center z-10">
