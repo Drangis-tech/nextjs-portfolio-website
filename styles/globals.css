@@ -219,7 +219,7 @@
   .nav-link {
     position: relative;
     display: inline-block;
-    color: #aaa; /* More gray color for default */
+    color: #aaa; /* Gray color for default */
     font-size: 1rem; /* Similar size to other subpages */
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -228,11 +228,11 @@
     text-decoration: none; /* Remove default underline */
   }
 
-  .nav-link::before {
+  .nav-link::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -2px; /* Adjust based on the desired line height */
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b); /* Gradient color */
@@ -245,7 +245,7 @@
     color: white; /* Change text color to white on hover */
   }
 
-  .nav-link:hover::before {
+  .nav-link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
