@@ -69,7 +69,10 @@ export const Navigation: React.FC = () => {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between p-6">
-          {pathname !== '/' && (
+          {/* Back Button */}
+          {pathname === '/' ? (
+            <div className="w-8 h-8 md:w-10 md:h-10" />  // Invisible space for the back button
+          ) : (
             <Link
               href="/"
               className={`flex items-center text-zinc-300 hover:text-zinc-100 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
@@ -132,7 +135,7 @@ export const Navigation: React.FC = () => {
       {/* Side Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
         <div className="relative w-full h-full flex flex-col">
-          <div className="flex items-center justify-between p-6 border-b border-gray-700">
+        <div className="flex items-center justify-between p-6 border-b border-gray-700">
             {/* Language Selector */}
             <LanguageSelector
               language="LT" // Set the default language
