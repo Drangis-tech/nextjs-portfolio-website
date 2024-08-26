@@ -6,11 +6,11 @@ import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
 
 const navigation = [
-  { name: "Atlikti Darbai", href: "#projects" },
-  { name: "Paslaugos", href: "#paslaugos" },
-  { name: "Apie Mus", href: "#apie-mus" },
-  { name: "Kainos", href: "#kainos" },
-  { name: "Kontaktai", href: "#contact" },
+  { name: "Atlikti Darbai", href: "/projects" },
+  { name: "Paslaugos", href: "/paslaugos" },
+  { name: "Apie Mus", href: "/apie-mus" },
+  { name: "Kainos", href: "/kainos" },
+  { name: "Kontaktai", href: "/contact" },
 ];
 
 export default function Home() {
@@ -47,12 +47,12 @@ export default function Home() {
       </div>
 
       <nav className="hidden md:flex my-16 animate-fade-in z-10">
-        <ul className="flex items-center justify-center gap-8">
+        <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-lg text-zinc-500 hover:text-zinc-300 duration-500"
+              className="text-sm text-zinc-500 hover:text-zinc-300 duration-500"
               aria-label={item.name}
             >
               {item.name}
@@ -86,13 +86,6 @@ export default function Home() {
           Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
         </h2>
       </div>
-
-      {/* Sections with IDs */}
-      <section id="projects" className="h-screen">Projects Content</section>
-      <section id="paslaugos" className="h-screen">Services Content</section>
-      <section id="apie-mus" className="h-screen">About Us Content</section>
-      <section id="kainos" className="h-screen">Prices Content</section>
-      <section id="contact" className="h-screen">Contact Content</section>
     </div>
   );
 }
