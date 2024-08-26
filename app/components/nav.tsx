@@ -147,19 +147,19 @@ export const Navigation: React.FC = () => {
           </div>
 
           <nav className="flex flex-col items-start space-y-6 p-6 flex-grow">
-            <Link href="/atlikti-darbai" className="nav-link" onClick={toggleMenu}>
+            <Link href="/atlikti-darbai" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
               Atlikti Darbai
             </Link>
-            <Link href="/paslaugos" className="nav-link" onClick={toggleMenu}>
+            <Link href="/paslaugos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="nav-link" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" className="nav-link" onClick={toggleMenu}>
+            <Link href="/kainos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/contact" className="nav-link" onClick={toggleMenu}>
+            <Link href="/contact" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
