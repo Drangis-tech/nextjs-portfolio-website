@@ -4,16 +4,16 @@
 
 /* Import FontAwesome CSS */
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
-@import 'magicui/dist/animated-shiny-text.css'; /* Adjust the path if necessary */
+@import 'magicui/dist/animated-shiny-text.css'; /* Adjust the path as needed */
 
+/* Base Styles */
 @layer base {
-  /* CodePen Design Styles */
   body {
     margin: 0;
     padding: 0;
     background: black;
     font-family: Arial, sans-serif;
-    color: white; /* Ensure the text color is visible */
+    color: white; /* Ensure text color is visible */
   }
 
   #container {
@@ -259,7 +259,7 @@
   }
 }
 
-/* Ensure FontAwesome icons are responsive */
+/* Media Queries */
 @media (max-width: 768px) {
   .team-member .social-icons a {
     font-size: 1rem; /* Adjust icon size for mobile */
