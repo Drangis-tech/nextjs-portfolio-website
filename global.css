@@ -12,6 +12,7 @@
     padding: 0;
     background: black;
     font-family: Arial, sans-serif;
+    color: white; /* Ensure the text color is visible */
   }
 
   #container {
@@ -213,6 +214,37 @@
   .menu-content .contact-info a:hover {
     color: #fff; /* White color on hover */
   }
+
+  /* Navigation Link Styles */
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    color: white; /* Ensure text color is visible */
+    font-size: 1.5rem; /* Increase font size for desktop */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem; /* Add padding for better spacing */
+    transition: color 0.3s ease;
+    text-decoration: none; /* Remove default underline */
+  }
+
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 }
 
 /* Ensure FontAwesome icons are responsive */
@@ -227,5 +259,9 @@
 
   .menu-content .contact-info {
     font-size: 0.75rem; /* Even smaller font size for mobile */
+  }
+
+  .nav-link {
+    font-size: 1.25rem; /* Slightly smaller font size for mobile */
   }
 }
