@@ -41,7 +41,7 @@ export default function Home() {
       <canvas id="bgCanvas" className="absolute top-0 left-0" />
       <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Include Navigation component for both mobile and desktop */}
+      {/* Include Navigation component with a hidden back button */}
       <header className="w-full">
         <Navigation />
       </header>
