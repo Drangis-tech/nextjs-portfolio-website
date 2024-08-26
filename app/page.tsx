@@ -47,16 +47,17 @@ export default function Home() {
       </div>
 
       <nav className="hidden md:flex my-16 animate-fade-in z-10">
-        <ul className="flex items-center justify-center gap-8"> {/* Increase gap to accommodate larger text */}
+        <ul className="flex items-center justify-center gap-12"> {/* Increased gap to accommodate larger text */}
           {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="nav-link"
-              aria-label={item.name}
-            >
-              {item.name}
-            </Link>
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="nav-link"
+                aria-label={item.name}
+              >
+                {item.name}
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>
