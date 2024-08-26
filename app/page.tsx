@@ -4,6 +4,7 @@ import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
+import 'magicui/dist/animated-shiny-text.css'; // Import Magic UI CSS
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -66,7 +67,7 @@ export default function Home() {
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-white shine-effect">
+        <h2 className="text-sm text-white animated-shiny-text">
           Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
         </h2>
       </div>
