@@ -212,14 +212,14 @@
   }
 
   .menu-content .contact-info a:hover {
-    color: #fff; /* White color on hover */
+    color: #ce0808; /* White color on hover */
   }
 
   /* Navigation Link Styles */
   .nav-link {
     position: relative;
     display: inline-block;
-    color: #ff0000; /* More gray color for default */
+    color: #aaa; /* More gray color for default */
     font-size: 1rem; /* Similar size to other subpages */
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -242,7 +242,7 @@
   }
 
   .nav-link:hover {
-    color: yellow; /* Change text color to white on hover */
+    color: white; /* Change text color to white on hover */
   }
 
   .nav-link:hover::before {
