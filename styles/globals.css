@@ -228,7 +228,7 @@
     text-decoration: none; /* Remove default underline */
   }
 
-  .nav-link::after {
+  .nav-link::before {
     content: "";
     position: absolute;
     left: 0;
@@ -242,10 +242,10 @@
   }
 
   .nav-link:hover {
-    color: white; /* Change text color to white on hover */
+    color: yellow; /* Change text color to white on hover */
   }
 
-  .nav-link:hover::after {
+  .nav-link:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
     background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b); /* Gradient color */
