@@ -33,6 +33,13 @@
     scrollbar-width: none;
   }
 
+  /* Consistent padding and margin for the navigation container */
+  .container {
+    padding-left: 16px; /* Add left padding to match the main page */
+    padding-right: 16px; /* Add right padding to match the main page */
+    margin: 0 auto; /* Center the container */
+  }
+
   /* Text Edge Outline */
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
