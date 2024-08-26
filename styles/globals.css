@@ -219,7 +219,7 @@
   .nav-link {
     position: relative;
     display: inline-block;
-    color: #aaa; /* More gray color for default */
+    color: #ff0000; /* More gray color for default */
     font-size: 1rem; /* Similar size to other subpages */
     text-transform: uppercase;
     letter-spacing: 0.1em;
