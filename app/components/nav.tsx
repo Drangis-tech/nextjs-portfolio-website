@@ -82,31 +82,31 @@ export const Navigation: React.FC = () => {
             <div className="hidden md:flex gap-8">
               <Link
                 href="/atlikti-darbai"
-                className="nav-link"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Atlikti Darbai
               </Link>
               <Link
                 href="/paslaugos"
-                className="nav-link"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Paslaugos
               </Link>
               <Link
                 href="/apie-mus"
-                className="nav-link"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Apie Mus
               </Link>
               <Link
                 href="/kainos"
-                className="nav-link"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Kainos
               </Link>
               <Link
                 href="/contact"
-                className="nav-link"
+                className="text-zinc-400 transition-all duration-200 ease-in-out text-gradient"
               >
                 Kontaktai
               </Link>
@@ -147,19 +147,19 @@ export const Navigation: React.FC = () => {
           </div>
 
           <nav className="flex flex-col items-start space-y-6 p-6 flex-grow">
-            <Link href="/atlikti-darbai" className="nav-link" onClick={toggleMenu}>
+            <Link href="/atlikti-darbai" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Atlikti Darbai
             </Link>
-            <Link href="/paslaugos" className="nav-link" onClick={toggleMenu}>
+            <Link href="/paslaugos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Paslaugos
             </Link>
-            <Link href="/apie-mus" className="nav-link" onClick={toggleMenu}>
+            <Link href="/apie-mus" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Apie Mus
             </Link>
-            <Link href="/kainos" className="nav-link" onClick={toggleMenu}>
+            <Link href="/kainos" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Kainos
             </Link>
-            <Link href="/contact" className="nav-link" onClick={toggleMenu}>
+            <Link href="/contact" className="text-white text-3xl transition-transform duration-300 ease-in-out hover:text-gradient hover:scale-105" onClick={toggleMenu}>
               Kontaktai
             </Link>
           </nav>
@@ -169,7 +169,7 @@ export const Navigation: React.FC = () => {
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
               <a href="mailto:info@brandforge.lt" className="text-gray-500">
-                info@brandforge.lt
+              info@brandforge.lt
               </a>
             </div>
             <div className="flex items-center space-x-2">
