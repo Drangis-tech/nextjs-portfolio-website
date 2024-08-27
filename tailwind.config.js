@@ -1,9 +1,10 @@
+// tailwind.config.js
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",   // Adjust paths as needed
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./mdx-components.tsx",
     "content/**/*.mdx",
   ],
@@ -44,73 +45,31 @@ module.exports = {
       },
       keyframes: {
         "fade-in": {
-          "0%": {
-            opacity: "0",
-          },
-          "75%": {
-            opacity: "0",
-          },
-          "100%": {
-            opacity: "1",
-          },
+          "0%": { opacity: "0" },
+          "75%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         "fade-left": {
-          "0%": {
-            transform: "translateX(100%)",
-            opacity: "0",
-          },
-          "30%": {
-            transform: "translateX(0)",
-            opacity: "1",
-          },
-          "100%": {
-            opacity: "0",
-          },
+          "0%": { transform: "translateX(100%)", opacity: "0" },
+          "30%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { opacity: "0" },
         },
         "fade-right": {
-          "0%": {
-            transform: "translateX(-100%)",
-            opacity: "0",
-          },
-          "30%": {
-            transform: "translateX(0)",
-            opacity: "1",
-          },
-          "100%": {
-            opacity: "0",
-          },
+          "0%": { transform: "translateX(-100%)", opacity: "0" },
+          "30%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { opacity: "0" },
         },
         title: {
-          "0%": {
-            "line-height": "0",
-            "letter-spacing": "0.25em",
-            opacity: "0",
-          },
-          "25%": {
-            "line-height": "0",
-            opacity: "0",
-          },
-          "80%": {
-            opacity: "1",
-          },
-          "100%": {
-            "line-height": "1",
-            opacity: "1",
-          },
+          "0%": { "line-height": "0", "letter-spacing": "0.25em", opacity: "0" },
+          "25%": { "line-height": "0", opacity: "0" },
+          "80%": { opacity: "1" },
+          "100%": { "line-height": "1", opacity: "1" },
         },
-        shimmer: {  // Shimmer keyframes
-          "0%": {
-            "background-position": "calc(-100% - var(--shimmer-width)) 0",
-          },
-          "30%": {
-            "background-position": "calc(100% + var(--shimmer-width)) 0",
-          },
-          "60%": {
-            "background-position": "calc(-100% - var(--shimmer-width)) 0",
-          },
-          "100%": {
-            "background-position": "calc(100% + var(--shimmer-width)) 0",
-          },
+        shimmer: {
+          "0%": { "background-position": "calc(-100% - var(--shimmer-width)) 0" },
+          "30%": { "background-position": "calc(100% + var(--shimmer-width)) 0" },
+          "60%": { "background-position": "calc(-100% - var(--shimmer-width)) 0" },
+          "100%": { "background-position": "calc(100% + var(--shimmer-width)) 0" },
         },
       },
       backdropBlur: {
@@ -122,7 +81,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),   // Ensure these plugins are installed
+    require("@tailwindcss/typography"),
     require("tailwindcss-debug-screens"),
   ],
 };
