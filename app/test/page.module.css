@@ -7,9 +7,6 @@
     height: 100vh;
     overflow: hidden;
     background: #1D1F20; /* Dark background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   /* Gradient Border Style */
@@ -26,6 +23,7 @@
     justify-content: center;
     width: 400px;
     height: 200px;
+    z-index: 1;
   }
   
   /* Gradient Border Animation */
@@ -59,32 +57,27 @@
   .shape {
     position: absolute;
     border: 3px solid transparent;
-    background: transparent;
-    z-index: -1;
+    z-index: 0;
   }
   
   /* Circle */
   .circle {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    border-width: 10px;
-    background: linear-gradient(#1d1f20, #1d1f20) padding-box, 
-                linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) border-box;
-    top: 20%;
+    border: 5px solid linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    top: 10%;
     left: 20%;
     transform: translate(-50%, -50%);
   }
   
   /* Square */
   .square {
-    width: 150px;
-    height: 150px;
-    border-width: 10px;
-    background: linear-gradient(#1d1f20, #1d1f20) padding-box, 
-                linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) border-box;
+    width: 180px;
+    height: 180px;
+    border: 5px solid linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     top: 50%;
-    left: 20%;
+    left: 70%;
     transform: translate(-50%, -50%);
   }
   
@@ -92,18 +85,12 @@
   .triangle {
     width: 0;
     height: 0;
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-bottom: 130px solid transparent;
-    border-bottom-color: transparent;
-    border-top: 65px solid transparent;
-    border-top-color: transparent;
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-bottom: 130px solid;
-    background: linear-gradient(#1d1f20, #1d1f20) padding-box, 
-                linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) border-box;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 173px solid transparent;
+    border-bottom-color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    position: absolute;
     top: 70%;
-    left: 70%;
+    left: 40%;
     transform: translate(-50%, -50%) rotate(180deg);
   }

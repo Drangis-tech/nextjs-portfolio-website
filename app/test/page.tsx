@@ -8,9 +8,9 @@ const TestPage = () => {
       <div className={styles['gradient-border']}>
         Animated <br />CSS<br />Gradient Border
       </div>
-      <div className={styles['shape'] + ' ' + styles.circle}></div> {/* Circle outline */}
-      <div className={styles['shape'] + ' ' + styles.square}></div> {/* Square outline */}
-      <div className={styles['shape'] + ' ' + styles.triangle}></div> {/* Triangle outline */}
+      <div className={`${styles['shape']} ${styles.circle}`}></div> {/* Circle outline */}
+      <div className={`${styles['shape']} ${styles.square}`}></div> {/* Square outline */}
+      <div className={`${styles['shape']} ${styles.triangle}`}></div> {/* Triangle outline */}
     </div>
   );
 };
