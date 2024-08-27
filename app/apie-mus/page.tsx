@@ -95,11 +95,11 @@ const ApieMus: React.FC = () => {
         ))}
       </div>
 
-      {/* Divider Line After About Us Sections */}
+      {/* Divider Line Between "Komanda" Heading and Team Grid */}
       <div className="w-full h-px bg-zinc-800 mt-12" />
 
       {/* Team Section */}
-      <div className="mt-12 px-6 max-w-7xl lg:px-8 mx-auto">
+      <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto">
         <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
           Komanda
         </h2>
@@ -123,9 +123,6 @@ const ApieMus: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* Divider Line Below Team Section */}
-      <div className="w-full h-px bg-zinc-800 mt-12" />
     </div>
   );
 };
