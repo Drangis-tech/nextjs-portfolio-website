@@ -40,10 +40,10 @@
     position: absolute;
     width: 300px; /* Larger size */
     height: 300px; /* Larger size */
-    border: 10px solid transparent; /* Thicker border */
+    border: 10px solid transparent; /* Transparent fill with visible border */
     border-radius: 50%;
     background: linear-gradient(white, white) padding-box,
-                linear-gradient(45deg, #ff6b6b, #f06595) border-box;
+                linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5)) border-box; /* Gradient border */
     top: 30%;
     left: 30%;
     transform: translate(-50%, -50%);
@@ -54,9 +54,9 @@
     position: absolute;
     width: 250px; /* Larger size */
     height: 250px; /* Larger size */
-    border: 10px solid transparent; /* Thicker border */
+    border: 10px solid transparent; /* Transparent fill with visible border */
     background: linear-gradient(white, white) padding-box,
-                linear-gradient(45deg, #ff9a8b, #f8e5e0) border-box;
+                linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 0, 0.5)) border-box; /* Gradient border */
     top: 70%;
     left: 20%;
     transform: translate(-50%, -50%);
@@ -72,7 +72,7 @@
     border-bottom: 260px solid transparent; /* Larger size */
     border-bottom-color: transparent;
     background: linear-gradient(white, white) padding-box,
-                linear-gradient(45deg, #f8e5e0, #ff9a8b) border-box;
+                linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 255, 0.5)) border-box; /* Gradient border */
     top: 50%;
     left: 70%;
     transform: translate(-50%, -50%) rotate(180deg);
