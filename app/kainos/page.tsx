@@ -30,9 +30,9 @@ const PricingCalculator: React.FC = () => {
   };
 
   return (
-    <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-6 md:p-10">
-      <article className="relative w-full h-full p-6 md:p-10 bg-[rgba(28, 28, 30, 0.8)] rounded-lg backdrop-blur-sm">
-        <h3 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl mb-8">
+    <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-6 md:p-8">
+      <article className="relative w-full h-full p-6 md:p-8 bg-[rgba(28, 28, 30, 0.8)] rounded-lg backdrop-blur-sm">
+        <h3 className="text-2xl font-semibold text-zinc-100 mb-8 md:text-3xl md:mb-10">
           Apskaičiuokite savo svetainės kainą
         </h3>
 
@@ -163,13 +163,15 @@ const KainosPage: React.FC = () => {
     <div className="relative pb-16 bg-gradient-to-b from-black via-zinc-900 to-black">
       <Navigation />
       <div className="relative px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Kainos</h2>
-          <p className="mt-4 text-zinc-400">
+        <div className="max-w-3xl mx-auto lg:mx-0 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-8">
+            Kainos
+          </h2>
+          <p className="mt-4 text-lg text-zinc-400">
             Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
           </p>
         </div>
-        <div className="w-full h-px bg-zinc-800 mb-8" />
+        <div className="w-full h-px bg-zinc-800 mb-12" />
         <PricingCalculator />
       </div>
     </div>
