@@ -95,7 +95,7 @@ const ApieMus: React.FC = () => {
         ))}
       </div>
 
-      {/* Divider Line */}
+      {/* Divider Line After About Us Sections */}
       <div className="w-full h-px bg-zinc-800 mt-12" />
 
       {/* Team Section */}
@@ -123,9 +123,6 @@ const ApieMus: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* Divider Line After Team Section */}
-      <div className="w-full h-px bg-zinc-800 mt-12" />
     </div>
   );
 };
