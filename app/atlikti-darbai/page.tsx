@@ -78,12 +78,12 @@ const AtliktiDarbai: React.FC = () => {
       <Navigation />
 
       {/* Header Section */}
-      <div className="px-6 pt-28 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-36 lg:pt-48">
+      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl md:text-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Atlikti Projektai
           </h2>
-          <p className="mt-4 text-zinc-400 text-base sm:text-lg md:text-xl">
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg">
             Sužinokite daugiau apie mūsų atliktus darbus, kurie atspindi mūsų kompetenciją ir patirtį.
           </p>
         </div>
@@ -91,7 +91,7 @@ const AtliktiDarbai: React.FC = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="px-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl">
         {projects.map((project, index) => (
           <Card
             key={index}
