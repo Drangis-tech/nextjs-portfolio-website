@@ -1,6 +1,6 @@
-import React from "react";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import React from 'react';
+import { Navigation } from '../components/nav';
+import { Card } from '../components/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 
@@ -63,7 +63,8 @@ const ApieMus: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full h-px bg-zinc-800" />
+      {/* Divider Line */}
+      <div className="divider" />
 
       {/* About Us Sections */}
       <div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto">
@@ -93,7 +94,8 @@ const ApieMus: React.FC = () => {
         ))}
       </div>
 
-      <div className="w-full h-px bg-zinc-800" />
+      {/* Divider Line */}
+      <div className="divider" />
 
       {/* Team Section */}
       <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto">
