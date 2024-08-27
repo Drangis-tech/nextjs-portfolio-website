@@ -150,11 +150,11 @@ const KainosPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-zinc-100 sm:text-4xl mb-6">
             Kainos
           </h2>
-          <p className="text-lg text-zinc-400">
+          <p className="text-base text-zinc-400 mb-12">
             Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
           </p>
         </div>
-        <div className="w-full h-px bg-zinc-800 my-12" />
+        <div className="w-full h-px bg-zinc-800 my-16" />
         <PricingCalculator />
       </div>
     </div>
