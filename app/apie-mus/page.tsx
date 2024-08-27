@@ -4,7 +4,7 @@ import React from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faBriefcase, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 
 // Team Data
 const teamData = [
@@ -29,10 +29,10 @@ const teamData = [
   // Add more team members as needed
 ];
 
-// Komanda Data
-const komandaData = [
+// About Us Data
+const aboutUsData = [
   {
-    title: "Komanda",
+    title: "Mūsų Komanda",
     description: "Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.",
     detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo."
   },
@@ -48,7 +48,7 @@ const komandaData = [
   },
 ];
 
-const Komanda: React.FC = () => {
+const ApieMus: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -57,26 +57,26 @@ const Komanda: React.FC = () => {
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Komanda
+            Apie Mus
           </h1>
           <p className="mt-4 text-zinc-400">
-            Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.
+            Sužinokite daugiau apie mūsų komandą, viziją ir vertybes, kurios veda mūsų misiją.
           </p>
         </div>
         {/* Divider Line */}
         <div className="w-full h-px bg-zinc-800" />
       </div>
 
-      {/* Komanda Sections */}
+      {/* About Us Sections */}
       <div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto">
-        {komandaData.map((section, index) => (
+        {aboutUsData.map((section, index) => (
           <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
             <Card className="w-full md:w-1/2 flex-shrink-0">
               <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                 <div className="text-4xl text-zinc-100">
-                  {section.title === "Komanda" && <FontAwesomeIcon icon={faUsers} />}
-                  {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faBriefcase} />}
-                  {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faLaptopCode} />}
+                  {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} />}
+                  {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} />}
+                  {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} />}
                 </div>
                 <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
                   {section.title}
@@ -95,7 +95,7 @@ const Komanda: React.FC = () => {
         ))}
       </div>
 
-      {/* Divider Line After Komanda Sections */}
+      {/* Divider Line After About Us Sections */}
       <div className="w-full h-px bg-zinc-800 mt-12" />
 
       {/* Team Section */}
@@ -127,4 +127,4 @@ const Komanda: React.FC = () => {
   );
 };
 
-export default Komanda;
+export default ApieMus;
