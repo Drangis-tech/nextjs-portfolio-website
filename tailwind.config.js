@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",   // Adjust paths as needed
     "./mdx-components.tsx",
     "content/**/*.mdx",
   ],
@@ -122,7 +122,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
+    require("@tailwindcss/typography"),   // Ensure these plugins are installed
     require("tailwindcss-debug-screens"),
   ],
 };
