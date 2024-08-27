@@ -20,7 +20,7 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 2px, transparent 2px) repeat;
-    background-size: 40px 40px; /* Increase background size to create larger gaps */
+    background-size: 50px 50px; /* Adjust background size to create larger gaps */
     z-index: -1;
   }
   
@@ -36,36 +36,34 @@
   }
   
   /* Circle Outline */
-  .gradient-figures::before {
-    content: '';
+  .circle {
     position: absolute;
     width: 150px;
     height: 150px;
-    border: 3px solid transparent;
+    border: 4px solid transparent;
     border-radius: 50%;
     background: linear-gradient(45deg, #ff6b6b, #f06595);
     border-image: linear-gradient(45deg, #ff6b6b, #f06595) 1;
-    top: 10%;
-    left: 10%;
+    top: 20%;
+    left: 20%;
     transform: translate(-50%, -50%);
   }
   
   /* Square Outline */
-  .gradient-figures::after {
-    content: '';
+  .square {
     position: absolute;
     width: 120px;
     height: 120px;
-    border: 3px solid transparent;
+    border: 4px solid transparent;
     background: linear-gradient(45deg, #ff9a8b, #f8e5e0);
     border-image: linear-gradient(45deg, #ff9a8b, #f8e5e0) 1;
     top: 60%;
-    left: 50%;
+    left: 30%;
     transform: translate(-50%, -50%);
   }
   
   /* Triangle Outline */
-  .gradient-figures div.triangle {
+  .triangle {
     position: absolute;
     width: 0;
     height: 0;
@@ -75,8 +73,8 @@
     border-bottom: 104px solid;
     border-image: linear-gradient(45deg, #f8e5e0, #ff9a8b);
     border-image-slice: 1;
-    top: 30%;
-    left: 80%;
+    top: 40%;
+    left: 70%;
     transform: translate(-50%, -50%) rotate(180deg);
   }
   
