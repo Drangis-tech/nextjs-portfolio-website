@@ -8,19 +8,16 @@ const TestPage = () => {
       {/* Circle */}
       <div 
         className={`${styles['shape']} ${styles['circle']}`} 
-        style={{ top: '10%', left: '10%' }} // Position of circle
       ></div>
       
       {/* Square */}
       <div 
         className={`${styles['shape']} ${styles['square']}`} 
-        style={{ top: '40%', left: '30%' }} // Position of square
       ></div>
       
       {/* Triangle */}
       <div 
         className={`${styles['shape']} ${styles['triangle']}`} 
-        style={{ bottom: '10%', right: '10%' }} // Position of triangle
       ></div>
     </div>
   );
