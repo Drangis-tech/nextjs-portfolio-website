@@ -56,8 +56,9 @@
   /* Shape Outlines */
   .shape {
     position: absolute;
-    border: 5px solid; /* Border width for outlines */
     background: transparent; /* No fill */
+    border: 10px solid; /* Border width for outlines */
+    border-image-slice: 1;
     z-index: 0;
   }
   
@@ -65,8 +66,9 @@
   .circle {
     width: 200px;
     height: 200px;
+    border-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     border-radius: 50%;
-    border-color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-image-source: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     top: 10%;
     left: 20%;
     transform: translate(-50%, -50%);
@@ -76,7 +78,9 @@
   .square {
     width: 180px;
     height: 180px;
-    border-color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-image-source: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-image-slice: 1;
     top: 50%;
     left: 70%;
     transform: translate(-50%, -50%);
@@ -89,7 +93,10 @@
     border-left: 100px solid transparent;
     border-right: 100px solid transparent;
     border-bottom: 173px solid transparent;
-    border-bottom-color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-bottom-color: transparent; /* No fill */
+    border-image: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-image-source: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-image-slice: 1;
     position: absolute;
     top: 70%;
     left: 40%;
