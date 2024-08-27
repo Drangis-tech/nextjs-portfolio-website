@@ -40,6 +40,7 @@ module.exports = {
         title: "title 3s ease-out forwards",
         "fade-left": "fade-left 3s ease-in-out forwards",
         "fade-right": "fade-right 3s ease-in-out forwards",
+        shimmer: "shimmer 8s infinite",  // Added shimmer animation
       },
       keyframes: {
         "fade-in": {
@@ -95,6 +96,14 @@ module.exports = {
           "100%": {
             "line-height": "100%",
             opacity: "100%",
+          },
+        },
+        shimmer: {  // Added shimmer keyframes
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
           },
         },
       },
