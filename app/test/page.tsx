@@ -6,7 +6,7 @@ const TestPage = () => {
   return (
     <div className={styles['background-container']}>
       <div className={styles['gradient-border']}>
-        Animated <br />CSS<br />Gradient Border
+        Gradient Border
       </div>
       <div className={`${styles['shape']} ${styles.circle}`}></div> {/* Circle outline */}
       <div className={`${styles['shape']} ${styles.square}`}></div> {/* Square outline */}
