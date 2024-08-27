@@ -99,7 +99,7 @@ const ApieMus: React.FC = () => {
       <div className="w-full h-px bg-zinc-800 mt-12" />
 
       {/* Team Section */}
-      <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto">
+      <div className="mt-12 px-6 max-w-7xl lg:px-8 mx-auto">
         <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
           Komanda
         </h2>
