@@ -83,7 +83,7 @@ const AtliktiDarbai: React.FC = () => {
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Atlikti Projektai
           </h2>
-          <p className="mt-4 text-zinc-400 text-base sm:text-lg md:text-xl">
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg">
             Sužinokite daugiau apie mūsų atliktus darbus, kurie atspindi mūsų kompetenciją ir patirtį.
           </p>
         </div>
