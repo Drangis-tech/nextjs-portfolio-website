@@ -54,10 +54,10 @@ const ApieMus: React.FC = () => {
       {/* Hero Section */}
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl md:text-6xl">
+          <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Apie Mus
           </h1>
-          <p className="mt-6 text-lg text-zinc-400">
+          <p className="mt-4 text-zinc-400">
             Sužinokite daugiau apie mūsų komandą, viziją ir vertybes, kurios veda mūsų misiją.
           </p>
         </div>
@@ -72,7 +72,6 @@ const ApieMus: React.FC = () => {
             <Card className="w-full md:w-1/2 flex-shrink-0">
               <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                 <div className="text-4xl text-zinc-100">
-                  {/* Apply FontAwesome icon size classes */}
                   {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} />}
                   {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} />}
                   {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} />}
@@ -98,7 +97,7 @@ const ApieMus: React.FC = () => {
 
       {/* Team Section */}
       <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto">
-        <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl md:text-5xl">
+        <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
           Komanda
         </h2>
 
@@ -107,7 +106,6 @@ const ApieMus: React.FC = () => {
             <Card key={index} className="w-full">
               <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
                 <div className="text-xs text-zinc-100">
-                  {/* Team member role */}
                   <span>{member.role}</span>
                 </div>
 
