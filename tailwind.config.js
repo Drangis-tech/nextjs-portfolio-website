@@ -99,10 +99,16 @@ module.exports = {
           },
         },
         shimmer: {  // Added shimmer keyframes
-          "0%, 90%, 100%": {
+          "0%": {
             "background-position": "calc(-100% - var(--shimmer-width)) 0",
           },
-          "30%, 60%": {
+          "30%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
+          },
+          "60%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
+          },
+          "100%": {
             "background-position": "calc(100% + var(--shimmer-width)) 0",
           },
         },
