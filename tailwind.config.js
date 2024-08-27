@@ -40,7 +40,7 @@ module.exports = {
         title: "title 3s ease-out forwards",
         "fade-left": "fade-left 3s ease-in-out forwards",
         "fade-right": "fade-right 3s ease-in-out forwards",
-        shimmer: "shimmer 8s infinite", // Shimmer animation
+        shimmer: "shimmer 8s infinite",
       },
       keyframes: {
         "fade-in": {
