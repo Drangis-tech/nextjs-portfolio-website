@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
@@ -61,10 +63,9 @@ const ApieMus: React.FC = () => {
             Sužinokite daugiau apie mūsų komandą, viziją ir vertybes, kurios veda mūsų misiją.
           </p>
         </div>
+        {/* Divider Line */}
+        <div className="w-full h-px bg-zinc-800" />
       </div>
-
-      {/* Divider Line */}
-      <div className="divider" />
 
       {/* About Us Sections */}
       <div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto">
@@ -95,7 +96,7 @@ const ApieMus: React.FC = () => {
       </div>
 
       {/* Divider Line */}
-      <div className="divider" />
+      <div className="w-full h-px bg-zinc-800" />
 
       {/* Team Section */}
       <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto">
