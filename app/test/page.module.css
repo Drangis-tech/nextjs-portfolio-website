@@ -5,11 +5,57 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden; /* Hide overflowed content */
-    background-color: #1d1f20; /* Dark background */
+    overflow: hidden;
+    background: #1D1F20; /* Dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  /* Shapes with Gradient Borders and Transparent Centers */
+  /* Gradient Border Style */
+  .gradient-border {
+    --borderWidth: 3px;
+    background: #1D1F20;
+    position: relative;
+    border-radius: var(--borderWidth);
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+  }
+  
+  /* Gradient Border Animation */
+  .gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+  
+  @keyframes animatedgradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Shape Outlines */
   .shape {
     position: absolute;
     border: 3px solid transparent;
@@ -19,10 +65,10 @@
   
   /* Circle */
   .circle {
-    width: 150px; /* Adjust size */
-    height: 150px; /* Adjust size */
-    border-radius: 50%; /* Circular shape */
-    border-width: 10px; /* Gradient border width */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-width: 10px;
     background: linear-gradient(#1d1f20, #1d1f20) padding-box, 
                 linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) border-box;
     top: 20%;
@@ -32,9 +78,9 @@
   
   /* Square */
   .square {
-    width: 150px; /* Adjust size */
-    height: 150px; /* Adjust size */
-    border-width: 10px; /* Gradient border width */
+    width: 150px;
+    height: 150px;
+    border-width: 10px;
     background: linear-gradient(#1d1f20, #1d1f20) padding-box, 
                 linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) border-box;
     top: 50%;
@@ -46,9 +92,9 @@
   .triangle {
     width: 0;
     height: 0;
-    border-left: 75px solid transparent; /* Adjust size */
-    border-right: 75px solid transparent; /* Adjust size */
-    border-bottom: 130px solid transparent; /* Adjust size */
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 130px solid transparent;
     border-bottom-color: transparent;
     border-top: 65px solid transparent;
     border-top-color: transparent;
@@ -60,19 +106,4 @@
     top: 70%;
     left: 70%;
     transform: translate(-50%, -50%) rotate(180deg);
-  }
-  
-  /* Title and Description */
-  .title {
-    color: white;
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 20px;
-  }
-  
-  .description {
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-    margin-top: 10px;
   }

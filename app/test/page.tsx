@@ -1,15 +1,16 @@
 // app/test/page.tsx
 import React from 'react';
-import styles from './page.module.css'; // Import the updated CSS module
+import styles from './page.module.css'; // Import the CSS module
 
 const TestPage = () => {
   return (
     <div className={styles['background-container']}>
+      <div className={styles['gradient-border']}>
+        Animated <br />CSS<br />Gradient Border
+      </div>
       <div className={styles['shape'] + ' ' + styles.circle}></div> {/* Circle outline */}
       <div className={styles['shape'] + ' ' + styles.square}></div> {/* Square outline */}
       <div className={styles['shape'] + ' ' + styles.triangle}></div> {/* Triangle outline */}
-      <h1 className={styles.title}>Test Page</h1>
-      <p className={styles.description}>This is a test page with custom background effects.</p>
     </div>
   );
 };
