@@ -56,7 +56,8 @@
   /* Shape Outlines */
   .shape {
     position: absolute;
-    border: 3px solid transparent;
+    border: 5px solid; /* Border width for outlines */
+    background: transparent; /* No fill */
     z-index: 0;
   }
   
@@ -65,7 +66,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 5px solid linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     top: 10%;
     left: 20%;
     transform: translate(-50%, -50%);
@@ -75,7 +76,7 @@
   .square {
     width: 180px;
     height: 180px;
-    border: 5px solid linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-color: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
     top: 50%;
     left: 70%;
     transform: translate(-50%, -50%);
