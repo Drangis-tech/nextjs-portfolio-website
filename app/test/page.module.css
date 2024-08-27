@@ -7,15 +7,12 @@
     height: 100vh;
     background: #222; /* Dark background */
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   /* Gradient Border Style */
   .gradient-border {
     --border-width: 2px;
-    position: relative;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,6 +25,7 @@
     background: #222;
     border-radius: 10px;
     text-align: center;
+    z-index: 1;
   }
   
   .gradient-border:after {
@@ -73,17 +71,6 @@
   .circle {
     width: 150px;
     height: 150px;
-    border-image: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
     border-image-source: linear-gradient(
       60deg,
       hsl(224, 85%, 66%),
@@ -95,24 +82,14 @@
       hsl(134, 85%, 66%),
       hsl(179, 85%, 66%)
     );
-    border-radius: 50%;
+    border-image-slice: 1;
+    border-radius: 50%; /* Circle shape */
   }
   
   /* Square */
   .square {
     width: 150px;
     height: 150px;
-    border-image: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
     border-image-source: linear-gradient(
       60deg,
       hsl(224, 85%, 66%),
@@ -124,6 +101,7 @@
       hsl(134, 85%, 66%),
       hsl(179, 85%, 66%)
     );
+    border-image-slice: 1;
   }
   
   /* Triangle */
@@ -133,17 +111,6 @@
     border-left: 75px solid transparent;
     border-right: 75px solid transparent;
     border-bottom: 130px solid transparent;
-    border-image: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
     border-image-source: linear-gradient(
       60deg,
       hsl(224, 85%, 66%),
