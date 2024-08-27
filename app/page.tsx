@@ -4,7 +4,7 @@ import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
-import 'magicui/dist/animated-shiny-text.css'; // Import Magic UI CSS
+import { AnimatedShinyText } from '../components/magicui/animated-shiny-text'; // Import AnimatedShinyText component
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -67,12 +67,10 @@ export default function Home() {
 
       <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-white animated-shiny-text">
-          Mes padedame verslams augti
-        </h2>
-        <h2 className="text-sm text-white animated-shiny-text">
-          naudojant inovatyvius IT sprendimus.
-        </h2>
+        <AnimatedShinyText>
+          <div>Mes padedame verslams augti</div>
+          <div>naudojant inovatyvius IT sprendimus.</div>
+        </AnimatedShinyText>
       </div>
     </div>
   );
