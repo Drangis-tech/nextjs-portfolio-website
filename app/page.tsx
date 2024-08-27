@@ -4,7 +4,7 @@ import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
-import AnimatedShinyText from '../components/magicui/animated-shiny-text';
+import AnimatedShinyText from './components/magicui/animated-shiny-text';
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
   { name: "Paslaugos", href: "/paslaugos" },
