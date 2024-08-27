@@ -3,51 +3,38 @@
 @tailwind utilities;
 
 /* Import FontAwesome CSS */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-@import 'magicui/dist/animated-shiny-text.css'; /* Adjust the path as needed */
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
 
-/* CSS Variables */
-:root {
-  --background-color: black;
-  --text-color: white;
-  --title-font-size: 4rem;
-  --description-color: gray;
-  --hexagon-bg-color: #1c1c1e;
-  --text-edge-color: rgba(255, 255, 255, 0.3);
-  --link-color: #aaa;
-  --link-hover-color: white;
-  --gradient-start: #fd7e14;
-  --gradient-middle: #f77f7d;
-  --gradient-end: #f95b5b;
-}
-
-/* Base Styles */
 @layer base {
+  /* CodePen Design Styles */
   body {
     margin: 0;
     padding: 0;
-    background: var(--background-color);
+    background: black;
     font-family: Arial, sans-serif;
-    color: var(--text-color);
+    color: white; /* Ensure the text color is visible */
   }
 
   #container {
-    @apply flex flex-col items-center justify-center h-screen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
 
   .title {
-    @apply text-white uppercase;
-    color: var(--text-color);
-    font-size: var(--title-font-size);
+    color: white;
+    font-size: 4rem;
     text-transform: uppercase;
     letter-spacing: 5px;
     animation: fadeIn 2s ease-in-out;
   }
 
   .description {
-    @apply text-gray-400 text-lg mt-5;
-    color: var(--description-color);
+    color: gray; /* Adjusted text color */
     font-size: 1.5rem;
+    margin-top: 20px;
   }
 
   @keyframes fadeIn {
@@ -55,44 +42,63 @@
     to { opacity: 1; }
   }
 
+  /* Existing Custom Styles */
   .text-edge-outline {
-    -webkit-text-stroke: 1px var(--text-edge-color);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 
   .hexagon-container {
-    @apply flex flex-wrap justify-center gap-2 mt-5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .hexagon {
-    @apply relative w-24 h-14 bg-gray-800 text-white text-center;
-    background-color: var(--hexagon-bg-color);
+    position: relative;
+    width: 100px;
+    height: 55px;
+    background-color: #1c1c1e;
     margin: 27.5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 
   .hexagon span {
-    @apply absolute w-full text-center leading-14;
+    position: absolute;
+    width: 100%;
+    text-align: center;
     line-height: 55px;
   }
 
   .apie-mus {
-    @apply flex flex-col gap-5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .apie-mus .flex {
-    @apply flex items-start;
+    display: flex;
+    align-items: flex-start;
   }
 
   .apie-mus .card {
-    @apply flex-1;
+    flex: 1;
   }
 
   .apie-mus .content {
-    @apply flex-2 pl-5;
+    flex: 2;
+    padding-left: 20px;
   }
 
   .apie-mus .content h3 {
-    @apply text-lg mb-2;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
   }
 
   .apie-mus .content p {
@@ -100,75 +106,126 @@
   }
 
   .team-section {
-    @apply text-center;
+    text-align: center;
   }
 
   .team-section .team-members {
-    @apply flex justify-center flex-wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensure responsiveness */
   }
 
   .team-member {
-    @apply text-center m-2;
+    text-align: center;
+    margin: 10px; /* Add margin for spacing */
   }
 
   .team-member .social-icons a {
-    @apply inline-block mx-1 text-gray-400 text-xl transition-colors;
-    color: #ccc;
-    transition: color 0.3s ease;
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 1.25rem; /* Adjust icon size */
+    color: #ccc; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition */
   }
 
   .team-member .social-icons a:hover {
-    color: var(--text-color);
+    color: #fff; /* Change icon color on hover */
   }
 
+  /* Style for the backdrop overlay */
   .backdrop {
-    @apply backdrop-blur-lg;
-    z-index: 30;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    z-index: 30; /* Ensure it's behind the menu */
   }
 
+  /* Style for the side menu */
   .menu-content {
-    @apply relative overflow-hidden;
-    backdrop-filter: none;
-    z-index: 50;
+    backdrop-filter: none; /* No blur effect on the menu */
+    z-index: 50; /* Ensure it's in front of the backdrop */
+    position: relative;
+    overflow: hidden;
   }
 
+  /* Language Selector */
   .language-selector {
-    @apply absolute top-4 left-4 flex items-center bg-gray-800 border border-gray-600 rounded px-2 cursor-pointer text-white;
+    position: absolute;
+    top: 16px; /* Adjust according to the design */
+    left: 16px; /* Align with the close button */
+    display: flex;
+    align-items: center;
+    background-color: #333; /* Background color */
+    border: 1px solid #555; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 4px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    color: #fff; /* Text color */
   }
 
   .language-selector .flag-icon {
-    @apply w-6 h-6 bg-cover bg-center;
+    width: 24px; /* Icon size */
+    height: 24px; /* Icon size */
+    background-size: cover;
+    background-position: center;
   }
 
   .language-selector .dropdown {
-    @apply absolute top-full left-0 bg-gray-800 border border-gray-600 rounded flex-col mt-1 hidden;
-    z-index: 100;
+    position: absolute;
+    top: 100%; /* Aligns below the selector */
+    left: 0;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    display: none;
+    flex-direction: column;
+    margin-top: 4px; /* Space between selector and dropdown */
+    z-index: 100; /* Ensure dropdown is on top */
   }
 
   .language-selector.open .dropdown {
-    @apply flex;
+    display: flex;
   }
 
   .language-selector .dropdown select {
-    @apply bg-transparent border-none text-white p-2 cursor-pointer text-sm;
-    outline: none;
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: #fff; /* White text color */
+    padding: 8px;
+    cursor: pointer; /* Pointer cursor */
+    font-size: 0.875rem; /* Font size */
+    outline: none; /* Remove outline */
   }
 
   .menu-content .contact-info {
-    @apply text-gray-400 text-xs absolute bottom-4 left-4 w-[calc(100%-2rem)] text-center;
+    color: #bbb; /* Grey color for contact info */
+    font-size: 0.875rem; /* Smaller font size */
+    position: absolute;
+    bottom: 16px; /* Space from the bottom */
+    left: 16px; /* Space from the left */
+    width: calc(100% - 32px); /* Full width minus padding */
+    text-align: center; /* Center align text */
   }
 
   .menu-content .contact-info a {
-    @apply text-gray-300 no-underline transition-colors;
+    color: #ccc; /* Light grey color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition */
   }
 
   .menu-content .contact-info a:hover {
-    color: var(--text-color);
+    color: #fff; /* White color on hover */
   }
 
+  /* Navigation Link Styles */
   .nav-link {
-    @apply relative inline-block text-gray-400 text-base uppercase tracking-wider py-2 px-4 transition-colors no-underline;
-    color: var(--link-color);
+    position: relative;
+    display: inline-block;
+    color: #aaa; /* More gray color for default */
+    font-size: 1rem; /* Similar size to other subpages */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem; /* Add padding for better spacing */
+    transition: color 0.3s ease;
+    text-decoration: none; /* Remove default underline */
   }
 
   .nav-link::before {
@@ -178,14 +235,14 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+    background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b); /* Gradient color */
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
   }
 
   .nav-link:hover {
-    color: var(--link-hover-color);
+    color: white; /* Change text color to white on hover */
   }
 
   .nav-link:hover::before {
@@ -193,44 +250,33 @@
     transform-origin: bottom left;
   }
 
+  /* Specific text styles */
   .info-text {
-    @apply text-gray-400 text-xl mt-2;
-    color: var(--link-color);
-    font-size: 1.125rem;
+    color: #aaa; /* Gray color for specified text */
+    font-size: 1.125rem; /* Adjust font size */
+    margin-top: 10px;
   }
 }
 
-/* Media Queries */
+/* Ensure FontAwesome icons are responsive */
 @media (max-width: 768px) {
   .team-member .social-icons a {
-    @apply text-base;
+    font-size: 1rem; /* Adjust icon size for mobile */
   }
 
   .menu-content .language-selector select {
-    @apply text-sm;
+    font-size: 0.75rem; /* Smaller font size for select on mobile */
   }
 
   .menu-content .contact-info {
-    @apply text-xs;
+    font-size: 0.75rem; /* Even smaller font size for mobile */
   }
 
   .nav-link {
-    @apply text-sm;
+    font-size: 0.875rem; /* Smaller font size for mobile */
   }
 
   .info-text {
-    @apply text-base;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    @apply text-3xl;
-    font-size: 3rem;
-  }
-
-  .description {
-    @apply text-xl;
-    font-size: 1.25rem;
+    font-size: 1rem; /* Adjust font size for mobile */
   }
 }
