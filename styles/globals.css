@@ -42,25 +42,6 @@
     to { opacity: 1; }
   }
 
-  /* Hero Section Styles */
-  .hero-section {
-    text-align: center;
-    padding: 100px 20px 50px; /* Ensures consistent spacing */
-    background-color: #000; /* Background color, if needed */
-  }
-
-  .hero-title {
-    font-size: 3rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 10px;
-  }
-
-  .hero-description {
-    font-size: 1.25rem;
-    color: gray;
-  }
-
   /* Existing Custom Styles */
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);

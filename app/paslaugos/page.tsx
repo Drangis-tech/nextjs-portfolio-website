@@ -119,16 +119,16 @@ const Paslaugos = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-
-      {/* Hero Section */}
-      <div className="hero-section">
-        <h1 className="hero-title">Mūsų Paslaugos</h1>
-        <p className="hero-description">
-          Atraskite mūsų įvairias paslaugas, kurios padės jūsų verslui augti ir pasiekti naujas aukštumas.
-        </p>
-      </div>
-
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+        {/* Hero Section */}
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            Mūsų Paslaugos
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            Atraskite mūsų įvairias paslaugas, kurios padės jūsų verslui augti ir pasiekti naujas aukštumas.
+          </p>
+        </div>
         <div className="w-full h-px bg-zinc-800" />
 
         {/* Service Categories */}
@@ -160,7 +160,8 @@ const Paslaugos = () => {
             Naudojamos Technologijos
           </h2>
           <p className="mt-4 text-zinc-400">
-            Mes dirbame su įvairiomis pažangiomis technologijomis, kurios užtikrina mūsų projektų kokybę ir efektyvumą.
+            Mes dirbame su įvairiomis pažangiomis technologijomis, kurios
+            užtikrina mūsų projektų kokybę ir efektyvumą.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
@@ -173,7 +174,9 @@ const Paslaugos = () => {
                 <img src={tech.logo} alt={tech.name} className="w-8 h-8" />
               </div>
               <div>
-                <h4 className="text-xl font-semibold text-zinc-100">{tech.name}</h4>
+                <h4 className="text-xl font-semibold text-zinc-100">
+                  {tech.name}
+                </h4>
                 <p className="text-zinc-400">{tech.category}</p>
               </div>
             </div>
@@ -188,13 +191,14 @@ const Paslaugos = () => {
             Susisiekite su Mumis
           </h2>
           <p className="mt-4 text-zinc-400">
-            Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis šiandien ir aptarkime, kaip galime jums padėti.
+            Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
+            šiandien ir aptarkime, kaip galime jums padėti.
           </p>
           <div className="mt-6">
             <a
               href="/contact"
               className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
-            >
+              >
               Susisiekite
             </a>
           </div>
