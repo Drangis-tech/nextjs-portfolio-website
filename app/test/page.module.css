@@ -1,6 +1,6 @@
 /* app/test/page.module.css */
 
-/* Background Container */
+/* Container for the shapes */
 .background-container {
     position: relative;
     width: 100vw;
@@ -9,10 +9,9 @@
     overflow: hidden;
   }
   
-  /* Gradient Border Style */
+  /* Gradient border for shapes */
   .shape {
     position: absolute;
-    background: transparent; /* No fill */
     border-style: solid; /* Border only */
     border-width: 5px; /* Adjust border width */
     border-image-source: linear-gradient(
@@ -27,6 +26,7 @@
       #6fba82
     );
     border-image-slice: 1;
+    background: transparent; /* No fill */
   }
   
   /* Circle */
