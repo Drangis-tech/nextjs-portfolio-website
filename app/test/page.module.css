@@ -57,7 +57,7 @@
     border: 10px solid transparent; /* Transparent fill with visible border */
     background: linear-gradient(white, white) padding-box,
                 linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 0, 0.5)) border-box; /* Gradient border */
-    top: 70%;
+    top: 50%;
     left: 20%;
     transform: translate(-50%, -50%);
   }
@@ -71,11 +71,13 @@
     border-right: 150px solid transparent; /* Larger size */
     border-bottom: 260px solid transparent; /* Larger size */
     border-bottom-color: transparent;
-    background: linear-gradient(white, white) padding-box,
-                linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 255, 0.5)) border-box; /* Gradient border */
-    top: 50%;
+    border-top: 130px solid transparent;
+    border-top-color: transparent;
+    border-left: 130px solid rgba(255, 0, 0, 0.5); /* Gradient color */
+    border-right: 130px solid rgba(0, 255, 255, 0.5); /* Gradient color */
+    top: 70%;
     left: 70%;
-    transform: translate(-50%, -50%) rotate(180deg);
+    transform: translate(-50%, -50%);
   }
   
   /* Title and Description */
