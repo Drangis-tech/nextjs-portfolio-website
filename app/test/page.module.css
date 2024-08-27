@@ -12,15 +12,15 @@
     z-index: -1; /* Ensure it's behind other content */
   }
   
-  /* White Dots */
+  /* White Dots with Larger Gaps */
   .white-dots {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px) repeat;
-    background-size: 20px 20px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 2px, transparent 2px) repeat;
+    background-size: 40px 40px; /* Increase background size to create larger gaps */
     z-index: -1;
   }
   
@@ -35,30 +35,49 @@
     z-index: -1;
   }
   
+  /* Circle Outline */
   .gradient-figures::before {
     content: '';
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    width: 150px;
+    height: 150px;
+    border: 3px solid transparent;
     border-radius: 50%;
-    opacity: 0.5;
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
+    border-image: linear-gradient(45deg, #ff6b6b, #f06595) 1;
     top: 10%;
     left: 10%;
-    transform: scale(0.5);
+    transform: translate(-50%, -50%);
   }
   
+  /* Square Outline */
   .gradient-figures::after {
     content: '';
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 120px;
+    height: 120px;
+    border: 3px solid transparent;
     background: linear-gradient(45deg, #ff9a8b, #f8e5e0);
-    border-radius: 50%;
-    opacity: 0.4;
+    border-image: linear-gradient(45deg, #ff9a8b, #f8e5e0) 1;
     top: 60%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Triangle Outline */
+  .gradient-figures div.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 104px solid transparent;
+    border-bottom: 104px solid;
+    border-image: linear-gradient(45deg, #f8e5e0, #ff9a8b);
+    border-image-slice: 1;
+    top: 30%;
+    left: 80%;
+    transform: translate(-50%, -50%) rotate(180deg);
   }
   
   /* Title and Description */
