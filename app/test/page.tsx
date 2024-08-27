@@ -1,6 +1,6 @@
 // app/test/page.tsx
 import React from 'react';
-import styles from './page.module.css'; // Import the CSS module
+import styles from './page.module.css'; // Import the updated CSS module
 
 const TestPage = () => {
   return (
