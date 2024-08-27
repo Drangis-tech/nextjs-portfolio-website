@@ -148,14 +148,14 @@ const KainosPage: React.FC = () => {
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
         {/* Hero Section */}
         <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">
+          <h2 className="text-3xl font-bold text-zinc-100 sm:text-4xl mb-4">
             Kainos
           </h2>
-          <p className="text-base text-zinc-400 mt-4">
+          <p className="text-base text-zinc-400 mb-8">
             Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
           </p>
         </div>
-        <div className="w-full h-px bg-zinc-800 mt-8 mb-16" />
+        <div className="w-full h-px bg-zinc-800 mb-16" />
         <PricingCalculator />
       </div>
     </div>
