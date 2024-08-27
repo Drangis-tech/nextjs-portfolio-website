@@ -10,116 +10,49 @@
   }
   
   /* Gradient Border Style */
-  .gradient-border {
-    --border-width: 2px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: 'Lato', sans-serif;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    background: #1D1F20;
-    border-radius: 10px;
-    text-align: center;
-    z-index: 1;
-  }
-  
-  .gradient-border:after {
-    content: '';
-    position: absolute;
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: 10px;
-    z-index: -1;
-    animation: moveGradient 4s alternate infinite;
-  }
-  
-  @keyframes moveGradient {
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-  
-  /* Shape Outlines */
   .shape {
     position: absolute;
     background: transparent; /* No fill */
-    border: 5px solid; /* Border width for outlines */
-    box-sizing: border-box; /* Ensure border width is included in element size */
+    border-style: solid; /* Border only */
+    border-width: 5px; /* Adjust border width */
+    border-image-source: linear-gradient(
+      60deg,
+      #f79533,
+      #f37055,
+      #ef4e7b,
+      #a166ab,
+      #5073b8,
+      #1098ad,
+      #07b39b,
+      #6fba82
+    );
+    border-image-slice: 1;
   }
   
   /* Circle */
   .circle {
-    width: 100px; /* Adjust size */
-    height: 100px; /* Adjust size */
-    border-image-source: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
-    border-image-slice: 1;
+    width: 150px; /* Adjust size */
+    height: 150px; /* Adjust size */
     border-radius: 50%; /* Circle shape */
   }
   
   /* Square */
   .square {
-    width: 150px; /* Adjust size */
-    height: 150px; /* Adjust size */
-    border-image-source: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
-    border-image-slice: 1;
+    width: 200px; /* Adjust size */
+    height: 200px; /* Adjust size */
   }
   
   /* Triangle */
   .triangle {
     width: 0;
     height: 0;
-    border-left: 75px solid transparent; /* Adjust size */
-    border-right: 75px solid transparent; /* Adjust size */
-    border-bottom: 130px solid transparent; /* Adjust size */
-    border-image-source: linear-gradient(
-      60deg,
-      hsl(224, 85%, 66%),
-      hsl(269, 85%, 66%),
-      hsl(314, 85%, 66%),
-      hsl(359, 85%, 66%),
-      hsl(44, 85%, 66%),
-      hsl(89, 85%, 66%),
-      hsl(134, 85%, 66%),
-      hsl(179, 85%, 66%)
-    );
-    border-image-slice: 1;
-    border-bottom-width: 0; /* Remove fill */
+    border-left: 100px solid transparent; /* Adjust size */
+    border-right: 100px solid transparent; /* Adjust size */
+    border-bottom: 173px solid transparent; /* Adjust size */
+    border-bottom-color: transparent; /* Remove fill */
+    border-left-color: transparent; /* Remove fill */
+    border-right-color: transparent; /* Remove fill */
+    border-bottom-width: 173px;
+    position: relative;
+    transform: rotate(90deg); /* Adjust rotation to make it an upward triangle */
   }

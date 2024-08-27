@@ -5,12 +5,23 @@ import styles from './page.module.css'; // Import the CSS module
 const TestPage = () => {
   return (
     <div className={styles['background-container']}>
-      <div className={styles['gradient-border']}>
-        Gradient Border
-      </div>
-      <div className={`${styles['shape']} ${styles.circle}`} style={{ top: '20%', left: '10%' }}></div> {/* Circle outline */}
-      <div className={`${styles['shape']} ${styles.square}`} style={{ top: '40%', left: '50%' }}></div> {/* Square outline */}
-      <div className={`${styles['shape']} ${styles.triangle}`} style={{ bottom: '10%', right: '10%' }}></div> {/* Triangle outline */}
+      {/* Circle */}
+      <div 
+        className={`${styles['shape']} ${styles['circle']}`} 
+        style={{ top: '10%', left: '10%' }} // Position of circle
+      ></div>
+      
+      {/* Square */}
+      <div 
+        className={`${styles['shape']} ${styles['square']}`} 
+        style={{ top: '40%', left: '30%' }} // Position of square
+      ></div>
+      
+      {/* Triangle */}
+      <div 
+        className={`${styles['shape']} ${styles['triangle']}`} 
+        style={{ bottom: '10%', right: '10%' }} // Position of triangle
+      ></div>
     </div>
   );
 };
