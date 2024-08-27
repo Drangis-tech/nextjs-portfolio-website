@@ -114,6 +114,9 @@ const AtliktiDarbai: React.FC = () => {
         ))}
       </div>
 
+      {/* Divider */}
+      <div className="w-full h-px bg-zinc-800 my-8" />
+
       {/* Project Details Modal */}
       {selectedProject !== null && (
         <Dialog
