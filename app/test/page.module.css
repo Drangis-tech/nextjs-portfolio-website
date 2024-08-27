@@ -5,7 +5,7 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: #222; /* Dark background */
+    background: #1D1F20; /* Dark background */
     overflow: hidden;
   }
   
@@ -22,7 +22,7 @@
     font-family: 'Lato', sans-serif;
     font-size: 2.5rem;
     text-transform: uppercase;
-    background: #222;
+    background: #1D1F20;
     border-radius: 10px;
     text-align: center;
     z-index: 1;
@@ -64,13 +64,12 @@
     position: absolute;
     background: transparent; /* No fill */
     border: 5px solid; /* Border width for outlines */
-    border-image-slice: 1;
   }
   
   /* Circle */
   .circle {
-    width: 150px;
-    height: 150px;
+    width: 100px; /* Adjust size */
+    height: 100px; /* Adjust size */
     border-image-source: linear-gradient(
       60deg,
       hsl(224, 85%, 66%),
@@ -88,8 +87,8 @@
   
   /* Square */
   .square {
-    width: 150px;
-    height: 150px;
+    width: 150px; /* Adjust size */
+    height: 150px; /* Adjust size */
     border-image-source: linear-gradient(
       60deg,
       hsl(224, 85%, 66%),
@@ -108,9 +107,9 @@
   .triangle {
     width: 0;
     height: 0;
-    border-left: 75px solid transparent;
-    border-right: 75px solid transparent;
-    border-bottom: 130px solid transparent;
+    border-left: 75px solid transparent; /* Adjust size */
+    border-right: 75px solid transparent; /* Adjust size */
+    border-bottom: 130px solid transparent; /* Adjust size */
     border-image-source: linear-gradient(
       60deg,
       hsl(224, 85%, 66%),
@@ -123,5 +122,5 @@
       hsl(179, 85%, 66%)
     );
     border-image-slice: 1;
-    border-bottom-width: 0;
+    border-bottom-width: 0; /* Remove fill */
   }
