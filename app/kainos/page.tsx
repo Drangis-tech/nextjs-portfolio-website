@@ -1,12 +1,12 @@
-"use client";
+// /app/kainos/page.tsx
 
-// src/app/kainos/page.tsx
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import Switch from './Switch'; // Ensure this import is included
 import IOSSlider from './IOSSlider'; // Import the IOSSlider component
 import EmailInput from './EmailInput'; // Import the EmailInput component
+import SubHandler from './SubHandler'; // Import the SubHandler component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -16,7 +16,8 @@ const PricingCalculator: React.FC = () => {
   const [contentCreation, setContentCreation] = useState<boolean>(false);
   const [mobileResponsive, setMobileResponsive] = useState<boolean>(false);
   const [comments, setComments] = useState<string>('');
-  const [email, setEmail] = useState<string>(''); // Add email state
+  const [email, setEmail] = useState<string>('');
+  const [formData, setFormData] = useState<any>(null); // State to store form data
 
   const calculatePrice = () => {
     let basePrice = pages * 100 + design;
@@ -27,9 +28,19 @@ const PricingCalculator: React.FC = () => {
     return basePrice;
   };
 
-  const handleSubmit = async () => {
-    // Call your email submission logic here
-    alert('Jūsų užklausa buvo išsiųsta!');
+  const handleSubmit = () => {
+    const data = {
+      pages,
+      design,
+      ecommerce,
+      seo,
+      contentCreation,
+      mobileResponsive,
+      comments,
+      email,
+      price: calculatePrice(),
+    };
+    setFormData(data);
   };
 
   return (
@@ -40,7 +51,9 @@ const PricingCalculator: React.FC = () => {
         </h3>
 
         {/* Email Input Field */}
-        <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
+        <div className="mb-4">
+          <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
 
         <div className="mb-4">
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
@@ -123,6 +136,9 @@ const PricingCalculator: React.FC = () => {
         >
           Siųsti užklausą
         </button>
+
+        {/* Render SubHandler component */}
+        {formData && <SubHandler formData={formData} />}
       </article>
     </Card>
   );
@@ -139,10 +155,11 @@ const KainosPage: React.FC = () => {
             Kainos
           </h2>
           <p className="mt-4 text-zinc-400 text-base">
-            Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
+          Sužinokite apytikslę savo svetainės kainą pagal norimus parametrus.
           </p>
         </div>
-        <div className="w-full h-px bg-zinc-800 my-8" />
+
+        {/* Pricing Calculator Component */}
         <PricingCalculator />
       </div>
     </div>

@@ -1,38 +1,50 @@
-import React, { useState } from 'react';
+// /app/kainos/SubHandler.tsx
+
+import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
-export default function SubHandler({ pages, design, ecommerce, seo, contentCreation, mobileResponsive, comments, calculatePrice, email }: any) {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+const SubHandler: React.FC<{ formData: any }> = ({ formData }) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean | null>(null);
 
-    const templateParams = {
-      pages,
-      design_complexity: design === 500 ? 'Paprastas' : design === 1000 ? 'Vidutinis' : 'Sudėtingas',
-      ecommerce_functionality: ecommerce ? 'Taip' : 'Ne',
-      seo_optimization: seo ? 'Taip' : 'Ne',
-      content_creation: contentCreation ? 'Taip' : 'Ne',
-      mobile_responsive: mobileResponsive ? 'Taip' : 'Ne',
-      additional_comments: comments,
-      calculated_price: calculatePrice(),
-      email,
-    };
+  const sendEmail = async () => {
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
 
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Užklausa sėkmingai išsiųsta!');
-      }, (error) => {
-        console.error('FAILED...', error);
-        alert('Nepavyko išsiųsti užklausos.');
-      });
+    try {
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formData,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+      );
+
+      console.log('Email sent successfully:', result);
+      setSuccess(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setError('Failed to send the email. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
+  // Trigger sendEmail function when component mounts or formData changes
+  useEffect(() => {
+    if (formData) {
+      sendEmail();
+    }
+  }, [formData]);
+
   return (
-    <button
-      onClick={handleSubmit}
-      className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
-    >
-      Siųsti užklausą
-    </button>
+    <div>
+      {loading && <p>Sending your request...</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {success && <p>Email sent successfully!</p>}
+    </div>
   );
-}
+};
+
+export default SubHandler;
