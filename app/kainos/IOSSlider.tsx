@@ -2,6 +2,7 @@ import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
+import React, { useState } from 'react';
 
 // Custom value label component for displaying the value above the thumb
 function ValueLabelComponent(props: SliderValueLabelProps) {
@@ -34,6 +35,7 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
   );
 }
 
+// Styled Slider component
 const iOSBoxShadow =
   '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
 
@@ -70,10 +72,10 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
       transition: 'opacity 0.3s ease, transform 0.3s ease',
       pointerEvents: 'none',
     },
-  },
-  '& .MuiSlider-thumb:hover::after, & .MuiSlider-thumb:focus::after': {
-    opacity: 1,
-    transform: 'translate(-50%, -50%) scale(1.2)',
+    '&:hover::after, &:focus::after': {
+      opacity: 1,
+      transform: 'translate(-50%, -50%) scale(1.2)',
+    },
   },
   '& .MuiSlider-track': {
     border: 'none',
@@ -89,4 +91,25 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
   }),
 }));
 
-export default IOSSlider;
+const IOSSliderWithValueLabel: React.FC = () => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  return (
+    <Box
+      sx={{ width: 320 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <IOSSlider
+        aria-label="ios slider"
+        defaultValue={60}
+        valueLabelDisplay={isHovered ? 'on' : 'off'}
+        components={{
+          ValueLabel: ValueLabelComponent,
+        }}
+      />
+    </Box>
+  );
+};
+
+export default IOSSliderWithValueLabel;
