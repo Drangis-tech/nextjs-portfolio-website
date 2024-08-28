@@ -1,6 +1,3 @@
-// PricingCalculator.tsx
-"use client";
-
 import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -28,6 +25,10 @@ const PricingCalculator: React.FC = () => {
 
   const handleSubmit = () => {
     alert("Jūsų užklausa buvo išsiųsta!");
+  };
+
+  const handleSwitchChange = (setter: React.Dispatch<React.SetStateAction<boolean>>) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setter(event.target.checked);
   };
 
   return (
@@ -84,53 +85,53 @@ const PricingCalculator: React.FC = () => {
 
         <div className="mb-6">
           <label className="block text-sm font-medium text-zinc-100 mb-1">
+            E-komercijos funkcionalumas
             <input
               type="checkbox"
               id="ecommerce"
               checked={ecommerce}
-              onChange={(e) => setEcommerce(e.target.checked)}
-              className="mr-2"
+              onChange={handleSwitchChange(setEcommerce)}
+              className="ml-2 uiswitch"
             />
-            E-komercijos funkcionalumas
           </label>
         </div>
 
         <div className="mb-6">
           <label className="block text-sm font-medium text-zinc-100 mb-1">
+            SEO optimizacija
             <input
               type="checkbox"
               id="seo"
               checked={seo}
-              onChange={(e) => setSeo(e.target.checked)}
-              className="mr-2"
+              onChange={handleSwitchChange(setSeo)}
+              className="ml-2 uiswitch"
             />
-            SEO optimizacija
           </label>
         </div>
 
         <div className="mb-6">
           <label className="block text-sm font-medium text-zinc-100 mb-1">
+            Turinio kūrimas
             <input
               type="checkbox"
               id="contentCreation"
               checked={contentCreation}
-              onChange={(e) => setContentCreation(e.target.checked)}
-              className="mr-2"
+              onChange={handleSwitchChange(setContentCreation)}
+              className="ml-2 uiswitch"
             />
-            Turinio kūrimas
           </label>
         </div>
 
         <div className="mb-6">
           <label className="block text-sm font-medium text-zinc-100 mb-1">
+            Mobilios versijos
             <input
               type="checkbox"
               id="mobileResponsive"
               checked={mobileResponsive}
-              onChange={(e) => setMobileResponsive(e.target.checked)}
-              className="mr-2"
+              onChange={handleSwitchChange(setMobileResponsive)}
+              className="ml-2 uiswitch"
             />
-            Mobilios versijos
           </label>
         </div>
 
