@@ -3,8 +3,7 @@
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 
-// Styled PrettoSlider component
-const PrettoSlider = styled(Slider)({
+const PrettoSlider = styled(Slider)(({ theme }) => ({
   color: '#52af77',
   height: 8,
   '& .MuiSlider-track': {
@@ -33,14 +32,17 @@ const PrettoSlider = styled(Slider)({
     backgroundColor: '#52af77',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+    opacity: 0,
+    transition: 'opacity 0.3s, transform 0.3s',
     '&::before': { display: 'none' },
     '&.MuiSlider-valueLabelOpen': {
+      opacity: 1,
       transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
     },
     '& > *': {
       transform: 'rotate(45deg)',
     },
   },
-});
+}));
 
 export default PrettoSlider;

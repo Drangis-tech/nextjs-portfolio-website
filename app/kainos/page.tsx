@@ -1,9 +1,11 @@
+// /app/kainos/page.tsx
+
 "use client";
 
 import React, { useState } from 'react';
 import { Card } from '../components/card';
 import Switch from './Switch';
-import PrettoSlider from './PrettoSlider'; // Import the new PrettoSlider component
+import PrettoSlider from './PrettoSlider'; // Import the updated PrettoSlider component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
