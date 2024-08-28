@@ -42,7 +42,7 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
           },
         }}
       >
-        {value}
+        {children}
       </Box>
     </Tooltip>
   );
