@@ -1,3 +1,5 @@
+// /app/kainos/IOSSlider.tsx
+
 import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
@@ -23,9 +25,11 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
           alignItems: 'center',
           transformOrigin: 'bottom left',
           transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+          opacity: 0,
           transition: 'transform 0.3s ease, opacity 0.3s ease',
           '&.MuiSlider-valueLabelOpen': {
             transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+            opacity: 1,
           },
           '&::before': {
             display: 'none',
@@ -74,9 +78,12 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     backgroundColor: '#007bff',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+    opacity: 0,
+    transition: 'transform 0.3s ease, opacity 0.3s ease',
     '&::before': { display: 'none' },
     '&.MuiSlider-valueLabelOpen': {
       transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+      opacity: 1,
     },
     '& > *': {
       transform: 'rotate(45deg)',
