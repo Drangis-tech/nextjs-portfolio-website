@@ -1,70 +1,45 @@
-import * as React from 'react';
-import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
-import { styled } from '@mui/material/styles';
-import Tooltip from '@mui/material/Tooltip';
+import React from 'react';
 
-function ValueLabelComponent(props: SliderValueLabelProps) {
-  const { children, value } = props;
-
-  return (
-    <Tooltip enterTouchDelay={0} placement="top" title={value}>
-      {children}
-    </Tooltip>
-  );
+interface IOSSliderProps {
+  value: number;
+  onChange: (value: number) => void;
+  min?: number;
+  max?: number;
 }
 
-const iOSBoxShadow =
-  '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
-
-const IOSSlider = styled(Slider)(({ theme }) => ({
-  color: '#007bff',
-  height: 5,
-  padding: '15px 0',
-  '& .MuiSlider-thumb': {
-    height: 20,
-    width: 20,
-    backgroundColor: '#fff',
-    boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
-    '&:focus, &:hover, &.Mui-active': {
-      boxShadow: '0px 0px 3px 1px rgba(0, 0, 0, 0.1)',
-      '@media (hover: none)': {
-        boxShadow: iOSBoxShadow,
-      },
-    },
-    '&:before': {
-      boxShadow:
-        '0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)',
-    },
-  },
-  '& .MuiSlider-valueLabel': {
-    fontSize: 12,
-    fontWeight: 'normal',
-    top: -6,
-    backgroundColor: 'unset',
-    color: theme.palette.text.primary,
-    '&::before': {
-      display: 'none',
-    },
-    '& *': {
-      background: 'transparent',
-      color: '#000',
-      ...theme.applyStyles('dark', {
-        color: '#fff',
-      }),
-    },
-  },
-  '& .MuiSlider-track': {
-    border: 'none',
-    height: 5,
-  },
-  '& .MuiSlider-rail': {
-    opacity: 0.5,
-    boxShadow: 'inset 0px 0px 4px -2px #000',
-    backgroundColor: '#d0d0d0',
-  },
-  ...theme.applyStyles('dark', {
-    color: '#0a84ff',
-  }),
-}));
+const IOSSlider: React.FC<IOSSliderProps> = ({ value, onChange, min = 1, max = 10 }) => {
+  return (
+    <div className="ios-slider">
+      <input 
+        type="range" 
+        min={min} 
+        max={max} 
+        value={value} 
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="slider"
+      />
+      <div className="value-display">{value}</div>
+      <style jsx>{`
+        .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 8px;
+          background: #ddd;
+          outline: none;
+          opacity: 0.7;
+          transition: opacity .2s;
+        }
+        .slider:hover {
+          opacity: 1;
+        }
+        .value-display {
+          text-align: center;
+          color: #fff;
+          margin-top: 8px;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export default IOSSlider;
