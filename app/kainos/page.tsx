@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
