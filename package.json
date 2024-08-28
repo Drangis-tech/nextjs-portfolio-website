@@ -21,6 +21,7 @@
     "@upstash/redis": "^1.23.3",
     "clsx": "^2.1.1",
     "contentlayer": "^0.3.4",
+    "emailjs-com": "^3.2.0",
     "esbuild": "0.17.19",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.284.0",
