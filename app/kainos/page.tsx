@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import GradientButton from "../components/GradientButton";
-import styles from "../styles/kainos.module.css"; // Import the CSS module
+import styles from "./kainos.module.css";
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
