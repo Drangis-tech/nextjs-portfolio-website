@@ -1,13 +1,13 @@
 import * as React from 'react';
-import Slider, { SliderProps, SliderValueLabelProps } from '@mui/material/Slider';
+import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 
+// ValueLabelComponent for displaying slider value in a tooltip
 function ValueLabelComponent(props: SliderValueLabelProps) {
   const { children, value } = props;
-
   return (
     <Tooltip enterTouchDelay={0} placement="top" title={value}>
       {children}
@@ -15,52 +15,56 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
   );
 }
 
-const IOSSlider = styled(Slider)(({ theme }) => ({
-  color: '#007bff',
-  height: 5,
-  padding: '15px 0',
-  '& .MuiSlider-thumb': {
-    height: 20,
-    width: 20,
-    backgroundColor: '#fff',
-    boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
-    '&:focus, &:hover, &.Mui-active': {
-      boxShadow: '0px 0px 3px 1px rgba(0, 0, 0, 0.1)',
-    },
-    '&:before': {
-      display: 'none',
-    },
+// Styled PrettoSlider component
+const PrettoSlider = styled(Slider)({
+  color: '#52af77',
+  height: 8,
+  '& .MuiSlider-track': {
+    border: 'none',
   },
-  '& .MuiSlider-valueLabel': {
-    fontSize: 12,
-    fontWeight: 'normal',
-    top: -6,
-    backgroundColor: 'unset',
-    color: '#fff',
+  '& .MuiSlider-thumb': {
+    height: 24,
+    width: 24,
+    backgroundColor: '#fff',
+    border: '2px solid currentColor',
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+      boxShadow: 'inherit',
+    },
     '&::before': {
       display: 'none',
     },
   },
-  '& .MuiSlider-track': {
-    border: 'none',
-    height: 5,
+  '& .MuiSlider-valueLabel': {
+    lineHeight: 1.2,
+    fontSize: 12,
+    background: 'unset',
+    padding: 0,
+    width: 32,
+    height: 32,
+    borderRadius: '50% 50% 50% 0',
+    backgroundColor: '#52af77',
+    transformOrigin: 'bottom left',
+    transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+    '&::before': { display: 'none' },
+    '&.MuiSlider-valueLabelOpen': {
+      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+    },
+    '& > *': {
+      transform: 'rotate(45deg)',
+    },
   },
-  '& .MuiSlider-rail': {
-    opacity: 0.5,
-    backgroundColor: '#d0d0d0',
-  },
-}));
+});
 
 const Page = () => {
   const [pages, setPages] = React.useState<number>(60);
 
   return (
     <Box sx={{ width: 320 }}>
-      <Typography gutterBottom>iOS</Typography>
-      <IOSSlider
+      <Typography gutterBottom>Slider</Typography>
+      <PrettoSlider
         value={pages}
         onChange={(event, newValue) => setPages(newValue as number)}
-        aria-label="pages slider"
+        aria-label="pretto slider"
         valueLabelDisplay="on"
         min={0}
         max={100}
