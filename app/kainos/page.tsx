@@ -1,10 +1,10 @@
+// PricingCalculator.tsx
 "use client";
 
 import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import GradientButton from "../components/GradientButton"; // Import GradientButton
-import styles from "./kainos.module.css"; // Import the CSS module
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -82,63 +82,55 @@ const PricingCalculator: React.FC = () => {
           </select>
         </div>
 
-        <div className={`mb-6 ${styles.switchContainer}`}>
-          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
-            <span className={styles.switch}>
-              <input
-                type="checkbox"
-                id="ecommerce"
-                checked={ecommerce}
-                onChange={(e) => setEcommerce(e.target.checked)}
-              />
-              <span className={styles.slider}></span>
-            </span>
-            <span className={styles.switchLabel}>E-komercijos funkcionalumas</span>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="ecommerce"
+              checked={ecommerce}
+              onChange={(e) => setEcommerce(e.target.checked)}
+              className="mr-2"
+            />
+            E-komercijos funkcionalumas
           </label>
         </div>
 
-        <div className={`mb-6 ${styles.switchContainer}`}>
-          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
-            <span className={styles.switch}>
-              <input
-                type="checkbox"
-                id="seo"
-                checked={seo}
-                onChange={(e) => setSeo(e.target.checked)}
-              />
-              <span className={styles.slider}></span>
-            </span>
-            <span className={styles.switchLabel}>SEO optimizacija</span>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="seo"
+              checked={seo}
+              onChange={(e) => setSeo(e.target.checked)}
+              className="mr-2"
+            />
+            SEO optimizacija
           </label>
         </div>
 
-        <div className={`mb-6 ${styles.switchContainer}`}>
-          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
-            <span className={styles.switch}>
-              <input
-                type="checkbox"
-                id="contentCreation"
-                checked={contentCreation}
-                onChange={(e) => setContentCreation(e.target.checked)}
-              />
-              <span className={styles.slider}></span>
-            </span>
-            <span className={styles.switchLabel}>Turinio kūrimas</span>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="contentCreation"
+              checked={contentCreation}
+              onChange={(e) => setContentCreation(e.target.checked)}
+              className="mr-2"
+            />
+            Turinio kūrimas
           </label>
         </div>
 
-        <div className={`mb-6 ${styles.switchContainer}`}>
-          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
-            <span className={styles.switch}>
-              <input
-                type="checkbox"
-                id="mobileResponsive"
-                checked={mobileResponsive}
-                onChange={(e) => setMobileResponsive(e.target.checked)}
-              />
-              <span className={styles.slider}></span>
-            </span>
-            <span className={styles.switchLabel}>Mobilios versijos</span>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="mobileResponsive"
+              checked={mobileResponsive}
+              onChange={(e) => setMobileResponsive(e.target.checked)}
+              className="mr-2"
+            />
+            Mobilios versijos
           </label>
         </div>
 
