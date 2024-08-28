@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import Switch from "./Switch"; // Ensure this import is included
+import IOSSlider from "./IOSSlider"; // Import the IOSSlider component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -40,13 +41,11 @@ const PricingCalculator: React.FC = () => {
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
             Puslapių skaičius:
           </label>
-          <input
-            type="number"
-            id="pages"
-            value={pages}
-            onChange={(e) => setPages(Number(e.target.value))}
-            min={1}
-            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
+          <IOSSlider 
+            value={pages} 
+            onChange={setPages} 
+            min={1} 
+            max={20} // Adjust max value as needed
           />
         </div>
 
