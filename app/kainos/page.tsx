@@ -1,32 +1,33 @@
-"use client";
-
+// src/app/kainos/page.tsx
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
-import Switch from './Switch';
-import IOSSlider from './IOSSlider';
-import EmailInput from './EmailInput';
-import SubHandler from './SubHandler'; // Import the SubHandler component
+import Switch from './Switch'; // Ensure this import is included
+import IOSSlider from './IOSSlider'; // Import the IOSSlider component
+import EmailInput from './EmailInput'; // Import the EmailInput component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
   const [design, setDesign] = useState<number>(500);
   const [ecommerce, setEcommerce] = useState<boolean>(false);
-  const [websiteType, setWebsiteType] = useState<string>('template');
   const [seo, setSeo] = useState<boolean>(false);
   const [contentCreation, setContentCreation] = useState<boolean>(false);
   const [mobileResponsive, setMobileResponsive] = useState<boolean>(false);
   const [comments, setComments] = useState<string>('');
-  const [email, setEmail] = useState<string>(''); // State for the email input
+  const [email, setEmail] = useState<string>(''); // Add email state
 
   const calculatePrice = () => {
     let basePrice = pages * 100 + design;
     if (ecommerce) basePrice += 2000;
-    if (websiteType === 'custom') basePrice += 1500;
     if (seo) basePrice += 500;
     if (contentCreation) basePrice += 300;
     if (mobileResponsive) basePrice += 400;
     return basePrice;
+  };
+
+  const handleSubmit = async () => {
+    // Call your email submission logic here
+    alert('Jūsų užklausa buvo išsiųsta!');
   };
 
   return (
@@ -37,9 +38,7 @@ const PricingCalculator: React.FC = () => {
         </h3>
 
         {/* Email Input Field */}
-        <div className="mb-4">
-          <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} /> {/* Capture email input */}
-        </div>
+        <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} />
 
         <div className="mb-4">
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
@@ -51,7 +50,7 @@ const PricingCalculator: React.FC = () => {
             aria-label="pages slider"
             valueLabelDisplay="auto"
             min={1}
-            max={20}
+            max={20} // Adjust max as needed
           />
         </div>
 
@@ -116,17 +115,12 @@ const PricingCalculator: React.FC = () => {
           Apskaičiuota kaina: €{calculatePrice()}
         </div>
 
-        <SubHandler
-          pages={pages}
-          design={design}
-          ecommerce={ecommerce}
-          seo={seo}
-          contentCreation={contentCreation}
-          mobileResponsive={mobileResponsive}
-          comments={comments}
-          calculatePrice={calculatePrice}
-          email={email} // Pass email to SubHandler
-        />
+        <button
+          onClick={handleSubmit}
+          className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
+        >
+          Siųsti užklausą
+        </button>
       </article>
     </Card>
   );
@@ -137,6 +131,7 @@ const KainosPage: React.FC = () => {
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+        {/* Hero Section */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Kainos
