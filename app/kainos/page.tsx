@@ -1,8 +1,7 @@
-"use client";
-
 import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import GradientButton from "../components/GradientButton"; // Import GradientButton
+import styles from './kainos.module.css'; // Import your custom CSS module
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -59,27 +58,15 @@ const PricingCalculator: React.FC = () => {
       </div>
 
       <div className="mb-6">
-        <label htmlFor="websiteType" className="block text-sm font-medium text-zinc-100 mb-2">Svetainės tipas:</label>
-        <select
-          id="websiteType"
-          value={websiteType}
-          onChange={(e) => setWebsiteType(e.target.value)}
-          className="w-full p-3 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-        >
-          <option value="template">Šablonas</option>
-          <option value="custom">Individualus</option>
-        </select>
-      </div>
-
-      <div className="mb-6">
         <label className="block text-sm font-medium text-zinc-100 mb-2">
           <input
             type="checkbox"
             id="ecommerce"
             checked={ecommerce}
             onChange={(e) => setEcommerce(e.target.checked)}
-            className="mr-2"
+            className={styles.checkboxInput} // Apply custom styles
           />
+          <span className={styles.checkboxLabel}></span>
           E-komercijos funkcionalumas
         </label>
       </div>
@@ -91,8 +78,9 @@ const PricingCalculator: React.FC = () => {
             id="seo"
             checked={seo}
             onChange={(e) => setSeo(e.target.checked)}
-            className="mr-2"
+            className={styles.checkboxInput} // Apply custom styles
           />
+          <span className={styles.checkboxLabel}></span>
           SEO optimizacija
         </label>
       </div>
@@ -104,8 +92,9 @@ const PricingCalculator: React.FC = () => {
             id="contentCreation"
             checked={contentCreation}
             onChange={(e) => setContentCreation(e.target.checked)}
-            className="mr-2"
+            className={styles.checkboxInput} // Apply custom styles
           />
+          <span className={styles.checkboxLabel}></span>
           Turinio kūrimas
         </label>
       </div>
@@ -117,8 +106,9 @@ const PricingCalculator: React.FC = () => {
             id="mobileResponsive"
             checked={mobileResponsive}
             onChange={(e) => setMobileResponsive(e.target.checked)}
-            className="mr-2"
+            className={styles.checkboxInput} // Apply custom styles
           />
+          <span className={styles.checkboxLabel}></span>
           Mobilios versijos
         </label>
       </div>
@@ -141,25 +131,4 @@ const PricingCalculator: React.FC = () => {
   );
 };
 
-const KainosPage: React.FC = () => {
-  return (
-    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-      <Navigation />
-      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
-        {/* Hero Section */}
-        <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold text-zinc-100 sm:text-4xl mb-4">
-            Kainos
-          </h2>
-          <p className="text-base text-zinc-400 mb-8">
-            Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
-          </p>
-        </div>
-        <div className="w-full h-px bg-zinc-800 mb-16" />
-        <PricingCalculator />
-      </div>
-    </div>
-  );
-};
-
-export default KainosPage;
+export default PricingCalculator;
