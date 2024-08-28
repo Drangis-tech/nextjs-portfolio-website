@@ -1,25 +1,23 @@
-"use client";
-
-import React, { useState } from "react";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
-import Switch from "./Switch"; // Ensure this import is included
-import IOSSlider from "./IOSSlider"; // Import the IOSSlider component
+import React, { useState } from 'react';
+import { Navigation } from '../components/nav';
+import { Card } from '../components/card';
+import Switch from './Switch'; // Ensure this import is included
+import IOSSlider from './IOSSlider'; // Import the IOSSlider component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
   const [design, setDesign] = useState<number>(500);
   const [ecommerce, setEcommerce] = useState<boolean>(false);
-  const [websiteType, setWebsiteType] = useState<string>("template");
+  const [websiteType, setWebsiteType] = useState<string>('template');
   const [seo, setSeo] = useState<boolean>(false);
   const [contentCreation, setContentCreation] = useState<boolean>(false);
   const [mobileResponsive, setMobileResponsive] = useState<boolean>(false);
-  const [comments, setComments] = useState<string>("");
+  const [comments, setComments] = useState<string>('');
 
   const calculatePrice = () => {
     let basePrice = pages * 100 + design;
     if (ecommerce) basePrice += 2000;
-    if (websiteType === "custom") basePrice += 1500;
+    if (websiteType === 'custom') basePrice += 1500;
     if (seo) basePrice += 500;
     if (contentCreation) basePrice += 300;
     if (mobileResponsive) basePrice += 400;
@@ -27,7 +25,7 @@ const PricingCalculator: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    alert("Jūsų užklausa buvo išsiųsta!");
+    alert('Jūsų užklausa buvo išsiųsta!');
   };
 
   return (
@@ -41,12 +39,13 @@ const PricingCalculator: React.FC = () => {
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
             Puslapių skaičius:
           </label>
-          <IOSSlider 
-            value={pages} 
-            onChange={(e, newValue) => setPages(newValue as number)}
+          <IOSSlider
+            value={pages}
+            onChange={(event, newValue) => setPages(newValue as number)}
+            aria-label="pages slider"
+            valueLabelDisplay="on"
             min={1}
-            max={20} // Adjust the max value as needed
-            valueLabelDisplay="auto"
+            max={100} // Adjust max as needed
           />
         </div>
 
@@ -67,44 +66,28 @@ const PricingCalculator: React.FC = () => {
         </div>
 
         <div className="mb-6 flex items-center">
-          <Switch
-            id="ecommerce"
-            checked={ecommerce}
-            onChange={setEcommerce}
-          />
+          <Switch id="ecommerce" checked={ecommerce} onChange={setEcommerce} />
           <label htmlFor="ecommerce" className="ml-2 text-sm font-medium text-zinc-100">
             E-komercijos funkcionalumas
           </label>
         </div>
 
         <div className="mb-6 flex items-center">
-          <Switch
-            id="seo"
-            checked={seo}
-            onChange={setSeo}
-          />
+          <Switch id="seo" checked={seo} onChange={setSeo} />
           <label htmlFor="seo" className="ml-2 text-sm font-medium text-zinc-100">
             SEO optimizacija
           </label>
         </div>
 
         <div className="mb-6 flex items-center">
-          <Switch
-            id="contentCreation"
-            checked={contentCreation}
-            onChange={setContentCreation}
-          />
+          <Switch id="contentCreation" checked={contentCreation} onChange={setContentCreation} />
           <label htmlFor="contentCreation" className="ml-2 text-sm font-medium text-zinc-100">
             Turinio kūrimas
           </label>
         </div>
 
         <div className="mb-6 flex items-center">
-          <Switch
-            id="mobileResponsive"
-            checked={mobileResponsive}
-            onChange={setMobileResponsive}
-          />
+          <Switch id="mobileResponsive" checked={mobileResponsive} onChange={setMobileResponsive} />
           <label htmlFor="mobileResponsive" className="ml-2 text-sm font-medium text-zinc-100">
             Mobilios versijos
           </label>
