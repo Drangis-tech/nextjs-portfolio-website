@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import GradientButton from "../components/GradientButton";
-import Switch from "./Switch"; // Adjusted import path
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -82,46 +80,54 @@ const PricingCalculator: React.FC = () => {
           </select>
         </div>
 
-        <div className="mb-6 flex items-center">
-          <Switch
-            id="ecommerce"
-            checked={ecommerce}
-            onChange={setEcommerce}
-          />
-          <label htmlFor="ecommerce" className="ml-2 text-sm font-medium text-zinc-100">
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="ecommerce"
+              checked={ecommerce}
+              onChange={(e) => setEcommerce(e.target.checked)}
+              className="w-6 h-6 mr-2 accent-orange-400"
+            />
             E-komercijos funkcionalumas
           </label>
         </div>
 
-        <div className="mb-6 flex items-center">
-          <Switch
-            id="seo"
-            checked={seo}
-            onChange={setSeo}
-          />
-          <label htmlFor="seo" className="ml-2 text-sm font-medium text-zinc-100">
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="seo"
+              checked={seo}
+              onChange={(e) => setSeo(e.target.checked)}
+              className="w-6 h-6 mr-2 accent-orange-400"
+            />
             SEO optimizacija
           </label>
         </div>
 
-        <div className="mb-6 flex items-center">
-          <Switch
-            id="contentCreation"
-            checked={contentCreation}
-            onChange={setContentCreation}
-          />
-          <label htmlFor="contentCreation" className="ml-2 text-sm font-medium text-zinc-100">
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="contentCreation"
+              checked={contentCreation}
+              onChange={(e) => setContentCreation(e.target.checked)}
+              className="w-6 h-6 mr-2 accent-orange-400"
+            />
             Turinio kūrimas
           </label>
         </div>
 
-        <div className="mb-6 flex items-center">
-          <Switch
-            id="mobileResponsive"
-            checked={mobileResponsive}
-            onChange={setMobileResponsive}
-          />
-          <label htmlFor="mobileResponsive" className="ml-2 text-sm font-medium text-zinc-100">
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            <input
+              type="checkbox"
+              id="mobileResponsive"
+              checked={mobileResponsive}
+              onChange={(e) => setMobileResponsive(e.target.checked)}
+              className="w-6 h-6 mr-2 accent-orange-400"
+            />
             Mobilios versijos
           </label>
         </div>
@@ -143,9 +149,12 @@ const PricingCalculator: React.FC = () => {
           Apskaičiuota kaina: €{calculatePrice()}
         </div>
 
-        <GradientButton onClick={handleSubmit}>
+        <button
+          onClick={handleSubmit}
+          className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
+        >
           Siųsti užklausą
-        </GradientButton>
+        </button>
       </article>
     </Card>
   );
