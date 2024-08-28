@@ -1,4 +1,7 @@
+"use client";
+
 // /app/kainos/page.tsx
+
 
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav';
