@@ -1,11 +1,10 @@
-"use client";
-
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
-import Switch from './Switch'; // Ensure this import is included
-import IOSSlider from './IOSSlider'; // Import the IOSSlider component
-import EmailInput from './EmailInput'; // Import the EmailInput component
+import Switch from './Switch';
+import IOSSlider from './IOSSlider';
+import EmailInput from './EmailInput';
+import SubHandler from './SubHandler'; // Import the SubHandler component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -16,6 +15,7 @@ const PricingCalculator: React.FC = () => {
   const [contentCreation, setContentCreation] = useState<boolean>(false);
   const [mobileResponsive, setMobileResponsive] = useState<boolean>(false);
   const [comments, setComments] = useState<string>('');
+  const [email, setEmail] = useState<string>(''); // State for the email input
 
   const calculatePrice = () => {
     let basePrice = pages * 100 + design;
@@ -27,10 +27,6 @@ const PricingCalculator: React.FC = () => {
     return basePrice;
   };
 
-  const handleSubmit = () => {
-    alert('Jūsų užklausa buvo išsiųsta!');
-  };
-
   return (
     <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-4 md:p-8 relative overflow-hidden">
       <article className="relative w-full h-full p-4 md:p-8 bg-[rgba(28, 28, 30, 0.8)] rounded-lg backdrop-blur-sm group">
@@ -40,7 +36,7 @@ const PricingCalculator: React.FC = () => {
 
         {/* Email Input Field */}
         <div className="mb-4">
-          <EmailInput />
+          <EmailInput value={email} onChange={(e) => setEmail(e.target.value)} /> {/* Capture email input */}
         </div>
 
         <div className="mb-4">
@@ -53,7 +49,7 @@ const PricingCalculator: React.FC = () => {
             aria-label="pages slider"
             valueLabelDisplay="auto"
             min={1}
-            max={20} // Adjust max as needed
+            max={20}
           />
         </div>
 
@@ -118,12 +114,17 @@ const PricingCalculator: React.FC = () => {
           Apskaičiuota kaina: €{calculatePrice()}
         </div>
 
-        <button
-          onClick={handleSubmit}
-          className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
-        >
-          Siųsti užklausą
-        </button>
+        <SubHandler
+          pages={pages}
+          design={design}
+          ecommerce={ecommerce}
+          seo={seo}
+          contentCreation={contentCreation}
+          mobileResponsive={mobileResponsive}
+          comments={comments}
+          calculatePrice={calculatePrice}
+          email={email} // Pass email to SubHandler
+        />
       </article>
     </Card>
   );
@@ -134,7 +135,6 @@ const KainosPage: React.FC = () => {
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
-        {/* Hero Section */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Kainos
