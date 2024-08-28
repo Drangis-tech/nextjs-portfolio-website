@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
-import Switch from './Switch'; // Ensure this import is included
-import IOSSlider from './IOSSlider'; // Import the IOSSlider component
+import Switch from './Switch';
+import IOSSlider from './IOSSlider'; 
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -37,8 +36,9 @@ const PricingCalculator: React.FC = () => {
           Apskaičiuokite savo svetainės kainą
         </h3>
 
+        {/* Updated Slider Section */}
         <div className="mb-4">
-          <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
+          <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-4"> {/* Increased the bottom margin */}
             Puslapių skaičius:
           </label>
           <IOSSlider
@@ -48,6 +48,7 @@ const PricingCalculator: React.FC = () => {
             valueLabelDisplay="on"
             min={1}
             max={20} // Adjust max as needed
+            classes={{ valueLabel: 'custom-slider-label' }} // Custom class for valueLabel
           />
         </div>
 
@@ -123,25 +124,4 @@ const PricingCalculator: React.FC = () => {
   );
 };
 
-const KainosPage: React.FC = () => {
-  return (
-    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-      <Navigation />
-      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
-        {/* Hero Section */}
-        <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Kainos
-          </h2>
-          <p className="mt-4 text-zinc-400 text-base">
-            Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
-          </p>
-        </div>
-        <div className="w-full h-px bg-zinc-800 my-8" />
-        <PricingCalculator />
-      </div>
-    </div>
-  );
-};
-
-export default KainosPage;
+export default PricingCalculator;
