@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Card } from '../components/card';
 import Switch from './Switch';
-import IOSSlider from './IOSSlider'; 
+import PrettoSlider from './PrettoSlider'; // Import the new PrettoSlider component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -38,17 +38,16 @@ const PricingCalculator: React.FC = () => {
 
         {/* Updated Slider Section */}
         <div className="mb-4">
-          <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-4"> {/* Increased the bottom margin */}
+          <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-4">
             Puslapių skaičius:
           </label>
-          <IOSSlider
+          <PrettoSlider
             value={pages}
             onChange={(event, newValue) => setPages(newValue as number)}
             aria-label="pages slider"
             valueLabelDisplay="on"
             min={1}
             max={20} // Adjust max as needed
-            classes={{ valueLabel: 'custom-slider-label' }} // Custom class for valueLabel
           />
         </div>
 
