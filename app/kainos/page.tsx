@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import styles from './kainos.module.css';  // Import the CSS module
 import { Navigation } from "../components/nav";
