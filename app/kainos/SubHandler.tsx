@@ -22,7 +22,7 @@ const SubHandler: React.FC<SubHandlerProps> = ({ formData }) => {
         setMessage('Email sent successfully!');
       } catch (error) {
         console.error('Failed to send email:', error);
-        setMessage('Failed to send email. Please try again later!.');
+        setMessage('Failed to send email. Please try again later!');
       }
     };
 
