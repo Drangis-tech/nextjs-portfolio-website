@@ -42,7 +42,7 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
           },
         }}
       >
-        {children}
+        {value}
       </Box>
     </Tooltip>
   );
@@ -132,7 +132,9 @@ const MyComponent = () => {
       onChange={handleChange}
       aria-label="Custom slider"
       valueLabelDisplay="auto" // This makes the label appear on hover or while dragging
-      ValueLabelComponent={ValueLabelComponent} // Inline component
+      components={{
+        ValueLabel: ValueLabelComponent, // Use the custom ValueLabel component
+      }}
       min={0}
       max={100}
     />
