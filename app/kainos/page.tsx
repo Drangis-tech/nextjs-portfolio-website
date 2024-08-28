@@ -5,7 +5,7 @@ import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import Switch from './Switch'; // Ensure this import is included
 import IOSSlider from './IOSSlider'; // Import the IOSSlider component
-
+import EmailInput from './EmailInput'; // Import the EmailInput component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -37,6 +37,11 @@ const PricingCalculator: React.FC = () => {
         <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl mb-6 group-hover:text-white transition-colors duration-300">
           Apskaičiuokite savo svetainės kainą
         </h3>
+
+        {/* Email Input Field */}
+        <div className="mb-4">
+          <EmailInput />
+        </div>
 
         <div className="mb-4">
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
