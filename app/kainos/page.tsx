@@ -30,9 +30,9 @@ const PricingCalculator: React.FC = () => {
   };
 
   return (
-    <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-4 md:p-8">
+    <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-4 md:p-8 relative overflow-hidden">
       <article className="relative w-full h-full p-4 md:p-8 bg-[rgba(28, 28, 30, 0.8)] rounded-lg backdrop-blur-sm group">
-        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6">
+        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6 group-hover:text-white transition-colors duration-300">
           Apskaičiuokite savo svetainės kainą
         </h3>
 
