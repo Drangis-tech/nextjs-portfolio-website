@@ -1,13 +1,33 @@
-import * as React from 'react';
+// IOSSlider.tsx
 import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
 
+// Custom value label component for displaying the value above the thumb
 function ValueLabelComponent(props: SliderValueLabelProps) {
-  const { children, value } = props;
+  const { children, value, open } = props;
+
   return (
     <Tooltip enterTouchDelay={0} placement="top" title={value}>
-      {children}
+      <Box
+        sx={{
+          display: open ? 'flex' : 'none',  // Show the value label only when open
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: 40,
+          height: 40,
+          backgroundColor: '#007bff',
+          borderRadius: '50%',
+          color: 'white',
+          fontWeight: 'bold',
+          fontSize: '12px',
+          transform: 'translateY(-60%)',
+          boxShadow: '0 0 6px rgba(0, 0, 0, 0.2)',
+        }}
+      >
+        {value}
+      </Box>
     </Tooltip>
   );
 }
@@ -40,13 +60,13 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     fontWeight: 'normal',
     top: -6,
     backgroundColor: 'unset',
-    color: theme.palette.text.primary,
+    color: '#fff',
     '&::before': {
       display: 'none',
     },
     '& *': {
       background: 'transparent',
-      color: '#000',
+      color: '#fff',
       ...theme.applyStyles('dark', {
         color: '#fff',
       }),
