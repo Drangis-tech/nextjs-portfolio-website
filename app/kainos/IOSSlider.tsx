@@ -16,7 +16,7 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
           alignItems: 'center',
           width: 40,
           height: 40,
-          backgroundColor: '#007bff',
+          backgroundColor: '#007bff', // Blue color for the value label
           borderRadius: '50%',
           color: 'white',
           fontWeight: 'bold',
@@ -41,7 +41,7 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
   color: '#007bff',
   height: 5,
   padding: '15px 0',
-  position: 'relative', // Ensure positioning context for pseudo-elements
+  position: 'relative',
   '& .MuiSlider-thumb': {
     height: 20,
     width: 20,
@@ -55,10 +55,25 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
         boxShadow: iOSBoxShadow,
       },
     },
-    '&:before': {
-      boxShadow:
-        '0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)',
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 30,
+      height: 30,
+      borderRadius: '50%',
+      backgroundColor: 'rgba(0, 123, 255, 0.3)', // Light blue color
+      boxShadow: '0 0 8px rgba(0, 123, 255, 0.5)',
+      opacity: 0,
+      transition: 'opacity 0.3s ease, transform 0.3s ease',
+      pointerEvents: 'none',
     },
+  },
+  '& .MuiSlider-thumb:hover::after, & .MuiSlider-thumb:focus::after': {
+    opacity: 1,
+    transform: 'translate(-50%, -50%) scale(1.2)',
   },
   '& .MuiSlider-track': {
     border: 'none',
@@ -68,24 +83,6 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     opacity: 0.5,
     boxShadow: 'inset 0px 0px 4px -2px #000',
     backgroundColor: '#d0d0d0',
-  },
-  '& .MuiSlider-thumb::after': {
-    content: '""',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%) scale(0)',
-    width: 24,
-    height: 24,
-    borderRadius: '50%',
-    backgroundColor: 'rgba(0, 123, 255, 0.3)', // Light blue color
-    boxShadow: '0 0 8px rgba(0, 123, 255, 0.5)',
-    opacity: 0,
-    transition: 'opacity 0.3s ease, transform 0.3s ease',
-  },
-  '& .MuiSlider-thumb:hover::after, & .MuiSlider-thumb:focus::after': {
-    opacity: 1,
-    transform: 'translate(-50%, -50%) scale(1.2)',
   },
   ...theme.applyStyles('dark', {
     color: '#0a84ff',
