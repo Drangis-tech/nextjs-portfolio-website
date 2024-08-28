@@ -43,9 +43,10 @@ const PricingCalculator: React.FC = () => {
           </label>
           <IOSSlider 
             value={pages} 
-            onChange={setPages} 
-            min={1} 
-            max={20} // Adjust max value as needed
+            onChange={(e, newValue) => setPages(newValue as number)}
+            min={1}
+            max={20} // Adjust the max value as needed
+            valueLabelDisplay="auto"
           />
         </div>
 
