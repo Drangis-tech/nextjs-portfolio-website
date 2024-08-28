@@ -14,10 +14,10 @@ const SubHandler: React.FC<SubHandlerProps> = ({ formData }) => {
     const sendEmail = async () => {
       try {
         await emailjs.send(
-          'service_irgk5fa', // Replace with your actual service ID
-          'template_j8cxtj4', // Replace with your actual template ID
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string, // Use environment variable
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string, // Use environment variable
           formData,
-          'qKc1YJZcUUKBK3uX3' // Replace with your actual user ID
+          process.env.NEXT_PUBLIC_EMAILJS_USER_ID as string // Use environment variable
         );
         setMessage('Email sent successfully!');
       } catch (error) {
