@@ -1,10 +1,10 @@
-import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
+import Slider, { SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 
-// Custom value label component for displaying the value above the thumb
+// Inline ValueLabelComponent
 function ValueLabelComponent(props: SliderValueLabelProps) {
   const { children, value, open } = props;
 
@@ -118,4 +118,25 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
   }),
 }));
 
-export default IOSSlider;
+// Component using the IOSSlider
+const MyComponent = () => {
+  const [value, setValue] = useState<number>(30);
+
+  const handleChange = (event: Event, newValue: number | number[]) => {
+    setValue(newValue as number);
+  };
+
+  return (
+    <IOSSlider
+      value={value}
+      onChange={handleChange}
+      aria-label="Custom slider"
+      valueLabelDisplay="auto" // This makes the label appear on hover or while dragging
+      ValueLabelComponent={ValueLabelComponent} // Inline component
+      min={0}
+      max={100}
+    />
+  );
+};
+
+export default MyComponent;
