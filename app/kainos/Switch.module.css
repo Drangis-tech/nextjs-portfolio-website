@@ -1,8 +1,8 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: 34px;
-    height: 20px;
+    width: 60px;  /* Increase the width for a larger switch */
+    height: 34px; /* Increase the height for a larger switch */
   }
   
   .switch input {
@@ -20,17 +20,17 @@
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-    border-radius: 20px;
+    border-radius: 34px;  /* Make the corners fully rounded for a larger switch */
   }
   
   .slider:before {
     position: absolute;
     content: "";
-    height: 12px;
-    width: 12px;
+    height: 26px;  /* Increase the size of the slider knob */
+    width: 26px;   /* Increase the size of the slider knob */
     border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
+    left: 4px;     /* Adjust for centering */
+    bottom: 4px;   /* Adjust for centering */
     background-color: white;
     transition: .4s;
   }
@@ -40,7 +40,7 @@
   }
   
   input:checked + .slider:before {
-    transform: translateX(14px);
+    transform: translateX(26px);  /* Adjust for the new knob size */
   }
   
   /* New CSS to ensure only the slider area is clickable */
