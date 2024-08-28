@@ -1,11 +1,16 @@
-// IOSSlider.tsx
 import * as React from 'react';
-import Slider, { SliderProps } from '@mui/material/Slider';
+import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
-function ValueLabelComponent(props: SliderProps) {
+// Custom value label component for displaying the value above the thumb
+function ValueLabelComponent(props: SliderValueLabelProps) {
   const { children, value } = props;
+
+  // Ensure children is a valid React element
+  if (!children) return null;
 
   return (
     <Tooltip enterTouchDelay={0} placement="top" title={value}>
@@ -17,9 +22,9 @@ function ValueLabelComponent(props: SliderProps) {
 const iOSBoxShadow =
   '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
 
-// Define IOSSlider styled component with correct typing
-const IOSSlider = styled(Slider)<SliderProps>(({ theme }) => ({
-  color: '#007bff',
+// Define IOSSlider styled component
+const IOSSlider = styled(Slider)(({ theme }) => ({
+  color: '#007bff', // Slider color
   height: 5,
   padding: '15px 0',
   '& .MuiSlider-thumb': {
@@ -29,6 +34,7 @@ const IOSSlider = styled(Slider)<SliderProps>(({ theme }) => ({
     boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
     '&:focus, &:hover, &.Mui-active': {
       boxShadow: '0px 0px 3px 1px rgba(0, 0, 0, 0.1)',
+      // Reset on touch devices
       '@media (hover: none)': {
         boxShadow: iOSBoxShadow,
       },
@@ -53,6 +59,7 @@ const IOSSlider = styled(Slider)<SliderProps>(({ theme }) => ({
         color: '#fff',
       }),
     },
+    // Hide value label unless slider is focused or hovered
     display: 'none',
     '&.MuiSlider-valueLabelOpen': {
       display: 'block',
@@ -72,4 +79,11 @@ const IOSSlider = styled(Slider)<SliderProps>(({ theme }) => ({
   }),
 }));
 
-export default IOSSlider;
+export default function CustomizedSlider() {
+  return (
+    <Box sx={{ width: 320 }}>
+      <Typography gutterBottom>iOS</Typography>
+      <IOSSlider aria-label="ios slider" defaultValue={60} valueLabelDisplay="on" />
+    </Box>
+  );
+}
