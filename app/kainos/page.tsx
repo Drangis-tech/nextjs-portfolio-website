@@ -1,11 +1,10 @@
-// PricingCalculator.tsx
 "use client";
 
 import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
-import GradientButton from "../components/GradientButton";
-import styles from "./kainos.module.css";
+import GradientButton from "../components/GradientButton"; // Import GradientButton
+import styles from "./kainos.module.css"; // Import the CSS module
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -83,64 +82,63 @@ const PricingCalculator: React.FC = () => {
           </select>
         </div>
 
-        {/* UISwitch Implementation */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <div className={styles.uiswitch}>
+        <div className={`mb-6 ${styles.switchContainer}`}>
+          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
+            <span className={styles.switch}>
               <input
                 type="checkbox"
                 id="ecommerce"
                 checked={ecommerce}
                 onChange={(e) => setEcommerce(e.target.checked)}
               />
-              <span className={`${styles.slider} ${styles.round}`}></span>
-            </div>
-            E-komercijos funkcionalumas
+              <span className={styles.slider}></span>
+            </span>
+            <span className={styles.switchLabel}>E-komercijos funkcionalumas</span>
           </label>
         </div>
 
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <div className={styles.uiswitch}>
+        <div className={`mb-6 ${styles.switchContainer}`}>
+          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
+            <span className={styles.switch}>
               <input
                 type="checkbox"
                 id="seo"
                 checked={seo}
                 onChange={(e) => setSeo(e.target.checked)}
               />
-              <span className={`${styles.slider} ${styles.round}`}></span>
-            </div>
-            SEO optimizacija
+              <span className={styles.slider}></span>
+            </span>
+            <span className={styles.switchLabel}>SEO optimizacija</span>
           </label>
         </div>
 
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <div className={styles.uiswitch}>
+        <div className={`mb-6 ${styles.switchContainer}`}>
+          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
+            <span className={styles.switch}>
               <input
                 type="checkbox"
                 id="contentCreation"
                 checked={contentCreation}
                 onChange={(e) => setContentCreation(e.target.checked)}
               />
-              <span className={`${styles.slider} ${styles.round}`}></span>
-            </div>
-            Turinio kūrimas
+              <span className={styles.slider}></span>
+            </span>
+            <span className={styles.switchLabel}>Turinio kūrimas</span>
           </label>
         </div>
 
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            <div className={styles.uiswitch}>
+        <div className={`mb-6 ${styles.switchContainer}`}>
+          <label className="flex items-center text-sm font-medium text-zinc-100 mb-1">
+            <span className={styles.switch}>
               <input
                 type="checkbox"
                 id="mobileResponsive"
                 checked={mobileResponsive}
                 onChange={(e) => setMobileResponsive(e.target.checked)}
               />
-              <span className={`${styles.slider} ${styles.round}`}></span>
-            </div>
-            Mobilios versijos
+              <span className={styles.slider}></span>
+            </span>
+            <span className={styles.switchLabel}>Mobilios versijos</span>
           </label>
         </div>
 
@@ -169,4 +167,22 @@ const PricingCalculator: React.FC = () => {
   );
 };
 
-export default PricingCalculator;
+const KainosPage: React.FC = () => {
+  return (
+    <div className="relative pb-16 bg-gradient-to-b from-black via-zinc-900 to-black">
+      <Navigation />
+      <div className="relative px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Kainos</h2>
+          <p className="mt-4 text-zinc-400">
+            Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
+          </p>
+        </div>
+        <div className="w-full h-px bg-zinc-800" />
+        <PricingCalculator />
+      </div>
+    </div>
+  );
+};
+
+export default KainosPage;
