@@ -32,7 +32,7 @@ const PricingCalculator: React.FC = () => {
   return (
     <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-4 md:p-8 relative overflow-hidden">
       <article className="relative w-full h-full p-4 md:p-8 bg-[rgba(28, 28, 30, 0.8)] rounded-lg backdrop-blur-sm group">
-        <h3 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-6 group-hover:text-white transition-colors duration-300">
+        <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl mb-6 group-hover:text-white transition-colors duration-300">
           Apskaičiuokite savo svetainės kainą
         </h3>
 
@@ -157,13 +157,13 @@ const KainosPage: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-black via-zinc-900 to-black">
       <Navigation />
-      <div className="relative px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
         {/* Hero Section */}
-        <div className="max-w-2xl mx-auto text-center lg:text-left">
+        <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Kainos
           </h2>
-          <p className="mt-4 text-zinc-400">
+          <p className="mt-4 text-zinc-400 text-lg sm:text-xl">
             Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
           </p>
         </div>
