@@ -1,9 +1,7 @@
-import * as React from 'react';
-import Slider, { SliderProps, SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
+import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 
 // Custom value label component for displaying the value above the thumb
 function ValueLabelComponent(props: SliderValueLabelProps) {
@@ -11,63 +9,71 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
 
   return (
     <Tooltip enterTouchDelay={0} placement="top" title={value}>
-      {children}
+      <Box
+        sx={{
+          lineHeight: 1.2,
+          fontSize: 16, // Adjust font size as needed
+          width: 40, // Adjust width to fit the water drop shape
+          height: 40, // Adjust height to fit the water drop shape
+          borderRadius: '50% 50% 50% 0',
+          backgroundColor: '#007bff',
+          color: '#fff',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          transformOrigin: 'bottom left',
+          transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+          transition: 'transform 0.3s ease, opacity 0.3s ease',
+          '&.MuiSlider-valueLabelOpen': {
+            transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+          },
+          '&::before': {
+            display: 'none',
+          },
+          '& > *': {
+            transform: 'rotate(45deg)',
+          },
+        }}
+      >
+        {value}
+      </Box>
     </Tooltip>
   );
 }
 
-const IOSSlider = styled(Slider)<SliderProps>(({ theme }) => ({
-  color: '#007bff', // Replace with your desired color
-  height: 8,
-  '& .MuiSlider-track': {
-    border: 'none',
-    height: 8,
-  },
+const iOSBoxShadow =
+  '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
+
+const IOSSlider = styled(Slider)(({ theme }) => ({
+  color: '#007bff',
+  height: 8, // Increased height to match the effect
+  padding: '15px 0',
+  position: 'relative', // Ensure positioning context for pseudo-elements
   '& .MuiSlider-thumb': {
-    height: 24,
-    width: 24,
+    height: 24, // Increased thumb size
+    width: 24,  // Increased thumb size
     backgroundColor: '#fff',
     border: '2px solid currentColor',
     boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
-    '&:focus, &:hover, &.Mui-active': {
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
       boxShadow: '0px 0px 3px 1px rgba(0, 0, 0, 0.1)',
     },
     '&::before': {
-      display: 'none',
-    },
-    position: 'relative',
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%) scale(0)',
-      width: 40,
-      height: 40,
-      borderRadius: '50%',
-      backgroundColor: '#007bff',
-      boxShadow: '0 0 8px rgba(0, 123, 255, 0.5)',
-      opacity: 0,
-      transition: 'opacity 0.3s ease, transform 0.3s ease',
-    },
-    '&:hover::after, &:focus::after': {
-      opacity: 1,
-      transform: 'translate(-50%, -50%) scale(1.2)',
+      boxShadow:
+        '0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)',
     },
   },
   '& .MuiSlider-valueLabel': {
     lineHeight: 1.2,
-    fontSize: 12,
+    fontSize: 16, // Increased font size
     background: 'unset',
     padding: 0,
-    width: 32,
-    height: 32,
+    width: 40, // Adjust width to fit the water drop shape
+    height: 40, // Adjust height to fit the water drop shape
     borderRadius: '50% 50% 50% 0',
     backgroundColor: '#007bff',
-    color: '#fff',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
-    transition: 'transform 0.3s ease, opacity 0.3s ease',
     '&::before': { display: 'none' },
     '&.MuiSlider-valueLabelOpen': {
       transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
@@ -76,11 +82,36 @@ const IOSSlider = styled(Slider)<SliderProps>(({ theme }) => ({
       transform: 'rotate(45deg)',
     },
   },
+  '& .MuiSlider-track': {
+    border: 'none',
+    height: 8, // Increased height to match the effect
+  },
   '& .MuiSlider-rail': {
     opacity: 0.5,
     boxShadow: 'inset 0px 0px 4px -2px #000',
     backgroundColor: '#d0d0d0',
   },
+  '& .MuiSlider-thumb::after': {
+    content: '""',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%) scale(0)',
+    width: 28,
+    height: 28,
+    borderRadius: '50%',
+    backgroundColor: '#007bff',
+    boxShadow: '0 0 8px rgba(0, 123, 255, 0.5)',
+    opacity: 0,
+    transition: 'opacity 0.3s ease, transform 0.3s ease',
+  },
+  '& .MuiSlider-thumb:hover::after, & .MuiSlider-thumb:focus::after': {
+    opacity: 1,
+    transform: 'translate(-50%, -50%) scale(1.2)',
+  },
+  ...theme.applyStyles('dark', {
+    color: '#0a84ff',
+  }),
 }));
 
 export default IOSSlider;
