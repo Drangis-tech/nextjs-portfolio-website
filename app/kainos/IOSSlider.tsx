@@ -31,12 +31,8 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
             transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
             opacity: 1,
           },
-          '&::before': {
-            display: 'none',
-          },
-          '& > *': {
-            transform: 'rotate(45deg)',
-          },
+          '&::before': { display: 'none' },
+          '& > *': { transform: 'rotate(45deg)' },
         }}
       >
         {value}
@@ -85,9 +81,7 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
       transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
       opacity: 1,
     },
-    '& > *': {
-      transform: 'rotate(45deg)',
-    },
+    '& > *': { transform: 'rotate(45deg)' },
   },
   '& .MuiSlider-track': {
     border: 'none',
