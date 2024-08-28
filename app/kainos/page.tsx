@@ -29,9 +29,19 @@ const PricingCalculator: React.FC = () => {
     alert("Jūsų užklausa buvo išsiųsta!");
   };
 
-  const handleSwitchChange = (setter: React.Dispatch<React.SetStateAction<boolean>>) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    setter(event.target.checked);
-  };
+  const UISwitch = ({ id, checked, onChange }: { id: string, checked: boolean, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) => (
+    <label className="relative inline-flex items-center cursor-pointer">
+      <input
+        type="checkbox"
+        id={id}
+        checked={checked}
+        onChange={onChange}
+        className="sr-only"
+      />
+      <div className="w-11 h-6 bg-gray-200 rounded-full border-2 border-gray-200 dark:bg-gray-700 dark:border-gray-600 peer-checked:bg-blue-600 peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 transition-all duration-300 ease-in-out"></div>
+      <span className="ml-3 text-sm font-medium text-zinc-100">{id}</span>
+    </label>
+  );
 
   return (
     <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-4 md:p-8">
@@ -86,55 +96,35 @@ const PricingCalculator: React.FC = () => {
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            E-komercijos funkcionalumas
-            <input
-              type="checkbox"
-              id="ecommerce"
-              checked={ecommerce}
-              onChange={handleSwitchChange(setEcommerce)}
-              className="ml-2 uiswitch"
-            />
-          </label>
+          <UISwitch
+            id="E-komercijos funkcionalumas"
+            checked={ecommerce}
+            onChange={(e) => setEcommerce(e.target.checked)}
+          />
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            SEO optimizacija
-            <input
-              type="checkbox"
-              id="seo"
-              checked={seo}
-              onChange={handleSwitchChange(setSeo)}
-              className="ml-2 uiswitch"
-            />
-          </label>
+          <UISwitch
+            id="SEO optimizacija"
+            checked={seo}
+            onChange={(e) => setSeo(e.target.checked)}
+          />
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            Turinio kūrimas
-            <input
-              type="checkbox"
-              id="contentCreation"
-              checked={contentCreation}
-              onChange={handleSwitchChange(setContentCreation)}
-              className="ml-2 uiswitch"
-            />
-          </label>
+          <UISwitch
+            id="Turinio kūrimas"
+            checked={contentCreation}
+            onChange={(e) => setContentCreation(e.target.checked)}
+          />
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-zinc-100 mb-1">
-            Mobilios versijos
-            <input
-              type="checkbox"
-              id="mobileResponsive"
-              checked={mobileResponsive}
-              onChange={handleSwitchChange(setMobileResponsive)}
-              className="ml-2 uiswitch"
-            />
-          </label>
+          <UISwitch
+            id="Mobilios versijos"
+            checked={mobileResponsive}
+            onChange={(e) => setMobileResponsive(e.target.checked)}
+          />
         </div>
 
         <div className="mb-6">
