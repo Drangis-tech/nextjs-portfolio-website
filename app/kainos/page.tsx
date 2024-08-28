@@ -66,21 +66,6 @@ const PricingCalculator: React.FC = () => {
           </select>
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="websiteType" className="block text-sm font-medium text-zinc-100 mb-1">
-            Svetainės tipas:
-          </label>
-          <select
-            id="websiteType"
-            value={websiteType}
-            onChange={(e) => setWebsiteType(e.target.value)}
-            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-          >
-            <option value="template">Šablonas</option>
-            <option value="custom">Individualus</option>
-          </select>
-        </div>
-
         <div className="mb-6 flex items-center">
           <Switch
             id="ecommerce"
@@ -163,7 +148,7 @@ const KainosPage: React.FC = () => {
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Kainos
           </h2>
-          <p className="mt-4 text-zinc-400 text-lg sm:text-xl">
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg">
             Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
           </p>
         </div>
