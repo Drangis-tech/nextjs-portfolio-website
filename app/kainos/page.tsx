@@ -47,7 +47,7 @@ const PricingCalculator: React.FC = () => {
             aria-label="pages slider"
             valueLabelDisplay="on"
             min={1}
-            max={100} // Adjust max as needed
+            max={20} // Adjust max as needed
           />
         </div>
 
