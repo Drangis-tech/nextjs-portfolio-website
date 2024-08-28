@@ -26,14 +26,6 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
           visibility: 'hidden',
           opacity: 0,
           transition: 'visibility 0s, opacity 0.3s linear',
-          '&.MuiSlider-thumb:hover + &': {
-            visibility: 'visible',
-            opacity: 1,
-          },
-          '&.MuiSlider-thumb:focus + &': {
-            visibility: 'visible',
-            opacity: 1,
-          },
         }}
       >
         {value}
@@ -55,6 +47,8 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     width: 20,
     backgroundColor: '#fff',
     boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
+    position: 'relative',
+    zIndex: 1,
     '&:focus, &:hover, &.Mui-active': {
       boxShadow: '0px 0px 3px 1px rgba(0, 0, 0, 0.1)',
       '@media (hover: none)': {
@@ -64,23 +58,6 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     '&:before': {
       boxShadow:
         '0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)',
-    },
-  },
-  '& .MuiSlider-valueLabel': {
-    fontSize: 12,
-    fontWeight: 'normal',
-    top: -6,
-    backgroundColor: 'unset',
-    color: '#fff',
-    '&::before': {
-      display: 'none',
-    },
-    '& *': {
-      background: 'transparent',
-      color: '#fff',
-      ...theme.applyStyles('dark', {
-        color: '#fff',
-      }),
     },
   },
   '& .MuiSlider-track': {
@@ -101,7 +78,7 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     width: 24,
     height: 24,
     borderRadius: '50%',
-    backgroundColor: '#007bff',
+    backgroundColor: 'rgba(0, 123, 255, 0.3)', // Light blue color
     boxShadow: '0 0 8px rgba(0, 123, 255, 0.5)',
     opacity: 0,
     transition: 'opacity 0.3s ease, transform 0.3s ease',
