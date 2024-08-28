@@ -1,6 +1,6 @@
 // /app/kainos/IOSSlider.tsx
 
-import Slider from '@mui/material/Slider';
+import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
