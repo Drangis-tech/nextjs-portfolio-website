@@ -12,9 +12,9 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
       <Box
         sx={{
           lineHeight: 1.2,
-          fontSize: 16, // Adjust font size as needed
-          width: 40, // Adjust width to fit the water drop shape
-          height: 40, // Adjust height to fit the water drop shape
+          fontSize: 16,
+          width: 40,
+          height: 40,
           borderRadius: '50% 50% 50% 0',
           backgroundColor: '#007bff',
           color: '#fff',
@@ -46,45 +46,53 @@ const iOSBoxShadow =
 
 const IOSSlider = styled(Slider)(({ theme }) => ({
   color: '#007bff',
-  height: 8, // Increased height to match the effect
+  height: 8,
   padding: '15px 0',
-  position: 'relative', // Ensure positioning context for pseudo-elements
+  position: 'relative',
   '& .MuiSlider-thumb': {
-    height: 24, // Increased thumb size
-    width: 24,  // Increased thumb size
+    height: 24,
+    width: 24,
     backgroundColor: '#fff',
     border: '2px solid currentColor',
     boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
-    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+    '&:focus, &:hover, &.Mui-active': {
       boxShadow: '0px 0px 3px 1px rgba(0, 0, 0, 0.1)',
+      '&::after': {
+        opacity: 1,
+        transform: 'translate(-50%, -50%) scale(1.2)',
+      },
     },
     '&::before': {
       boxShadow:
         '0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)',
     },
+    '&:hover, &:focus': {
+      '& + .MuiSlider-valueLabel': {
+        transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+      },
+    },
   },
   '& .MuiSlider-valueLabel': {
     lineHeight: 1.2,
-    fontSize: 16, // Increased font size
+    fontSize: 16,
     background: 'unset',
     padding: 0,
-    width: 40, // Adjust width to fit the water drop shape
-    height: 40, // Adjust height to fit the water drop shape
+    width: 40,
+    height: 40,
     borderRadius: '50% 50% 50% 0',
     backgroundColor: '#007bff',
+    color: '#fff',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+    transition: 'transform 0.3s ease, opacity 0.3s ease',
     '&::before': { display: 'none' },
-    '&.MuiSlider-valueLabelOpen': {
-      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
-    },
     '& > *': {
       transform: 'rotate(45deg)',
     },
   },
   '& .MuiSlider-track': {
     border: 'none',
-    height: 8, // Increased height to match the effect
+    height: 8,
   },
   '& .MuiSlider-rail': {
     opacity: 0.5,
