@@ -11,28 +11,27 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
     <Tooltip enterTouchDelay={0} placement="top" title={value}>
       <Box
         sx={{
+          lineHeight: 1.2,
+          fontSize: 16, // Adjust font size as needed
+          width: 40, // Adjust width to fit the water drop shape
+          height: 40, // Adjust height to fit the water drop shape
+          borderRadius: '50% 50% 50% 0',
+          backgroundColor: '#007bff',
+          color: '#fff',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          width: 40,
-          height: 40,
-          backgroundColor: '#007bff',
-          borderRadius: '50%',
-          color: 'white',
-          fontWeight: 'bold',
-          fontSize: '12px',
-          transform: 'translateY(-60%)',
-          boxShadow: '0 0 6px rgba(0, 0, 0, 0.2)',
-          visibility: 'hidden',
-          opacity: 0,
-          transition: 'visibility 0s, opacity 0.3s linear',
-          '&.MuiSlider-thumb:hover + &': {
-            visibility: 'visible',
-            opacity: 1,
+          transformOrigin: 'bottom left',
+          transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+          transition: 'transform 0.3s ease, opacity 0.3s ease',
+          '&.MuiSlider-valueLabelOpen': {
+            transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
           },
-          '&.MuiSlider-thumb:focus + &': {
-            visibility: 'visible',
-            opacity: 1,
+          '&::before': {
+            display: 'none',
+          },
+          '& > *': {
+            transform: 'rotate(45deg)',
           },
         }}
       >
@@ -47,45 +46,45 @@ const iOSBoxShadow =
 
 const IOSSlider = styled(Slider)(({ theme }) => ({
   color: '#007bff',
-  height: 5,
+  height: 8, // Increased height to match the effect
   padding: '15px 0',
   position: 'relative', // Ensure positioning context for pseudo-elements
   '& .MuiSlider-thumb': {
-    height: 20,
-    width: 20,
+    height: 24, // Increased thumb size
+    width: 24,  // Increased thumb size
     backgroundColor: '#fff',
+    border: '2px solid currentColor',
     boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
-    '&:focus, &:hover, &.Mui-active': {
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
       boxShadow: '0px 0px 3px 1px rgba(0, 0, 0, 0.1)',
-      '@media (hover: none)': {
-        boxShadow: iOSBoxShadow,
-      },
     },
-    '&:before': {
+    '&::before': {
       boxShadow:
         '0px 0px 1px 0px rgba(0,0,0,0.2), 0px 0px 0px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.12)',
     },
   },
   '& .MuiSlider-valueLabel': {
-    fontSize: 12,
-    fontWeight: 'normal',
-    top: -6,
-    backgroundColor: 'unset',
-    color: '#fff',
-    '&::before': {
-      display: 'none',
+    lineHeight: 1.2,
+    fontSize: 16, // Increased font size
+    background: 'unset',
+    padding: 0,
+    width: 40, // Adjust width to fit the water drop shape
+    height: 40, // Adjust height to fit the water drop shape
+    borderRadius: '50% 50% 50% 0',
+    backgroundColor: '#007bff',
+    transformOrigin: 'bottom left',
+    transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+    '&::before': { display: 'none' },
+    '&.MuiSlider-valueLabelOpen': {
+      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
     },
-    '& *': {
-      background: 'transparent',
-      color: '#fff',
-      ...theme.applyStyles('dark', {
-        color: '#fff',
-      }),
+    '& > *': {
+      transform: 'rotate(45deg)',
     },
   },
   '& .MuiSlider-track': {
     border: 'none',
-    height: 5,
+    height: 8, // Increased height to match the effect
   },
   '& .MuiSlider-rail': {
     opacity: 0.5,
@@ -98,8 +97,8 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%) scale(0)',
-    width: 24,
-    height: 24,
+    width: 28,
+    height: 28,
     borderRadius: '50%',
     backgroundColor: '#007bff',
     boxShadow: '0 0 8px rgba(0, 123, 255, 0.5)',
