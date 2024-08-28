@@ -1,22 +1,22 @@
 // /app/kainos/IOSSlider.tsx
 
-import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
+import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 
 // Custom value label component for displaying the value above the thumb
 function ValueLabelComponent(props: SliderValueLabelProps) {
-  const { children, open, value } = props;
+  const { open, value } = props;
 
   return (
     <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
       <Box
         sx={{
           lineHeight: 1.2,
-          fontSize: 16, // Adjust font size as needed
-          width: 40, // Adjust width to fit the water drop shape
-          height: 40, // Adjust height to fit the water drop shape
+          fontSize: 16,
+          width: 40,
+          height: 40,
           borderRadius: '50% 50% 50% 0',
           backgroundColor: '#007bff',
           color: '#fff',
@@ -41,17 +41,14 @@ function ValueLabelComponent(props: SliderValueLabelProps) {
   );
 }
 
-const iOSBoxShadow =
-  '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
-
 const IOSSlider = styled(Slider)(({ theme }) => ({
   color: '#007bff',
-  height: 8, // Increased height to match the effect
+  height: 8,
   padding: '15px 0',
-  position: 'relative', // Ensure positioning context for pseudo-elements
+  position: 'relative',
   '& .MuiSlider-thumb': {
-    height: 24, // Increased thumb size
-    width: 24,  // Increased thumb size
+    height: 24,
+    width: 24,
     backgroundColor: '#fff',
     border: '2px solid currentColor',
     boxShadow: '0 0 2px 0px rgba(0, 0, 0, 0.1)',
@@ -65,11 +62,11 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
   },
   '& .MuiSlider-valueLabel': {
     lineHeight: 1.2,
-    fontSize: 16, // Increased font size
+    fontSize: 16,
     background: 'unset',
     padding: 0,
-    width: 40, // Adjust width to fit the water drop shape
-    height: 40, // Adjust height to fit the water drop shape
+    width: 40,
+    height: 40,
     borderRadius: '50% 50% 50% 0',
     backgroundColor: '#007bff',
     transformOrigin: 'bottom left',
@@ -85,7 +82,7 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
   },
   '& .MuiSlider-track': {
     border: 'none',
-    height: 8, // Increased height to match the effect
+    height: 8,
   },
   '& .MuiSlider-rail': {
     opacity: 0.5,
