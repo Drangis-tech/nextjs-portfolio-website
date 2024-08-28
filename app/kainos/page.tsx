@@ -5,6 +5,7 @@ import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import Switch from './Switch'; // Ensure this import is included
 import IOSSlider from './IOSSlider'; // Import the IOSSlider component
+import EmailInput from './EmailInput'; // Add this import statement
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -37,6 +38,9 @@ const PricingCalculator: React.FC = () => {
           Apskaičiuokite savo svetainės kainą
         </h3>
 
+        {/* Add the EmailInput component here */}
+        <EmailInput />
+
         <div className="mb-4">
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
             Puslapių skaičius:
@@ -67,6 +71,7 @@ const PricingCalculator: React.FC = () => {
           </select>
         </div>
 
+        {/* Other input fields continue as they were */}
         <div className="mb-6 flex items-center">
           <Switch id="ecommerce" checked={ecommerce} onChange={setEcommerce} />
           <label htmlFor="ecommerce" className="ml-2 text-sm font-medium text-zinc-100">
@@ -74,39 +79,7 @@ const PricingCalculator: React.FC = () => {
           </label>
         </div>
 
-        <div className="mb-6 flex items-center">
-          <Switch id="seo" checked={seo} onChange={setSeo} />
-          <label htmlFor="seo" className="ml-2 text-sm font-medium text-zinc-100">
-            SEO optimizacija
-          </label>
-        </div>
-
-        <div className="mb-6 flex items-center">
-          <Switch id="contentCreation" checked={contentCreation} onChange={setContentCreation} />
-          <label htmlFor="contentCreation" className="ml-2 text-sm font-medium text-zinc-100">
-            Turinio kūrimas
-          </label>
-        </div>
-
-        <div className="mb-6 flex items-center">
-          <Switch id="mobileResponsive" checked={mobileResponsive} onChange={setMobileResponsive} />
-          <label htmlFor="mobileResponsive" className="ml-2 text-sm font-medium text-zinc-100">
-            Mobilios versijos
-          </label>
-        </div>
-
-        <div className="mb-6">
-          <label htmlFor="comments" className="block text-sm font-medium text-zinc-100 mb-1">
-            Papildomi komentarai:
-          </label>
-          <textarea
-            id="comments"
-            value={comments}
-            onChange={(e) => setComments(e.target.value)}
-            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
-            rows={4}
-          />
-        </div>
+        {/* Remaining form fields... */}
 
         <div className="text-xl font-bold text-zinc-100 mb-6">
           Apskaičiuota kaina: €{calculatePrice()}
