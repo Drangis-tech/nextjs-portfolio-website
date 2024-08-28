@@ -1,6 +1,5 @@
-"use client";
-
 import React, { useState } from "react";
+import styles from './kainos.module.css';  // Import the CSS module
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import GradientButton from "../components/GradientButton"; // Import GradientButton
@@ -29,19 +28,9 @@ const PricingCalculator: React.FC = () => {
     alert("Jūsų užklausa buvo išsiųsta!");
   };
 
-  const UISwitch = ({ id, checked, onChange }: { id: string, checked: boolean, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) => (
-    <label className="relative inline-flex items-center cursor-pointer">
-      <input
-        type="checkbox"
-        id={id}
-        checked={checked}
-        onChange={onChange}
-        className="sr-only"
-      />
-      <div className="w-11 h-6 bg-gray-200 rounded-full border-2 border-gray-200 dark:bg-gray-700 dark:border-gray-600 peer-checked:bg-blue-600 peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 transition-all duration-300 ease-in-out"></div>
-      <span className="ml-3 text-sm font-medium text-zinc-100">{id}</span>
-    </label>
-  );
+  const handleSwitchChange = (setter: React.Dispatch<React.SetStateAction<boolean>>) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setter(event.target.checked);
+  };
 
   return (
     <Card className="bg-transparent border border-zinc-700 shadow-none rounded-lg p-4 md:p-8">
@@ -96,35 +85,63 @@ const PricingCalculator: React.FC = () => {
         </div>
 
         <div className="mb-6">
-          <UISwitch
-            id="E-komercijos funkcionalumas"
-            checked={ecommerce}
-            onChange={(e) => setEcommerce(e.target.checked)}
-          />
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            E-komercijos funkcionalumas
+            <label className={styles.uiswitch}>
+              <input
+                type="checkbox"
+                id="ecommerce"
+                checked={ecommerce}
+                onChange={handleSwitchChange(setEcommerce)}
+              />
+              <span className={`${styles.slider} ${styles.round}`}></span>
+            </label>
+          </label>
         </div>
 
         <div className="mb-6">
-          <UISwitch
-            id="SEO optimizacija"
-            checked={seo}
-            onChange={(e) => setSeo(e.target.checked)}
-          />
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            SEO optimizacija
+            <label className={styles.uiswitch}>
+              <input
+                type="checkbox"
+                id="seo"
+                checked={seo}
+                onChange={handleSwitchChange(setSeo)}
+              />
+              <span className={`${styles.slider} ${styles.round}`}></span>
+            </label>
+          </label>
         </div>
 
         <div className="mb-6">
-          <UISwitch
-            id="Turinio kūrimas"
-            checked={contentCreation}
-            onChange={(e) => setContentCreation(e.target.checked)}
-          />
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            Turinio kūrimas
+            <label className={styles.uiswitch}>
+              <input
+                type="checkbox"
+                id="contentCreation"
+                checked={contentCreation}
+                onChange={handleSwitchChange(setContentCreation)}
+              />
+              <span className={`${styles.slider} ${styles.round}`}></span>
+            </label>
+          </label>
         </div>
 
         <div className="mb-6">
-          <UISwitch
-            id="Mobilios versijos"
-            checked={mobileResponsive}
-            onChange={(e) => setMobileResponsive(e.target.checked)}
-          />
+          <label className="block text-sm font-medium text-zinc-100 mb-1">
+            Mobilios versijos
+            <label className={styles.uiswitch}>
+              <input
+                type="checkbox"
+                id="mobileResponsive"
+                checked={mobileResponsive}
+                onChange={handleSwitchChange(setMobileResponsive)}
+              />
+              <span className={`${styles.slider} ${styles.round}`}></span>
+            </label>
+          </label>
         </div>
 
         <div className="mb-6">
@@ -160,14 +177,4 @@ const KainosPage: React.FC = () => {
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Kainos</h2>
           <p className="mt-4 text-zinc-400">
-            Sužinokite apytikslę savo svetainės kūrimo kainą naudodamiesi mūsų kainų skaičiuokle.
-          </p>
-        </div>
-        <div className="w-full h-px bg-zinc-800" />
-        <PricingCalculator />
-      </div>
-    </div>
-  );
-};
-
-export default KainosPage;
+            Sužinokite
