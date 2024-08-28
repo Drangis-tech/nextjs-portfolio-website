@@ -7,10 +7,10 @@ import Box from '@mui/material/Box';
 
 // Custom value label component for displaying the value above the thumb
 function ValueLabelComponent(props: SliderValueLabelProps) {
-  const { children, value } = props;
+  const { children, open, value } = props;
 
   return (
-    <Tooltip enterTouchDelay={0} placement="top" title={value}>
+    <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
       <Box
         sx={{
           lineHeight: 1.2,
