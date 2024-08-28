@@ -177,4 +177,17 @@ const KainosPage: React.FC = () => {
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Kainos</h2>
           <p className="mt-4 text-zinc-400">
-            Sužinokite
+            Sužinokite preliminarią savo svetainės kainą naudodami mūsų kainos skaičiuoklę. Pasirinkite norimus funkcionalumus ir gaukite apytikslę kainą iš karto.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2">
+          <div className="lg:pr-8 lg:pt-4">
+            <PricingCalculator />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default KainosPage;
