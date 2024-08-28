@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { Navigation } from "../components/nav";
 import GradientButton from "../components/GradientButton"; // Import GradientButton
