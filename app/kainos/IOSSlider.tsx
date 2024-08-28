@@ -5,7 +5,6 @@ import Tooltip from '@mui/material/Tooltip';
 
 function ValueLabelComponent(props: SliderValueLabelProps) {
   const { children, value } = props;
-
   return (
     <Tooltip enterTouchDelay={0} placement="top" title={value}>
       {children}
