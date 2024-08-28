@@ -1,10 +1,8 @@
-"use client";
-
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import Switch from './Switch'; // Ensure this import is included
-import IOSSlider from './IOSSlider'; // Import the IOSSlider component
+import PrettoSlider from './IOSSlider'; // Import the PrettoSlider component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -41,13 +39,13 @@ const PricingCalculator: React.FC = () => {
           <label htmlFor="pages" className="block text-sm font-medium text-zinc-100 mb-1">
             Puslapių skaičius:
           </label>
-          <IOSSlider
+          <PrettoSlider
             value={pages}
-            onChange={(event, newValue) => setPages(newValue as number)}
+            onChange={(event: Event, newValue: number | number[]) => setPages(newValue as number)}
             aria-label="pages slider"
             valueLabelDisplay="on"
             min={1}
-            max={100} // Adjust max as needed
+            max={30} // Adjust max as needed
           />
         </div>
 
