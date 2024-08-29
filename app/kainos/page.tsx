@@ -12,7 +12,7 @@ import SubHandler from './SubHandler'; // Import the SubHandler component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
-  const [design, setDesign] = useState<number>(500);
+  const [design, setDesign] = useState<string>('Paprastas');
   const [ecommerce, setEcommerce] = useState<boolean>(false);
   const [seo, setSeo] = useState<boolean>(false);
   const [contentCreation, setContentCreation] = useState<boolean>(false);
@@ -23,7 +23,7 @@ const PricingCalculator: React.FC = () => {
   const [formData, setFormData] = useState<any>(null); // State to store form data
 
   const calculatePrice = () => {
-    let basePrice = pages * 100 + design;
+    let basePrice = pages * 100 + (design === 'Paprastas' ? 500 : design === 'Vidutinis' ? 1000 : 1500);
     if (ecommerce) basePrice += 2000;
     if (seo) basePrice += 500;
     if (contentCreation) basePrice += 300;
@@ -35,10 +35,10 @@ const PricingCalculator: React.FC = () => {
     const data = {
       pages,
       design,
-      ecommerce,
-      seo,
-      contentCreation,
-      mobileResponsive,
+      ecommerce: ecommerce ? '+' : '',
+      seo: seo ? '+' : '',
+      contentCreation: contentCreation ? '+' : '',
+      mobileResponsive: mobileResponsive ? '+' : '',
       comments,
       name, // Include name in formData
       email,
@@ -95,12 +95,12 @@ const PricingCalculator: React.FC = () => {
           <select
             id="design"
             value={design}
-            onChange={(e) => setDesign(Number(e.target.value))}
+            onChange={(e) => setDesign(e.target.value)}
             className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
           >
-            <option value={500}>Paprastas</option>
-            <option value={1000}>Vidutinis</option>
-            <option value={1500}>Sudėtingas</option>
+            <option value="Paprastas">Paprastas</option>
+            <option value="Vidutinis">Vidutinis</option>
+            <option value="Sudėtingas">Sudėtingas</option>
           </select>
         </div>
 
