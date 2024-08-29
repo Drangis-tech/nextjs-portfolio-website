@@ -138,34 +138,10 @@ const technologies = [
     category: 'Server-side Language',
   },
   {
-    name: 'Node.js',
-    logo: '/logos/node.svg',
-    color: '#8CC84B',
-    category: 'JavaScript Runtime',
-  },
-  {
     name: 'Python',
     logo: '/logos/python.svg',
     color: '#3776AB',
     category: 'Programming Language',
-  },
-  {
-    name: 'AWS',
-    logo: '/logos/aws.svg',
-    color: '#FF9900',
-    category: 'Cloud Services',
-  },
-  {
-    name: 'Docker',
-    logo: '/logos/docker.svg',
-    color: '#2496ED',
-    category: 'Containerization',
-  },
-  {
-    name: 'MySQL',
-    logo: '/logos/mysql.svg',
-    color: '#4479A1',
-    category: 'Database',
   },
 ];
 
