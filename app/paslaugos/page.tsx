@@ -78,10 +78,58 @@ const technologies = [
     category: 'JavaScript Framework',
   },
   {
+    name: 'HTML',
+    logo: '/logos/html.svg',
+    color: '#E34F26',
+    category: 'Markup Language',
+  },
+  {
+    name: 'CSS',
+    logo: '/logos/css.svg',
+    color: '#1572B6',
+    category: 'Style Sheet Language',
+  },
+  {
+    name: 'JavaScript',
+    logo: '/logos/javascript.svg',
+    color: '#F7DF1E',
+    category: 'Programming Language',
+  },
+  {
+    name: 'Next.js',
+    logo: '/logos/nextjs.svg',
+    color: '#000000',
+    category: 'React Framework',
+  },
+  {
     name: 'WordPress',
     logo: '/logos/wordpress.svg',
     color: '#21759B',
     category: 'Content Management System',
+  },
+  {
+    name: 'Magento',
+    logo: '/logos/magento.svg',
+    color: '#F46F25',
+    category: 'E-commerce Platform',
+  },
+  {
+    name: 'PrestaShop',
+    logo: '/logos/prestashop.svg',
+    color: '#DF0067',
+    category: 'E-commerce Platform',
+  },
+  {
+    name: 'Shopify',
+    logo: '/logos/shopify.svg',
+    color: '#96bf48',
+    category: 'E-commerce Platform',
+  },
+  {
+    name: 'Wix',
+    logo: '/logos/wix.svg',
+    color: '#FAAD00',
+    category: 'Website Builder',
   },
   {
     name: 'PHP',
@@ -94,6 +142,12 @@ const technologies = [
     logo: '/logos/node.svg',
     color: '#8CC84B',
     category: 'JavaScript Runtime',
+  },
+  {
+    name: 'Python',
+    logo: '/logos/python.svg',
+    color: '#3776AB',
+    category: 'Programming Language',
   },
   {
     name: 'AWS',
@@ -195,10 +249,10 @@ const Paslaugos = () => {
             šiandien ir aptarkime, kaip galime jums padėti.
           </p>
           <div className="mt-6">
-            <a
+          <a
               href="/contact"
               className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
-              >
+            >
               Susisiekite
             </a>
           </div>
