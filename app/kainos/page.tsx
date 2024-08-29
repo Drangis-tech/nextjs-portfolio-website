@@ -2,7 +2,6 @@
 
 // /app/kainos/page.tsx
 
-
 import React, { useState } from 'react';
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
@@ -19,6 +18,7 @@ const PricingCalculator: React.FC = () => {
   const [contentCreation, setContentCreation] = useState<boolean>(false);
   const [mobileResponsive, setMobileResponsive] = useState<boolean>(false);
   const [comments, setComments] = useState<string>('');
+  const [name, setName] = useState<string>(''); // New state for name/company
   const [email, setEmail] = useState<string>('');
   const [formData, setFormData] = useState<any>(null); // State to store form data
 
@@ -40,6 +40,7 @@ const PricingCalculator: React.FC = () => {
       contentCreation,
       mobileResponsive,
       comments,
+      name, // Include name in formData
       email,
       price: calculatePrice(),
     };
@@ -52,6 +53,21 @@ const PricingCalculator: React.FC = () => {
         <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl mb-6 group-hover:text-white transition-colors duration-300">
           Apskaičiuokite savo svetainės kainą
         </h3>
+
+        {/* Name/Company Input Field */}
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-sm font-medium text-zinc-100 mb-1">
+            Vardas/Įmonė:
+          </label>
+          <input
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-2 border border-zinc-700 bg-zinc-800 text-zinc-100 rounded-md"
+            type="text"
+            placeholder="Įveskite savo vardą ar įmonės pavadinimą"
+          />
+        </div>
 
         {/* Email Input Field */}
         <div className="mb-4">
@@ -158,7 +174,7 @@ const KainosPage: React.FC = () => {
             Kainos
           </h2>
           <p className="mt-4 text-zinc-400 text-base">
-          Sužinokite apytikslę savo svetainės kainą pagal norimus parametrus.
+            Sužinokite apytikslę savo svetainės kainą pagal norimus parametrus.
           </p>
         </div>
 
