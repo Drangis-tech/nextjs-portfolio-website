@@ -91,7 +91,7 @@ const technologies = [
   },
   {
     name: 'JavaScript',
-    logo: '/logos/javascript.svg',
+    logo: '/logos/js.svg',
     color: '#F7DF1E',
     category: 'Programming Language',
   },
