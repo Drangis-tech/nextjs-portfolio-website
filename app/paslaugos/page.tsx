@@ -138,10 +138,10 @@ const technologies = [
     category: 'Server-side Language',
   },
   {
-    name: 'Python',
+    name: 'Bei kitos kalbos ir technologijos',
     logo: '/logos/python.svg',
     color: '#3776AB',
-    category: 'Programming Language',
+    category: 'Pasigedote kažko? Susisiekite',
   },
 ];
 
