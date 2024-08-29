@@ -19,10 +19,10 @@ const SubHandler: React.FC<SubHandlerProps> = ({ formData }) => {
           formData,
           process.env.NEXT_PUBLIC_EMAILJS_USER_ID as string // Use environment variable
         );
-        setMessage('Email sent successfully!');
+        setMessage('Užklausa sėkmingai buvo išsiųsta.');
       } catch (error) {
         console.error('Failed to send email:', error);
-        setMessage('Failed to send email. Please try again later!');
+        setMessage('Nepavyko išsiųsti užklausos. Pabandykite dar karta vėliau.');
       }
     };
 
