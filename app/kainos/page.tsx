@@ -3,8 +3,8 @@
 // /app/kainos/page.tsx
 
 import React, { useState } from 'react';
-import { Navigation } from '../components/nav';
 import Head from 'next/head'; // Import the Head component from next/head
+import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import Switch from './Switch'; // Ensure this import is included
 import IOSSlider from './IOSSlider'; // Import the IOSSlider component
