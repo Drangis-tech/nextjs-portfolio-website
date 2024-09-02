@@ -168,7 +168,7 @@ const KainosPage: React.FC = () => {
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Head>
-        <title>Kainos - Apskaičiuokite savo svetainės kainą</title>
+        <title>Kainos - Apskaičiuokite</title>
       </Head>
       <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
