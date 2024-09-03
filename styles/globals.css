@@ -298,3 +298,47 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
+
+/* Cookie Consent Styles */
+.cookie-consent {
+  position: fixed;
+  bottom: 16px; /* Adjust based on your design */
+  left: 16px;   /* Adjust based on your design */
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background for visibility */
+  color: #fff;  /* White text color for contrast */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between elements */
+}
+
+.cookie-consent p {
+  margin: 0; /* Remove default margin */
+}
+
+.cookie-consent .cc-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cookie-consent .cc-btns button {
+  padding: 10px;
+  background-color: #fd7e14; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.cookie-consent .cc-btns button:hover {
+  background-color: #f77f7d; /* Darker color on hover */
+}
+
+.cookie-consent .cc-btns button:focus {
+  outline: 2px solid #fff; /* Outline for focus state */
+}
