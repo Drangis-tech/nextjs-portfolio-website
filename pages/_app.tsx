@@ -9,19 +9,19 @@ config.autoAddCss = false; // Prevents FontAwesome from adding its CSS automatic
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.cookieconsent) {
-      window.cookieconsent.initialise({
+    if (typeof window !== 'undefined' && (window as any).cookieconsent) {
+      (window as any).cookieconsent.initialise({
         current_lang: 'en',
         autoclear_cookies: true,
         page_scripts: true,
-        onFirstAction: function (user_preferences, cookie) {
-          const analyticsEnabled = window.cookieconsent.allowedCategory('analytics');
+        onFirstAction: function (user_preferences: any, cookie: any) {
+          const analyticsEnabled = (window as any).cookieconsent.allowedCategory('analytics');
           console.log(`analytics ${analyticsEnabled ? 'enabled' : 'disabled'}`);
         },
-        onAccept: function (cookie) {
+        onAccept: function (cookie: any) {
           // Handle what happens when cookies are accepted
         },
-        onChange: function (cookie, changed_preferences) {
+        onChange: function (cookie: any, changed_preferences: any) {
           // Handle what happens when preferences change
         },
         languages: {
