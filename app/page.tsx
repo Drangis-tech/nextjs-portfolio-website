@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home | brandforge.lt</title> {/* Set the title for the page */}
+        <title>Pagrindinis | Brandforge.lt</title> {/* Updated title */}
       </Head>
       
       <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
