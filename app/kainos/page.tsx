@@ -24,11 +24,11 @@ const PricingCalculator: React.FC = () => {
   const [formData, setFormData] = useState<any>(null); // State to store form data
 
   const calculatePrice = () => {
-    let basePrice = pages * 100 + (design === 'Paprastas' ? 500 : design === 'Vidutinis' ? 1000 : 1500);
+    let basePrice = pages * 50 + (design === 'Paprastas' ? 450 : design === 'Vidutinis' ? 650 : 950);
     if (ecommerce) basePrice += 2000;
-    if (seo) basePrice += 500;
-    if (contentCreation) basePrice += 300;
-    if (mobileResponsive) basePrice += 400;
+    if (seo) basePrice += 300;
+    if (contentCreation) basePrice += 150;
+    if (mobileResponsive) basePrice += 150;
     return basePrice;
   };
 
