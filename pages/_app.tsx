@@ -9,13 +9,13 @@ config.autoAddCss = false; // Prevents FontAwesome from adding its CSS automatic
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && window.cookieconsent) {
       window.cookieconsent.initialise({
         current_lang: 'en',
         autoclear_cookies: true,
         page_scripts: true,
         onFirstAction: function (user_preferences, cookie) {
-          const analyticsEnabled = window.CC.allowedCategory('analytics');
+          const analyticsEnabled = window.cookieconsent.allowedCategory('analytics');
           console.log(`analytics ${analyticsEnabled ? 'enabled' : 'disabled'}`);
         },
         onAccept: function (cookie) {
