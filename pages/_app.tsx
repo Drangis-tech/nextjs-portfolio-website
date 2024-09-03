@@ -2,11 +2,11 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import Head from 'next/head';
 import '../styles/globals.css';
+import '../styles/cookie.module.css'; // Ensure your CSS module is imported
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
-import styles from '../styles/cookie.module.css'; // Import the CSS module
 
-config.autoAddCss = false;
+config.autoAddCss = false; // Prevents FontAwesome from adding its CSS automatically
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -25,8 +25,12 @@ function MyApp({ Component, pageProps }: AppProps) {
             const analyticsEnabled = (window as any).cookieconsent.allowedCategory('analytics');
             console.log(`analytics ${analyticsEnabled ? 'enabled' : 'disabled'}`);
           },
-          onAccept: function (cookie: any) {},
-          onChange: function (cookie: any, changed_preferences: any) {},
+          onAccept: function (cookie: any) {
+            // Handle what happens when cookies are accepted
+          },
+          onChange: function (cookie: any, changed_preferences: any) {
+            // Handle what happens when preferences change
+          },
           languages: {
             en: {
               consent_modal: {
