@@ -1,0 +1,32 @@
+/* General styling for the cookie consent banner */
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  }
+  
+  body {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  
+  .cc-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .cc-btns > button {
+    padding: 10px;
+  }
+  
+  html:not(.cc--darkmode) #cc-main {
+    --cc-overlay-bg: rgba(215, 221, 224, 0.761);
+  }
