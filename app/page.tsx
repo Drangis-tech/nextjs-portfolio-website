@@ -1,8 +1,8 @@
 "use client";
 
-import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { Helmet } from 'react-helmet'; // Import Helmet from react-helmet
 import { Navigation } from './components/nav'; // Import Navigation
 
 const navigation = [
@@ -37,39 +37,45 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
-      <canvas id="bgCanvas" className="absolute top-0 left-0" />
-      <canvas id="terCanvas" className="absolute top-0 left-0" />
+    <>
+      <Helmet>
+        <title>Home | brandforge.lt</title> {/* Set the title for the page */}
+      </Helmet>
+      
+      <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
+        <canvas id="bgCanvas" className="absolute top-0 left-0" />
+        <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-      {/* Include Navigation component with a hidden back button */}
-      <header className="w-full">
-        <Navigation />
-      </header>
+        {/* Include Navigation component with a hidden back button */}
+        <header className="w-full">
+          <Navigation />
+        </header>
 
-      <div className="flex flex-col items-center justify-center z-10">
-        <div className="flex flex-col items-center">
-          <Image
-            src="/logo.png"
-            alt="WebForge Logo"
-            width={80}
-            height={80}
-            className="mb-4 animate-fade-in"
-          />
-          <h1
-            className="text-4xl text-transparent bg-white bg-clip-text duration-1000 cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap"
-            style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}
-          >
-            BrandForge
-          </h1>
+        <div className="flex flex-col items-center justify-center z-10">
+          <div className="flex flex-col items-center">
+            <Image
+              src="/logo.png"
+              alt="WebForge Logo"
+              width={80}
+              height={80}
+              className="mb-4 animate-fade-in"
+            />
+            <h1
+              className="text-4xl text-transparent bg-white bg-clip-text duration-1000 cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap"
+              style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}
+            >
+              BrandForge
+            </h1>
+          </div>
+        </div>
+
+        <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="my-16 text-center animate-fade-in">
+          <h2 className="text-sm text-white shine-effect">
+            Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
+          </h2>
         </div>
       </div>
-
-      <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-white shine-effect">
-          Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
-        </h2>
-      </div>
-    </div>
+    </>
   );
 }
