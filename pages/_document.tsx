@@ -6,6 +6,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          {/* Global meta tags */}
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="stylesheet"
