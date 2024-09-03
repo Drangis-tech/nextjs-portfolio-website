@@ -49,6 +49,10 @@ const aboutUsData = [
 ];
 
 const ApieMus: React.FC = () => {
+  useEffect(() => {
+    // Set the document title
+    document.title = "Apie mus | Brandforge.lt";
+  }, []);
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
