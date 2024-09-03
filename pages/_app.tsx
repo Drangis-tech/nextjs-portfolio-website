@@ -1,4 +1,3 @@
-// pages/_app.tsx
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import Head from 'next/head';
@@ -7,12 +6,10 @@ import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import styles from '../styles/cookie.module.css'; // Import the CSS module
 
-
-config.autoAddCss = false; // Prevents FontAwesome from adding its CSS automatically
+config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    // Load cookieconsent script dynamically
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js';
     script.integrity = 'sha512-0vGAfd29ToJWyheRuRuxdrKtOCeHqcMcFe0NC1V7FsI6UsF6WIGZ7uvJ5WzD2kZPipNkbzHDHk3zDA9B+5osIg==';
@@ -28,12 +25,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             const analyticsEnabled = (window as any).cookieconsent.allowedCategory('analytics');
             console.log(`analytics ${analyticsEnabled ? 'enabled' : 'disabled'}`);
           },
-          onAccept: function (cookie: any) {
-            // Handle what happens when cookies are accepted
-          },
-          onChange: function (cookie: any, changed_preferences: any) {
-            // Handle what happens when preferences change
-          },
+          onAccept: function (cookie: any) {},
+          onChange: function (cookie: any, changed_preferences: any) {},
           languages: {
             en: {
               consent_modal: {
@@ -126,7 +119,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
     document.head.appendChild(script);
 
-    // Clean up script on component unmount
     return () => {
       document.head.removeChild(script);
     };
@@ -146,6 +138,22 @@ function MyApp({ Component, pageProps }: AppProps) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        {/* Local cookie consent styles */}
+        <style>{`
+          .cc-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+          }
+
+          .cc-btns > button {
+            padding: 10px;
+          }
+
+          html:not(.cc--darkmode) #cc-main {
+            --cc-overlay-bg: rgba(215, 221, 224, 0.761);
+          }
+        `}</style>
       </Head>
       <Component {...pageProps} />
     </>
