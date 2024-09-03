@@ -42,6 +42,7 @@ export default function Home() {
       <Head>
         <title>Home | brandforge.lt</title> {/* Set the title for the page */}
       </Head>
+      
       <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
         <canvas id="bgCanvas" className="absolute top-0 left-0" />
         <canvas id="terCanvas" className="absolute top-0 left-0" />
