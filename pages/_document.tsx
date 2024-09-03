@@ -29,6 +29,14 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          
+             {/* Cookie Consent JS */}
+             <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js"
+            integrity="sha512-0vGAfd29ToJWyheRuRuxdrKtOCeHqcMcFe0NC1V7FsI6UsF6WIGZ7uvJ5WzD2kZPipNkbzHDHk3zDA9B+5osIg=="
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          ></script>
         </body>
       </Html>
     );
