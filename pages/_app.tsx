@@ -2,7 +2,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import Head from 'next/head';
 import '../styles/globals.css';
-import '../styles/cookie.module.css'; // Ensure your CSS module is imported
+import '../pages/cookie.module.css'; // Ensure your CSS module is imported
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 
