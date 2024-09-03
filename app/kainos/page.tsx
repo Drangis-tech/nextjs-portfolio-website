@@ -2,7 +2,7 @@
 
 // /app/kainos/page.tsx
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head'; // Import the Head component from next/head
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';

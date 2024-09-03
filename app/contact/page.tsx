@@ -1,4 +1,6 @@
 "use client";
+
+import React, { useEffect, useState } from 'react';
 import { Github, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";

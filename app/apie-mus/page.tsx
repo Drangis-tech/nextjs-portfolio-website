@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';  // Add useEffect import
 import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';  // Add useEffect import
 import { Navigation } from '../components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
