@@ -1,10 +1,15 @@
 "use client";
 
+import Head from 'next/head';
 import Link from 'next/link'; // Import Link from next/link
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Navigation } from './components/nav'; // Import Navigation
 
+<Head>
+        {/* Set the title for the page */}
+        <title>Paslaugos | brandforge.lt</title>
+      </Head>
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
   { name: "Paslaugos", href: "/paslaugos" },
