@@ -38,7 +38,7 @@ export default function Home() {
     <div
       onMouseMove={onMouseMove}
       className="overflow-hidden relative duration-700 border hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 rounded-xl"
-      style={{ height: "200px" }} // Adjusted height for the cards on larger screens
+      style={{ height: "200px" }} // Ensure all cards have the same height
     >
       <canvas className="absolute inset-0 w-full h-full z-0 pointer-events-none" id="particleCanvas"></canvas>
       <div className="pointer-events-none">
@@ -66,9 +66,9 @@ export default function Home() {
           <Navigation />
         </header>
 
-        <div className="flex flex-col items-center justify-center z-10 mt-32 md:mt-16 text-center text-white px-4 md:px-0 flex-1">
-          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-2 md:mb-4 leading-tight">
-            Build, host, and scale your collaborative product
+        <div className="flex flex-col items-center justify-center z-10 mt-32 md:mt-16 text-center text-white px-4 md:px-8 flex-1">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+            Build, host, and scale your<br className="hidden md:block"/> collaborative product
           </h2>
           <p className="text-lg text-gray-400 mb-6 md:mb-8">
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-4 mt-8 md:mt-12 mb-8">
+        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8">
           <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
           <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
           <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
