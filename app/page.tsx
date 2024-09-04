@@ -58,7 +58,8 @@ export default function Home() {
             Launch Week is here
           </h1>
           <h2 className="text-3xl text-white mb-4">
-            <d3>Email for developers</d3>
+            {/* Use a standard HTML element or a custom component here */}
+            <span>Email for developers</span>
           </h2>
           <p className="text-lg text-white mb-8">
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
