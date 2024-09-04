@@ -9,19 +9,12 @@ import { motion, useMotionTemplate, useSpring } from "framer-motion";
 
 export default function Home() {
   useEffect(() => {
-    document.body.classList.add('no-scroll');
-
-    const preventDefault = (e: Event) => e.preventDefault();
-    document.body.addEventListener('touchmove', preventDefault, { passive: false });
-
     const script = document.createElement("script");
     script.src = "/canvasAnimation.js";
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
-      document.body.classList.remove('no-scroll');
-      document.body.removeEventListener('touchmove', preventDefault);
       document.body.removeChild(script);
     };
   }, []);
@@ -45,7 +38,8 @@ export default function Home() {
   const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
     <div
       onMouseMove={onMouseMove}
-      className="overflow-hidden relative duration-700 border rounded-t-none rounded-b-none hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 first:rounded-l-xl last:rounded-r-xl"
+      className="overflow-hidden relative duration-700 border rounded-t-none rounded-b-none hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 first:rounded-l-xl last:rounded-r-xl md:first:rounded-t-xl md:first:rounded-b-none md:last:rounded-b-xl md:last:rounded-t-none"
+      style={{ height: "200px" }} // Adjusted height for the cards on larger screens
     >
       <div className="pointer-events-none">
         <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
@@ -76,9 +70,12 @@ export default function Home() {
         </header>
 
         <div className="flex flex-col items-center justify-center z-10 mt-16 text-center text-white px-4">
-          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-4 leading-tight">
             Build, host, and scale your collaborative product
           </h2>
+          <p className="text-lg text-gray-400 mb-8">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          </p>
           <div className="mb-8">
             <Link href="/sign-up">
               <a className="px-8 py-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition inline-flex items-center">
@@ -89,13 +86,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex justify-center px-4">
-          <div className="flex flex-col md:flex-row gap-0">
-            <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
-            <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
-            <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
-            <Card title="No maintenance required" description="Spend your time building, not maintaining infrastructure." />
-          </div>
+        <div className="w-full flex flex-col md:flex-row justify-center px-4 gap-4 md:gap-0">
+          <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
+          <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
+          <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
+          <Card title="No maintenance required" description="Spend your time building, not maintaining infrastructure." />
         </div>
       </div>
     </>
