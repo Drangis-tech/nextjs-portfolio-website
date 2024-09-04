@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import Head from 'next/head';
 import { Navigation } from './components/nav';
 import { motion, useMotionTemplate, useSpring } from "framer-motion";
@@ -38,7 +37,7 @@ export default function Home() {
   const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
     <div
       onMouseMove={onMouseMove}
-      className="overflow-hidden relative duration-700 border rounded-t-none rounded-b-none hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 first:rounded-l-xl last:rounded-r-xl md:first:rounded-t-xl md:first:rounded-b-none md:last:rounded-b-xl md:last:rounded-t-none"
+      className="overflow-hidden relative duration-700 border hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 rounded-none md:first:rounded-l-xl md:last:rounded-r-xl md:rounded-t-xl md:rounded-b-xl"
       style={{ height: "200px" }} // Adjusted height for the cards on larger screens
     >
       <div className="pointer-events-none">
@@ -65,11 +64,11 @@ export default function Home() {
         <canvas id="bgCanvas" className="absolute top-0 left-0" />
         <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-        <header className="w-full">
+        <header className="w-full z-10">
           <Navigation />
         </header>
 
-        <div className="flex flex-col items-center justify-center z-10 mt-16 text-center text-white px-4">
+        <div className="flex flex-col items-center justify-center z-10 mt-16 text-center text-white px-4 md:px-0 flex-1">
           <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-4 leading-tight">
             Build, host, and scale your collaborative product
           </h2>
@@ -86,7 +85,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-center px-4 gap-4 md:gap-0">
+        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-0 mt-8 md:mt-16">
           <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
           <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
           <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
