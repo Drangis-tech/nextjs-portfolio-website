@@ -2,14 +2,13 @@
 
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import Head from 'next/head';
 import { Navigation } from './components/nav';
 import { motion, useMotionTemplate, useSpring } from "framer-motion";
 
 export default function Home() {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "/canvasAnimation.js"; // Assuming this script is already set up for the particle effect
+    script.src = "/canvasAnimation.js"; // Assuming this script is set up for the particle effect
     script.async = true;
     document.body.appendChild(script);
 
@@ -37,18 +36,17 @@ export default function Home() {
   const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
     <div
       onMouseMove={onMouseMove}
-      className="overflow-hidden relative duration-700 border hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 rounded-xl"
-      style={{ height: "200px" }} // Ensure all cards have the same height
+      className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden"
+      style={{ height: '250px', width: '250px' }} // Ensure all cards have the same size
     >
-      <canvas className="absolute inset-0 w-full h-full z-0 pointer-events-none" id="particleCanvas"></canvas>
       <div className="pointer-events-none">
-        <div className="absolute inset-0 z-10 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
+        <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
-          className="absolute inset-0 z-20 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
+          className="absolute inset-0 z-10 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
           style={maskStyle}
         />
         <motion.div
-          className="absolute inset-0 z-20 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
+          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
           style={maskStyle}
         />
       </div>
@@ -62,11 +60,11 @@ export default function Home() {
   return (
     <>
       <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
-        <header className="w-full z-10">
+        <header className="absolute top-0 left-0 w-full z-20">
           <Navigation />
         </header>
 
-        <div className="flex flex-col items-center justify-center z-10 mt-32 md:mt-16 text-center text-white px-4 md:px-8 flex-1">
+        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-10 mt-32 md:mt-16">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             Build, host, and scale your<br className="hidden md:block"/> collaborative product
           </h2>
