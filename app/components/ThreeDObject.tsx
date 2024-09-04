@@ -12,12 +12,17 @@ const MarsModel = () => {
 
 const ThreeDObject = () => {
   return (
-    <Canvas style={{ height: '100vh', width: '100vw' }} camera={{ position: [0, 0, 5], fov: 75 }}>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} />
-      <OrbitControls />
-      <MarsModel />
-    </Canvas>
+    <div style={{ width: '400px', height: '400px', margin: '0 auto' }}> {/* Container size */}
+      <Canvas 
+        style={{ width: '100%', height: '100%' }}
+        camera={{ position: [0, 0, 5], fov: 60 }} // Adjusted field of view for a closer fit
+      >
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 10, 10]} intensity={1} />
+        <OrbitControls />
+        <MarsModel />
+      </Canvas>
+    </div>
   );
 };
 
