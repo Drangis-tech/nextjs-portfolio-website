@@ -64,7 +64,7 @@ export default function Home() {
           <Navigation />
         </header>
 
-        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-10 mt-32 md:mt-16">
+        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-10 mt-24 md:mt-32">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             Build, host, and scale your<br className="hidden md:block"/> collaborative product
           </h2>
