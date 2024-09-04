@@ -37,7 +37,7 @@ export default function Home() {
     <div
       onMouseMove={onMouseMove}
       className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden"
-      style={{ height: '250px', width: '360px' }} // Increased width by 20%
+      style={{ height: '250px', width: '300px' }} // Keep the original size
     >
       <div className="pointer-events-none absolute inset-0 z-10">
         <div className="absolute inset-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
