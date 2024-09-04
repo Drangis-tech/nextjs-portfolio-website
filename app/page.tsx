@@ -74,9 +74,10 @@ export default function Home() {
         </div>
 
         <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-        <div className="my-16 text-center animate-fade-in">
-          <h2 className="text-sm text-white shine-effect">
-            Mes padedame verslams augti naudojant inovatyvius IT sprendimus.
+<div className="my-16 text-center animate-fade-in">
+  <h2 className="text-white shine-effect text-lg sm:text-xl md:text-2xl lg:text-3xl">
+    Mes padedame verslams augti<br className="block sm:hidden" />
+    Naudojant inovatyvius IT sprendimus
           </h2>
         </div>
       </div>
