@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
 import { Navigation } from './components/nav';
-import Card from './components/card'; // Import the Card component
+import { Card } from "../components/card";
 
 export default function Home() {
   useEffect(() => {
