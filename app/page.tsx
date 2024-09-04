@@ -68,7 +68,7 @@ export default function Home() {
           <Navigation />
         </header>
 
-        <div className="flex flex-col items-center justify-center z-10 mt-8 md:mt-16 text-center text-white px-4 md:px-0 flex-1">
+        <div className="flex flex-col items-center justify-center z-10 mt-32 md:mt-16 text-center text-white px-4 md:px-0 flex-1">
           <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-2 md:mb-4 leading-tight">
             Build, host, and scale your collaborative product
           </h2>
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-4 mt-4 md:mt-8">
+        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-4 mt-4">
           <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
           <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
           <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
