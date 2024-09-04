@@ -5,14 +5,14 @@
 /* Import FontAwesome CSS */
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
 
+/* Global Custom Styles */
 @layer base {
-  /* CodePen Design Styles */
   body {
     margin: 0;
     padding: 0;
     background: black;
-    font-family: Arial, sans-serif;
-    color: white; /* Ensure the text color is visible */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: white;
   }
 
   #container {
@@ -32,7 +32,7 @@
   }
 
   .description {
-    color: gray; /* Adjusted text color */
+    color: gray;
     font-size: 1.5rem;
     margin-top: 20px;
   }
@@ -42,7 +42,6 @@
     to { opacity: 1; }
   }
 
-  /* Existing Custom Styles */
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
@@ -112,73 +111,70 @@
   .team-section .team-members {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Ensure responsiveness */
+    flex-wrap: wrap;
   }
 
   .team-member {
     text-align: center;
-    margin: 10px; /* Add margin for spacing */
+    margin: 10px;
   }
 
   .team-member .social-icons a {
     display: inline-block;
     margin: 0 5px;
-    font-size: 1.25rem; /* Adjust icon size */
-    color: #ccc; /* Icon color */
-    transition: color 0.3s ease; /* Smooth transition */
+    font-size: 1.25rem;
+    color: #ccc;
+    transition: color 0.3s ease;
   }
 
   .team-member .social-icons a:hover {
-    color: #fff; /* Change icon color on hover */
+    color: #fff;
   }
 
-  /* Style for the backdrop overlay */
   .backdrop {
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    z-index: 30; /* Ensure it's behind the menu */
+    backdrop-filter: blur(10px);
+    z-index: 30;
   }
 
-  /* Style for the side menu */
   .menu-content {
-    backdrop-filter: none; /* No blur effect on the menu */
-    z-index: 50; /* Ensure it's in front of the backdrop */
+    backdrop-filter: none;
+    z-index: 50;
     position: relative;
     overflow: hidden;
   }
 
-  /* Language Selector */
   .language-selector {
     position: absolute;
-    top: 16px; /* Adjust according to the design */
-    left: 16px; /* Align with the close button */
+    top: 16px;
+    left: 16px;
     display: flex;
     align-items: center;
-    background-color: #333; /* Background color */
-    border: 1px solid #555; /* Border color */
-    border-radius: 4px; /* Rounded corners */
-    padding: 4px; /* Padding */
-    cursor: pointer; /* Pointer cursor */
-    color: #fff; /* Text color */
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    color: #fff;
   }
 
   .language-selector .flag-icon {
-    width: 24px; /* Icon size */
-    height: 24px; /* Icon size */
+    width: 24px;
+    height: 24px;
     background-size: cover;
     background-position: center;
   }
 
   .language-selector .dropdown {
     position: absolute;
-    top: 100%; /* Aligns below the selector */
+    top: 100%;
     left: 0;
     background-color: #333;
     border: 1px solid #555;
     border-radius: 4px;
     display: none;
     flex-direction: column;
-    margin-top: 4px; /* Space between selector and dropdown */
-    z-index: 100; /* Ensure dropdown is on top */
+    margin-top: 4px;
+    z-index: 100;
   }
 
   .language-selector.open .dropdown {
@@ -186,46 +182,45 @@
   }
 
   .language-selector .dropdown select {
-    background-color: transparent; /* Transparent background */
-    border: none; /* No border */
-    color: #fff; /* White text color */
+    background-color: transparent;
+    border: none;
+    color: #fff;
     padding: 8px;
-    cursor: pointer; /* Pointer cursor */
-    font-size: 0.875rem; /* Font size */
-    outline: none; /* Remove outline */
+    cursor: pointer;
+    font-size: 0.875rem;
+    outline: none;
   }
 
   .menu-content .contact-info {
-    color: #bbb; /* Grey color for contact info */
-    font-size: 0.875rem; /* Smaller font size */
+    color: #bbb;
+    font-size: 0.875rem;
     position: absolute;
-    bottom: 16px; /* Space from the bottom */
-    left: 16px; /* Space from the left */
-    width: calc(100% - 32px); /* Full width minus padding */
-    text-align: center; /* Center align text */
+    bottom: 16px;
+    left: 16px;
+    width: calc(100% - 32px);
+    text-align: center;
   }
 
   .menu-content .contact-info a {
-    color: #ccc; /* Light grey color for links */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s; /* Smooth transition */
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
   }
 
   .menu-content .contact-info a:hover {
-    color: #fff; /* White color on hover */
+    color: #fff;
   }
 
-  /* Navigation Link Styles */
   .nav-link {
     position: relative;
     display: inline-block;
-    color: #aaa; /* More gray color for default */
-    font-size: 1rem; /* Similar size to other subpages */
+    color: #aaa;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    padding: 0.5rem 1rem; /* Add padding for better spacing */
+    padding: 0.5rem 1rem;
     transition: color 0.3s ease;
-    text-decoration: none; /* Remove default underline */
+    text-decoration: none;
   }
 
   .nav-link::before {
@@ -235,14 +230,14 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b); /* Gradient color */
+    background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b);
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
   }
 
   .nav-link:hover {
-    color: white; /* Change text color to white on hover */
+    color: white;
   }
 
   .nav-link:hover::before {
@@ -250,73 +245,60 @@
     transform-origin: bottom left;
   }
 
-  /* Specific text styles */
   .info-text {
-    color: #aaa; /* Gray color for specified text */
-    font-size: 1.125rem; /* Adjust font size */
+    color: #aaa;
+    font-size: 1.125rem;
     margin-top: 10px;
   }
 }
 
-/* Ensure FontAwesome icons are responsive */
 @media (max-width: 768px) {
   .team-member .social-icons a {
-    font-size: 1rem; /* Adjust icon size for mobile */
+    font-size: 1rem;
   }
 
   .menu-content .language-selector select {
-    font-size: 0.75rem; /* Smaller font size for select on mobile */
+    font-size: 0.75rem;
   }
 
   .menu-content .contact-info {
-    font-size: 0.75rem; /* Even smaller font size for mobile */
+    font-size: 0.75rem;
   }
 
   .nav-link {
-    font-size: 0.875rem; /* Smaller font size for mobile */
+    font-size: 0.875rem;
   }
 
   .info-text {
-    font-size: 1rem; /* Adjust font size for mobile */
+    font-size: 1rem;
   }
 }
 
-/* Divider Line Style */
 .divider {
   width: 100%;
-  height: 1px; /* Adjust height if necessary */
-  background-color: #333; /* Ensure this matches the color used on /paslaugos */
-  margin: 1.5rem 0; /* Adjust margin to control spacing around the line */
-}
-
-
-/* global.css */
-@import 'some-other-styles.css';
-
-/* Other styles follow */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  height: 1px;
+  background-color: #333;
+  margin: 1.5rem 0;
 }
 
 /* Cookie Consent Styles */
 .cookie-consent {
   position: fixed;
-  bottom: 16px; /* Adjust based on your design */
-  left: 16px;   /* Adjust based on your design */
-  background-color: rgba(0, 0, 0, 0.9); /* Dark background for visibility */
-  color: #fff;  /* White text color for contrast */
-  border-radius: 8px; /* Rounded corners */
+  bottom: 16px;
+  left: 16px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  border-radius: 8px;
   padding: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  z-index: 1000; /* Ensure it's above other content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between elements */
+  gap: 10px;
 }
 
 .cookie-consent p {
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 
 .cookie-consent .cc-btns {
@@ -327,12 +309,12 @@ body {
 
 .cookie-consent .cc-btns button {
   padding: 10px;
-  background-color: #fd7e14; /* Button background color */
-  color: #fff; /* Button text color */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s; /* Smooth background color transition */
+  background-color: #fd7e14;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .cookie-consent .cc-btns button:hover {
@@ -342,3 +324,6 @@ body {
 .cookie-consent .cc-btns button:focus {
   outline: 2px solid #fff; /* Outline for focus state */
 }
+
+/* Import additional styles if needed */
+@import 'some-other-styles.css'; /* Ensure this is necessary, otherwise remove */
