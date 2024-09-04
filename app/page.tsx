@@ -77,7 +77,7 @@ export default function Home() {
 <div className="my-16 text-center animate-fade-in">
   <h2 className="text-white shine-effect text-lg sm:text-xl md:text-2xl lg:text-3xl">
     Mes padedame verslams augti<br className="block sm:hidden" />
-    Naudojant inovatyvius IT sprendimus
+    Naudojant inovatyvius IT sprendimus.
           </h2>
         </div>
       </div>
