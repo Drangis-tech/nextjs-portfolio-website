@@ -1,16 +1,18 @@
-// components/ThreeDObject.tsx
-
 import { Canvas } from '@react-three/fiber';
-import { Box } from '@react-three/drei';
+import { OrbitControls, useGLTF } from '@react-three/drei';
+
+const MarsModel = () => {
+  const { scene } = useGLTF('/mars.glb'); // Adjust the path to match the public directory
+  return <primitive object={scene} />;
+};
 
 const ThreeDObject = () => {
   return (
-    <Canvas>
-      <ambientLight />
+    <Canvas style={{ height: '100%', width: '100%' }}>
+      <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
-      <Box>
-        <meshStandardMaterial attach="material" color="royalblue" />
-      </Box>
+      <OrbitControls />
+      <MarsModel />
     </Canvas>
   );
 };
