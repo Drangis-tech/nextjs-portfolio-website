@@ -256,6 +256,93 @@
     font-size: 1.125rem; /* Adjust font size */
     margin-top: 10px;
   }
+
+  /* New Hero Section Styles */
+  .hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .hero-button.primary {
+    background-color: #0070f3;
+  }
+
+  .hero-button.secondary {
+    background-color: #333;
+  }
+
+  .hero-button:hover {
+    background-color: #005bb5; /* Darker shade for primary button */
+  }
+
+  .hero-button.secondary:hover {
+    background-color: #444; /* Darker shade for secondary button */
+  }
+
+  .hero-footer {
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-align: center;
+    color: #aaa;
+  }
+
+  .hero-footer span {
+    color: #fff; /* Make the 'Backed by Combinator' text white */
+    font-weight: bold;
+  }
+
+  /* 3D Object Animation */
+  .hero-3d-object {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    max-width: 400px;
+    height: auto;
+    pointer-events: none; /* Ensure it doesn't interfere with other interactions */
+  }
 }
 
 /* Ensure FontAwesome icons are responsive */
@@ -279,6 +366,37 @@
   .info-text {
     font-size: 1rem; /* Adjust font size for mobile */
   }
+
+  /* Responsive Hero Section Styles */
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-button {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .hero-footer {
+    font-size: 0.875rem;
+  }
+
+  .hero-3d-object {
+    width: 40%;
+    max-width: 300px;
+  }
 }
 
 /* Divider Line Style */
@@ -288,7 +406,6 @@
   background-color: #333; /* Ensure this matches the color used on /paslaugos */
   margin: 1.5rem 0; /* Adjust margin to control spacing around the line */
 }
-
 
 /* global.css */
 @import 'some-other-styles.css';

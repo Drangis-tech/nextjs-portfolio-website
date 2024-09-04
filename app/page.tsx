@@ -1,10 +1,11 @@
 "use client";
 
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import Head from 'next/head'; // Import Head from next/head
-import { Navigation } from './components/nav'; // Import Navigation
+import Head from 'next/head';
+import { Navigation } from './components/nav';
+import ThreeDObject from './components/ThreeDObject'; // Import the 3D component
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -16,20 +17,16 @@ const navigation = [
 
 export default function Home() {
   useEffect(() => {
-    // Add no-scroll class to body
     document.body.classList.add('no-scroll');
 
-    // Prevent default touch actions on mobile
     const preventDefault = (e: Event) => e.preventDefault();
     document.body.addEventListener('touchmove', preventDefault, { passive: false });
 
-    // Insert the JavaScript code for the canvas animation here
     const script = document.createElement("script");
-    script.src = "/canvasAnimation.js"; // Move the JS code to a separate file (canvasAnimation.js)
+    script.src = "/canvasAnimation.js";
     script.async = true;
     document.body.appendChild(script);
 
-    // Cleanup function to remove no-scroll class, preventDefault event, and script
     return () => {
       document.body.classList.remove('no-scroll');
       document.body.removeEventListener('touchmove', preventDefault);
@@ -37,49 +34,55 @@ export default function Home() {
     };
   }, []);
 
-  //pago pavadinimas (tabo)
   useEffect(() => {
-    // Set the document title
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
   }, []);
 
   return (
     <>
-      
+      <Head>
+        <title>BrandForge</title>
+        <meta name="description" content="BrandForge homepage" />
+      </Head>
+
       <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
         <canvas id="bgCanvas" className="absolute top-0 left-0" />
         <canvas id="terCanvas" className="absolute top-0 left-0" />
 
-        {/* Include Navigation component with a hidden back button */}
         <header className="w-full">
           <Navigation />
         </header>
 
-        <div className="flex flex-col items-center justify-center z-10">
-          <div className="flex flex-col items-center">
-            <Image
-              src="/logo.png"
-              alt="WebForge Logo"
-              width={80}
-              height={80}
-              className="mb-4 animate-fade-in"
-            />
-            <h1
-              className="text-4xl text-transparent bg-white bg-clip-text duration-1000 cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap"
-              style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}
-            >
-              BrandForge
-            </h1>
+        <div className="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 py-8 text-center">
+          <h1 className="text-4xl font-bold text-white mb-4 sm:text-5xl md:text-6xl">
+            Launch Week is here
+          </h1>
+          <h2 className="text-3xl text-white mb-4">
+            <d3>Email for developers</d3>
+          </h2>
+          <p className="text-lg text-white mb-8">
+            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          </p>
+          <div className="flex gap-4 mb-8">
+            <Link href="/get-started">
+              <a className="px-6 py-3 text-white bg-blue-600 rounded hover:bg-blue-700 transition">
+                Get Started
+              </a>
+            </Link>
+            <Link href="/documentation">
+              <a className="px-6 py-3 text-white bg-gray-600 rounded hover:bg-gray-700 transition">
+                Documentation
+              </a>
+            </Link>
           </div>
+          <p className="text-sm text-white">
+            Backed by Combinator
+          </p>
         </div>
 
-        <div className="hidden w-screen h-px md:block animate-glow bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-<div className="my-16 text-center animate-fade-in">
-  <h2 className="text-sm text-white shine-effect">
-    Mes padedame verslams augti<br />
-    Naudojant inovatyvius IT sprendimus
-  </h2>
-</div>
+        <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+          <ThreeDObject /> {/* Render the 3D object */}
+        </div>
       </div>
     </>
   );
