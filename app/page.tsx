@@ -78,7 +78,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center z-10 mt-16">
           <div className="flex flex-col items-center mb-4">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="BrandForge Logo"
               width={50}  // Adjust the size to be smaller
               height={50}
