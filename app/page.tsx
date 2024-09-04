@@ -37,20 +37,20 @@ export default function Home() {
     <div
       onMouseMove={onMouseMove}
       className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden"
-      style={{ height: '250px', width: '250px' }} // Ensure all cards have the same size
+      style={{ height: '250px', width: '300px' }} // Increased width by 20%
     >
-      <div className="pointer-events-none">
-        <div className="absolute inset-0 z-10 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
+      <div className="pointer-events-none absolute inset-0 z-10">
+        <div className="absolute inset-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
-          className="absolute inset-0 z-20 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
+          className="absolute inset-0 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
           style={maskStyle}
         />
         <motion.div
-          className="absolute inset-0 z-20 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
+          className="absolute inset-0 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
           style={maskStyle}
         />
       </div>
-      <div className="relative z-30 p-4">
+      <div className="relative z-20 p-4">
         <h3 className="text-lg font-semibold">{title}</h3>
         <p className="text-sm text-gray-500">{description}</p>
       </div>
@@ -60,11 +60,11 @@ export default function Home() {
   return (
     <>
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-black">
-        <header className="absolute top-0 left-0 w-full z-20">
+        <header className="absolute top-0 left-0 w-full z-30">
           <Navigation />
         </header>
 
-        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-10 mt-32 md:mt-32">
+        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20 mt-32 md:mt-32">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             Build, host, and scale your<br className="hidden md:block"/> collaborative product
           </h2>
