@@ -5,68 +5,22 @@ import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { motion, useMotionTemplate, useSpring } from "framer-motion";
 
-// Particle effect logic
-const createParticleEffect = (element: HTMLDivElement | null) => {
-  if (!element) return;
+export default function Home() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "/canvasAnimation.js"; // Assuming this script is set up for the particle effect
+    script.async = true;
+    document.body.appendChild(script);
 
-  const canvas = document.createElement('canvas');
-  canvas.style.position = 'absolute';
-  canvas.style.top = '0px';
-  canvas.style.left = '0px';
-  canvas.style.pointerEvents = 'none';
-  canvas.width = element.offsetWidth;
-  canvas.height = element.offsetHeight;
-  element.appendChild(canvas);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return;
+  useEffect(() => {
+    document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
+  }, []);
 
-  let particles: Array<{ x: number, y: number, size: number, alpha: number }> = [];
-
-  function resizeCanvas() {
-    canvas.width = element.offsetWidth;
-    canvas.height = element.offsetHeight;
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  function createParticle(x: number, y: number) {
-    particles.push({ x, y, size: Math.random() * 5, alpha: 1 });
-  }
-
-  function updateParticles() {
-    particles.forEach(particle => {
-      particle.size *= 0.95;
-      particle.alpha *= 0.95;
-    });
-    particles = particles.filter(particle => particle.alpha > 0.1);
-  }
-
-  function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(particle => {
-      ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${particle.alpha})`;
-      ctx.fill();
-    });
-  }
-
-  function animate() {
-    updateParticles();
-    drawParticles();
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-
-  element.addEventListener('mousemove', function (event) {
-    createParticle(event.clientX - element.getBoundingClientRect().left, event.clientY - element.getBoundingClientRect().top);
-  });
-};
-
-// Card Component
-const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => {
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
@@ -79,22 +33,10 @@ const Card: React.FC<{ title: string; description: string; }> = ({ title, descri
   const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
   const maskStyle = { maskImage, WebkitMaskImage: maskImage };
 
-  useEffect(() => {
-    const element = document.querySelector('.card') as HTMLDivElement;
-    createParticleEffect(element);
-
-    return () => {
-      const canvas = element?.querySelector('canvas');
-      if (canvas) {
-        element.removeChild(canvas);
-      }
-    };
-  }, []);
-
-  return (
+  const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
     <div
       onMouseMove={onMouseMove}
-      className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden card"
+      className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden"
       style={{ height: '250px', width: '300px' }} // Ensure all cards have the same size
     >
       <div className="pointer-events-none absolute inset-0 z-10">
@@ -114,12 +56,6 @@ const Card: React.FC<{ title: string; description: string; }> = ({ title, descri
       </div>
     </div>
   );
-};
-
-export default function Home() {
-  useEffect(() => {
-    document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
-  }, []);
 
   return (
     <>
