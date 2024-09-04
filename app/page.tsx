@@ -8,17 +8,6 @@ import { motion, useMotionTemplate, useSpring } from "framer-motion";
 
 export default function Home() {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "/canvasAnimation.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  useEffect(() => {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
   }, []);
 
@@ -61,9 +50,6 @@ export default function Home() {
   return (
     <>
       <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
-        <canvas id="bgCanvas" className="absolute top-0 left-0" />
-        <canvas id="terCanvas" className="absolute top-0 left-0" />
-
         <header className="w-full z-10">
           <Navigation />
         </header>
