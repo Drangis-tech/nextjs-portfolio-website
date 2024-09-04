@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
 import { Navigation } from './components/nav';
-import { Card } from "../components/card";
+import Card from './components/card'; // This assumes the `page.tsx` and `components` are in the same `/app/` directory.
 
 export default function Home() {
   useEffect(() => {
