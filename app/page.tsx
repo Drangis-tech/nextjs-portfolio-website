@@ -40,13 +40,13 @@ export default function Home() {
       style={{ height: '250px', width: '250px' }} // Ensure all cards have the same size
     >
       <div className="pointer-events-none">
-        <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
+        <div className="absolute inset-0 z-10 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
-          className="absolute inset-0 z-10 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
+          className="absolute inset-0 z-20 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
           style={maskStyle}
         />
         <motion.div
-          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
+          className="absolute inset-0 z-20 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
           style={maskStyle}
         />
       </div>
@@ -64,7 +64,7 @@ export default function Home() {
           <Navigation />
         </header>
 
-        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-10 mt-24 md:mt-32">
+        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-10 mt-32 md:mt-32">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             Build, host, and scale your<br className="hidden md:block"/> collaborative product
           </h2>
@@ -82,10 +82,12 @@ export default function Home() {
         </div>
 
         <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8">
-          <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
-          <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
-          <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
-          <Card title="No maintenance required" description="Spend your time building, not maintaining infrastructure." />
+          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
+            <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
+            <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
+            <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
+            <Card title="No maintenance required" description="Spend your time building, not maintaining infrastructure." />
+          </div>
         </div>
       </div>
     </>
