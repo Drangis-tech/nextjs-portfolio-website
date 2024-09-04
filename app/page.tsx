@@ -8,6 +8,17 @@ import { motion, useMotionTemplate, useSpring } from "framer-motion";
 
 export default function Home() {
   useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "/canvasAnimation.js"; // Assuming this script is already set up for the particle effect
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  useEffect(() => {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
   }, []);
 
@@ -29,18 +40,19 @@ export default function Home() {
       className="overflow-hidden relative duration-700 border hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 rounded-xl"
       style={{ height: "200px" }} // Adjusted height for the cards on larger screens
     >
+      <canvas className="absolute inset-0 w-full h-full z-0 pointer-events-none" id="particleCanvas"></canvas>
       <div className="pointer-events-none">
-        <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
+        <div className="absolute inset-0 z-10 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
-          className="absolute inset-0 z-10 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
+          className="absolute inset-0 z-20 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
           style={maskStyle}
         />
         <motion.div
-          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
+          className="absolute inset-0 z-20 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
           style={maskStyle}
         />
       </div>
-      <div className="relative p-4">
+      <div className="relative z-30 p-4">
         <h3 className="text-lg font-semibold">{title}</h3>
         <p className="text-sm text-gray-500">{description}</p>
       </div>
@@ -71,7 +83,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-4 mt-4">
+        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-4 mt-8 md:mt-12 mb-8">
           <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
           <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
           <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
