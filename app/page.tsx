@@ -59,7 +59,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-black">
+      <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-black">
         <header className="absolute top-0 left-0 w-full z-20">
           <Navigation />
         </header>
