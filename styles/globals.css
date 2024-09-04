@@ -6,210 +6,339 @@
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
 
 @layer base {
+  /* CodePen Design Styles */
   body {
     margin: 0;
     padding: 0;
     background: black;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: Arial, sans-serif;
+    color: white; /* Ensure the text color is visible */
   }
 
-  /* Container Styles */
   #container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+  }
+
+  .title {
+    color: white;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .description {
+    color: gray; /* Adjusted text color */
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Existing Custom Styles */
+  .text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .hexagon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .hexagon {
+    position: relative;
+    width: 100px;
+    height: 55px;
+    background-color: #1c1c1e;
+    margin: 27.5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .hexagon span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 55px;
+  }
+
+  .apie-mus {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .apie-mus .flex {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .apie-mus .card {
+    flex: 1;
+  }
+
+  .apie-mus .content {
+    flex: 2;
+    padding-left: 20px;
+  }
+
+  .apie-mus .content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .apie-mus .content p {
+    color: #bbb;
+  }
+
+  .team-section {
     text-align: center;
   }
 
-  /* Hero Section Styles */
-  .hero-section {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+  .team-section .team-members {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    padding: 0 2rem;
-    box-sizing: border-box; /* Ensure padding does not affect width */
+    flex-wrap: wrap; /* Ensure responsiveness */
   }
 
-  .hero-title {
-    font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+  .team-member {
+    text-align: center;
+    margin: 10px; /* Add margin for spacing */
+  }
+
+  .team-member .social-icons a {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 1.25rem; /* Adjust icon size */
+    color: #ccc; /* Icon color */
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+
+  .team-member .social-icons a:hover {
+    color: #fff; /* Change icon color on hover */
+  }
+
+  /* Style for the backdrop overlay */
+  .backdrop {
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    z-index: 30; /* Ensure it's behind the menu */
+  }
+
+  /* Style for the side menu */
+  .menu-content {
+    backdrop-filter: none; /* No blur effect on the menu */
+    z-index: 50; /* Ensure it's in front of the backdrop */
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Language Selector */
+  .language-selector {
+    position: absolute;
+    top: 16px; /* Adjust according to the design */
+    left: 16px; /* Align with the close button */
+    display: flex;
+    align-items: center;
+    background-color: #333; /* Background color */
+    border: 1px solid #555; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 4px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    color: #fff; /* Text color */
+  }
+
+  .language-selector .flag-icon {
+    width: 24px; /* Icon size */
+    height: 24px; /* Icon size */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .language-selector .dropdown {
+    position: absolute;
+    top: 100%; /* Aligns below the selector */
+    left: 0;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    display: none;
+    flex-direction: column;
+    margin-top: 4px; /* Space between selector and dropdown */
+    z-index: 100; /* Ensure dropdown is on top */
+  }
+
+  .language-selector.open .dropdown {
+    display: flex;
+  }
+
+  .language-selector .dropdown select {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: #fff; /* White text color */
+    padding: 8px;
+    cursor: pointer; /* Pointer cursor */
+    font-size: 0.875rem; /* Font size */
+    outline: none; /* Remove outline */
+  }
+
+  .menu-content .contact-info {
+    color: #bbb; /* Grey color for contact info */
+    font-size: 0.875rem; /* Smaller font size */
+    position: absolute;
+    bottom: 16px; /* Space from the bottom */
+    left: 16px; /* Space from the left */
+    width: calc(100% - 32px); /* Full width minus padding */
+    text-align: center; /* Center align text */
+  }
+
+  .menu-content .contact-info a {
+    color: #ccc; /* Light grey color for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth transition */
+  }
+
+  .menu-content .contact-info a:hover {
+    color: #fff; /* White color on hover */
+  }
+
+  /* Navigation Link Styles */
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    color: #aaa; /* More gray color for default */
+    font-size: 1rem; /* Similar size to other subpages */
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    padding: 0.5rem 1rem; /* Add padding for better spacing */
+    transition: color 0.3s ease;
+    text-decoration: none; /* Remove default underline */
   }
 
-  .hero-subtitle {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #ccc; /* Lighter color for subtitle */
-  }
-
-  .hero-description {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    color: #aaa; /* Slightly darker color for description */
-    max-width: 600px; /* Constrain width for readability */
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .hero-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .hero-button.primary {
-    background-color: #0070f3;
-  }
-
-  .hero-button.secondary {
-    background-color: #333;
-  }
-
-  .hero-button:hover {
-    background-color: #005bb5; /* Darker shade for primary button */
-  }
-
-  .hero-button.secondary:hover {
-    background-color: #444; /* Darker shade for secondary button */
-  }
-
-  .hero-footer {
-    margin-top: 2rem;
-    font-size: 1rem;
-    color: #aaa;
-  }
-
-  .hero-footer span {
-    color: #fff;
-    font-weight: bold;
-  }
-
-  /* Section Styling */
-  .section {
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
     width: 100%;
-    padding: 4rem 2rem;
-    box-sizing: border-box;
+    height: 2px;
+    background: linear-gradient(to right, #fd7e14, #f77f7d, #f95b5b); /* Gradient color */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 2rem;
+  .nav-link:hover {
+    color: white; /* Change text color to white on hover */
   }
 
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: white;
+  .nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 
-  .section-description {
-    font-size: 1rem;
-    color: #ccc;
-    max-width: 800px;
-    margin: 0 auto;
+  /* Specific text styles */
+  .info-text {
+    color: #aaa; /* Gray color for specified text */
+    font-size: 1.125rem; /* Adjust font size */
+    margin-top: 10px;
+  }
+}
+
+/* Ensure FontAwesome icons are responsive */
+@media (max-width: 768px) {
+  .team-member .social-icons a {
+    font-size: 1rem; /* Adjust icon size for mobile */
   }
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.75rem;
-    }
-
-    .hero-description {
-      font-size: 1rem;
-    }
-
-    .hero-buttons {
-      flex-direction: column;
-    }
-
-    .hero-button {
-      font-size: 0.875rem;
-      padding: 0.5rem 1rem;
-    }
-
-    .hero-footer {
-      font-size: 0.875rem;
-    }
-
-    .section {
-      padding: 2rem 1rem;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-    }
-
-    .section-description {
-      font-size: 0.875rem;
-    }
+  .menu-content .language-selector select {
+    font-size: 0.75rem; /* Smaller font size for select on mobile */
   }
 
-  /* Cookie Consent Styles */
-  .cookie-consent {
-    position: fixed;
-    bottom: 16px;
-    left: 16px;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #fff;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .menu-content .contact-info {
+    font-size: 0.75rem; /* Even smaller font size for mobile */
   }
 
-  .cookie-consent p {
-    margin: 0;
+  .nav-link {
+    font-size: 0.875rem; /* Smaller font size for mobile */
   }
 
-  .cookie-consent .cc-btns {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
+  .info-text {
+    font-size: 1rem; /* Adjust font size for mobile */
   }
+}
 
-  .cookie-consent .cc-btns button {
-    padding: 10px;
-    background-color: #fd7e14;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+/* Divider Line Style */
+.divider {
+  width: 100%;
+  height: 1px; /* Adjust height if necessary */
+  background-color: #333; /* Ensure this matches the color used on /paslaugos */
+  margin: 1.5rem 0; /* Adjust margin to control spacing around the line */
+}
 
-  .cookie-consent .cc-btns button:hover {
-    background-color: #f77f7d;
-  }
 
-  .cookie-consent .cc-btns button:focus {
-    outline: 2px solid #fff;
-  }
+/* global.css */
+@import 'some-other-styles.css';
+
+/* Other styles follow */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Cookie Consent Styles */
+.cookie-consent {
+  position: fixed;
+  bottom: 16px; /* Adjust based on your design */
+  left: 16px;   /* Adjust based on your design */
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background for visibility */
+  color: #fff;  /* White text color for contrast */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between elements */
+}
+
+.cookie-consent p {
+  margin: 0; /* Remove default margin */
+}
+
+.cookie-consent .cc-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cookie-consent .cc-btns button {
+  padding: 10px;
+  background-color: #fd7e14; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.cookie-consent .cc-btns button:hover {
+  background-color: #f77f7d; /* Darker color on hover */
+}
+
+.cookie-consent .cc-btns button:focus {
+  outline: 2px solid #fff; /* Outline for focus state */
 }
