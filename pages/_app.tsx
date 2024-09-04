@@ -160,7 +160,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Component {...pageProps} />
     </>
-  );
+  );git rebase
 }
 
 export default MyApp;
