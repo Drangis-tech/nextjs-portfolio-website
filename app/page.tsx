@@ -37,7 +37,7 @@ export default function Home() {
   const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
     <div
       onMouseMove={onMouseMove}
-      className="overflow-hidden relative duration-700 border hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 rounded-none md:first:rounded-l-xl md:last:rounded-r-xl md:rounded-t-xl md:rounded-b-xl"
+      className="overflow-hidden relative duration-700 border hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 rounded-xl"
       style={{ height: "200px" }} // Adjusted height for the cards on larger screens
     >
       <div className="pointer-events-none">
@@ -68,16 +68,16 @@ export default function Home() {
           <Navigation />
         </header>
 
-        <div className="flex flex-col items-center justify-center z-10 mt-16 text-center text-white px-4 md:px-0 flex-1">
-          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-4 leading-tight">
+        <div className="flex flex-col items-center justify-center z-10 mt-8 md:mt-16 text-center text-white px-4 md:px-0 flex-1">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-2 md:mb-4 leading-tight">
             Build, host, and scale your collaborative product
           </h2>
-          <p className="text-lg text-gray-400 mb-8">
+          <p className="text-lg text-gray-400 mb-6 md:mb-8">
             The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
           </p>
-          <div className="mb-8">
+          <div className="mb-6 md:mb-8">
             <Link href="/sign-up">
-              <a className="px-8 py-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition inline-flex items-center">
+              <a className="px-8 py-4 text-black bg-white rounded-lg hover:bg-gray-200 transition inline-flex items-center">
                 Sign up for free
                 <span className="ml-2">→</span>
               </a>
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-0 mt-8 md:mt-16">
+        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-0 gap-4 md:gap-4 mt-4 md:mt-8">
           <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
           <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
           <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
