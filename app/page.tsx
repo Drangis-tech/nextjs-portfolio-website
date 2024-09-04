@@ -2,10 +2,8 @@
 
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import Head from 'next/head';
 import { Navigation } from './components/nav';
-import ThreeDObject from './components/ThreeDObject'; // Import the 3D component
 
 const navigation = [
   { name: "Atlikti Darbai", href: "/projects" },
@@ -55,34 +53,29 @@ export default function Home() {
 
         <div className="absolute z-10 flex flex-col items-center justify-center w-full h-full px-4 py-8 text-center">
           <h1 className="text-4xl font-bold text-white mb-4 sm:text-5xl md:text-6xl">
-            Launch Week is here
+            Transform your collaboration with the industry’s most complete real-time infrastructure
           </h1>
-          <h2 className="text-3xl text-white mb-4">
-            {/* Use a standard HTML element or a custom component here */}
-            <span>Email for developers</span>
+          <h2 className="text-2xl md:text-3xl text-gray-300 mb-4">
+            Leverage our real-time infrastructure to build interactive applications with ease.
           </h2>
-          <p className="text-lg text-white mb-8">
-            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
+          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+            Seamlessly integrate, scale, and deploy with our powerful tools and comprehensive solutions.
           </p>
           <div className="flex gap-4 mb-8">
             <Link href="/get-started">
-              <a className="px-6 py-3 text-white bg-blue-600 rounded hover:bg-blue-700 transition">
+              <a className="px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition">
                 Get Started
               </a>
             </Link>
             <Link href="/documentation">
-              <a className="px-6 py-3 text-white bg-gray-600 rounded hover:bg-gray-700 transition">
+              <a className="px-6 py-3 text-white bg-gray-600 rounded-lg hover:bg-gray-700 transition">
                 Documentation
               </a>
             </Link>
           </div>
-          <p className="text-sm text-white">
-            Backed by Combinator
+          <p className="text-sm text-gray-400">
+            Backed by <span className="font-semibold">Combinator</span>
           </p>
-        </div>
-
-        <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-          <ThreeDObject /> {/* Render the 3D object */}
         </div>
       </div>
     </>
