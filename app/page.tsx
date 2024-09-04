@@ -45,7 +45,7 @@ export default function Home() {
   const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
     <div
       onMouseMove={onMouseMove}
-      className="overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600"
+      className="overflow-hidden relative duration-700 border rounded-t-none rounded-b-none hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 first:rounded-l-xl last:rounded-r-xl"
     >
       <div className="pointer-events-none">
         <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
@@ -75,32 +75,13 @@ export default function Home() {
           <Navigation />
         </header>
 
-        <div className="flex flex-col items-center justify-center z-10 mt-16">
-          <div className="flex flex-col items-center mb-4">
-            <Image
-              src="/logo.png"
-              alt="BrandForge Logo"
-              width={50}  // Adjust the size to be smaller
-              height={50}
-              className="mb-2 animate-fade-in"
-            />
-            <h1
-              className="text-sm text-transparent bg-white bg-clip-text cursor-default animate-title font-display whitespace-nowrap"
-              style={{ lineHeight: "1.2em", paddingBottom: "0.2em" }}
-            >
-              BrandForge
-            </h1>
-          </div>
-
-          <div className="text-center text-white mb-8">
-            <h2 className="text-5xl font-bold">
-              Build, host, and scale your collaborative product
-            </h2>
-          </div>
-
+        <div className="flex flex-col items-center justify-center z-10 mt-16 text-center text-white px-4">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight">
+            Build, host, and scale your collaborative product
+          </h2>
           <div className="mb-8">
             <Link href="/sign-up">
-              <a className="px-6 py-3 text-white bg-blue-600 rounded-full hover:bg-blue-700 transition inline-flex items-center">
+              <a className="px-8 py-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition inline-flex items-center">
                 Sign up for free
                 <span className="ml-2">→</span>
               </a>
@@ -108,8 +89,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex justify-center">
-          <div className="flex gap-4">
+        <div className="w-full flex justify-center px-4">
+          <div className="flex flex-col md:flex-row gap-0">
             <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
             <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
             <Card title="Effortless scaling" description="Built to handle any traffic on your collaborative experiences." />
