@@ -6,47 +6,38 @@ import { Navigation } from './components/nav';
 import { motion, useMotionTemplate, useSpring } from "framer-motion";
 
 export default function Home() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "/canvasAnimation.js"; // Assuming this script is set up for the particle effect
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  useEffect(() => {
-    document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
-  }, []);
+  // ... (Your existing useEffect hooks and other code)
 
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
-  function onMouseMove({ currentTarget, clientX, clientY }: any) {
+  function onMouseMove({ currentTarget, clientX,   
+ clientY }: any) {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
 
-  const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;   
+
   const maskStyle = { maskImage, WebkitMaskImage: maskImage };
 
   const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
     <div
-      onMouseMove={onMouseMove}
+      onMouseMove={onMouseMove} // Attach the mouse move handler
       className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden"
-      style={{ height: '250px', width: '300px' }} // Ensure all cards have the same size
+      style={{ height: '250px', width: '300px' }}
     >
       <div className="pointer-events-none absolute inset-0 z-10">
         <div className="absolute inset-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
           className="absolute inset-0 z-10 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
-          style={maskStyle}
+          style={maskStyle}   
+
         />
         <motion.div
-          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
+          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"   
+
           style={maskStyle}
         />
       </div>
