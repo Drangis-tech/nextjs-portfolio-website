@@ -40,7 +40,8 @@ export default function Home() {
       {/* Background Particle Effect */}
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-black">
         {/* Canvas for particle effect */}
-        <canvas id="particle-canvas" className="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+        {/* Make sure the id matches what the particle script expects */}
+        <canvas id="bgCanvas" className="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
         {/* Navigation Bar */}
         <header className="absolute top-0 left-0 w-full z-30">
