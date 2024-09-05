@@ -1,12 +1,14 @@
 "use client";
 
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigation } from './components/nav';
-import { motion, useMotionTemplate, useSpring } from "framer-motion";
+import { motion, useMotionTemplate, useSpring, useTransform } from "framer-motion";
 import { Card } from './components/card'; 
 
 export default function Home() {
+  const [maskStyle, setMaskStyle] = useState<{ maskImage: string; WebkitMaskImage: string }>({ maskImage: '', WebkitMaskImage: '' });
+
   useEffect(() => {
     // Load the particle animation script for the background
     const script = document.createElement("script");
@@ -33,9 +35,26 @@ export default function Home() {
     mouseY.set(clientY - top);
   }
 
-  // Create a radial gradient for the white dot effect on hover
-  const maskImage = useMotionTemplate`radial-gradient(80px at ${mouseX}px ${mouseY}px, white, transparent)`;
-  const maskStyle = { maskImage, WebkitMaskImage: maskImage };
+  useEffect(() => {
+    const updateMaskStyle = () => {
+      const x = mouseX.get();
+      const y = mouseY.get();
+      const mask = `radial-gradient(80px at ${x}px ${y}px, white, transparent)`;
+      setMaskStyle({ maskImage: mask, WebkitMaskImage: mask });
+    };
+
+    // Update maskStyle on mouse position change
+    mouseX.onChange(updateMaskStyle);
+    mouseY.onChange(updateMaskStyle);
+    
+    // Initialize mask style
+    updateMaskStyle();
+
+    return () => {
+      mouseX.destroy();
+      mouseY.destroy();
+    };
+  }, [mouseX, mouseY]);
 
   return (
     <>
