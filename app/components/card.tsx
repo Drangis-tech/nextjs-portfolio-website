@@ -1,19 +1,35 @@
 "use client";
-import React, { PropsWithChildren } from "react";
+import React, { useEffect, useRef, PropsWithChildren } from "react";
 import { motion, useMotionTemplate, useSpring } from "framer-motion";
 
 interface CardProps extends PropsWithChildren {
   className?: string;
   onClick?: () => void;
   style?: React.CSSProperties;
-  title?: string; // Add title prop
-  description?: string; // Add description prop
-  onMouseMove?: (event: React.MouseEvent<HTMLDivElement>) => void; // Add onMouseMove prop
+  title?: string;
+  description?: string;
+  onMouseMove?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export const Card: React.FC<CardProps> = ({ children, className, onClick, style, title, description, onMouseMove }) => {
+export const Card: React.FC<CardProps> = ({ 
+  children, className, onClick, style, title, description, onMouseMove 
+}) => {
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);  // Ref for the particle canvas
+
+  // Function to handle the particle effect
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        // Initialize your particle effect on the canvas
+        // This is where you'd add your `canvasAnimation.js` logic 
+        // You can reuse your particle animation setup here
+      }
+    }
+  }, []);
 
   function handleMouseMove({ currentTarget, clientX, clientY }: any) {
     const { left, top } = currentTarget.getBoundingClientRect();
@@ -26,11 +42,14 @@ export const Card: React.FC<CardProps> = ({ children, className, onClick, style,
 
   return (
     <div
-      onMouseMove={onMouseMove || handleMouseMove} // Use passed onMouseMove or local handleMouseMove
+      onMouseMove={onMouseMove || handleMouseMove}  // Use passed onMouseMove or fallback to local one
       onClick={onClick}
       className={`overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 ${className}`}
       style={style}
     >
+      {/* Canvas for the particle effect */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
+
       <div className="pointer-events-none">
         <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
@@ -43,9 +62,11 @@ export const Card: React.FC<CardProps> = ({ children, className, onClick, style,
         />
       </div>
 
-      {/* Display the title and description */}
-      {title && <h3 className="text-lg font-semibold p-4">{title}</h3>}
-      {description && <p className="text-sm text-gray-500 p-4">{description}</p>}
+      {/* Title and Description */}
+      <div className="relative z-10 p-4">
+        {title && <h3 className="text-lg font-semibold">{title}</h3>}
+        {description && <p className="text-sm text-gray-500 mt-2">{description}</p>}
+      </div>
 
       {children}
     </div>

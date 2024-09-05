@@ -36,41 +36,13 @@ export default function Home() {
 
   return (
     <>
-      {/* ... (rest of your code remains the same until the card section) */}
-
-      <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8">
-        <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
-          <Card 
-            title="Collaboration infrastructure" 
-            description="WebSocket edge infrastructure and reliable connection engine." 
-            className="h-[250px] w-[300px]" 
-            onMouseMove={onMouseMove} 
-          />
-          <Card 
-            title="Zero configuration" 
-            description="Scale to millions. No complex configuration required."
-            className="h-[250px] w-[300px]" 
-            onMouseMove={onMouseMove} 
-          />
-          <Card 
-            title="Effortless scaling" 
-            description="Built to handle any traffic on your collaborative experiences." 
-            className="h-[250px] w-[300px]" 
-            onMouseMove={onMouseMove} 
-          />
-          <Card 
-            title="No maintenance required" 
-            description="Spend your time building, not maintaining infrastructure." 
-            className="h-[250px] w-[300px]" 
-            onMouseMove={onMouseMove} 
-          />
-        </div>
-      </div>
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-black">
+        {/* Fixed navigation */}
         <header className="absolute top-0 left-0 w-full z-30">
           <Navigation />
         </header>
 
+        {/* Main content */}
         <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20 mt-32 md:mt-32">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
             Build, host, and scale your<br className="hidden md:block"/> collaborative product
@@ -88,7 +60,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8">
+        {/* Ensure the cards are at the bottom */}
+        <div className="absolute bottom-0 w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
             <Card title="Collaboration infrastructure" description="WebSocket edge infrastructure and reliable connection engine." />
             <Card title="Zero configuration" description="Scale to millions. No complex configuration required." />
