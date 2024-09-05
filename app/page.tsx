@@ -8,7 +8,7 @@ import { Card } from './components/card';
 
 export default function Home() {
   useEffect(() => {
-    // Load the particle animation script
+    // Load the particle animation script for the background
     const script = document.createElement("script");
     script.src = "/canvasAnimation.js";
     script.async = true;
@@ -23,6 +23,7 @@ export default function Home() {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
   }, []);
 
+  // Use framer motion springs for smooth cursor tracking
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
@@ -32,7 +33,8 @@ export default function Home() {
     mouseY.set(clientY - top);
   }
 
-  const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  // Create a radial gradient for the white dot effect on hover
+  const maskImage = useMotionTemplate`radial-gradient(80px at ${mouseX}px ${mouseY}px, white, transparent)`;
   const maskStyle = { maskImage, WebkitMaskImage: maskImage };
 
   return (
@@ -40,7 +42,6 @@ export default function Home() {
       {/* Background Particle Effect */}
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-black">
         {/* Canvas for particle effect */}
-        {/* Make sure the id matches what the particle script expects */}
         <canvas id="bgCanvas" className="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
         {/* Navigation Bar */}
@@ -74,24 +75,28 @@ export default function Home() {
               description="WebSocket edge infrastructure and reliable connection engine." 
               className="h-[250px] w-[300px]" 
               onMouseMove={onMouseMove} 
+              style={maskStyle}  // Apply the white dot effect to the card
             />
             <Card 
               title="Zero configuration" 
               description="Scale to millions. No complex configuration required."
               className="h-[250px] w-[300px]" 
               onMouseMove={onMouseMove} 
+              style={maskStyle}  // Apply the white dot effect to the card
             />
             <Card 
               title="Effortless scaling" 
               description="Built to handle any traffic on your collaborative experiences." 
               className="h-[250px] w-[300px]" 
               onMouseMove={onMouseMove} 
+              style={maskStyle}  // Apply the white dot effect to the card
             />
             <Card 
               title="No maintenance required" 
               description="Spend your time building, not maintaining infrastructure." 
               className="h-[250px] w-[300px]" 
               onMouseMove={onMouseMove} 
+              style={maskStyle}  // Apply the white dot effect to the card
             />
           </div>
         </div>
