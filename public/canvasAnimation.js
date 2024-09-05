@@ -6,12 +6,13 @@
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-// Canvas setup
+// Canvas and Background Setup
 var background = document.getElementById("bgCanvas"),
-    bgCtx = background.getContext("2d"),
+    bgCtx = background ? background.getContext("2d") : null,
     width = window.innerWidth,
     height = document.body.offsetHeight;
 
+// Make sure height doesn't get too small
 (height < 400) ? height = 400 : height;
 
 background.width = width;
@@ -25,7 +26,7 @@ gradient.addColorStop(1, '#1a1a1a'); // Slightly lighter black/gray at the botto
 bgCtx.fillStyle = gradient;
 bgCtx.fillRect(0, 0, width, height);
 
-// Stars
+// Star Entity
 function Star(options) {
   this.size = Math.random() * 2;
   this.speed = Math.random() * 0.1;
@@ -49,6 +50,7 @@ Star.prototype.update = function() {
   }
 }
 
+// Shooting Star Entity
 function ShootingStar() {
   this.reset();
 }
@@ -83,21 +85,25 @@ ShootingStar.prototype.update = function() {
   }
 }
 
+// Entity Array
 var entities = [];
 
-// Adjust number of stars based on screen width
-var numStars = (width > 768) ? height : Math.max(height / 2, 50);
+// Init Entities
+function initEntities() {
+  entities = []; // Reset the entities
+  var numStars = (width > 768) ? height : Math.max(height / 2, 50);
 
-// Init the stars
-for (var i = 0; i < numStars; i++) {
-  entities.push(new Star({x: Math.random() * width, y: Math.random() * height}));
+  // Init the stars
+  for (var i = 0; i < numStars; i++) {
+    entities.push(new Star({x: Math.random() * width, y: Math.random() * height}));
+  }
+
+  // Add 2 shooting stars that just cycle.
+  entities.push(new ShootingStar());
+  entities.push(new ShootingStar());
 }
 
-// Add 2 shooting stars that just cycle.
-entities.push(new ShootingStar());
-entities.push(new ShootingStar());
-
-// Animate background
+// Animate the canvas
 function animate() {
   bgCtx.fillStyle = gradient;  // Keep the gradient during animation
   bgCtx.fillRect(0, 0, width, height);
@@ -112,4 +118,37 @@ function animate() {
   
   requestAnimationFrame(animate);
 }
-animate();
+
+// Resize Handling
+function resizeCanvas() {
+  width = window.innerWidth;
+  height = document.body.offsetHeight;
+  
+  if (height < 400) height = 400;
+
+  background.width = width;
+  background.height = height;
+
+  // Update gradient background
+  gradient = bgCtx.createLinearGradient(0, 0, 0, height);
+  gradient.addColorStop(0, '#000000');
+  gradient.addColorStop(1, '#1a1a1a');
+
+  // Reinitialize stars
+  initEntities();
+}
+
+// Initialize the canvas and animation
+function initializeCanvas() {
+  if (background && bgCtx) {
+    resizeCanvas();
+    initEntities();
+    animate();
+  }
+}
+
+// Event listener for window resizing
+window.addEventListener('resize', resizeCanvas);
+
+// Initialize the canvas on document load
+document.addEventListener('DOMContentLoaded', initializeCanvas);
