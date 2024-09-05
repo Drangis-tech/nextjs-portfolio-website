@@ -4,52 +4,68 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { motion, useMotionTemplate, useSpring } from "framer-motion";
+import { Card } from './components/card'; // Import the Card component
 
 export default function Home() {
-  // ... (Your existing useEffect hooks and other code)
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "/canvasAnimation.js"; 
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
+  }, []);
 
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
-  function onMouseMove({ currentTarget, clientX,   
- clientY }: any) {
+  function onMouseMove({ currentTarget, clientX, clientY }: any) {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
 
-  const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;   
-
+  const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
   const maskStyle = { maskImage, WebkitMaskImage: maskImage };
-
-  const Card: React.FC<{ title: string; description: string; }> = ({ title, description }) => (
-    <div
-      onMouseMove={onMouseMove} // Attach the mouse move handler
-      className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden"
-      style={{ height: '250px', width: '300px' }}
-    >
-      <div className="pointer-events-none absolute inset-0 z-10">
-        <div className="absolute inset-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
-        <motion.div
-          className="absolute inset-0 z-10 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
-          style={maskStyle}   
-
-        />
-        <motion.div
-          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"   
-
-          style={maskStyle}
-        />
-      </div>
-      <div className="relative z-20 p-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-gray-500">{description}</p>
-      </div>
-    </div>
-  );
 
   return (
     <>
+      {/* ... (rest of your code remains the same until the card section) */}
+
+      <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8">
+        <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
+          <Card 
+            title="Collaboration infrastructure" 
+            description="WebSocket edge infrastructure and reliable connection engine." 
+            className="h-[250px] w-[300px]" 
+            onMouseMove={onMouseMove} 
+          />
+          <Card 
+            title="Zero configuration" 
+            description="Scale to millions. No complex configuration required."
+            className="h-[250px] w-[300px]" 
+            onMouseMove={onMouseMove} 
+          />
+          <Card 
+            title="Effortless scaling" 
+            description="Built to handle any traffic on your collaborative experiences." 
+            className="h-[250px] w-[300px]" 
+            onMouseMove={onMouseMove} 
+          />
+          <Card 
+            title="No maintenance required" 
+            description="Spend your time building, not maintaining infrastructure." 
+            className="h-[250px] w-[300px]" 
+            onMouseMove={onMouseMove} 
+          />
+        </div>
+      </div>
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-black">
         <header className="absolute top-0 left-0 w-full z-30">
           <Navigation />
