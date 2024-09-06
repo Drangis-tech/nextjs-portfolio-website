@@ -63,7 +63,7 @@ export default function Home() {
               style={{ height: '250px', width: '300px' }}
             >
               <div className="relative z-20 p-4">
-                <h3 className="text-lg font-semibold">Collaboration infrastructure</h3>
+                <h3 className="text-lg font-semibold">Internetinių Puslapių kūrimas</h3>
                 <p className="text-sm text-gray-500">
                   WebSocket edge infrastructure and reliable connection engine.
                 </p>
@@ -75,7 +75,7 @@ export default function Home() {
               style={{ height: '250px', width: '300px' }}
             >
               <div className="relative z-20 p-4">
-                <h3 className="text-lg font-semibold">Zero configuration</h3>
+                <h3 className="text-lg font-semibold">Internetinių puslapių palaikymas, bei optimizavimas</h3>
                 <p className="text-sm text-gray-500">
                   Scale to millions. No complex configuration required.
                 </p>
@@ -87,7 +87,7 @@ export default function Home() {
               style={{ height: '250px', width: '300px' }}
             >
               <div className="relative z-20 p-4">
-                <h3 className="text-lg font-semibold">Effortless scaling</h3>
+                <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
                 <p className="text-sm text-gray-500">
                   Built to handle any traffic on your collaborative experiences.
                 </p>
@@ -99,7 +99,7 @@ export default function Home() {
               style={{ height: '250px', width: '300px' }}
             >
               <div className="relative z-20 p-4">
-                <h3 className="text-lg font-semibold">No maintenance required</h3>
+                <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
                 <p className="text-sm text-gray-500">
                   Spend your time building, not maintaining infrastructure.
                 </p>
