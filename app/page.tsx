@@ -55,26 +55,26 @@ export default function Home() {
         {/* Cards Section */}
         <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8 z-20">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
-            {/* Always visible cards with hover effects */}
+            {/* Transparent cards with hover effects */}
             <Card 
               title="Collaboration infrastructure" 
               description="WebSocket edge infrastructure and reliable connection engine." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
+              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group transition-colors duration-300"
             />
             <Card 
               title="Zero configuration" 
               description="Scale to millions. No complex configuration required." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
+              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group transition-colors duration-300"
             />
             <Card 
               title="Effortless scaling" 
               description="Built to handle any traffic on your collaborative experiences." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
+              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group transition-colors duration-300"
             />
             <Card 
               title="No maintenance required" 
               description="Spend your time building, not maintaining infrastructure." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.8)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
+              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group transition-colors duration-300"
             />
           </div>
         </div>
