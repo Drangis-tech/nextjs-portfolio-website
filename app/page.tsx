@@ -38,7 +38,9 @@ export default function Home() {
         {/* Main Content */}
         <div className="flex flex-col flex-1">
           {/* Hero Section */}
-          <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8" style={{ flex: '1 0 auto' }}>
+          <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8"
+               style={{ flex: '1 0 auto', minHeight: '50vh', maxHeight: '60vh' }} // Adjust heights as needed
+          >
             <div className="flex flex-col items-center justify-center h-full">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                 Idėja, Strategija, Kodas
