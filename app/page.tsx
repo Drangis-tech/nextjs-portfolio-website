@@ -66,7 +66,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mt-4">WebSocket edge infrastructure and reliable connection engine.</p>
               </div>
               <Link href="/internetiniu-puslapiu-kurimas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition" style={{ borderRadius: '50%' }}>
                   <FontAwesomeIcon icon={faArrowRight} />
                 </a>
               </Link>
@@ -79,7 +79,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mt-4">Scale to millions. No complex configuration required.</p>
               </div>
               <Link href="/puslapiu-optimizavimas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition" style={{ borderRadius: '50%' }}>
                   <FontAwesomeIcon icon={faArrowRight} />
                 </a>
               </Link>
@@ -92,7 +92,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mt-4">Built to handle any traffic on your collaborative experiences.</p>
               </div>
               <Link href="/prekės-zenklo-kurimas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition" style={{ borderRadius: '50%' }}>
                   <FontAwesomeIcon icon={faArrowRight} />
                 </a>
               </Link>
@@ -105,7 +105,7 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
               </div>
               <Link href="/reklamos-valdymas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition" style={{ borderRadius: '50%' }}>
                   <FontAwesomeIcon icon={faArrowRight} />
                 </a>
               </Link>
