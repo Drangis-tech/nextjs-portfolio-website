@@ -37,21 +37,23 @@ export default function Home() {
 
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            Idėja, Strategija, Kodas
-            <br className="hidden md:block" />
-            <span className="block mt-4">Tai viskas ko reikia Jūsų verslui.</span>
-          </h2>
-          <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
-            Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
-          </p>
-          <div className="mb-6 md:mb-8">
-            <Link href="/sign-up">
-              <a className="px-8 py-4 text-black bg-white rounded-lg hover:bg-gray-200 transition inline-flex items-center">
-                Skaityti daugiau
-                <span className="ml-2">→</span>
-              </a>
-            </Link>
+          <div className="flex flex-col items-center justify-center h-full">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+              Idėja, Strategija, Kodas
+              <br className="hidden md:block" />
+              <span className="block mt-4">Tai viskas ko reikia Jūsų verslui.</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
+              Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
+            </p>
+            <div className="mb-6 md:mb-8">
+              <Link href="/sign-up">
+                <a className="px-8 py-4 text-black bg-white rounded-lg hover:bg-gray-200 transition inline-flex items-center">
+                  Skaityti daugiau
+                  <span className="ml-2">→</span>
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
 
