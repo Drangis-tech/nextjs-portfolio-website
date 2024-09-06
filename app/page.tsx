@@ -56,72 +56,64 @@ export default function Home() {
         <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8 z-20">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
             {/* Transparent cards with hover effects */}
-            <Card 
-              title="Collaboration infrastructure" 
-              description="WebSocket edge infrastructure and reliable connection engine." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
-            >
-              <article className="relative w-full h-full p-6 group bg-transparent">
-                <div className="text-zinc-100">
-                  {/* Add any icons or additional content if needed */}
+            <Card className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6">
+              <article className="relative w-full h-full p-6 bg-transparent flex flex-col justify-between">
+                <div className="text-4xl text-zinc-100">
+                  {/* Include icons if needed */}
                 </div>
-                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
-                  Collaboration infrastructure
-                </h3>
-                <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
-                  WebSocket edge infrastructure and reliable connection engine.
-                </p>
+                <div>
+                  <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+                    Collaboration infrastructure
+                  </h3>
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                    WebSocket edge infrastructure and reliable connection engine.
+                  </p>
+                </div>
               </article>
             </Card>
-            <Card 
-              title="Zero configuration" 
-              description="Scale to millions. No complex configuration required." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
-            >
-              <article className="relative w-full h-full p-6 group bg-transparent">
-                <div className="text-zinc-100">
-                  {/* Add any icons or additional content if needed */}
+            <Card className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6">
+              <article className="relative w-full h-full p-6 bg-transparent flex flex-col justify-between">
+                <div className="text-4xl text-zinc-100">
+                  {/* Include icons if needed */}
                 </div>
-                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
-                  Zero configuration
-                </h3>
-                <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
-                  Scale to millions. No complex configuration required.
-                </p>
+                <div>
+                  <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+                    Zero configuration
+                  </h3>
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                    Scale to millions. No complex configuration required.
+                  </p>
+                </div>
               </article>
             </Card>
-            <Card 
-              title="Effortless scaling" 
-              description="Built to handle any traffic on your collaborative experiences." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
-            >
-              <article className="relative w-full h-full p-6 group bg-transparent">
-                <div className="text-zinc-100">
-                  {/* Add any icons or additional content if needed */}
+            <Card className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6">
+              <article className="relative w-full h-full p-6 bg-transparent flex flex-col justify-between">
+                <div className="text-4xl text-zinc-100">
+                  {/* Include icons if needed */}
                 </div>
-                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
-                  Effortless scaling
-                </h3>
-                <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
-                  Built to handle any traffic on your collaborative experiences.
-                </p>
+                <div>
+                  <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+                    Effortless scaling
+                  </h3>
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                    Built to handle any traffic on your collaborative experiences.
+                  </p>
+                </div>
               </article>
             </Card>
-            <Card 
-              title="No maintenance required" 
-              description="Spend your time building, not maintaining infrastructure." 
-              className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6 group"
-            >
-              <article className="relative w-full h-full p-6 group bg-transparent">
-                <div className="text-zinc-100">
-                  {/* Add any icons or additional content if needed */}
+            <Card className="h-[250px] w-[300px] bg-[rgba(28,28,30,0.6)] hover:bg-[rgba(44,44,46,0.8)] p-6">
+              <article className="relative w-full h-full p-6 bg-transparent flex flex-col justify-between">
+                <div className="text-4xl text-zinc-100">
+                  {/* Include icons if needed */}
                 </div>
-                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
-                  No maintenance required
-                </h3>
-                <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
-                  Spend your time building, not maintaining infrastructure.
-                </p>
+                <div>
+                  <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+                    No maintenance required
+                  </h3>
+                  <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
+                    Spend your time building, not maintaining infrastructure.
+                  </p>
+                </div>
               </article>
             </Card>
           </div>
