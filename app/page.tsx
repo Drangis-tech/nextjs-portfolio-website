@@ -36,8 +36,8 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
-        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20">
-          <div className="flex flex-col items-center justify-center h-screen">
+        <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8" style={{ height: '50vh' }}>
+          <div className="flex flex-col items-center justify-center h-full">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
               Idėja, Strategija, Kodas
               <br className="hidden md:block" />
@@ -58,8 +58,8 @@ export default function Home() {
         </div>
 
         {/* Cards Section */}
-        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8 z-20">
-          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
+        <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-0 mb-8 z-20" style={{ height: '50vh' }}>
+          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center overflow-auto">
             {/* Transparent cards with hover effects and arrow icon */}
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
