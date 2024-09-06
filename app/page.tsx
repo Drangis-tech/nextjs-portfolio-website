@@ -37,7 +37,7 @@ export default function Home() {
 
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20">
-          <div className="flex flex-col items-center justify-center h-full">
+          <div className="flex flex-col items-center justify-center h-screen">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
               Idėja, Strategija, Kodas
               <br className="hidden md:block" />
