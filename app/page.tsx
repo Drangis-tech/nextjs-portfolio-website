@@ -75,8 +75,7 @@ export default function Home() {
             
           </h2>
           <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
-          Paverčiame jūsų verslo idėjas veiksmais, kurdami svetaines ir stiprius prekės ženklus internete.          </p>
-          <div className="mb-6 md:mb-8">
+          Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.          <div className="mb-6 md:mb-8">
             <Link href="/sign-up">
               <a className="px-8 py-4 text-black bg-white rounded-lg hover:bg-gray-200 transition inline-flex items-center">
                 Skaityti daugiau
