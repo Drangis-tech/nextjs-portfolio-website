@@ -37,7 +37,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20 mt-32 md:mt-32">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            Idėja, Strategija, Kodas = Viskas ko reikia Jūsų verslo augimui.
+            Idėja, Strategija, Kodas = Viskas ko reikia verslo augimui.
           </h2>
           <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
             Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
