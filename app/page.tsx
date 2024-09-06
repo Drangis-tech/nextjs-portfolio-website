@@ -71,15 +71,15 @@ export default function Home() {
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20 mt-32 md:mt-32">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            Build, host, and scale your<br className="hidden md:block"/> collaborative product
+            Idėja + Strategija + Kodas = Jūsų verslo augimas
+            
           </h2>
           <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
-            The best way to reach humans instead of spam folders. Deliver transactional and marketing emails at scale.
-          </p>
+          Paverčiame jūsų verslo idėjas veiksmais, kurdami svetaines ir stiprius prekės ženklus internete.          </p>
           <div className="mb-6 md:mb-8">
             <Link href="/sign-up">
               <a className="px-8 py-4 text-black bg-white rounded-lg hover:bg-gray-200 transition inline-flex items-center">
-                Sign up for free
+                Skaityti daugiau
                 <span className="ml-2">→</span>
               </a>
             </Link>
