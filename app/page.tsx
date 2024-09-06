@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Import arrow icon from FontAwesome
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   useEffect(() => {
@@ -58,53 +58,57 @@ export default function Home() {
         {/* Cards Section */}
         <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8 z-20">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
-            {/* Transparent cards with hover effects and arrow icon in the bottom right */}
+            {/* Transparent cards with hover effects and arrow icon */}
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Internetinių Puslapių kūrimas</h3>
-                <p className="text-sm text-gray-500">WebSocket edge infrastructure and reliable connection engine.</p>
-                <Link href="/internetiniu-puslapiu-kurimas">
-                  <a className="absolute bottom-4 right-4 text-white bg-gray-800 rounded-full p-3 hover:bg-gray-700 transition">
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </a>
-                </Link>
+                {/* Gap between title and description */}
+                <p className="text-sm text-gray-500 mt-4">WebSocket edge infrastructure and reliable connection engine.</p>
               </div>
+              <Link href="/internetiniu-puslapiu-kurimas">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </Link>
             </div>
 
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Internetinių puslapių palaikymas, bei optimizavimas</h3>
-                <p className="text-sm text-gray-500">Scale to millions. No complex configuration required.</p>
-                <Link href="/puslapiu-optimizavimas">
-                  <a className="absolute bottom-4 right-4 text-white bg-gray-800 rounded-full p-3 hover:bg-gray-700 transition">
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </a>
-                </Link>
+                {/* Gap between title and description */}
+                <p className="text-sm text-gray-500 mt-4">Scale to millions. No complex configuration required.</p>
               </div>
+              <Link href="/puslapiu-optimizavimas">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </Link>
             </div>
 
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
-                <p className="text-sm text-gray-500">Built to handle any traffic on your collaborative experiences.</p>
-                <Link href="/prekės-zenklo-kurimas">
-                  <a className="absolute bottom-4 right-4 text-white bg-gray-800 rounded-full p-3 hover:bg-gray-700 transition">
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </a>
-                </Link>
+                {/* Gap between title and description */}
+                <p className="text-sm text-gray-500 mt-4">Built to handle any traffic on your collaborative experiences.</p>
               </div>
+              <Link href="/prekės-zenklo-kurimas">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </Link>
             </div>
 
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
-                <p className="text-sm text-gray-500">Spend your time building, not maintaining infrastructure.</p>
-                <Link href="/reklamos-valdymas">
-                  <a className="absolute bottom-4 right-4 text-white bg-gray-800 rounded-full p-3 hover:bg-gray-700 transition">
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </a>
-                </Link>
+                {/* Gap between title and description */}
+                <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
               </div>
+              <Link href="/reklamos-valdymas">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </Link>
             </div>
           </div>
         </div>
