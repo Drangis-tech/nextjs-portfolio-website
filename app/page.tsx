@@ -37,15 +37,15 @@ export default function Home() {
 
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20 mt-32 md:mt-32">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-[#e44d26] via-[#f16529] to-[#f7a71b] bg-clip-text text-transparent">Idėja</span>
-            <span className="bg-gradient-to-r from-[#e44d26] via-[#f16529] to-[#f7a71b] bg-clip-text text-transparent">,</span>
-            <span className="bg-gradient-to-r from-[#e44d26] via-[#f16529] to-[#f7a71b] bg-clip-text text-transparent"> Strategija</span>
-            <span className="bg-gradient-to-r from-[#e44d26] via-[#f16529] to-[#f7a71b] bg-clip-text text-transparent">,</span>
-            <span className="bg-gradient-to-r from-[#e44d26] via-[#f16529] to-[#f7a71b] bg-clip-text text-transparent"> Kodas</span>
-            <br className="hidden md:block" />
-            <span className="block mt-4">Tai viskas ko reikia Jūsų verslui.</span>
-          </h2>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+  <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">Idėja</span>
+  <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
+  <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Strategija</span>
+  <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
+  <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
+  <br className="hidden md:block" />
+  <span className="block mt-4">Tai viskas ko reikia Jūsų verslui.</span>
+</h2>
           <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
             Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
           </p>
