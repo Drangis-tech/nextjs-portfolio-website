@@ -38,7 +38,9 @@ export default function Home() {
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-center text-white px-4 md:px-8 flex-1 z-20 mt-32 md:mt-32">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-            Idėja, Strategija, Kodas
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Idėja</span>,
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent"> Strategija</span>, 
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent"> Kodas</span>
             <br className="hidden md:block" />
             <span className="block mt-4">Tai viskas ko reikia Jūsų verslui.</span>
           </h2>
@@ -47,7 +49,7 @@ export default function Home() {
           </p>
           <div className="mb-6 md:mb-8">
             <Link href="/sign-up">
-              <a className="px-8 py-4 text-black bg-white rounded-lg hover:bg-gray-200 transition inline-flex items-center">
+              <a className="px-8 py-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
                 Skaityti daugiau
                 <span className="ml-2">→</span>
               </a>
