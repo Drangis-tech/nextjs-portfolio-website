@@ -6,6 +6,7 @@ import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
+
 export default function Home() {
   useEffect(() => {
     // Load the particle animation script for the background
