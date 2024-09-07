@@ -52,7 +52,7 @@ export default function Home() {
           <div className="mb-6 md:mb-8">
             <Link href="/paslaugos">
               <a className="px-8 py-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
-                Peržiūrėkite mūsų paslaugas
+                Mūsų paslaugas
                 <span className="ml-2">→</span>
               </a>
             </Link>
