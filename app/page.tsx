@@ -13,9 +13,8 @@ export default function Home() {
 
   return (
     <>
-      {/* Background Gradient */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-b from-black via-gray-900 to-gray-800">
-        
+      {/* Background Design (Updated to match /paslaugos) */}
+      <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
         {/* Navigation Bar */}
         <header className="absolute top-0 left-0 w-full z-30">
           <Navigation />
@@ -48,7 +47,7 @@ export default function Home() {
         {/* Cards Section */}
         <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8 z-20">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
-            {/* Card 1 */}
+            {/* Transparent cards with hover effects and arrow icon */}
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Internetinių Puslapių kūrimas</h3>
@@ -61,7 +60,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Card 2 */}
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Internetinių puslapių palaikymas, bei optimizavimas</h3>
@@ -74,7 +72,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Card 3 */}
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
@@ -87,7 +84,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Card 4 */}
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
