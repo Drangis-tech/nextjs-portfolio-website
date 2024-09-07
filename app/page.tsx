@@ -1,5 +1,6 @@
 "use client";
 
+import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
@@ -13,6 +14,19 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <meta name="description" content="Brandforge.lt - Jūsų geriausias IT partneris. Paverčiame jūsų idėjas veikiančiais sprendimais ir svetaines į įrankius, kurie augina jūsų verslą ir prekės ženklą." />
+        <meta name="keywords" content="IT partneris, svetainių kūrimas, prekės ženklo kūrimas, reklamos valdymas, internetinių puslapių palaikymas, optimizavimas" />
+        <meta property="og:title" content="Jūsų geriausias IT partneris | Brandforge.lt" />
+        <meta property="og:description" content="Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą." />
+        <meta property="og:image" content="/path/to/your/image.jpg" />
+        <meta property="og:url" content="https://brandforge.lt" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Jūsų geriausias IT partneris | Brandforge.lt" />
+        <meta name="twitter:description" content="Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą." />
+        <meta name="twitter:image" content="/path/to/your/image.jpg" />
+      </Head>
+
       {/* Background Design (Updated to match /paslaugos) */}
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
         {/* Navigation Bar */}
