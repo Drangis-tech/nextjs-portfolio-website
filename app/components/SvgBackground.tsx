@@ -67,7 +67,9 @@ const SvgBackground: React.FC = () => {
         </linearGradient>
       </defs>
       <rect width="100%" height="100%" fill="none" />
-      <g>{generateDots()}</g>
+      <g>
+        {generateDots()}
+      </g>
     </svg>
   );
 };
