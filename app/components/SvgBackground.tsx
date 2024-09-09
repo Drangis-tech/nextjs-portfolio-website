@@ -29,6 +29,7 @@ const SvgBackground: React.FC = () => {
             cy={y}
             r={dotRadius}
             opacity={currentOpacity} // Change opacity based on hover effect
+            pointerEvents="none" // Ensure circles do not interfere with cursor events
           />
         );
       }
@@ -71,17 +72,6 @@ const SvgBackground: React.FC = () => {
       <g>
         {generateDots()}
       </g>
-      {/* Invisible hover effect circle */}
-      {cursorPos && (
-        <circle
-          cx={cursorPos.x}
-          cy={cursorPos.y}
-          r={hoverRadius}
-          fill="none"
-          stroke="none"
-          pointerEvents="none" // Ensures the circle itself does not interfere with cursor events
-        />
-      )}
     </svg>
   );
 };
