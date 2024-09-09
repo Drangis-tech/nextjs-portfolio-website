@@ -1,11 +1,11 @@
 import React from 'react';
 
 const SvgBackground: React.FC = () => {
-  const dotRadius = 1; // Smaller radius for very small dots
-  const spacing = 20; // Space between dots
-  const opacity = 0.2; // Lower opacity for a more subtle effect
+  const dotRadius = 1; // Small dot radius
+  const spacing = 50; // Increased spacing between dots
+  const opacity = 0.2; // Lower opacity for subtle effect
 
-  // Function to generate a grid of circles
+  // Function to generate a grid of circles with larger gaps
   const generateDots = () => {
     const circles = [];
     for (let x = 0; x < 896; x += spacing) {
