@@ -5,6 +5,22 @@ interface SvgBackgroundProps {
 }
 
 const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  // Update window size on mount and resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    handleResize(); // Set initial size
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const dotRadius = 1; // Small dot radius
   const spacing = 50; // Increased spacing between dots
   const opacity = 0.2; // Lower opacity for subtle effect
@@ -13,42 +29,32 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   // Function to generate a grid of circles with larger gaps
   const generateDots = () => {
     const circles = [];
-    for (let x = 0; x < window.innerWidth; x += spacing) {
-      for (let y = 0; y < window.innerHeight; y += spacing) {
-        const distance = cursorPos
-          ? Math.sqrt(Math.pow(cursorPos.x - x, 2) + Math.pow(cursorPos.y - y, 2))
-          : 0;
-        const currentOpacity = distance < hoverRadius ? 0.8 : opacity; // Increase opacity within hover radius
+    if (windowSize.width && windowSize.height) {
+      for (let x = 0; x < windowSize.width; x += spacing) {
+        for (let y = 0; y < windowSize.height; y += spacing) {
+          const distance = cursorPos
+            ? Math.sqrt(Math.pow(cursorPos.x - x, 2) + Math.pow(cursorPos.y - y, 2))
+            : 0;
+          const currentOpacity = distance < hoverRadius ? 0.8 : opacity; // Increase opacity within hover radius
 
-        circles.push(
-          <circle
-            key={`${x}-${y}`}
-            fill="url(#shapeGradient)"
-            cx={x}
-            cy={y}
-            r={dotRadius}
-            opacity={currentOpacity} // Uniform opacity or increased within hover radius
-          />
-        );
+          circles.push(
+            <circle
+              key={`${x}-${y}`}
+              fill="url(#shapeGradient)"
+              cx={x}
+              cy={y}
+              r={dotRadius}
+              opacity={currentOpacity} // Uniform opacity or increased within hover radius
+            />
+          );
+        }
       }
     }
     return circles;
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      // Force re-render on resize to ensure dots cover the full screen
-      window.location.reload();
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`} className="absolute inset-0 w-full h-full z-0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${windowSize.width} ${windowSize.height}`} className="absolute inset-0 w-full h-full z-0">
       <defs>
         <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
           <stop offset="0%" stopColor="#feea31" />
