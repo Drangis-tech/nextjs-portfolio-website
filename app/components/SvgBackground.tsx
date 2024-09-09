@@ -17,10 +17,14 @@ const SvgBackground: React.FC = () => {
 
     for (let x = 0; x < width; x += spacing) {
       for (let y = 0; y < height; y += spacing) {
+        // Calculate distance to cursor
         const distanceToCursor = cursorPos
           ? Math.sqrt(Math.pow(x - cursorPos.x, 2) + Math.pow(y - cursorPos.y, 2))
           : Infinity;
+
+        // Determine opacity based on distance to cursor
         const currentOpacity = distanceToCursor <= hoverRadius ? hoverOpacity : opacity;
+
         circles.push(
           <circle
             key={`${x}-${y}`}
@@ -28,7 +32,7 @@ const SvgBackground: React.FC = () => {
             cx={x}
             cy={y}
             r={dotRadius}
-            opacity={currentOpacity} // Change opacity based on hover effect
+            opacity={currentOpacity}
             pointerEvents="none" // Ensure circles do not interfere with cursor events
           />
         );
