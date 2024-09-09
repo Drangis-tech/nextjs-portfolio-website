@@ -11,8 +11,8 @@ const SvgBackground: React.FC = () => {
   // Function to generate a grid of circles with larger gaps
   const generateDots = () => {
     const circles = [];
-    const width = 896; // Default width of the pattern
-    const height = 504; // Default height of the pattern
+    const width = 896; // Width of the SVG canvas
+    const height = 504; // Height of the SVG canvas
 
     for (let x = 0; x < width; x += spacing) {
       for (let y = 0; y < height; y += spacing) {
@@ -37,15 +37,12 @@ const SvgBackground: React.FC = () => {
 
   // Function to handle mouse movement
   const handleMouseMove = (e: MouseEvent) => {
-    const { clientX, clientY } = e;
     const svgElement = document.querySelector('svg');
-    const svgRect = svgElement?.getBoundingClientRect();
-
-    if (svgRect) {
-      setCursorPos({
-        x: clientX - svgRect.left,
-        y: clientY - svgRect.top,
-      });
+    if (svgElement) {
+      const svgRect = svgElement.getBoundingClientRect();
+      const cursorX = e.clientX - svgRect.left;
+      const cursorY = e.clientY - svgRect.top;
+      setCursorPos({ x: cursorX, y: cursorY });
     }
   };
 
@@ -69,7 +66,7 @@ const SvgBackground: React.FC = () => {
           <stop offset="100%" stopColor="#eb4c3b" />
         </linearGradient>
       </defs>
-      <rect width="100%" height="100%" fill="url(#dotPattern)" />
+      <rect width="100%" height="100%" fill="none" />
       <g>{generateDots()}</g>
     </svg>
   );
