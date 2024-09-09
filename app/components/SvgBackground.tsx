@@ -1,8 +1,8 @@
 import React from 'react';
 
 const SvgBackground: React.FC = () => {
-  const dotRadius = 5; // Small radius for dots
-  const spacing = 30; // Space between dots
+  const dotRadius = 2; // Smaller radius for very small dots
+  const spacing = 20; // Space between dots
 
   // Function to generate a grid of circles
   const generateDots = () => {
@@ -16,7 +16,7 @@ const SvgBackground: React.FC = () => {
             cx={x}
             cy={y}
             r={dotRadius}
-            opacity={Math.random() * 0.7 + 0.3} // Random opacity between 0.3 and 1
+            opacity={0.5} // Uniform opacity
           />
         );
       }
@@ -25,7 +25,7 @@ const SvgBackground: React.FC = () => {
   };
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 504" className="absolute inset-0 w-full h-full">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 504" className="absolute inset-0 w-full h-full z-0">
       <defs>
         <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
           <stop offset="0%" stopColor="#feea31" />
