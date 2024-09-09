@@ -2,14 +2,14 @@ import React from 'react';
 
 const SvgBackground: React.FC = () => {
   const dotRadius = 1; // Small dot radius
-  const spacing = 50; // Increased spacing between dots
+  const spacing = 50; // Spacing between dots
   const opacity = 0.2; // Lower opacity for subtle effect
 
   // Function to generate a grid of circles with larger gaps
   const generateDots = () => {
     const circles = [];
-    const width = 896; // Default SVG width
-    const height = 504; // Default SVG height
+    const width = 896; // Default width of the pattern
+    const height = 504; // Default height of the pattern
 
     // Generate dots to cover the entire SVG area
     for (let x = 0; x < width; x += spacing) {
@@ -32,18 +32,20 @@ const SvgBackground: React.FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
+      viewBox="0 0 896 504"
       className="absolute inset-0 w-full h-full z-0"
+      preserveAspectRatio="repeat"
     >
       <defs>
         <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
           <stop offset="0%" stopColor="#feea31" />
           <stop offset="100%" stopColor="#eb4c3b" />
         </linearGradient>
+        <pattern id="dotPattern" width={spacing} height={spacing} patternUnits="userSpaceOnUse">
+          {generateDots()}
+        </pattern>
       </defs>
-      <g>
-        {generateDots()}
-      </g>
+      <rect width="100%" height="100%" fill="url(#dotPattern)" />
     </svg>
   );
 };
