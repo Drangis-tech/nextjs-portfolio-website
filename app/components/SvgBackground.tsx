@@ -78,6 +78,7 @@ const SvgBackground: React.FC = () => {
           r={hoverRadius}
           fill="none"
           stroke="none"
+          pointerEvents="none" // Ensures the circle itself does not interfere with cursor events
         />
       )}
     </svg>
