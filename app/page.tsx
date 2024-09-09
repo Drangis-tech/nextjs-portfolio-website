@@ -2,15 +2,26 @@
 
 import Head from 'next/head';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import SvgBackground from './components/SvgBackground';  // Import the SVG Background
 
 export default function Home() {
+  const [cursorPos, setCursorPos] = useState<{ x: number, y: number } | null>(null);
+
   useEffect(() => {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
@@ -31,7 +42,7 @@ export default function Home() {
       {/* Background Design */}
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
         {/* SVG Background */}
-        <SvgBackground />
+        <SvgBackground cursorPos={cursorPos} />
 
         {/* Navigation Bar */}
         <header className="absolute top-0 left-0 w-full z-30">
@@ -97,25 +108,25 @@ export default function Home() {
               </div>
               <Link href="/prekės-zenklo-kurimas">
                 <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                <FontAwesomeIcon icon={faArrowRight} />
-                   </a>
-                 </Link>
-               </div>
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </Link>
+            </div>
 
-               <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
-                 <div className="relative z-20 p-4">
-                   <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
-                   <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
-                 </div>
-                 <Link href="/reklamos-valdymas">
-                   <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                     <FontAwesomeIcon icon={faArrowRight} />
-                   </a>
-                 </Link>
-               </div>
-             </div>
-           </div>
-         </div>
-       </>
-     );
-   }
+            <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
+              <div className="relative z-20 p-4">
+                <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
+                <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
+              </div>
+              <Link href="/reklamos-valdymas">
+                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
