@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import SvgBackground from './components/svgBackground'; // Import the background component
+import SvgBackground from './components/SvgBackground'; // Import the background component
 
 export default function Home() {
   useEffect(() => {
