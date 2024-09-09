@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const SvgBackground: React.FC = () => {
   const [cursorPos, setCursorPos] = useState<{ x: number, y: number } | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null); // Reference to the SVG element
   const dotRadius = 1; // Small dot radius
   const spacing = 50; // Spacing between dots
   const opacity = 0.2; // Default opacity for dots
@@ -11,8 +12,8 @@ const SvgBackground: React.FC = () => {
   // Function to generate a grid of circles
   const generateDots = () => {
     const circles = [];
-    const width = 896; // Width of the SVG canvas
-    const height = 504; // Height of the SVG canvas
+    const width = svgRef.current?.viewBox.baseVal.width || 896;
+    const height = svgRef.current?.viewBox.baseVal.height || 504;
 
     for (let x = 0; x < width; x += spacing) {
       for (let y = 0; y < height; y += spacing) {
@@ -37,9 +38,8 @@ const SvgBackground: React.FC = () => {
 
   // Function to handle mouse movement
   const handleMouseMove = (e: MouseEvent) => {
-    const svgElement = document.querySelector('svg');
-    if (svgElement) {
-      const svgRect = svgElement.getBoundingClientRect();
+    if (svgRef.current) {
+      const svgRect = svgRef.current.getBoundingClientRect();
       const cursorX = e.clientX - svgRect.left; // Adjusted to SVG coordinate system
       const cursorY = e.clientY - svgRect.top;  // Adjusted to SVG coordinate system
       setCursorPos({ x: cursorX, y: cursorY });
@@ -56,6 +56,7 @@ const SvgBackground: React.FC = () => {
 
   return (
     <svg
+      ref={svgRef} // Attach ref to SVG element
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 896 504"
       className="absolute inset-0 w-full h-full z-0"
