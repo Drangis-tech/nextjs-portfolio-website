@@ -69,17 +69,17 @@ const SvgBackground: React.FC = () => {
       <rect width="100%" height="100%" fill="none" />
       <g>
         {generateDots()}
-        {/* Invisible hover effect circle */}
-        {cursorPos && (
-          <circle
-            cx={cursorPos.x}
-            cy={cursorPos.y}
-            r={hoverRadius}
-            fill="none"
-            stroke="none"
-          />
-        )}
       </g>
+      {/* Invisible hover effect circle */}
+      {cursorPos && (
+        <circle
+          cx={cursorPos.x}
+          cy={cursorPos.y}
+          r={hoverRadius}
+          fill="none"
+          stroke="none"
+        />
+      )}
     </svg>
   );
 };
