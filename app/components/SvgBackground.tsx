@@ -8,7 +8,7 @@ const SvgBackground: React.FC = () => {
   const hoverOpacity = 1; // Opacity when hovered
   const hoverRadius = 100; // Radius around the cursor where the effect is applied
 
-  // Function to generate a grid of circles with larger gaps
+  // Function to generate a grid of circles
   const generateDots = () => {
     const circles = [];
     const width = 896; // Width of the SVG canvas
