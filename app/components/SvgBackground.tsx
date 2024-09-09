@@ -1,8 +1,9 @@
 import React from 'react';
 
 const SvgBackground: React.FC = () => {
-  const dotRadius = 2; // Smaller radius for very small dots
+  const dotRadius = 1; // Smaller radius for very small dots
   const spacing = 20; // Space between dots
+  const opacity = 0.2; // Lower opacity for a more subtle effect
 
   // Function to generate a grid of circles
   const generateDots = () => {
@@ -16,7 +17,7 @@ const SvgBackground: React.FC = () => {
             cx={x}
             cy={y}
             r={dotRadius}
-            opacity={0.5} // Uniform opacity
+            opacity={opacity} // Uniform opacity
           />
         );
       }
