@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const SvgBackground: React.FC = () => {
-  const [hoveredCircle, setHoveredCircle] = useState<{ x: number, y: number } | null>(null);
+  const [cursorPos, setCursorPos] = useState<{ x: number, y: number } | null>(null);
   const dotRadius = 1; // Small dot radius
   const spacing = 50; // Spacing between dots
-  const opacity = 0.2; // Lower opacity for subtle effect
+  const opacity = 0.2; // Default opacity for dots
   const hoverOpacity = 1; // Opacity when hovered
   const hoverRadius = 100; // Radius around the cursor where the effect is applied
 
@@ -16,8 +16,8 @@ const SvgBackground: React.FC = () => {
 
     for (let x = 0; x < width; x += spacing) {
       for (let y = 0; y < height; y += spacing) {
-        const distanceToCursor = hoveredCircle
-          ? Math.sqrt(Math.pow(x - hoveredCircle.x, 2) + Math.pow(y - hoveredCircle.y, 2))
+        const distanceToCursor = cursorPos
+          ? Math.sqrt(Math.pow(x - cursorPos.x, 2) + Math.pow(y - cursorPos.y, 2))
           : Infinity;
         const currentOpacity = distanceToCursor <= hoverRadius ? hoverOpacity : opacity;
         circles.push(
@@ -42,7 +42,7 @@ const SvgBackground: React.FC = () => {
     const svgRect = svgElement?.getBoundingClientRect();
 
     if (svgRect) {
-      setHoveredCircle({
+      setCursorPos({
         x: clientX - svgRect.left,
         y: clientY - svgRect.top,
       });
@@ -62,18 +62,15 @@ const SvgBackground: React.FC = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 896 504"
       className="absolute inset-0 w-full h-full z-0"
-      preserveAspectRatio="repeat"
     >
       <defs>
         <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
           <stop offset="0%" stopColor="#feea31" />
           <stop offset="100%" stopColor="#eb4c3b" />
         </linearGradient>
-        <pattern id="dotPattern" width={spacing} height={spacing} patternUnits="userSpaceOnUse">
-          {generateDots()}
-        </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#dotPattern)" />
+      <g>{generateDots()}</g>
     </svg>
   );
 };
