@@ -1,12 +1,12 @@
 import React from 'react';
 
 const SvgBackground: React.FC = () => {
-  // Function to generate an array of circles with varying positions
-  const generateCircles = () => {
-    const circles = [];
-    const radius = 5; // Small radius for each dot
-    const spacing = 50; // Distance between dots
+  const dotRadius = 5; // Small radius for dots
+  const spacing = 30; // Space between dots
 
+  // Function to generate a grid of circles
+  const generateDots = () => {
+    const circles = [];
     for (let x = 0; x < 896; x += spacing) {
       for (let y = 0; y < 504; y += spacing) {
         circles.push(
@@ -15,7 +15,7 @@ const SvgBackground: React.FC = () => {
             fill="url(#shapeGradient)"
             cx={x}
             cy={y}
-            r={radius}
+            r={dotRadius}
             opacity={Math.random() * 0.7 + 0.3} // Random opacity between 0.3 and 1
           />
         );
@@ -33,7 +33,7 @@ const SvgBackground: React.FC = () => {
         </linearGradient>
       </defs>
       <g>
-        {generateCircles()}
+        {generateDots()}
       </g>
     </svg>
   );
