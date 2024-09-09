@@ -1,29 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const SvgBackground: React.FC = () => {
-  const [cursorPos, setCursorPos] = useState<{ x: number, y: number } | null>(null);
-  const svgRef = useRef<SVGSVGElement>(null); // Reference to the SVG element
+interface SvgBackgroundProps {
+  cursorPos: { x: number, y: number } | null;
+}
+
+const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   const dotRadius = 1; // Small dot radius
-  const spacing = 50; // Spacing between dots
-  const opacity = 0.2; // Default opacity for dots
-  const hoverOpacity = 1; // Opacity when hovered
-  const hoverRadius = 100; // Radius around the cursor where the effect is applied
+  const spacing = 50; // Increased spacing between dots
+  const opacity = 0.2; // Lower opacity for subtle effect
+  const hoverRadius = 100; // Radius of the hover effect area
 
-  // Function to generate a grid of circles
+  // Function to generate a grid of circles with larger gaps
   const generateDots = () => {
     const circles = [];
-    const width = svgRef.current?.viewBox.baseVal.width || 896;
-    const height = svgRef.current?.viewBox.baseVal.height || 504;
-
-    for (let x = 0; x < width; x += spacing) {
-      for (let y = 0; y < height; y += spacing) {
-        // Calculate distance to cursor
-        const distanceToCursor = cursorPos
-          ? Math.sqrt(Math.pow(x - cursorPos.x, 2) + Math.pow(y - cursorPos.y, 2))
-          : Infinity;
-
-        // Determine opacity based on distance to cursor
-        const currentOpacity = distanceToCursor <= hoverRadius ? hoverOpacity : opacity;
+    for (let x = 0; x < window.innerWidth; x += spacing) {
+      for (let y = 0; y < window.innerHeight; y += spacing) {
+        const distance = cursorPos
+          ? Math.sqrt(Math.pow(cursorPos.x - x, 2) + Math.pow(cursorPos.y - y, 2))
+          : 0;
+        const currentOpacity = distance < hoverRadius ? 0.8 : opacity; // Increase opacity within hover radius
 
         circles.push(
           <circle
@@ -32,8 +27,7 @@ const SvgBackground: React.FC = () => {
             cx={x}
             cy={y}
             r={dotRadius}
-            opacity={currentOpacity}
-            pointerEvents="none" // Ensure circles do not interfere with cursor events
+            opacity={currentOpacity} // Uniform opacity or increased within hover radius
           />
         );
       }
@@ -41,38 +35,26 @@ const SvgBackground: React.FC = () => {
     return circles;
   };
 
-  // Function to handle mouse movement
-  const handleMouseMove = (e: MouseEvent) => {
-    if (svgRef.current) {
-      const svgRect = svgRef.current.getBoundingClientRect();
-      const cursorX = e.clientX - svgRect.left; // Adjusted to SVG coordinate system
-      const cursorY = e.clientY - svgRect.top;  // Adjusted to SVG coordinate system
-      setCursorPos({ x: cursorX, y: cursorY });
-    }
-  };
-
-  // Add event listener on mount
   useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
+    const handleResize = () => {
+      // Force re-render on resize to ensure dots cover the full screen
+      window.location.reload();
+    };
+
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
-    <svg
-      ref={svgRef} // Attach ref to SVG element
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 896 504"
-      className="absolute inset-0 w-full h-full z-0"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`} className="absolute inset-0 w-full h-full z-0">
       <defs>
         <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
           <stop offset="0%" stopColor="#feea31" />
           <stop offset="100%" stopColor="#eb4c3b" />
         </linearGradient>
       </defs>
-      <rect width="100%" height="100%" fill="none" />
       <g>
         {generateDots()}
       </g>
