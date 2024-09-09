@@ -1,25 +1,42 @@
 import React from 'react';
 
-const SvgBackground: React.FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 504" className="absolute inset-0 w-full h-full">
-    <defs>
-      <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
-        <stop offset="0%" stopColor="#feea31" />
-        <stop offset="100%" stopColor="#eb4c3b" />
-      </linearGradient>
-    </defs>
-    <g>
-      <filter id="blur-filter">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
-      </filter>
-      {/* Adjusted circles for better visibility */}
-      <circle fill="url(#shapeGradient)" opacity="0.5" cx="100" cy="100" r="40" />
-      <circle fill="url(#shapeGradient)" opacity="0.5" cx="300" cy="200" r="60" />
-      <circle fill="url(#shapeGradient)" opacity="0.5" cx="500" cy="150" r="50" />
-      <circle fill="url(#shapeGradient)" opacity="0.5" cx="700" cy="300" r="70" />
-      {/* Add or adjust more circles as needed */}
-    </g>
-  </svg>
-);
+const SvgBackground: React.FC = () => {
+  // Function to generate an array of circles with varying positions
+  const generateCircles = () => {
+    const circles = [];
+    const radius = 5; // Small radius for each dot
+    const spacing = 50; // Distance between dots
+
+    for (let x = 0; x < 896; x += spacing) {
+      for (let y = 0; y < 504; y += spacing) {
+        circles.push(
+          <circle
+            key={`${x}-${y}`}
+            fill="url(#shapeGradient)"
+            cx={x}
+            cy={y}
+            r={radius}
+            opacity={Math.random() * 0.7 + 0.3} // Random opacity between 0.3 and 1
+          />
+        );
+      }
+    }
+    return circles;
+  };
+
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 504" className="absolute inset-0 w-full h-full">
+      <defs>
+        <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
+          <stop offset="0%" stopColor="#feea31" />
+          <stop offset="100%" stopColor="#eb4c3b" />
+        </linearGradient>
+      </defs>
+      <g>
+        {generateCircles()}
+      </g>
+    </svg>
+  );
+};
 
 export default SvgBackground;
