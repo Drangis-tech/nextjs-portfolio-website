@@ -327,3 +327,12 @@
 
 /* Import additional styles if needed */
 @import 'some-other-styles.css'; /* Ensure this is necessary, otherwise remove */
+
+/* Add this to your global CSS or a specific CSS module */
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

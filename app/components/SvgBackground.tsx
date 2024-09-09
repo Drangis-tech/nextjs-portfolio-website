@@ -22,8 +22,8 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   }, []);
 
   const dotRadius = 1; // Small dot radius
-  const spacing = 50; // Increased spacing between dots
-  const opacity = 0.2; // Lower opacity for subtle effect
+  const spacing = 50; // Spacing between dots
+  const opacity = 0.2; // Default lower opacity
   const hoverRadius = 100; // Radius of the hover effect area
 
   // Function to generate a grid of circles with larger gaps
@@ -34,7 +34,8 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
         for (let y = 0; y < windowSize.height; y += spacing) {
           const distance = cursorPos
             ? Math.sqrt(Math.pow(cursorPos.x - x, 2) + Math.pow(cursorPos.y - y, 2))
-            : 0;
+            : Infinity; // Use Infinity if cursorPos is null to default opacity
+
           const currentOpacity = distance < hoverRadius ? 0.8 : opacity; // Increase opacity within hover radius
 
           circles.push(
@@ -44,7 +45,7 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
               cx={x}
               cy={y}
               r={dotRadius}
-              opacity={currentOpacity} // Uniform opacity or increased within hover radius
+              opacity={currentOpacity}
             />
           );
         }
