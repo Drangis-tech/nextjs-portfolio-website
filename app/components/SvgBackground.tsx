@@ -8,8 +8,12 @@ const SvgBackground: React.FC = () => {
   // Function to generate a grid of circles with larger gaps
   const generateDots = () => {
     const circles = [];
-    for (let x = 0; x < 896; x += spacing) {
-      for (let y = 0; y < 504; y += spacing) {
+    const width = 896; // Default SVG width
+    const height = 504; // Default SVG height
+
+    // Generate dots to cover the entire SVG area
+    for (let x = 0; x < width; x += spacing) {
+      for (let y = 0; y < height; y += spacing) {
         circles.push(
           <circle
             key={`${x}-${y}`}
@@ -26,7 +30,11 @@ const SvgBackground: React.FC = () => {
   };
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 504" className="absolute inset-0 w-full h-full z-0">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      className="absolute inset-0 w-full h-full z-0"
+    >
       <defs>
         <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
           <stop offset="0%" stopColor="#feea31" />
