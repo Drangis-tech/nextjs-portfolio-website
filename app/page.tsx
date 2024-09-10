@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import SvgBackground from './components/SvgBackground';  // Import the SVG Background
 
 export default function Home() {
   const [cursorPos, setCursorPos] = useState<{ x: number, y: number } | null>(null);
@@ -39,10 +38,6 @@ export default function Home() {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
 
-      {/* Background Design */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-        {/* SVG Background */}
-        <SvgBackground cursorPos={cursorPos} />
 
         {/* Navigation Bar */}
         <header className="absolute top-0 left-0 w-full z-30">
@@ -126,7 +121,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 }
