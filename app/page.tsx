@@ -2,25 +2,14 @@
 
 import Head from 'next/head';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
-  const [cursorPos, setCursorPos] = useState<{ x: number, y: number } | null>(null);
-
   useEffect(() => {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
   }, []);
 
   return (
@@ -38,7 +27,8 @@ export default function Home() {
         <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
 
-
+      {/* Background Design (Updated to match /paslaugos) */}
+      <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
         {/* Navigation Bar */}
         <header className="absolute top-0 left-0 w-full z-30">
           <Navigation />
@@ -121,6 +111,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 }
