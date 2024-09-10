@@ -6,36 +6,27 @@ interface SvgBackgroundProps {
 
 const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-  const [spacing, setSpacing] = useState(50); // Default spacing is for desktop
 
   // Update window size on mount and resize
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-      
-      // Adjust dot spacing based on screen width (responsive behavior)
-      if (window.innerWidth < 768) {
-        setSpacing(30); // Smaller spacing on mobile devices
-      } else if (window.innerWidth < 1024) {
-        setSpacing(40); // Medium spacing on tablets
-      } else {
-        setSpacing(50); // Default spacing for larger screens
-      }
     };
 
-    handleResize(); // Set initial size and spacing
+    handleResize(); // Set initial size
     window.addEventListener('resize', handleResize);
-
+    
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   const dotRadius = 1; // Small dot radius
+  const spacing = 50; // Spacing between dots
   const opacity = 0.2; // Default lower opacity
   const hoverRadius = 100; // Radius of the hover effect area
 
-  // Function to generate a grid of circles with dynamic spacing
+  // Function to generate a grid of circles
   const generateDots = () => {
     const circles = [];
     if (windowSize.width && windowSize.height) {
@@ -64,17 +55,40 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   };
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${windowSize.width} ${windowSize.height}`} className="absolute inset-0 w-full h-full z-0">
-      <defs>
-        <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
-          <stop offset="0%" stopColor="#feea31" />
-          <stop offset="100%" stopColor="#eb4c3b" />
-        </linearGradient>
-      </defs>
-      <g>
-        {generateDots()}
-      </g>
-    </svg>
+    <div className="absolute inset-0 w-full h-full z-0">
+      {/* First SVG */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${windowSize.width} ${windowSize.height}`} className="absolute inset-0 w-full h-full">
+        <defs>
+          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
+            <stop offset="0%" stopColor="#feea31" />
+            <stop offset="100%" stopColor="#eb4c3b" />
+          </linearGradient>
+        </defs>
+        <g>{generateDots()}</g>
+      </svg>
+
+      {/* Second SVG to cover another part of the screen */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${windowSize.width} ${windowSize.height}`} className="absolute inset-0 w-full h-full translate-x-full">
+        <defs>
+          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
+            <stop offset="0%" stopColor="#feea31" />
+            <stop offset="100%" stopColor="#eb4c3b" />
+          </linearGradient>
+        </defs>
+        <g>{generateDots()}</g>
+      </svg>
+
+      {/* Third SVG to cover the final part */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${windowSize.width} ${windowSize.height}`} className="absolute inset-0 w-full h-full translate-x-[200%]">
+        <defs>
+          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
+            <stop offset="0%" stopColor="#feea31" />
+            <stop offset="100%" stopColor="#eb4c3b" />
+          </linearGradient>
+        </defs>
+        <g>{generateDots()}</g>
+      </svg>
+    </div>
   );
 };
 
