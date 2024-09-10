@@ -30,8 +30,9 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   const generateDots = () => {
     const circles = [];
     if (windowSize.width && windowSize.height) {
-      for (let x = 0; x < windowSize.width; x += spacing) {
-        for (let y = 0; y < windowSize.height; y += spacing) {
+      // Adjust grid size to be bigger than the screen to ensure full coverage
+      for (let x = 0; x < windowSize.width * 2; x += spacing) { // Multiply by 2 for extra width
+        for (let y = 0; y < windowSize.height * 2; y += spacing) { // Multiply by 2 for extra height
           const distance = cursorPos
             ? Math.sqrt(Math.pow(cursorPos.x - x, 2) + Math.pow(cursorPos.y - y, 2))
             : Infinity; // Use Infinity if cursorPos is null to default opacity
@@ -55,37 +56,19 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   };
 
   return (
-    <div className="absolute inset-0 w-full h-full z-0">
-      {/* First SVG (Top Section) */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${windowSize.width} ${windowSize.height / 2}`} // Cover top half
-        className="absolute top-0 left-0 w-full h-1/2"
-      >
-        <defs>
-          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
-            <stop offset="0%" stopColor="#feea31" />
-            <stop offset="100%" stopColor="#eb4c3b" />
-          </linearGradient>
-        </defs>
-        <g>{generateDots()}</g>
-      </svg>
-
-      {/* Second SVG (Bottom Section) */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${windowSize.width} ${windowSize.height / 2}`} // Cover bottom half
-        className="absolute bottom-0 left-0 w-full h-1/2"
-      >
-        <defs>
-          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
-            <stop offset="0%" stopColor="#feea31" />
-            <stop offset="100%" stopColor="#eb4c3b" />
-          </linearGradient>
-        </defs>
-        <g>{generateDots()}</g>
-      </svg>
-    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${windowSize.width * 2} ${windowSize.height * 2}`} // Ensure viewBox covers extra area
+      className="absolute inset-0 w-full h-full z-0"
+    >
+      <defs>
+        <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
+          <stop offset="0%" stopColor="#feea31" />
+          <stop offset="100%" stopColor="#eb4c3b" />
+        </linearGradient>
+      </defs>
+      <g>{generateDots()}</g>
+    </svg>
   );
 };
 
