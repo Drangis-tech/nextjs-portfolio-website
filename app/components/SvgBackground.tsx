@@ -61,8 +61,12 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
           <stop offset="0%" stopColor="#feea31" />
           <stop offset="100%" stopColor="#eb4c3b" />
         </linearGradient>
+        {/* Adding a blur filter */}
+        <filter id="blurFilter" x="0" y="0">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+        </filter>
       </defs>
-      <g>
+      <g filter="url(#blurFilter)">
         {generateDots()}
       </g>
     </svg>
