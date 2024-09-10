@@ -22,7 +22,7 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   }, []);
 
   const dotRadius = 1; // Small dot radius
-  const spacing = 50; // Spacing between dots
+  const spacing = 40; // Adjust spacing between dots for mobile devices
   const opacity = 0.2; // Default lower opacity
   const hoverRadius = 100; // Radius of the hover effect area
 
@@ -30,9 +30,10 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   const generateDots = () => {
     const circles = [];
     if (windowSize.width && windowSize.height) {
-      // Adjust grid size to be bigger than the screen to ensure full coverage
-      for (let x = 0; x < windowSize.width * 2; x += spacing) { // Multiply by 2 for extra width
-        for (let y = 0; y < windowSize.height * 2; y += spacing) { // Multiply by 2 for extra height
+      // Multiply by 1.5 to ensure better coverage on smaller screens
+      const extendedHeight = windowSize.height * 1.5;
+      for (let x = 0; x < windowSize.width; x += spacing) {
+        for (let y = 0; y < extendedHeight; y += spacing) {
           const distance = cursorPos
             ? Math.sqrt(Math.pow(cursorPos.x - x, 2) + Math.pow(cursorPos.y - y, 2))
             : Infinity; // Use Infinity if cursorPos is null to default opacity
@@ -58,7 +59,7 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox={`0 0 ${windowSize.width * 2} ${windowSize.height * 2}`} // Ensure viewBox covers extra area
+      viewBox={`0 0 ${windowSize.width} ${windowSize.height * 1.5}`} // Extend viewBox to cover extra height on smaller screens
       className="absolute inset-0 w-full h-full z-0"
     >
       <defs>
