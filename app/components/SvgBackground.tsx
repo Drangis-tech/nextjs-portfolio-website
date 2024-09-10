@@ -30,9 +30,9 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   const generateDots = () => {
     const circles = [];
     if (windowSize.width && windowSize.height) {
-      // Extend width and height beyond screen size to avoid gaps
-      const extendedWidth = windowSize.width * 1.5; 
-      const extendedHeight = windowSize.height * 1.5; 
+      // Extend width and height even further to ensure better coverage
+      const extendedWidth = windowSize.width * 1.5;
+      const extendedHeight = windowSize.height * 2; // Double the height for better coverage on mobile
       
       for (let x = 0; x < extendedWidth; x += spacing) {
         for (let y = 0; y < extendedHeight; y += spacing) {
@@ -61,7 +61,7 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox={`0 0 ${windowSize.width * 1.5} ${windowSize.height * 1.5}`} // Extend viewBox width and height
+      viewBox={`0 0 ${windowSize.width * 1.5} ${windowSize.height * 2}`} // Extend viewBox width and height
       className="absolute inset-0 w-full h-full z-0"
     >
       <defs>
