@@ -22,7 +22,7 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   }, []);
 
   const dotRadius = 1; // Small dot radius
-  const spacing = 40; // Adjusted spacing for smaller devices
+  const spacing = 50; // Spacing between dots
   const opacity = 0.2; // Default lower opacity
   const hoverRadius = 100; // Radius of the hover effect area
 
@@ -30,11 +30,11 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   const generateDots = () => {
     const circles = [];
     if (windowSize.width && windowSize.height) {
-      for (let x = 0; x < windowSize.width + spacing; x += spacing) {
-        for (let y = 0; y < windowSize.height + spacing; y += spacing) {
+      for (let x = 0; x < windowSize.width * 2; x += spacing) { // *2 to ensure full coverage
+        for (let y = 0; y < windowSize.height * 2; y += spacing) { // *2 for extra height
           const distance = cursorPos
             ? Math.sqrt(Math.pow(cursorPos.x - x, 2) + Math.pow(cursorPos.y - y, 2))
-            : Infinity;
+            : Infinity; // Use Infinity if cursorPos is null to default opacity
 
           const currentOpacity = distance < hoverRadius ? 0.8 : opacity; // Increase opacity within hover radius
 
@@ -55,52 +55,19 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   };
 
   return (
-    <div className="absolute inset-0 w-full h-full z-0">
-      {/* First SVG */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${windowSize.width} ${windowSize.height * 1.5}`} // Increased height
-        className="absolute inset-0 w-full h-full"
-      >
-        <defs>
-          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
-            <stop offset="0%" stopColor="#feea31" />
-            <stop offset="100%" stopColor="#eb4c3b" />
-          </linearGradient>
-        </defs>
-        <g>{generateDots()}</g>
-      </svg>
-
-      {/* Second SVG */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${windowSize.width} ${windowSize.height * 1.5}`} // Increased height
-        className="absolute inset-0 w-full h-full translate-y-full"
-      >
-        <defs>
-          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
-            <stop offset="0%" stopColor="#feea31" />
-            <stop offset="100%" stopColor="#eb4c3b" />
-          </linearGradient>
-        </defs>
-        <g>{generateDots()}</g>
-      </svg>
-
-      {/* Third SVG */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${windowSize.width} ${windowSize.height * 1.5}`} // Increased height
-        className="absolute inset-0 w-full h-full translate-y-[200%]"
-      >
-        <defs>
-          <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
-            <stop offset="0%" stopColor="#feea31" />
-            <stop offset="100%" stopColor="#eb4c3b" />
-          </linearGradient>
-        </defs>
-        <g>{generateDots()}</g>
-      </svg>
-    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${windowSize.width * 2} ${windowSize.height * 2}`} // Ensure the viewBox covers extra area
+      className="absolute inset-0 w-full h-full z-0"
+    >
+      <defs>
+        <linearGradient id="shapeGradient" gradientTransform="rotate(0)">
+          <stop offset="0%" stopColor="#feea31" />
+          <stop offset="100%" stopColor="#eb4c3b" />
+        </linearGradient>
+      </defs>
+      <g>{generateDots()}</g>
+    </svg>
   );
 };
 
