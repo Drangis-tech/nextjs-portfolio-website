@@ -6,27 +6,36 @@ interface SvgBackgroundProps {
 
 const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [spacing, setSpacing] = useState(50); // Default spacing is for desktop
 
   // Update window size on mount and resize
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      
+      // Adjust dot spacing based on screen width (responsive behavior)
+      if (window.innerWidth < 768) {
+        setSpacing(30); // Smaller spacing on mobile devices
+      } else if (window.innerWidth < 1024) {
+        setSpacing(40); // Medium spacing on tablets
+      } else {
+        setSpacing(50); // Default spacing for larger screens
+      }
     };
 
-    handleResize(); // Set initial size
+    handleResize(); // Set initial size and spacing
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   const dotRadius = 1; // Small dot radius
-  const spacing = 50; // Spacing between dots
   const opacity = 0.2; // Default lower opacity
   const hoverRadius = 100; // Radius of the hover effect area
 
-  // Function to generate a grid of circles with larger gaps
+  // Function to generate a grid of circles with dynamic spacing
   const generateDots = () => {
     const circles = [];
     if (windowSize.width && windowSize.height) {
@@ -61,12 +70,8 @@ const SvgBackground: React.FC<SvgBackgroundProps> = ({ cursorPos }) => {
           <stop offset="0%" stopColor="#feea31" />
           <stop offset="100%" stopColor="#eb4c3b" />
         </linearGradient>
-        {/* Adding a blur filter */}
-        <filter id="blurFilter" x="0" y="0">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
-        </filter>
       </defs>
-      <g filter="url(#blurFilter)">
+      <g>
         {generateDots()}
       </g>
     </svg>
