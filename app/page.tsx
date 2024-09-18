@@ -15,14 +15,7 @@ export default function Home() {
 
   // Product data with correct image paths
   const products = [
-    { title: 'Scanstrut', link: '/scanstrut', thumbnail: '/projektai/scanstrut_com.jpg' },
-    { title: 'Baytek International', link: '/baytek', thumbnail: '/projektai/baytekinternational_com.jpg' },
-    { title: 'Lowvac', link: '/lowvac', thumbnail: '/projektai/lowvac_au.jpg' },
-    { title: 'Cincinnati Dog Trainers', link: '/cincinnati', thumbnail: '/projektai/cincinnatidogtrainers_com.jpg' },
-    { title: 'Entsav', link: '/entsav', thumbnail: '/projektai/entsav_co_uk.jpg' },
-    { title: 'Miracle Experience', link: '/miracle', thumbnail: '/projektai/miracleexperience_co_tz.jpg' },
-    { title: 'Stogrida', link: '/stogrida', thumbnail: '/projektai/stogrida_com.jpg' },
-    { title: 'Est Lighting', link: '/estlighting', thumbnail: '/projektai/estlighting_com_au.jpg' },
+
     { title: 'Arena Properties', link: '/arena', thumbnail: '/projektai/arenaproperties_com.jpg' },
   ];
 
