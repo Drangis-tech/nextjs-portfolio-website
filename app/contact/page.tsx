@@ -16,15 +16,15 @@ const socials = [
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://linkedin.com/brandforge",
+		href: "https://www.linkedin.com/company/brandforge-lt/",
 		label: "LinkedIn",
-		handle: "@BrandForge",
+		handle: "@Brandforge",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "",
+		href: "tel:+37066953689",
 		label: "Tel. Numeris",
-		handle: "+370 666 66 666",
+		handle: "+370 669 53 689",
 	},
 ];
 
