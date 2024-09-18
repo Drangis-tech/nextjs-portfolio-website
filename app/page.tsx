@@ -15,15 +15,15 @@ export default function Home() {
 
   // Product data with correct image paths
   const products = [
-    { title: 'Arena Properties', link: '/arena', thumbnail: '/projektai/arenaproperties_com.jpg' },
-    { title: 'Baytek International', link: '/baytek', thumbnail: '/projektai/baytekinternational_com.jpg' },
-    { title: 'Lowvac', link: '/lowvac', thumbnail: '/projektai/lowvac_au.jpg' },
-    { title: 'Cincinnati Dog Trainers', link: '/cincinnati', thumbnail: '/projektai/cincinnatidogtrainers_com.jpg' },
-    { title: 'Stogrida', link: '/stogrida', thumbnail: '/projektai/stogrida_com.jpg' },
-    { title: 'Miracle Experience', link: '/miracle', thumbnail: '/projektai/miracleexperience_co_tz.jpg' },
-    { title: 'Entsav', link: '/entsav', thumbnail: '/projektai/entsav_co_uk.jpg' },
-    { title: 'Est Lighting', link: '/estlighting', thumbnail: '/projektai/estlighting_com_au.jpg' },
-    { title: 'Scanstrut', link: '/scanstrut', thumbnail: '/projektai/scanstrut_com.jpg' },
+    { title: 'Arenaproperties.com', link: '/atlikti-darbai', thumbnail: '/projektai/arenaproperties_com.jpg' },
+    { title: 'Baytekinternational.com', link: '/atlikti-darbai', thumbnail: '/projektai/baytekinternational_com.jpg' },
+    { title: 'Lowvac.au', link: '/atlikti-darbai', thumbnail: '/projektai/lowvac_au.jpg' },
+    { title: 'Cincinnatidogtrainers.com', link: '/atlikti-darbai', thumbnail: '/projektai/cincinnatidogtrainers_com.jpg' },
+    { title: 'Stogrida.com', link: '/atlikti-darbai', thumbnail: '/projektai/stogrida_com.jpg' },
+    { title: 'Miracleexperience.co.tz', link: '/atlikti-darbai', thumbnail: '/projektai/miracleexperience_co_tz.jpg' },
+    { title: 'Entsav.co.uk', link: '/atlikti-darbai', thumbnail: '/projektai/entsav_co_uk.jpg' },
+    { title: 'Estlighting.com.au', link: '/atlikti-darbai', thumbnail: '/projektai/estlighting_com_au.jpg' },
+    { title: 'Scanstrut.com', link: '/satlikti-darbai', thumbnail: '/projektai/scanstrut_com.jpg' },
   ];
 
   return (
