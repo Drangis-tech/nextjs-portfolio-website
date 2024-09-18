@@ -49,11 +49,9 @@ export default function Home() {
             Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
           </p>
           <div className="mb-6 md:mb-8">
-            <Link href="/paslaugos">
-              <a className="px-8 py-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
-                Mūsų paslaugas
-                <span className="ml-2">→</span>
-              </a>
+            <Link href="/paslaugos" className="px-8 py-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
+              Mūsų paslaugas
+              <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
@@ -67,10 +65,8 @@ export default function Home() {
                 <h3 className="text-lg font-semibold">Internetinių Puslapių kūrimas</h3>
                 <p className="text-sm text-gray-500 mt-4">WebSocket edge infrastructure and reliable connection engine.</p>
               </div>
-              <Link href="/internetiniu-puslapiu-kurimas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                  <FontAwesomeIcon icon={faArrowRight} />
-                </a>
+              <Link href="/internetiniu-puslapiu-kurimas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </div>
 
@@ -79,10 +75,8 @@ export default function Home() {
                 <h3 className="text-lg font-semibold">Internetinių puslapių palaikymas, bei optimizavimas</h3>
                 <p className="text-sm text-gray-500 mt-4">Scale to millions. No complex configuration required.</p>
               </div>
-              <Link href="/puslapiu-optimizavimas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                  <FontAwesomeIcon icon={faArrowRight} />
-                </a>
+              <Link href="/puslapiu-optimizavimas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </div>
 
@@ -91,10 +85,8 @@ export default function Home() {
                 <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
                 <p className="text-sm text-gray-500 mt-4">Built to handle any traffic on your collaborative experiences.</p>
               </div>
-              <Link href="/prekės-zenklo-kurimas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                  <FontAwesomeIcon icon={faArrowRight} />
-                </a>
+              <Link href="/prekės-zenklo-kurimas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </div>
 
@@ -103,10 +95,8 @@ export default function Home() {
                 <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
                 <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
               </div>
-              <Link href="/reklamos-valdymas">
-                <a className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                  <FontAwesomeIcon icon={faArrowRight} />
-                </a>
+              <Link href="/reklamos-valdymas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                <FontAwesomeIcon icon={faArrowRight} />
               </Link>
             </div>
           </div>
