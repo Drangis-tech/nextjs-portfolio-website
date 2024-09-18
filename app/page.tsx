@@ -13,11 +13,17 @@ export default function Home() {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
   }, []);
 
-  // Sample product data
+  // Product data with correct image paths
   const products = [
-    { title: 'Product 1', link: '/product1', thumbnail: '/path/to/image1.jpg' },
-    { title: 'Product 2', link: '/product2', thumbnail: '/path/to/image2.jpg' },
-    // Add more products as needed
+    { title: 'Scanstrut', link: '/scanstrut', thumbnail: '/projektai/scanstrut_com.jpg' },
+    { title: 'Baytek International', link: '/baytek', thumbnail: '/projektai/baytekinternational_com.jpg' },
+    { title: 'Lowvac', link: '/lowvac', thumbnail: '/projektai/lowvac_au.jpg' },
+    { title: 'Cincinnati Dog Trainers', link: '/cincinnati', thumbnail: '/projektai/cincinnatidogtrainers_com.jpg' },
+    { title: 'Entsav', link: '/entsav', thumbnail: '/projektai/entsav_co_uk.jpg' },
+    { title: 'Miracle Experience', link: '/miracle', thumbnail: '/projektai/miracleexperience_co_tz.jpg' },
+    { title: 'Stogrida', link: '/stogrida', thumbnail: '/projektai/stogrida_com.jpg' },
+    { title: 'Est Lighting', link: '/estlighting', thumbnail: '/projektai/estlighting_com_au.jpg' },
+    { title: 'Arena Properties', link: '/arena', thumbnail: '/projektai/arenaproperties_com.jpg' },
   ];
 
   return (
@@ -27,15 +33,15 @@ export default function Home() {
         <meta name="keywords" content="IT partneris, svetainių kūrimas, prekės ženklo kūrimas, reklamos valdymas, internetinių puslapių palaikymas, optimizavimas" />
         <meta property="og:title" content="Jūsų geriausias IT partneris | Brandforge.lt" />
         <meta property="og:description" content="Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą." />
-        <meta property="og:image" content="/path/to/your/image.jpg" />
+        <meta property="og:image" content="/projektai/scanstrut_com.jpg" />
         <meta property="og:url" content="https://brandforge.lt" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Jūsų geriausias IT partneris | Brandforge.lt" />
         <meta name="twitter:description" content="Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą." />
-        <meta name="twitter:image" content="/path/to/your/image.jpg" />
+        <meta name="twitter:image" content="/projektai/scanstrut_com.jpg" />
       </Head>
 
-      {/* Background Design (Updated to match /paslaugos) */}
+      {/* Background Design */}
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
         {/* Navigation Bar */}
         <header className="absolute top-0 left-0 w-full z-30">
@@ -89,32 +95,32 @@ export default function Home() {
             </div>
 
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
-              <div className="relative z-20 p-4">
-                <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
-                <p className="text-sm text-gray-500 mt-4">Built to handle any traffic on your collaborative experiences.</p>
-              </div>
-              <Link href="/prekės-zenklo-kurimas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </div>
+                 <div className="relative z-20 p-4">
+                   <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
+                   <p className="text-sm text-gray-500 mt-4">Built to handle any traffic on your collaborative experiences.</p>
+                 </div>
+                 <Link href="/prekės-zenklo-kurimas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                   <FontAwesomeIcon icon={faArrowRight} />
+                 </Link>
+               </div>
 
-            <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
-              <div className="relative z-20 p-4">
-                <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
-                <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
-              </div>
-              <Link href="/reklamos-valdymas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </div>
-          </div>
-        </div>
+               <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
+                 <div className="relative z-20 p-4">
+                   <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
+                   <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
+                 </div>
+                 <Link href="/reklamos-valdymas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                   <FontAwesomeIcon icon={faArrowRight} />
+                 </Link>
+               </div>
+             </div>
+           </div>
 
-        {/* HeroParallax Component */}
-        <div className="mt-16 md:mt-32 w-full">
-          <HeroParallax products={products} />
-        </div>
-      </div>
-    </>
-  );
-}
+           {/* HeroParallax Component */}
+           <div className="mt-16 md:mt-32 w-full">
+             <HeroParallax products={products} />
+           </div>
+         </div>
+       </>
+     );
+   }
