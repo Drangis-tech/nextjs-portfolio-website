@@ -11,14 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Import images
-import scanstrutComImage from "../../public/projektai/scanstrut_com.jpg";
-import baytekinternationalComImage from "../../public/projektai/baytekinternational_com.jpg";
-import lowvacAuImage from "../../public/projektai/lowvac_au.jpg";
-import cincinnatidogtrainersComImage from "../../public/projektai/cincinnatidogtrainers_com.jpg";
-import entsavCoUkImage from "../../public/projektai/entsav_co_uk.jpg";
-import miracleexperienceCoTzImage from "../../public/projektai/miracleexperience_co_tz.jpg";
-import stogridaComImage from "../../public/projektai/stogrida_com.jpg";
-import estlightingComAuImage from "../../public/projektai/estlighting_com_au.jpg";
+
 import arenapropertiesComImage from "../../public/projektai/arenaproperties_com.jpg";
 
 export const HeroParallax = ({
