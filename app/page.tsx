@@ -6,11 +6,19 @@ import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { HeroParallax } from './components/ui/hero-parallax'; // Import the HeroParallax component
 
 export default function Home() {
   useEffect(() => {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
   }, []);
+
+  // Sample product data
+  const products = [
+    { title: 'Product 1', link: '/product1', thumbnail: '/path/to/image1.jpg' },
+    { title: 'Product 2', link: '/product2', thumbnail: '/path/to/image2.jpg' },
+    // Add more products as needed
+  ];
 
   return (
     <>
@@ -100,6 +108,11 @@ export default function Home() {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* HeroParallax Component */}
+        <div className="mt-16 md:mt-32 w-full">
+          <HeroParallax products={products} />
         </div>
       </div>
     </>
