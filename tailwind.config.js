@@ -1,6 +1,6 @@
+// tailwind.config.js
 const defaultTheme = require("tailwindcss/defaultTheme");
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -34,6 +34,8 @@ module.exports = {
       backgroundImage: {
         "gradient-radial":
           "radial-gradient(50% 50% at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-transition":
+          "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%)",
       },
       animation: {
         "fade-in": "fade-in 3s ease-in-out forwards",
@@ -43,59 +45,25 @@ module.exports = {
       },
       keyframes: {
         "fade-in": {
-          "0%": {
-            opacity: "0%",
-          },
-          "75%": {
-            opacity: "0%",
-          },
-          "100%": {
-            opacity: "100%",
-          },
+          "0%": { opacity: "0%" },
+          "75%": { opacity: "0%" },
+          "100%": { opacity: "100%" },
         },
         "fade-left": {
-          "0%": {
-            transform: "translateX(100%)",
-            opacity: "0%",
-          },
-          "30%": {
-            transform: "translateX(0%)",
-            opacity: "100%",
-          },
-          "100%": {
-            opacity: "0%",
-          },
+          "0%": { transform: "translateX(100%)", opacity: "0%" },
+          "30%": { transform: "translateX(0%)", opacity: "100%" },
+          "100%": { opacity: "0%" },
         },
         "fade-right": {
-          "0%": {
-            transform: "translateX(-100%)",
-            opacity: "0%",
-          },
-          "30%": {
-            transform: "translateX(0%)",
-            opacity: "100%",
-          },
-          "100%": {
-            opacity: "0%",
-          },
+          "0%": { transform: "translateX(-100%)", opacity: "0%" },
+          "30%": { transform: "translateX(0%)", opacity: "100%" },
+          "100%": { opacity: "0%" },
         },
         title: {
-          "0%": {
-            "line-height": "0%",
-            "letter-spacing": "0.25em",
-            opacity: "0",
-          },
-          "25%": {
-            "line-height": "0%",
-            opacity: "0%",
-          },
-          "80%": {
-            opacity: "100%",
-          },
-          "100%": {
-            "line-height": "100%",
-            opacity: "100%",
-          },
+          "0%": { "line-height": "0%", "letter-spacing": "0.25em", opacity: "0" },
+          "25%": { "line-height": "0%", opacity: "0%" },
+          "80%": { opacity: "100%" },
+          "100%": { "line-height": "100%", opacity: "100%" },
         },
       },
       backdropBlur: {

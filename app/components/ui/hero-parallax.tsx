@@ -65,10 +65,11 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
   );
+
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative h-[300vh] py-40 overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -108,61 +109,63 @@ export const HeroParallax = ({
           ))}
         </motion.div>
       </motion.div>
+      {/* Gradient Transition Overlay */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
     </div>
   );
 };
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+    <div className="relative max-w-7xl mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 z-10">
+      <h1 className="text-2xl md:text-7xl font-bold text-white">
         Mūsų nuostabioji <br /> Brandforge komanda
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-      Kuria gražius ir funkcionalius puslapius, naudodama įvairias technologijas.
-      Siekiame greito darbo, patrauklaus dizaino, praktiškumo ir kainų, nuo kurių neišsigąsta jūsų piniginė.
+      <p className="max-w-2xl text-base md:text-xl mt-8 text-white">
+        Kuria gražius ir funkcionalius puslapius, naudodama įvairias technologijas.
+        Siekiame greito darbo, patrauklaus dizaino, praktiškumo ir kainų, nuo kurių neišsigąsta jūsų piniginė.
       </p>
     </div>
   );
 };
 
 export const ProductCard = ({
-    product,
-    translate,
-  }: {
-    product: {
-      title: string;
-      link: string;
-      thumbnail: string;
-    };
-    translate: MotionValue<number>;
-  }) => {
-    return (
-      <motion.div
-        style={{
-          x: translate,
-        }}
-        whileHover={{
-          y: -20,
-        }}
-        key={product.title}
-        className="group/product h-96 w-[30rem] relative flex-shrink-0 overflow-hidden"  // Added overflow-hidden to prevent images from spilling out
-      >
-        <Link
-          href={product.link}
-          className="block group-hover/product:shadow-2xl"
-        >
-          <Image
-            src={product.thumbnail}
-            layout="fill"  // Use layout="fill" to ensure the image covers the entire container
-            className="object-cover absolute inset-0"  // Use object-cover to ensure the image covers the container without distortion
-            alt={product.title}
-          />
-        </Link>
-        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-        <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-          {product.title}
-        </h2>
-      </motion.div>
-    );
+  product,
+  translate,
+}: {
+  product: {
+    title: string;
+    link: string;
+    thumbnail: string;
   };
+  translate: MotionValue<number>;
+}) => {
+  return (
+    <motion.div
+      style={{
+        x: translate,
+      }}
+      whileHover={{
+        y: -20,
+      }}
+      key={product.title}
+      className="group/product h-96 w-[30rem] relative flex-shrink-0 overflow-hidden"
+    >
+      <Link
+        href={product.link}
+        className="block group-hover/product:shadow-2xl"
+      >
+        <Image
+          src={product.thumbnail}
+          layout="fill"
+          className="object-cover absolute inset-0"
+          alt={product.title}
+        />
+      </Link>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+        {product.title}
+      </h2>
+    </motion.div>
+  );
+};
