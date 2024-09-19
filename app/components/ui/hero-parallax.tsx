@@ -9,6 +9,8 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { FlipWords } from "./flip-words"; // Correct relative path to flip-words.tsx
+
 
 // Import images
 import scanstrutComImage from "../../public/projektai/scanstrut_com.jpg";
@@ -62,14 +64,14 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-300, 100]), // Adjusted translateY values
     springConfig
   );
 
   return (
     <div
       ref={ref}
-      className="relative h-[300vh] py-40 overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative h-[300vh] py-20 overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d] z-20"
     >
       <Header />
       <motion.div
@@ -79,7 +81,7 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className=""
+        className="relative z-30"
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
@@ -117,9 +119,9 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="relative max-w-7xl mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 z-10">
+    <div className="relative max-w-7xl mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 z-40">
       <h1 className="text-2xl md:text-7xl font-bold text-white">
-        Mūsų nuostabioji <br /> Brandforge komanda
+        Mūsų <FlipWords words={["nuostabi", "motyvuota", "geriausia"]} /> <br /> Brandforge komanda
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-white">
         Kuria gražius ir funkcionalius puslapius, naudodama įvairias technologijas.
@@ -163,7 +165,7 @@ export const ProductCard = ({
         />
       </Link>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+      <h2 className="absolute bottom-4 left-4 opacity-100 text-white">
         {product.title}
       </h2>
     </motion.div>

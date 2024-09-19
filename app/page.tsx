@@ -59,7 +59,7 @@ export default function Home() {
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
               <br className="hidden md:block" />
-              <span className="block mt-4">
+              <span className="block mt-4 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <TypewriterEffect
                   words={[
                     { text: 'Tai' },
@@ -69,7 +69,7 @@ export default function Home() {
                     { text: 'Jūsų' },
                     { text: 'verslui.' }
                   ]}
-                  className="text-white"
+                  className="text-white text-4xl md:text-5xl lg:text-6xl"
                   cursorClassName="bg-blue-500"
                 />
               </span>
@@ -86,8 +86,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* HeroParallax Component below the hero section */}
-        <section className="w-full">
+        {/* HeroParallax Component with additional margin to move it down */}
+        <section className="w-full mt-16"> {/* Adjust the mt-16 as needed */}
           <HeroParallax products={products} />
         </section>
       </div>
