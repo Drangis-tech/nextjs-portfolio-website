@@ -11,7 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FlipWords } from "./flip-words"; // Correct relative path to flip-words.tsx
 
-
 // Import images
 import scanstrutComImage from "../../public/projektai/scanstrut_com.jpg";
 import baytekinternationalComImage from "../../public/projektai/baytekinternational_com.jpg";
@@ -121,7 +120,7 @@ export const Header = () => {
   return (
     <div className="relative max-w-7xl mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 z-40">
       <h1 className="text-2xl md:text-7xl font-bold text-white">
-        Mūsų <FlipWords words={["nuostabi", "motyvuota", "geriausia"]} /> <br /> Brandforge komanda
+        Mūsų <span className="text-2xl md:text-7xl font-bold"><FlipWords words={["nuostabi", "motyvuota", "geriausia"]} /></span> <br /> Brandforge komanda
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-white">
         Kuria gražius ir funkcionalius puslapius, naudodama įvairias technologijas.
