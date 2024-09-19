@@ -1,11 +1,11 @@
 "use client";
-
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { HeroParallax } from './components/ui/hero-parallax';
 import { TypewriterEffect } from './components/ui/typewriter-effect';
+import { Timeline } from './components/ui/timeline'; // Import your Timeline component
 
 export default function Home() {
   useEffect(() => {
@@ -22,6 +22,34 @@ export default function Home() {
     { title: 'Entsav.co.uk', link: '/atlikti-darbai', thumbnail: '/projektai/entsav_co_uk.jpg' },
     { title: 'Estlighting.com.au', link: '/atlikti-darbai', thumbnail: '/projektai/estlighting_com_au.jpg' },
     { title: 'Scanstrut.com', link: '/satlikti-darbai', thumbnail: '/projektai/scanstrut_com.jpg' },
+  ];
+
+  // Timeline data
+  const timelineData = [
+    {
+      title: 'Idėjų generavimas',
+      content: 'Idėjų brainstorminimas ir tyrimai',
+    },
+    {
+      title: 'Planavimas',
+      content: 'Projektų planavimas ir valdymas',
+    },
+    {
+      title: 'Dizainas',
+      content: 'Vartotojo patirties ir sąsajos dizainas',
+    },
+    {
+      title: 'Kodas',
+      content: 'Kūrimas ir įgyvendinimas',
+    },
+    {
+      title: 'Testavimas',
+      content: 'Kokybės užtikrinimas ir testavimas',
+    },
+    {
+      title: 'Diegimas ir priežiūra',
+      content: 'Pristatymas ir nuolatinė pagalba',
+    },
   ];
 
   return (
@@ -89,6 +117,53 @@ export default function Home() {
         {/* HeroParallax Component with additional margin to move it down */}
         <section className="w-full mt-16"> {/* Adjust the mt-16 as needed */}
           <HeroParallax products={products} />
+        </section>
+
+        {/* Timeline Section */}
+        <section className="w-full bg-black py-24">
+          <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+            <div className="max-w-2xl mx-auto lg:mx-0">
+              <h2 className="text-lg md:text-4xl mb-4 text-white max-w-4xl">
+                Kaip atrodo puslapio kūrimo darbo eiga:
+              </h2>
+              <p className="text-neutral-300 text-sm md:text-base max-w-sm">
+                Sužinosite, kaip atrodys puslapio kūrimo darbo eiga – nuo pradinės analizės ir planavimo, dizaino kūrimo, programavimo, iki galutinio testavimo ir svetainės paleidimo su tolimesniu palaikymu.
+              </p>
+            </div>
+            <div className="w-full h-px bg-zinc-800" />
+          </div>
+
+          {/* Timeline Component */}
+          <div className="max-w-7xl mx-auto py-16 px-4 md:px-8 lg:px-10">
+            <Timeline
+              data={[
+                {
+                  title: '1. Idėjų generavimas',
+                  content: 'Idėjų brainstorminimas ir tyrimai',
+                },
+                {
+                  title: '2. Planavimas',
+                  content: 'Projektų planavimas ir valdymas',
+                },
+                {
+                  title: '3. Dizainas',
+                  content: 'Vartotojo patirties ir sąsajos dizainas',
+                },
+                {
+                  title: '4. Programavimas',
+                  content: 'Kūrimas ir įgyvendinimas',
+                },
+                {
+                  title: '5. Testavimas',
+                  content: 'Kokybės užtikrinimas ir testavimas',
+                },
+                {
+                  title: '6. Paleidimas ir priežiūra',
+                  content: 'Pristatymas ir nuolatinė pagalba',
+                },
+              ]}
+            />
+          </div>
         </section>
       </div>
     </>
