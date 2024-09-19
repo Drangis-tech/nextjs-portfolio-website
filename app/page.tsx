@@ -6,14 +6,14 @@ import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { HeroParallax } from './components/ui/hero-parallax'; // Import the HeroParallax component
+import { HeroParallax } from './components/ui/hero-parallax';
+import Typewriter from 'typewriter-effect'; // Import typewriter effect
 
 export default function Home() {
   useEffect(() => {
     document.title = "Jūsų geriausias IT partneris | Brandforge.lt";
   }, []);
 
-  // Product data with correct image paths
   const products = [
     { title: 'Arenaproperties.com', link: '/atlikti-darbai', thumbnail: '/projektai/arenaproperties_com.jpg' },
     { title: 'Baytekinternational.com', link: '/atlikti-darbai', thumbnail: '/projektai/baytekinternational_com.jpg' },
@@ -41,9 +41,7 @@ export default function Home() {
         <meta name="twitter:image" content="/projektai/scanstrut_com.jpg" />
       </Head>
 
-      {/* Background Design */}
       <div className="relative min-h-screen flex flex-col items-center justify-center w-screen overflow-hidden bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-        {/* Navigation Bar */}
         <header className="absolute top-0 left-0 w-full z-30">
           <Navigation />
         </header>
@@ -57,7 +55,17 @@ export default function Home() {
             <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
             <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
             <br className="hidden md:block" />
-            <span className="block mt-4">Tai viskas ko reikia Jūsų verslui.</span>
+            <span className="block mt-4">
+              {/* Adding typewriter effect here */}
+              <Typewriter
+                options={{
+                  strings: ["Tai viskas ko reikia Jūsų verslui."],
+                  autoStart: true,
+                  loop: true,
+                  delay: 75,
+                }}
+              />
+            </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
             Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
@@ -73,7 +81,6 @@ export default function Home() {
         {/* Cards Section */}
         <div className="w-full flex flex-col md:flex-row justify-center px-4 md:px-8 gap-4 md:gap-8 mt-8 md:mt-12 mb-8 z-20">
           <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8 md:justify-center">
-            {/* Transparent cards with hover effects and arrow icon */}
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
               <div className="relative z-20 p-4">
                 <h3 className="text-lg font-semibold">Internetinių Puslapių kūrimas</h3>
@@ -95,32 +102,32 @@ export default function Home() {
             </div>
 
             <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
-                 <div className="relative z-20 p-4">
-                   <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
-                   <p className="text-sm text-gray-500 mt-4">Built to handle any traffic on your collaborative experiences.</p>
-                 </div>
-                 <Link href="/prekės-zenklo-kurimas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                   <FontAwesomeIcon icon={faArrowRight} />
-                 </Link>
-               </div>
+              <div className="relative z-20 p-4">
+                <h3 className="text-lg font-semibold">Prekės ženklo identiteto kūrimas</h3>
+                <p className="text-sm text-gray-500 mt-4">Built to handle any traffic on your collaborative experiences.</p>
+                </div>
+                <Link href="/prekės-zenklo-kurimas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </div>
 
-               <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
-                 <div className="relative z-20 p-4">
-                   <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
-                   <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
-                 </div>
-                 <Link href="/reklamos-valdymas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
-                   <FontAwesomeIcon icon={faArrowRight} />
-                 </Link>
-               </div>
-             </div>
-           </div>
+              <div className="relative duration-700 border rounded-xl hover:bg-zinc-800/10 group hover:border-zinc-400/50 border-zinc-600 overflow-hidden" style={{ height: '250px', width: '300px' }}>
+                <div className="relative z-20 p-4">
+                  <h3 className="text-lg font-semibold">Reklamos valdymas</h3>
+                  <p className="text-sm text-gray-500 mt-4">Spend your time building, not maintaining infrastructure.</p>
+                </div>
+                <Link href="/reklamos-valdymas" className="absolute bottom-4 right-4 text-black bg-white rounded-full p-3 hover:bg-gray-100 transition">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </div>
+            </div>
+          </div>
 
-           {/* HeroParallax Component */}
-           <div className="mt-16 md:mt-32 w-full">
-             <HeroParallax products={products} />
-           </div>
-         </div>
-       </>
-     );
-   }
+          {/* HeroParallax Component */}
+          <div className="mt-16 md:mt-32 w-full">
+            <HeroParallax products={products} />
+          </div>
+        </div>
+      </>
+  );
+}
