@@ -58,51 +58,49 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           return (
             <div
               key={index}
-              className="flex flex-col md:flex-row items-start md:items-center justify-between pt-28 md:pt-72 md:gap-14"
+              className="timeline-entry flex flex-col md:flex-row items-start md:items-center justify-between pt-28 md:pt-72 md:gap-14"
             >
-              <div className="flex-grow md:flex md:items-center md:w-full">
-                <div className="relative flex flex-col md:flex-row w-full">
-                  <div className="relative flex flex-col z-40 items-start max-w-xs lg:max-w-sm md:w-1/2 md:pr-8">
-                    <div className="sticky top-40">
-                      <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full flex items-center justify-center">
-                        <div
-                          className={`h-4 w-4 rounded-full ${
-                            touchedIndexes.has(index)
-                              ? 'bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 border-none'
-                              : 'bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700'
-                          } p-2`}
-                        />
-                      </div>
-
-                      <h3
-                        className={`text-left text-xl md:text-4xl font-bold mb-4 ml-16 md:ml-28 ${
-                          isActive ? 'text-white' : 'text-neutral-500 dark:text-neutral-500'
-                        }`}
-                        style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                      >
-                        {item.title}
-                      </h3>
-
+              <div className="relative flex flex-col w-full md:w-1/2 md:pr-8">
+                <div className="relative flex flex-col z-40 items-start max-w-xs lg:max-w-sm">
+                  <div className="sticky top-40">
+                    <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full flex items-center justify-center">
                       <div
-                        className={`pl-16 md:pl-28 text-neutral-600 dark:text-neutral-400 text-sm md:text-base`}
-                        style={{ wordBreak: 'break-word', lineHeight: 1.5, maxWidth: '100%' }}
-                      >
-                        {item.content}
-                      </div>
+                        className={`h-4 w-4 rounded-full ${
+                          touchedIndexes.has(index)
+                            ? 'bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 border-none'
+                            : 'bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700'
+                        } p-2`}
+                      />
+                    </div>
+
+                    <h3
+                      className={`text-left text-xl md:text-4xl font-bold mb-4 ml-16 md:ml-28 ${
+                        isActive ? 'text-white' : 'text-neutral-500 dark:text-neutral-500'
+                      }`}
+                      style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    >
+                      {item.title}
+                    </h3>
+
+                    <div
+                      className={`pl-16 md:pl-28 text-neutral-600 dark:text-neutral-400 text-sm md:text-base`}
+                      style={{ wordBreak: 'break-word', lineHeight: 1.5, maxWidth: '100%' }}
+                    >
+                      {item.content}
                     </div>
                   </div>
-
-                  <div className="relative flex justify-end items-start w-full md:w-1/2 mt-4 md:mt-0">
-                    <motion.img
-                      src={`/timeline/${index + 1}.png`}
-                      alt={`Timeline image ${index + 1}`}
-                      className="w-20 h-20 sm:w-24 sm:h-24 md:w-64 md:h-64 object-contain"
-                      initial={{ opacity: 0.2 }}
-                      animate={{ opacity: isActive ? 1 : 0.2 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  </div>
                 </div>
+              </div>
+
+              <div className="relative flex justify-center items-start w-full md:w-1/2 mt-4 md:mt-0">
+                <motion.img
+                  src={`/timeline/${index + 1}.png`}
+                  alt={`Timeline image ${index + 1}`}
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-64 md:h-64 object-contain"
+                  initial={{ opacity: 0.2 }}
+                  animate={{ opacity: isActive ? 1 : 0.2 }}
+                  transition={{ duration: 0.5 }}
+                />
               </div>
             </div>
           );
@@ -125,21 +123,21 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
       {/* Mobile Styles */}
       <style jsx>{`
-        @media (max-width: 767px) { 
-          .relative.flex {
-            flex-direction: row; /* Layout horizontally */
-            align-items: center; /* Center items vertically */
+        @media (max-width: 767px) {
+          .timeline-entry {
+            flex-direction: column; /* Stack items vertically */
           }
-          .relative.flex > div:first-child {
-            flex: 1; /* Text container takes available space */
+          .timeline-entry > .relative {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
-          .relative.flex > div:last-child {
-            flex-shrink: 0; /* Prevent shrinking */
-            margin-left: auto; /* Push image to the right */
+          .timeline-entry > .relative > :first-child {
+            order: -1; /* Ensure image is placed above the text */
+            margin-bottom: 1rem; /* Space between image and text */
           }
-          .relative.flex img {
-            max-width: 100%; /* Ensure image fits within its container */
-            height: auto; /* Maintain aspect ratio */
+          .timeline-entry > .relative > :nth-child(2) {
+            order: 0; /* Ensure text stays below the image */
           }
         }
       `}</style>
