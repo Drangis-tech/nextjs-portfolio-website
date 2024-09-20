@@ -84,6 +84,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                         className={`text-left text-xl md:text-4xl font-bold mb-4 ml-16 md:ml-28 ${
                           isActive ? 'text-white' : 'text-neutral-500 dark:text-neutral-500'
                         }`}
+                        style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
                       >
                         {item.title}
                       </h3>
@@ -91,6 +92,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                       {/* Content */}
                       <div
                         className={`pl-16 md:pl-28 text-neutral-600 dark:text-neutral-400 text-sm md:text-base`}
+                        style={{ wordBreak: 'break-word', lineHeight: 1.5, maxWidth: '100%' }}
                       >
                         {item.content}
                       </div>
