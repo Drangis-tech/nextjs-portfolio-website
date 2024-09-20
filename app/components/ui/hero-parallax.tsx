@@ -9,9 +9,9 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FlipWords } from "./flip-words"; // Correct relative path to flip-words.tsx
+import { FlipWords } from "./flip-words"; // Ensure the correct path
 
-// Import images
+// Import images (update paths if needed)
 import scanstrutComImage from "../../public/projektai/scanstrut_com.jpg";
 import baytekinternationalComImage from "../../public/projektai/baytekinternational_com.jpg";
 import lowvacAuImage from "../../public/projektai/lowvac_au.jpg";
@@ -22,19 +22,11 @@ import stogridaComImage from "../../public/projektai/stogrida_com.jpg";
 import estlightingComAuImage from "../../public/projektai/estlighting_com_au.jpg";
 import arenapropertiesComImage from "../../public/projektai/arenaproperties_com.jpg";
 
-export const HeroParallax = ({
-  products,
-}: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  }[];
-}) => {
+export const HeroParallax: React.FC<{ products: { title: string; link: string; thumbnail: string }[] }> = ({ products }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
-  const ref = React.useRef(null);
+  const ref = React.useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -63,14 +55,14 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-300, 100]), // Adjusted translateY values
+    useTransform(scrollYProgress, [0, 0.2], [-300, 0]), // Adjusted translateY to avoid extra space
     springConfig
   );
 
   return (
     <div
       ref={ref}
-      className="relative h-[300vh] py-20 overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d] z-20"
+      className="relative h-[150vh] py-12 overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d] z-20" // Adjusted height and padding
     >
       <Header />
       <motion.div
@@ -82,7 +74,7 @@ export const HeroParallax = ({
         }}
         className="relative z-30"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-12"> {/* Adjusted margin */}
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -91,7 +83,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
+        <motion.div className="flex flex-row mb-12 space-x-16"> {/* Adjusted margin */}
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -100,7 +92,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16"> {/* Adjusted margin */}
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -111,18 +103,18 @@ export const HeroParallax = ({
         </motion.div>
       </motion.div>
       {/* Gradient Transition Overlay */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent"></div> {/* Adjusted height */}
     </div>
   );
 };
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
-    <div className="relative max-w-7xl mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 z-40">
-      <h1 className="text-2xl md:text-7xl font-bold text-white">
-        Mūsų <span className="text-2xl md:text-7xl font-bold"><FlipWords words={["nuostabi", "motyvuota", "geriausia"]} /></span> <br /> Brandforge komanda
+    <div className="relative max-w-7xl mx-auto py-12 md:py-20 px-4 w-full left-0 top-0 z-40"> {/* Adjusted padding */}
+      <h1 className="text-2xl md:text-5xl font-bold text-white"> {/* Adjusted font size */}
+        Mūsų <span className="text-2xl md:text-5xl font-bold"><FlipWords words={["nuostabi", "motyvuota", "geriausia"]} /></span> <br /> Brandforge komanda
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 text-white">
+      <p className="max-w-2xl text-base md:text-lg mt-4 text-white"> {/* Adjusted font size */}
         Kuria gražius ir funkcionalius puslapius, naudodama įvairias technologijas.
         Siekiame greito darbo, patrauklaus dizaino, praktiškumo ir kainų, nuo kurių neišsigąsta jūsų piniginė.
       </p>
@@ -130,16 +122,9 @@ export const Header = () => {
   );
 };
 
-export const ProductCard = ({
+export const ProductCard: React.FC<{ product: { title: string; link: string; thumbnail: string }; translate: MotionValue<number> }> = ({
   product,
   translate,
-}: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
 }) => {
   return (
     <motion.div
@@ -150,7 +135,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0 overflow-hidden"
+      className="group/product h-80 w-[28rem] relative flex-shrink-0 overflow-hidden" 
     >
       <Link
         href={product.link}

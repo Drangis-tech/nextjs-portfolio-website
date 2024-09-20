@@ -24,7 +24,6 @@ export default function Home() {
     { title: 'Scanstrut.com', link: '/satlikti-darbai', thumbnail: '/projektai/scanstrut_com.jpg' },
   ];
 
-  // Timeline data
   const timelineData = [
     {
       title: 'Idėjų generavimas',
@@ -80,14 +79,14 @@ export default function Home() {
         {/* Hero Section */}
         <div className="relative min-h-screen flex items-center justify-center w-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 overflow-hidden">
           <div className="flex flex-col items-center justify-center text-center text-white px-4 md:px-8 z-10">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight"> {/* Adjusted margin */}
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">Idėja</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Strategija</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
               <br className="hidden md:block" />
-              <span className="block mt-4 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className="block mt-2 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"> {/* Adjusted margin */}
                 <TypewriterEffect
                   words={[
                     { text: 'Tai' },
@@ -102,10 +101,10 @@ export default function Home() {
                 />
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-400 mb-6 md:mb-8">
+            <p className="text-lg md:text-xl text-gray-400 mb-4 md:mb-6"> {/* Adjusted margin */}
               Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
             </p>
-            <div className="mb-6 md:mb-8">
+            <div className="mb-4 md:mb-6"> {/* Adjusted margin */}
               <Link href="/paslaugos" className="px-8 py-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
                 Mūsų paslaugas
                 <span className="ml-2">→</span>
@@ -114,27 +113,19 @@ export default function Home() {
           </div>
         </div>
 
-        {/* HeroParallax Component with additional margin to move it down */}
-        <section className="w-full mt-16"> {/* Adjust the mt-16 as needed */}
+        {/* HeroParallax Component with reduced margin */}
+        <section className="w-full mt-4"> {/* Adjusted from mt-8 to mt-4 */}
           <HeroParallax products={products} />
         </section>
 
         {/* Timeline Section */}
-        <section className="w-full bg-black py-24">
-          <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
-            <div className="max-w-2xl mx-auto lg:mx-0">
-              <h2 className="text-lg md:text-4xl mb-4 text-white max-w-4xl">
-                Kaip atrodo puslapio kūrimo darbo eiga:
-              </h2>
-              <p className="text-neutral-300 text-sm md:text-base max-w-sm">
-                Sužinosite, kaip atrodys puslapio kūrimo darbo eiga – nuo pradinės analizės ir planavimo, dizaino kūrimo, programavimo, iki galutinio testavimo ir svetainės paleidimo su tolimesniu palaikymu.
-              </p>
-            </div>
+        <section className="w-full bg-black py-8"> {/* Reduced py-12 to py-8 */}
+          <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16"> {/* Adjusted padding */}
             <div className="w-full h-px bg-zinc-800" />
           </div>
 
           {/* Timeline Component */}
-          <div className="max-w-7xl mx-auto py-16 px-4 md:px-8 lg:px-10">
+          <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8"> {/* Reduced py-8 to py-6 */}
             <Timeline
               data={[
                 {
