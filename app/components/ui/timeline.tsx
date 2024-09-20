@@ -127,17 +127,21 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           .timeline-entry {
             flex-direction: column; /* Stack items vertically */
           }
-          .timeline-entry > .relative {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          .timeline-entry > .relative:nth-child(1) {
+            order: 0; /* Ensure text stays below the image */
           }
-          .timeline-entry > .relative > :first-child {
+          .timeline-entry > .relative:nth-child(2) {
             order: -1; /* Ensure image is placed above the text */
             margin-bottom: 1rem; /* Space between image and text */
+            align-self: flex-start; /* Align image to the start of the container */
           }
-          .timeline-entry > .relative > :nth-child(2) {
-            order: 0; /* Ensure text stays below the image */
+          .timeline-entry > .relative:nth-child(2) img {
+            align-self: flex-start; /* Align image with the start of the container */
+          }
+          .timeline-entry > .relative:nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Ensure text aligns to the start */
           }
         }
       `}</style>
