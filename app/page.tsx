@@ -118,9 +118,10 @@ export default function Home() {
           <HeroParallax products={products} />
         </section>
 
+
         {/* Timeline Section */}
         <section className="w-full bg-black py-8"> {/* Reduced py-12 to py-8 */}
-          <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16"> {/* Adjusted padding */}
+        <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16"> {/* Adjusted padding */}
             <div className="w-full h-px bg-zinc-800" />
           </div>
 

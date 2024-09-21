@@ -1,12 +1,6 @@
 "use client";
 import React from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  MotionValue,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FlipWords } from "./flip-words"; // Ensure the correct path
@@ -74,7 +68,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
         }}
         className="relative z-30"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-12"> {/* Adjusted margin */}
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-8"> {/* Adjusted margin */}
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -83,7 +77,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-12 space-x-16"> {/* Adjusted margin */}
+        <motion.div className="flex flex-row mb-8 space-x-16"> {/* Adjusted margin */}
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -104,6 +98,16 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
       </motion.div>
       {/* Gradient Transition Overlay */}
       <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent"></div> {/* Adjusted height */}
+
+      {/* New Section with Header and Description */}
+      <div className="absolute bottom-0 w-full py-4 bg-black text-center"> {/* Further reduced padding */}
+        <h2 className="text-white text-2xl md:text-4xl font-bold mb-2"> {/* Reduced margin-bottom */}
+          Kaip atrodo puslapio kurimo darbo eiga?
+        </h2>
+        <p className="text-zinc-400 text-lg md:text-xl max-w-4xl mx-auto">
+        Puslapio kūrimas yra nuoseklus procesas, apimantis svarbius etapus nuo idėjų iki galutinio produkto. Kiekvienas etapas užtikrina, kad svetainė atitiktų jūsų lūkesčius ir poreikius.
+        </p>
+      </div>
     </div>
   );
 };

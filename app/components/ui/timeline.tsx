@@ -1,10 +1,5 @@
 "use client";
-import {
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-  motion,
-} from "framer-motion";
+import { useMotionValueEvent, useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
@@ -75,7 +70,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
                     <h3
                       className={`text-left text-xl md:text-4xl font-bold mb-4 ml-16 md:ml-28 ${
-                        isActive ? 'text-white' : 'text-neutral-500 dark:text-neutral-500'
+                        isActive ? 'text-white !important' : 'text-neutral-500 dark:text-neutral-500'
                       }`}
                       style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
                     >
@@ -83,7 +78,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     </h3>
 
                     <div
-                      className={`pl-16 md:pl-28 text-neutral-600 dark:text-neutral-400 text-sm md:text-base`}
+                      className={`pl-16 md:pl-28 text-sm md:text-base ${
+                        isActive ? 'text-white !important' : 'text-neutral-600 dark:text-neutral-400'
+                      }`}
                       style={{ wordBreak: 'break-word', lineHeight: 1.5, maxWidth: '100%' }}
                     >
                       {item.content}

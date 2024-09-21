@@ -4,6 +4,8 @@
 
 /* Import FontAwesome CSS */
 @import "~@fortawesome/fontawesome-svg-core/styles.css";
+@import 'some-other-styles.css'; /* Ensure this is necessary, otherwise remove */
+
 
 /* Global Custom Styles */
 @layer base {
@@ -326,7 +328,6 @@
 }
 
 /* Import additional styles if needed */
-@import 'some-other-styles.css'; /* Ensure this is necessary, otherwise remove */
 
 /* Add this to your global CSS or a specific CSS module */
 svg {
@@ -341,3 +342,4 @@ svg {
 .bg-gradient-transition {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
 }
+
