@@ -100,13 +100,15 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
       <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent"></div> {/* Adjusted height */}
 
       {/* New Section with Header and Description */}
-      <div className="absolute bottom-0 w-full py-4 bg-black text-center"> {/* Further reduced padding */}
-        <h2 className="text-white text-2xl md:text-4xl font-bold mb-2"> {/* Reduced margin-bottom */}
-          Kaip atrodo puslapio kurimo darbo eiga?
-        </h2>
-        <p className="text-zinc-400 text-lg md:text-xl max-w-4xl mx-auto">
-        Puslapio kūrimas yra nuoseklus procesas, apimantis svarbius etapus nuo idėjų iki galutinio produkto. Kiekvienas etapas užtikrina, kad svetainė atitiktų jūsų lūkesčius ir poreikius.
-        </p>
+      <div className="absolute bottom-0 w-full bg-black text-center z-40"> {/* Added z-40 */}
+        <div className="py-4 px-4 md:px-8"> {/* Added padding */}
+          <h2 className="text-white text-2xl md:text-4xl font-bold mb-2"> {/* Reduced margin-bottom */}
+            Kaip atrodo puslapio kurimo darbo eiga?
+          </h2>
+          <p className="text-zinc-400 text-lg md:text-xl max-w-4xl mx-auto">
+            Puslapio kūrimas yra nuoseklus procesas, apimantis svarbius etapus nuo idėjų iki galutinio produkto. Kiekvienas etapas užtikrina, kad svetainė atitiktų jūsų lūkesčius ir poreikius.
+          </p>
+        </div>
       </div>
     </div>
   );
