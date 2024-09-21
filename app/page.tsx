@@ -103,7 +103,7 @@ export default function Home() {
         {/* Timeline Section */}
         <section className="w-full bg-black py-8">
           <div className="px-4 md:px-6 lg:px-8 mx-auto max-w-7xl">
-            <div className="w-full h-px bg-zinc-800 mb-6" />
+          <div className="w-full h-px bg-zinc-800 mb-6" />
           </div>
 
           <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8">
@@ -122,68 +122,74 @@ export default function Home() {
       </div>
 
       <style jsx global>{`
-          /* Global Styles */
-          body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-          }
+        /* Global Styles */
+        body {
+          margin: 0;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          background-color: #000;
+          color: #fff;
+        }
 
-          /* Gradient Transition */
-          .bg-gradient-transition {
-            background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
-            z-index: 0;
-          }
+        /* Gradient Transition */
+        .bg-gradient-transition {
+          background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+          z-index: 0;
+        }
 
-          /* Hero Section Styles */
-          .hero-section {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(to top left, rgba(0,0,0,0), rgba(0,0,0,1));
-          }
+        /* Hero Section Styles */
+        .hero-section {
+          position: relative;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(to top left, rgba(0,0,0,0), rgba(0,0,0,1));
+        }
 
-          /* Timeline Styles */
-          .timeline-item {
-            padding: 1rem;
-            border-left: 2px solid #f7a71b;
-            position: relative;
-          }
+        /* Timeline Styles */
+        .timeline-item {
+          padding: 1rem;
+          border-left: 2px solid #f7a71b;
+          position: relative;
+        }
 
-          .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #f7a71b;
-            box-shadow: 0 0 0 3px #000;
-          }
+        .timeline-item::before {
+          content: '';
+          position: absolute;
+          left: -6px;
+          top: 0;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #f7a71b;
+          box-shadow: 0 0 0 3px #000;
+        }
 
-          .timeline-item:nth-child(odd) {
-            background: rgba(255, 255, 255, 0.02);
-          }
+        .timeline-item:nth-child(odd) {
+          background: rgba(255, 255, 255, 0.02);
+        }
 
-          .timeline-item:nth-child(even) {
-            background: rgba(255, 255, 255, 0.05);
-          }
+        .timeline-item:nth-child(even) {
+          background: rgba(255, 255, 255, 0.05);
+        }
 
-          .timeline-item h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin: 0 0 0.5rem;
-          }
+        .timeline-item h3 {
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin: 0 0 0.5rem;
+        }
 
-          .timeline-item p {
-            margin: 0;
-          }
-        `}
-      </style>
+        .timeline-item p {
+          margin: 0;
+        }
+
+        /* Font Loading */
+        @font-face {
+          font-family: 'Helvetica Neue';
+          src: url('/fonts/HelveticaNeue.woff2') format('woff2');
+          font-display: swap;
+        }
+      `}</style>
     </>
   );
 }
