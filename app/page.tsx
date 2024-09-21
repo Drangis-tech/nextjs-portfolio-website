@@ -21,7 +21,7 @@ export default function Home() {
     { title: 'Miracleexperience.co.tz', link: '/atlikti-darbai', thumbnail: '/projektai/miracleexperience_co_tz.jpg' },
     { title: 'Entsav.co.uk', link: '/atlikti-darbai', thumbnail: '/projektai/entsav_co_uk.jpg' },
     { title: 'Estlighting.com.au', link: '/atlikti-darbai', thumbnail: '/projektai/estlighting_com_au.jpg' },
-    { title: 'Scanstrut.com', link: '/satlikti-darbai', thumbnail: '/projektai/scanstrut_com.jpg' },
+    { title: 'Scanstrut.com', link: '/atlikti-darbai', thumbnail: '/projektai/scanstrut_com.jpg' },
   ];
 
   const timelineData = [
@@ -79,14 +79,14 @@ export default function Home() {
         {/* Hero Section */}
         <div className="relative min-h-screen flex items-center justify-center w-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 overflow-hidden">
           <div className="flex flex-col items-center justify-center text-center text-white px-4 md:px-8 z-10">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight"> {/* Adjusted margin */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight">
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">Idėja</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Strategija</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
               <br className="hidden md:block" />
-              <span className="block mt-2 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"> {/* Adjusted margin */}
+              <span className="block mt-2 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <TypewriterEffect
                   words={[
                     { text: 'Tai' },
@@ -101,10 +101,10 @@ export default function Home() {
                 />
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-400 mb-4 md:mb-6"> {/* Adjusted margin */}
+            <p className="text-lg md:text-xl text-gray-400 mb-4 md:mb-6">
               Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
             </p>
-            <div className="mb-4 md:mb-6"> {/* Adjusted margin */}
+            <div className="mb-4 md:mb-6">
               <Link href="/paslaugos" className="px-8 py-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
                 Mūsų paslaugas
                 <span className="ml-2">→</span>
@@ -113,51 +113,31 @@ export default function Home() {
           </div>
         </div>
 
-        {/* HeroParallax Component with reduced margin */}
-        <section className="w-full mt-4"> {/* Adjusted from mt-8 to mt-4 */}
+        {/* HeroParallax Component */}
+        <section className="w-full mt-4">
           <HeroParallax products={products} />
         </section>
 
-
         {/* Timeline Section */}
-        <section className="w-full bg-black py-8"> {/* Reduced py-12 to py-8 */}
-        <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16"> {/* Adjusted padding */}
+        <section className="w-full bg-black py-8">
+          <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16">
             <div className="w-full h-px bg-zinc-800" />
           </div>
 
-          {/* Timeline Component */}
-          <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8"> {/* Reduced py-8 to py-6 */}
+          <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8">
             <Timeline
               data={[
-                {
-                  title: '1. Idėjų generavimas',
-                  content: 'Idėjų brainstorminimas ir tyrimai',
-                },
-                {
-                  title: '2. Planavimas',
-                  content: 'Projektų planavimas ir valdymas',
-                },
-                {
-                  title: '3. Dizainas',
-                  content: 'Vartotojo patirties ir sąsajos dizainas',
-                },
-                {
-                  title: '4. Programavimas',
-                  content: 'Kūrimas ir įgyvendinimas',
-                },
-                {
-                  title: '5. Testavimas',
-                  content: 'Kokybės užtikrinimas ir testavimas',
-                },
-                {
-                  title: '6. Paleidimas ir priežiūra',
-                  content: 'Pristatymas ir nuolatinė pagalba',
-                },
+                { title: '1. Idėjų generavimas', content: 'Idėjų brainstorminimas ir tyrimai' },
+                { title: '2. Planavimas', content: 'Projektų planavimas ir valdymas' },
+                { title: '3. Dizainas', content: 'Vartotojo patirties ir sąsajos dizainas' },
+                { title: '4. Programavimas', content: 'Kūrimas ir įgyvendinimas' },
+                { title: '5. Testavimas', content: 'Kokybės užtikrinimas ir testavimas' },
+                { title: '6. Paleidimas ir priežiūra', content: 'Pristatymas ir nuolatinė pagalba' },
               ]}
             />
           </div>
         </section>
-      </div>
+        </div>
     </>
   );
 }
