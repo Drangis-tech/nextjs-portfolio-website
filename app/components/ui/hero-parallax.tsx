@@ -68,7 +68,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
         }}
         className="relative z-30"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-16"> {/* Increased margin-bottom */}
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-32"> {/* Increased margin-bottom */}
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -77,7 +77,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-16 space-x-16"> {/* Increased margin-bottom */}
+        <motion.div className="flex flex-row mb-32 space-x-16"> {/* Increased margin-bottom */}
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -100,9 +100,9 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
       <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent"></div> {/* Adjusted height */}
 
       {/* New Section with Header and Description */}
-      <div className="absolute bottom-0 w-full bg-black text-center z-40 pt-24"> {/* Increased padding-top */}
+      <div className="absolute bottom-0 w-full bg-black text-center z-40 pt-32"> {/* Increased padding-top */}
         <div className="py-4 px-4 md:px-8"> {/* Added padding */}
-          <h2 className="text-white text-2xl md:text-4xl font-bold mb-2"> {/* Reduced margin-bottom */}
+          <h2 className="text-white text-2xl md:text-4xl font-bold mb-4"> {/* Increased margin-bottom */}
             Kaip atrodo puslapio kurimo darbo eiga?
           </h2>
           <p className="text-zinc-400 text-lg md:text-xl max-w-4xl mx-auto">
