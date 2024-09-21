@@ -41,20 +41,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   });
 
   return (
-    <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
-      ref={containerRef}
-    >
+    <div className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10" ref={containerRef}>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => {
           const isActive = index === activeIndex;
           const opacity = isActive ? 1 : 0.2;
 
           return (
-            <div
-              key={index}
-              className="timeline-entry flex flex-col md:flex-row items-start md:items-center justify-between pt-28 md:pt-72 md:gap-14"
-            >
+            <div key={index} className="timeline-entry flex flex-col md:flex-row items-start md:items-center justify-between pt-28 md:pt-72 md:gap-14">
               <div className="relative flex flex-col w-full md:w-1/2 md:pr-8">
                 <div className="relative flex flex-col z-40 items-start max-w-xs lg:max-w-sm">
                   <div className="sticky top-40">
@@ -94,9 +88,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   src={`/timeline/${index + 1}.png`}
                   alt={`Timeline image ${index + 1}`}
                   className="w-20 h-20 sm:w-24 sm:h-24 md:w-64 md:h-64 object-contain"
-                  initial={{ opacity: 0.2 }}
-                  animate={{ opacity: isActive ? 1 : 0.2 }}
+                  initial={{ opacity: 0.2, filter: 'blur(10px)' }}
+                  animate={{ opacity: isActive ? 1 : 0.2, filter: 'blur(0)' }}
                   transition={{ duration: 0.5 }}
+                  style={{ width: '100%', height: 'auto' }} // Ensure dimensions are set
                 />
               </div>
             </div>
