@@ -5,6 +5,8 @@ import { Navigation } from '../components/nav';
 import { Card } from '../components/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../components/Footer'; // Import Footer Component
+
 
 // Team Data
 const teamData = [

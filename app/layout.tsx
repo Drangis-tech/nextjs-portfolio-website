@@ -1,4 +1,3 @@
-// app/layout.tsx
 "use client";
 
 import "../global.css";
@@ -6,6 +5,7 @@ import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Analytics } from "./components/analytics";
 import Script from "next/script"; // Import Script from next/script
+import Footer from "./components/Footer"; // Import the Footer component
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,12 +28,14 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body
-        className={`bg-black ${
-          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-        }`}
+        className={`bg-black min-h-screen flex flex-col`} // Added flex layout to body
       >
-        {children}
-
+        {/* Main Content Area */}
+        <main className="flex-1">{children}</main> {/* Ensures content grows */}
+        
+        {/* Footer */}
+        <Footer />  {/* Footer will now stick to the bottom */}
+        
         {/* Add Cookiebot Script */}
         <Script
           id="Cookiebot"
