@@ -88,7 +88,7 @@ export default function Home() {
             </p>
             <div className="mb-4 md:mb-6">
               <Link href="/paslaugos" className="px-6 py-3 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
-                Mūsų paslaugas
+                Mūsų paslaugos
                 <span className="ml-2">→</span>
               </Link>
             </div>
