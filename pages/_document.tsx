@@ -11,7 +11,6 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
           />
-
           {/* Favicon and related icons */}
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -24,20 +23,22 @@ class MyDocument extends Document {
           <meta name="msapplication-config" content="/browserconfig.xml" />
           <meta name="theme-color" content="#000000" />
 
-          {/* Other head elements like fonts or CSS files */}
+          {/* Include the vanilla-cookieconsent CSS */}
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@1.8.1/build/cookieconsent.min.css"
+          />
         </Head>
         <body>
           <Main />
           <NextScript />
-          
-             {/* Cookie Consent JS */}
-             <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js"
-            integrity="sha512-0vGAfd29ToJWyheRuRuxdrKtOCeHqcMcFe0NC1V7FsI6UsF6WIGZ7uvJ5WzD2kZPipNkbzHDHk3zDA9B+5osIg=="
-            crossOrigin="anonymous"
-            referrerPolicy="no-referrer"
-          ></script>
         </body>
+
+        {/* Load the CookieConsent JS script after page load */}
+        <script
+          src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@1.8.1/build/cookieconsent.min.js"
+          defer
+        ></script>
       </Html>
     );
   }
