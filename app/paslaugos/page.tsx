@@ -1,147 +1,56 @@
 "use client";
 
-import React, { useEffect } from 'react';  // Add useEffect import
-import { Navigation } from '../components/nav';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faPalette, faBullhorn, faChartLine, faLaptopCode, faUserCog } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect } from "react";
+import { Navigation } from "../components/nav";
+import { Card } from "../components/card"; // Import the Card component
 
-// Service Data (unchanged)
+// Import Heroicons
+import {
+  CodeBracketSquareIcon,
+  PencilSquareIcon,
+  SpeakerWaveIcon,
+  ChartBarIcon,
+  ComputerDesktopIcon,
+  UsersIcon,
+} from '@heroicons/react/24/outline';
+
+// Service Data with Heroicons
 const services = [
   {
-    title: 'Web Development',
-    description: [
-      'Modernios ir patogios svetainės kūrimas',
-      'Naudojame naujausias technologijas',
-      'React, Vue.js, WordPress ir kt.',
-    ],
-    icon: faCode,
+    title: "WEB DEVELOPMENT",
+    description:
+      "We create modern and user-friendly websites using the latest technologies like React, Vue.js, and WordPress.",
+    icon: <CodeBracketSquareIcon className="h-16 w-16 text-[#f16529]" />, // Solid color
   },
   {
-    title: 'Branding',
-    description: [
-      'Unikalus prekės ženklo identitetas',
-      'Kūrybiniai sprendimai ir dizainas',
-      'Logotipai, vizitinės kortelės ir kt.',
-    ],
-    icon: faPalette,
+    title: "BRANDING",
+    description:
+      "Unique brand identity solutions, including logos, business cards, and creative design services.",
+    icon: <PencilSquareIcon className="h-16 w-16 text-[#f16529]" />, // Solid color
   },
   {
-    title: 'Ads Management',
-    description: [
-      'Reklama Google ir Facebook platformose',
-      'Efektyvi kampanijų valdymo strategija',
-      'Tikslinė auditorija ir analitika',
-    ],
-    icon: faBullhorn,
+    title: "ADS MANAGEMENT",
+    description:
+      "Manage effective campaigns on Google and Facebook platforms, targeting the right audience and analyzing results.",
+    icon: <SpeakerWaveIcon className="h-16 w-16 text-[#f16529]" />, // Solid color
   },
   {
-    title: 'SEO Optimization',
-    description: [
-      'Svetainės optimizavimas paieškos sistemoms',
-      'Padidinkite matomumą ir lankomumą',
-      'On-page ir off-page SEO',
-    ],
-    icon: faChartLine,
+    title: "SEO OPTIMIZATION",
+    description:
+      "Optimize your website for search engines to increase visibility and traffic with on-page and off-page SEO.",
+    icon: <ChartBarIcon className="h-16 w-16 text-[#f16529]" />, // Solid color
   },
   {
-    title: 'Custom Solutions',
-    description: [
-      'Individualūs programavimo sprendimai',
-      'API integracijos, sistema pritaikyta pagal poreikius',
-      'Konsultacijos ir techninė pagalba',
-    ],
-    icon: faLaptopCode,
+    title: "CUSTOM SOLUTIONS",
+    description:
+      "Tailored programming solutions and API integrations to meet your unique needs, with expert consultation and support.",
+    icon: <ComputerDesktopIcon className="h-16 w-16 text-[#f16529]" />, // Solid color
   },
   {
-    title: 'IT Consulting',
-    description: [
-      'Konsultacijos IT ir technologijų klausimais',
-      'Strategijų kūrimas ir optimizavimas',
-      'Sistemos analizė ir rekomendacijos',
-    ],
-    icon: faUserCog,
-  },
-];
-
-// Technology Stack Data
-const technologies = [
-  {
-    name: 'React',
-    logo: '/logos/react.svg',
-    color: '#61DAFB',
-    category: 'JavaScript Library',
-  },
-  {
-    name: 'Vue.js',
-    logo: '/logos/vue.svg',
-    color: '#42b883',
-    category: 'JavaScript Framework',
-  },
-  {
-    name: 'HTML',
-    logo: '/logos/html.svg',
-    color: '#E34F26',
-    category: 'Markup Language',
-  },
-  {
-    name: 'CSS',
-    logo: '/logos/css.svg',
-    color: '#1572B6',
-    category: 'Style Sheet Language',
-  },
-  {
-    name: 'JavaScript',
-    logo: '/logos/js.svg',
-    color: '#F7DF1E',
-    category: 'Programming Language',
-  },
-  {
-    name: 'Next.js',
-    logo: '/logos/nextjs.svg',
-    color: '#000000',
-    category: 'React Framework',
-  },
-  {
-    name: 'WordPress',
-    logo: '/logos/wordpress.svg',
-    color: '#21759B',
-    category: 'Content Management System',
-  },
-  {
-    name: 'Magento',
-    logo: '/logos/magento.svg',
-    color: '#F46F25',
-    category: 'E-commerce Platform',
-  },
-  {
-    name: 'PrestaShop',
-    logo: '/logos/prestashop.svg',
-    color: '#DF0067',
-    category: 'E-commerce Platform',
-  },
-  {
-    name: 'Shopify',
-    logo: '/logos/shopify.svg',
-    color: '#96bf48',
-    category: 'E-commerce Platform',
-  },
-  {
-    name: 'Wix',
-    logo: '/logos/wix.svg',
-    color: '#FAAD00',
-    category: 'Website Builder',
-  },
-  {
-    name: 'PHP',
-    logo: '/logos/php.svg',
-    color: '#777BB4',
-    category: 'Server-side Language',
-  },
-  {
-    name: 'Bei kitos kalbos ir technologijos',
-    logo: '/logos/python.svg',
-    color: '#3776AB',
-    category: 'Pasigedote kažko? Susisiekite',
+    title: "IT CONSULTING",
+    description:
+      "Consultation on IT strategies, system analysis, and recommendations to optimize technology usage for your business.",
+    icon: <UsersIcon className="h-16 w-16 text-[#f16529]" />, // Solid color
   },
 ];
 
@@ -150,6 +59,7 @@ const Paslaugos = () => {
     // Set the document title
     document.title = "Paslaugos | Brandforge.lt";
   }, []);
+
   return (
     <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
@@ -160,7 +70,8 @@ const Paslaugos = () => {
             Mūsų Paslaugos
           </h2>
           <p className="mt-4 text-zinc-400">
-            Atraskite mūsų įvairias paslaugas, kurios padės jūsų verslui augti ir pasiekti naujas aukštumas.
+            Atraskite mūsų įvairias paslaugas, kurios padės jūsų verslui augti ir
+            pasiekti naujas aukštumas.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
@@ -168,74 +79,33 @@ const Paslaugos = () => {
         {/* Service Categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="flex items-start space-x-6">
-              <div className="w-16 h-16 flex items-center justify-center border border-zinc-700 rounded-lg bg-transparent">
-                <FontAwesomeIcon icon={service.icon} size="2x" className="text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-zinc-100">{service.title}</h3>
-                <ul className="mt-2 list-disc list-inside text-zinc-400">
-                  {service.description.map((item, i) => (
-                    <li key={i} className="mt-1">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="w-full h-px bg-zinc-800" />
-
-        {/* Technology Stack */}
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Naudojamos Technologijos
-          </h2>
-          <p className="mt-4 text-zinc-400">
-            Mes dirbame su įvairiomis pažangiomis technologijomis, kurios
-            užtikrina mūsų projektų kokybę ir efektyvumą.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-          {technologies.map((tech, index) => (
-            <div key={index} className="flex items-center space-x-4">
-              <div
-                className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-700"
-                style={{ backgroundColor: 'transparent' }}
-              >
-                <img src={tech.logo} alt={tech.name} className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-zinc-100">
-                  {tech.name}
-                </h4>
-                <p className="text-zinc-400">{tech.category}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="w-full h-px bg-zinc-800" />
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Susisiekite su Mumis
-          </h2>
-          <p className="mt-4 text-zinc-400">
-            Norite sužinoti daugiau apie mūsų paslaugas? Susisiekite su mumis
-            šiandien ir aptarkime, kaip galime jums padėti.
-          </p>
-          <div className="mt-6">
-          <a
-              href="/contact"
-              className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
+            <Card
+              key={index}
+              className="p-6 bg-transparent hover:bg-zinc-800/10 h-[396px]" // Increased height by 10%
             >
-              Susisiekite
-            </a>
-          </div>
+              {/* Service Icon - Positioned Top Left */}
+              <div className="absolute top-6 left-6">
+                {service.icon} {/* Render the icon from the services array */}
+              </div>
+
+              {/* Service Title */}
+              <h3 className="text-xl font-bold text-zinc-100 mb-4 mt-20">
+                {service.title}
+              </h3>
+
+              {/* Service Description */}
+              <p className="text-zinc-400 mb-6">{service.description}</p>
+
+              {/* Learn More Button - Styled like on home page */}
+              <a
+                href="#"
+                className="inline-block border-2 border-zinc-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-transparent border-gray-600 hover:bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] hover:text-white"
+                style={{ marginTop: 'auto' }} // Ensure the button is positioned correctly
+              >
+                Learn More
+              </a>
+            </Card>
+          ))}
         </div>
       </div>
     </div>
