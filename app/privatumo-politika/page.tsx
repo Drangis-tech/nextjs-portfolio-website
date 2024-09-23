@@ -35,27 +35,22 @@ const PrivatumoPolitika: React.FC = () => {
 
         <p>
           Mes, juridinio asmens pavadinimas <strong>Vainot, MB</strong>, juridinio asmens kodas 306620324, adresas Perkūnkiemio g. 19, Vilnius
-          (toliau - <strong>Bendrovė</strong> arba <strong>Mes</strong>), rūpinamės savo kliento, internetinio puslapio <a href="https://brandforge.lt" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">https://brandforge.lt</a> naudotojo (toliau - <strong>Jūs</strong> arba <strong>Naudotojas</strong>) (toliau - <strong>E-parduotuvė</strong>) duomenų saugumu ir privatumu.
+          (toliau - <strong>Bendrovė</strong> arba <strong>Mes</strong>), rūpinamės savo kliento, internetinio puslapio <a href="https://brandforge.lt" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">https://brandforge.lt</a> naudotojo (toliau - <strong>Jūs</strong> arba <strong>Naudotojas</strong>) (toliau - <strong>Internetinė svetainė</strong>) duomenų saugumu ir privatumu.
         </p>
 
         <p>Ši Privatumo politika yra skirta pateikti informaciją apie tai, kaip Bendrovė tvarko ir saugo Jūsų duomenis, Jums naudojantis internetiniu puslapiu.</p>
 
-        <p>Jūsų asmens duomenų rinkimą, tvarkymą ir saugojimą, kiek tai susiję su Jūsų naudojimusi E-parduotuve, nustato ši privatumo politika, Lietuvos Respublikos Asmens duomenų teisinės apsaugos įstatymas ir kiti teisės aktai.</p>
+        <p>Jūsų asmens duomenų rinkimą, tvarkymą ir saugojimą, kiek tai susiję su Jūsų naudojimusi internetiniu puslapiu, nustato ši privatumo politika, Lietuvos Respublikos Asmens duomenų teisinės apsaugos įstatymas ir kiti teisės aktai.</p>
 
         <h2 className="text-2xl font-bold text-zinc-100 mt-8">1. Sąvokos</h2>
         <p><strong>1.1. Asmens duomenys</strong> - reiškia bet kokią informaciją, pagal kurią galima tiesiogiai arba netiesiogiai nustatyti Jūsų tapatybę. Tvarkomi šie Jūsų asmens duomenys:</p>
         <ul className="list-disc pl-6 text-zinc-400">
           <li>El. paštas;</li>
           <li>Pirkėjo vardas ir pavardė;</li>
-          <li>Prekes atsiimsiančio asmens vardas ir pavardė;</li>
-          <li>Pirkėjo kontaktiniai duomenys - elektroninio pašto adresas ir telefono numeris, adresas;</li>
-          <li>Pirkėjo pristatymo duomenys - adresas, kuriuo bus pristatomos prekės ar kitas Pirkėjo pasirinkimas dėl prekių pristatymo / atsiėmimo;</li>
-          <li>Pirkėjo pasirinktas mokėjimo būdas ir įvesti mokėjimo duomenys;</li>
-          <li>Jūsų E-parduotuvėje atliktų užsakymų istorija;</li>
           <li>IP adresą;</li>
           <li>tinklo ir vietos duomenis, kai juos suteikiate;</li>
           <li>Jūsų užklausų ir nusiskundimų istorija;</li>
-          <li>kitus viešai prieinamus duomenis, kuriais Jūs pasidalinote lankydamasis elektroninėje parduotuvėje.</li>
+          <li>kitus viešai prieinamus duomenis, kuriais Jūs pasidalinote lankydamasis brandforge.lt svetainėje.</li>
         </ul>
 
         <p><strong>1.2. Asmens duomenų tvarkymas</strong> - reiškia bet kokią su asmens duomenimis atliekamą operaciją (tokią kaip - informacijos rinkimas, redagavimas, keitimas, įrašymas, saugojimas, prieigos suteikimas, užklausų pateikimas, archyvavimas ir pan.).</p>
@@ -63,23 +58,23 @@ const PrivatumoPolitika: React.FC = () => {
         <p><strong>1.4. Duomenų subjektas</strong> - bet kuris fizinis asmuo, kurio duomenis tvarko Bendrovė.</p>
         <p><strong>1.5. Svetainė</strong> - <a href="https://brandforge.lt" className="text-blue-400 hover:text-blue-300">https://brandforge.lt/</a></p>
 
-        <h2 className="text-2xl font-bold text-zinc-100 mt-8">2. Jūsų asmens duomenų tvarkymas naudojantis E-parduotuve ir lankantis Svetainėje</h2>
-        <p><strong>2.1.</strong> Pateikdamas duomenis Bendrovei, Duomenų subjektas sutinka, kad Asmens duomenys būtų naudojami Bendrovei siekiant užtikrinti E-parduotuvės funkcionavimą Duomenų subjekto pageidaujamais tikslais.</p>
+        <h2 className="text-2xl font-bold text-zinc-100 mt-8">2. Jūsų asmens duomenų tvarkymas lankantis Svetainėje</h2>
+        <p><strong>2.1.</strong> Pateikdamas duomenis Bendrovei, Duomenų subjektas sutinka, kad Asmens duomenys būtų naudojami Bendrovei siekiant užtikrinti internetinės svetainės funkcionavimą Duomenų subjekto pageidaujamais tikslais.</p>
         <p><strong>2.2.</strong> Jūsų asmens duomenis Bendrovė tvarko šiais pagrindais:</p>
         <ul className="list-disc pl-6 text-zinc-400">
           <li>Bendrovė gauna aiškiai išreikštą Jūsų sutikimą tvarkyti Jūsų duomenis tokiu būdu, t.y. kai Jūs sukuriate Naudotojo paskyrą;</li>
-          <li>Jūs atliekate užsakymą E-parduotuvėje, kuris yra priimamas ir vykdomas, tokiu būdu sudarant sutartį su Jumis ir ją vykdant;</li>
+          <li>Jūs atliekate užsakymą internetinėje svetainėje, kuris yra priimamas ir vykdomas, tokiu būdu sudarant sutartį su Jumis ir ją vykdant;</li>
           <li>taip pat tais atvejais kai Bendrovė turi tvarkyti Jūsų duomenis turėdama teisinę pareigą;</li>
           <li>yra įgyvendinami Bendrovės teisėti interesai. Mes tvarkysime Jūsų Asmens duomenis, jeigu tam turime teisėtą interesą ir toks duomenų tvarkymas nepažeidžia Jūsų interesų ir teisių apsaugos.</li>
         </ul>
         <p><strong>2.3.</strong> Bendrovė Jūsų duomenis tvarko šiais tikslais:</p>
         <ul className="list-disc pl-6 text-zinc-400">
-          <li>Efektyviam, optimaliam ir Jums patogiam E-parduotuvės funkcionavimui;</li>
-          <li>Siekiant užtikrinti sklandų E-parduotuvės administravimą;</li>
+          <li>Efektyviam, optimaliam ir Jums patogiam internetinės svetainės funkcionavimui;</li>
+          <li>Siekiant užtikrinti sklandų internetinės svetainės administravimą;</li>
           <li>Jūsų paskyros registravimui ir palaikymui;</li>
           <li>Tinkamam Jūsų užsakytų paslaugų suteikimui;</li>
           <li>Siekiant Jums pateikti aktualią informaciją, atsakyti į Jūsų klausimus, užklausas;</li>
-          <li>Vykdant statistinę ir kitą analizę, skirtą tobulinti E-parduotuvės veiklą ir Jūsų patirtį ja naudojantis;</li>
+          <li>Vykdant statistinę ir kitą analizę, skirtą tobulinti internetinės svetainės veiklą ir Jūsų patirtį ja naudojantis;</li>
           <li>Kai lankotės Svetainėje, Bendrovė gali tvarkyti Jūsų IP adresą, tinklo ir vietos duomenis. Šie Asmens duomenys yra renkami slapukų ir kitų panašių technologijų pagalba Naudotojo sutikimo pagrindu.</li>
           <li>Kitiems tikslams, kurie gali būti Jums nurodomi Jūsų duomenų pateikimo metu.</li>
         </ul>
@@ -91,13 +86,13 @@ const PrivatumoPolitika: React.FC = () => {
 
         <h2 className="text-2xl font-bold text-zinc-100 mt-8">4. Asmens duomenų saugojimo terminas</h2>
         <p><strong>4.1.</strong> Jūsų asmens duomenis saugome tik tokį laikotarpį, kuris yra būtinas privatumo politikoje numatytų tikslų įgyvendinimui.</p>
-        <p><strong>4.2.</strong> Jeigu 2 metus nebūnate aktyvus E-parduotuvėje turimoje Naudotojo paskyroje, Jūsų asmens duomenys yra ištrinami.</p>
-        <p><strong>4.3.</strong> Jūs taip pat galite pareikalauti, kad Jūsų paskyra E-parduotuvėje būtų panaikinta.</p>
+        <p><strong>4.2.</strong> Jeigu 2 metus nebūnate aktyvus internetinėje svetainėje turimoje Naudotojo paskyroje, Jūsų asmens duomenys yra ištrinami.</p>
+        <p><strong>4.3.</strong> Jūs taip pat galite pareikalauti, kad Jūsų paskyra internetinėje svetainėje būtų panaikinta.</p>
 
         <h2 className="text-2xl font-bold text-zinc-100 mt-8">5. Nepilnamečių Asmens duomenys</h2>
-        <p><strong>5.1.</strong> Mes rūpinamės nepilnamečių privatumo apsauga. Informuojame, kad mūsų E-parduotuvė ir Svetainė nėra pritaikytos asmenims, jaunesniems nei 18 metų amžiaus.</p>
-        <p><strong>5.2.</strong> Asmenys, kurie yra jaunesni negu 18 metų, negali teikti jokių Asmens duomenų E-parduotuvėje ir Svetainėje.</p>
-        <p><strong>5.3.</strong> Jei asmuo yra jaunesnis negu 18 metų, norėdamas naudotis E-parduotuve ar Svetainė, prieš pateikiant Asmens duomenis, privalo turėti bent vieno iš teisėtų atstovų (tėvo, motinos, globėjo (-os)) rašytinį sutikimą dėl asmens duomenų tvarkymo.</p>
+        <p><strong>5.1.</strong> Mes rūpinamės nepilnamečių privatumo apsauga. Informuojame, kad mūsų Svetainė nėra pritaikytos asmenims, jaunesniems nei 18 metų amžiaus.</p>
+        <p><strong>5.2.</strong> Asmenys, kurie yra jaunesni negu 18 metų, negali teikti jokių Asmens duomenų Svetainėje.</p>
+        <p><strong>5.3.</strong> Jei asmuo yra jaunesnis negu 18 metų, norėdamas naudotis Svetainė, prieš pateikiant Asmens duomenis, privalo turėti bent vieno iš teisėtų atstovų (tėvo, motinos, globėjo (-os)) rašytinį sutikimą dėl asmens duomenų tvarkymo.</p>
 
         <h2 className="text-2xl font-bold text-zinc-100 mt-8">6. Duomenų subjektų teisės</h2>
         <p><strong>6.1.</strong> Būdamas Duomenų subjektu, turite šias Duomenų subjekto teises:</p>
