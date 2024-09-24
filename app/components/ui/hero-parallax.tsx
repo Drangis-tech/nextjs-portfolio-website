@@ -29,13 +29,14 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
+    useTransform(scrollYProgress, [0, 1], [0, 2000]), // Increased value for slower scroll
     springConfig
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    useTransform(scrollYProgress, [0, 1], [0, -2000]), // Increased value for slower scroll
     springConfig
   );
+
   const rotateX = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [15, 0]),
     springConfig
@@ -56,7 +57,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
   return (
     <div
       ref={ref}
-      className="relative h-[150vh] py-12 overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d] z-20" // Adjusted height and padding
+      className="relative min-h-[200vh] py-12 overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d] z-20" // Adjusted height
     >
       <Header />
       <motion.div
@@ -68,7 +69,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
         }}
         className="relative z-30"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-32"> {/* Increased margin-bottom */}
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-40"> {/* Increased margin-bottom */}
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -77,7 +78,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-32 space-x-16"> {/* Increased margin-bottom */}
+        <motion.div className="flex flex-row mb-40 space-x-16"> {/* Increased margin-bottom */}
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -86,7 +87,7 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16"> {/* Adjusted margin */}
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-40"> {/* Adjusted margin */}
           {thirdRow.map((product) => (
             <ProductCard
               product={product}

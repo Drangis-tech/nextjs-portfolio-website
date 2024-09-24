@@ -6,7 +6,9 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./mdx-components.tsx",
     "content/**/*.mdx",
+    "./src/**/*.{ts,tsx}", // Added from the new config
   ],
+  darkMode: "class", // Ensure darkMode setting is included
   theme: {
     extend: {
       typography: {
@@ -42,6 +44,7 @@ module.exports = {
         title: "title 3s ease-out forwards",
         "fade-left": "fade-left 3s ease-in-out forwards",
         "fade-right": "fade-right 3s ease-in-out forwards",
+        spotlight: "spotlight 2s ease .75s 1 forwards", // Added from the new config
       },
       keyframes: {
         "fade-in": {
@@ -64,6 +67,16 @@ module.exports = {
           "25%": { "line-height": "0%", opacity: "0%" },
           "80%": { opacity: "100%" },
           "100%": { "line-height": "100%", opacity: "100%" },
+        },
+        spotlight: { // Added from the new config
+          "0%": {
+            opacity: 0,
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translate(-50%,-40%) scale(1)",
+          },
         },
       },
       backdropBlur: {
