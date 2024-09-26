@@ -5,7 +5,9 @@ import React, { useEffect } from 'react';
 import { Navigation } from './components/nav';
 import { HeroParallax } from './components/ui/hero-parallax';
 import { TypewriterEffect } from './components/ui/typewriter-effect';
-import { Timeline } from './components/ui/timeline'; // Import your Timeline component
+import { Timeline } from './components/ui/timeline';
+import { Spotlight } from './components/ui/Spotlight'; // Ensure this import is correct
+import GridPattern from './components/grid-pattern'; // Import GridPattern component
 
 export default function Home() {
   useEffect(() => {
@@ -73,39 +75,49 @@ export default function Home() {
 
       {/* Main Page Container with Global Background */}
       <div className="bg-black min-h-screen relative">
-        {/* Gradient Transition */}
-        <div className="absolute inset-0 bg-gradient-transition pointer-events-none"></div>
-        
         {/* Hero Section */}
-        <div className="relative min-h-screen flex items-center justify-center w-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 overflow-hidden">
-          <div className="flex flex-col items-center justify-center text-center text-white px-4 md:px-8 z-10">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight"> {/* Adjusted margin */}
+        <div className="relative min-h-screen flex items-center justify-center w-screen bg-black overflow-hidden">
+          {/* Spotlight SVG */}
+          <Spotlight className="absolute top-0 left-0 z-0" fill="white" />
+          
+          {/* Grid Pattern Overlay */}
+          <GridPattern
+            width={40}
+            height={40}
+            className="absolute inset-0 z-10 opacity-30 pointer-events-none"
+            strokeDasharray="2,2"
+          />
+
+          <div className="flex flex-col items-center justify-center text-center text-white px-4 md:px-8 z-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight min-h-[100px] md:min-h-[120px]">
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">Idėja</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Strategija</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
               <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
               <br className="hidden md:block" />
-              <span className="block mt-2 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"> {/* Adjusted margin */}
-                <TypewriterEffect
-                  words={[
-                    { text: 'Tai' },
-                    { text: 'viskas' },
-                    { text: 'ko' },
-                    { text: 'reikia' },
-                    { text: 'Jūsų' },
-                    { text: 'verslui.' }
-                  ]}
-                  className="text-white text-4xl md:text-5xl lg:text-6xl"
-                  cursorClassName="bg-blue-500"
-                />
+              <span className="block mt-1 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <div className="min-h-[30px]">
+                  <TypewriterEffect
+                    words={[
+                      { text: 'Tai' },
+                      { text: 'viskas' },
+                      { text: 'ko' },
+                      { text: 'reikia' },
+                      { text: 'Jūsų' },
+                      { text: 'verslui.' }
+                    ]}
+                    className="text-white text-4xl md:text-5xl lg:text-6xl"
+                    cursorClassName="bg-blue-500"
+                  />
+                </div>
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-400 mb-4 md:mb-6"> {/* Adjusted margin */}
+            <p className="text-lg md:text-xl text-gray-400 mb-2 md:mb-4">
               Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
             </p>
-            <div className="mb-4 md:mb-6"> {/* Adjusted margin */}
-              <Link href="/paslaugos" className="px-8 py-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
+            <div className="mb-2 md:mb-4">
+              <Link href="/paslaugos" className="px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
                 Mūsų paslaugas
                 <span className="ml-2">→</span>
               </Link>
@@ -113,47 +125,20 @@ export default function Home() {
           </div>
         </div>
 
-        {/* HeroParallax Component with reduced margin */}
-        <section className="w-full mt-4"> {/* Adjusted from mt-8 to mt-4 */}
+        {/* HeroParallax Component */}
+        <section className="w-full mt-4">
           <HeroParallax products={products} />
         </section>
 
-
         {/* Timeline Section */}
-        <section className="w-full bg-black py-8"> {/* Reduced py-12 to py-8 */}
-        <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16"> {/* Adjusted padding */}
+        <section className="w-full bg-black py-8">
+          <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16">
             <div className="w-full h-px bg-zinc-800" />
           </div>
 
-          {/* Timeline Component */}
-          <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8"> {/* Reduced py-8 to py-6 */}
+          <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8">
             <Timeline
-              data={[
-                {
-                  title: '1. Idėjų generavimas',
-                  content: 'Idėjų brainstorminimas ir tyrimai',
-                },
-                {
-                  title: '2. Planavimas',
-                  content: 'Projektų planavimas ir valdymas',
-                },
-                {
-                  title: '3. Dizainas',
-                  content: 'Vartotojo patirties ir sąsajos dizainas',
-                },
-                {
-                  title: '4. Programavimas',
-                  content: 'Kūrimas ir įgyvendinimas',
-                },
-                {
-                  title: '5. Testavimas',
-                  content: 'Kokybės užtikrinimas ir testavimas',
-                },
-                {
-                  title: '6. Paleidimas ir priežiūra',
-                  content: 'Pristatymas ir nuolatinė pagalba',
-                },
-              ]}
+              data={timelineData}
             />
           </div>
         </section>

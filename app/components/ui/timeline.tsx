@@ -41,14 +41,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   });
 
   return (
-    <div className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10" ref={containerRef}>
+    <div className="w-full font-sans md:px-10" ref={containerRef}>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => {
           const isActive = index === activeIndex;
           const opacity = isActive ? 1 : 0.2;
 
           return (
-            <div key={index} className="timeline-entry flex flex-col md:flex-row items-start md:items-center justify-between pt-28 md:pt-72 md:gap-14">
+            <div
+              key={index}
+              className="timeline-entry flex flex-col md:flex-row items-start md:items-center justify-between pt-28 md:pt-72 md:gap-14"
+            >
               <div className="relative flex flex-col w-full md:w-1/2 md:pr-8">
                 <div className="relative flex flex-col z-40 items-start max-w-xs lg:max-w-sm">
                   <div className="sticky top-40">
@@ -64,7 +67,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
                     <h3
                       className={`text-left text-xl md:text-4xl font-bold mb-4 ml-16 md:ml-28 ${
-                        isActive ? 'text-white !important' : 'text-neutral-500 dark:text-neutral-500'
+                        isActive ? 'text-white' : 'text-neutral-500 dark:text-neutral-500'
                       }`}
                       style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
                     >
@@ -73,7 +76,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
                     <div
                       className={`pl-16 md:pl-28 text-sm md:text-base ${
-                        isActive ? 'text-white !important' : 'text-neutral-600 dark:text-neutral-400'
+                        isActive ? 'text-white' : 'text-neutral-600 dark:text-neutral-400'
                       }`}
                       style={{ wordBreak: 'break-word', lineHeight: 1.5, maxWidth: '100%' }}
                     >
@@ -87,16 +90,22 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 <motion.img
                   src={`/timeline/${index + 1}.png`}
                   alt={`Timeline image ${index + 1}`}
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-64 md:h-64 object-contain"
+                  className="object-contain"
                   initial={{ opacity: 0.2, filter: 'blur(10px)' }}
                   animate={{ opacity: isActive ? 1 : 0.2, filter: 'blur(0)' }}
                   transition={{ duration: 0.5 }}
-                  style={{ width: '100%', height: 'auto' }} // Ensure dimensions are set
+                  style={{
+                    width: '75%', // Reduced width to 75%
+                    height: 'auto', // Maintain aspect ratio
+                    maxWidth: '192px', // Cap the image width to 192px on larger screens
+                  }}
                 />
               </div>
             </div>
           );
         })}
+
+        {/* Scroll line */}
         <div
           style={{
             height: height + "px",

@@ -338,7 +338,23 @@ svg {
   height: 100%;
 }
 
-/* styles/globals.css */
-.bg-gradient-transition {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+/* Global reset for timeline background */
+.timeline-entry {
+  background-color: transparent !important;
+}
+
+/* Reset background for the timeline container */
+.timeline-container {
+  background-color: transparent !important;
+}
+
+/* Ensure body is set correctly in light/dark mode */
+body {
+  background-color: #ffffff; /* For light mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000; /* For dark mode */
+  }
 }
