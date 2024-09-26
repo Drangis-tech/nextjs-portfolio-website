@@ -11,8 +11,8 @@ interface CardProps extends PropsWithChildren {
   onMouseMove?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export const Card: React.FC<CardProps> = ({ 
-  children, className, onClick, style, title, description, onMouseMove 
+export const Card: React.FC<CardProps> = ({
+  children, className, onClick, style, title, description, onMouseMove
 }) => {
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
@@ -44,26 +44,30 @@ export const Card: React.FC<CardProps> = ({
     <div
       onMouseMove={onMouseMove || handleMouseMove}  // Use passed onMouseMove or fallback to local one
       onClick={onClick}
-      className={`overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 ${className}`}
-      style={style}
+      className={`relative overflow-hidden border rounded-xl ${className}`}
+      style={{
+        ...style,
+        backdropFilter: 'blur(10px)', // Add blur effect
+        backgroundColor: 'rgba(0, 0, 0, 0.3)' // Adjust color and opacity to suit your design
+      }}
     >
       {/* Canvas for the particle effect */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
 
-      <div className="pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-10">
         <div className="absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
-          className="absolute inset-0 z-10 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
+          className="absolute inset-0 z-20 bg-gradient-to-br opacity-100 via-zinc-100/10 transition duration-1000 group-hover:opacity-50"
           style={maskStyle}
         />
         <motion.div
-          className="absolute inset-0 z-10 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
+          className="absolute inset-0 z-20 opacity-0 mix-blend-overlay transition duration-1000 group-hover:opacity-100"
           style={maskStyle}
         />
       </div>
 
       {/* Title and Description */}
-      <div className="relative z-10 p-4">
+      <div className="relative z-30 p-4">
         {title && <h3 className="text-lg font-semibold">{title}</h3>}
         {description && <p className="text-sm text-gray-500 mt-2">{description}</p>}
       </div>

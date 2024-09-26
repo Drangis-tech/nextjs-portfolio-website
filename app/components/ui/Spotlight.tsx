@@ -16,7 +16,7 @@ export const Spotlight = ({ className, fill }: SpotlightProps) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
       fill="none"
-      style={{ top: "-40", left: "21%", transform: "translateX(-50%)" }}
+      style={{ top: "-40", left: "22%", transform: "translateX(-50%)" }}
     >
       <g filter="url(#filter)">
         <ellipse

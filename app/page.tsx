@@ -74,11 +74,13 @@ export default function Home() {
       </header>
 
       {/* Main Page Container with Global Background */}
-      <div className="bg-black min-h-screen relative">
+      <div className="bg-black min-h-screen relative overflow-hidden">
         {/* Hero Section */}
         <div className="relative min-h-screen flex items-center justify-center w-screen bg-black overflow-hidden">
           {/* Spotlight SVG */}
-          <Spotlight className="absolute top-0 left-0 z-0" fill="white" />
+          <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
+            <Spotlight className="w-[120%] h-[120%]" fill="white" />
+          </div>
           
           {/* Grid Pattern Overlay */}
           <GridPattern
