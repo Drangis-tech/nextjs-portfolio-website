@@ -47,7 +47,7 @@ export const Card: React.FC<CardProps> = ({
       className={`relative overflow-hidden border rounded-xl ${className}`}
       style={{
         ...style,
-        backdropFilter: 'blur(10px)', // Add blur effect
+        backdropFilter: 'blur(0.5px)', // Add blur effect
         backgroundColor: 'rgba(0, 0, 0, 0.3)' // Adjust color and opacity to suit your design
       }}
     >
