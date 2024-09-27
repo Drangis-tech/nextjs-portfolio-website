@@ -86,8 +86,8 @@ export default function Home() {
           <GridPattern
             width={40}
             height={40}
-            className="absolute inset-0 z-10 opacity-30 pointer-events-none"
-            strokeDasharray="2,2"
+            className="absolute inset-0 z-10 opacity-10 pointer-events-none"
+            strokeDasharray="0"
           />
 
           <div className="flex flex-col items-center justify-center text-center text-white px-4 md:px-8 z-20">

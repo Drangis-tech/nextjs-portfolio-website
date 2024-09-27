@@ -6,6 +6,7 @@ import LocalFont from "@next/font/local";
 import { Analytics } from "./components/analytics";
 import Script from "next/script"; // Import Script from next/script
 import Footer from "./components/Footer"; // Import the Footer component
+import GridPattern from "./components/grid-pattern"; // Import GridPattern component
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,15 +28,25 @@ export default function RootLayout({
       <head>
         <Analytics />
       </head>
-      <body
-        className={`bg-black min-h-screen flex flex-col`} // Added flex layout to body
-      >
+      <body className={`bg-black min-h-screen flex flex-col relative`}>
+        {/* Grid Pattern Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <GridPattern
+            width={40}
+            height={40}
+            className="opacity-30" // Set GridPattern to cover the entire background
+            strokeDasharray="2,2"
+          />
+        </div>
+
         {/* Main Content Area */}
-        <main className="flex-1">{children}</main> {/* Ensures content grows */}
-        
+        <main className="flex-1 relative z-10">{children}</main>
+
         {/* Footer */}
-        <Footer />  {/* Footer will now stick to the bottom */}
-        
+        <div className="relative z-20">
+          <Footer /> {/* Footer will now be unaffected by the grid */}
+        </div>
+
         {/* Add Cookiebot Script */}
         <Script
           id="Cookiebot"

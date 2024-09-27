@@ -1,5 +1,4 @@
 import { useId } from "react";
-
 import { cn } from "@/lib/utils";
 
 interface GridPatternProps {
@@ -10,6 +9,10 @@ interface GridPatternProps {
   squares?: Array<[x: number, y: number]>;
   strokeDasharray?: any;
   className?: string;
+  fadeTop?: string;
+  fadeBottom?: string;
+  fadeLeft?: string;
+  fadeRight?: string;
   [key: string]: any;
 }
 
@@ -21,6 +24,10 @@ export function GridPattern({
   strokeDasharray = 0,
   squares,
   className,
+  fadeTop = "10%",    // Default fade value for the top
+  fadeBottom = "10%", // Default fade value for the bottom
+  fadeLeft = "10%",   // Default fade value for the left
+  fadeRight = "10%",  // Default fade value for the right
   ...props
 }: GridPatternProps) {
   const id = useId();
@@ -29,10 +36,24 @@ export function GridPattern({
     <svg
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
+        "pointer-events-none absolute inset-0 h-full w-full fill-gray-300/40 stroke-gray-300/40",
         className,
       )}
       {...props}
+      style={{
+        maskImage: `
+          linear-gradient(to top, transparent, white ${fadeTop}),
+          linear-gradient(to bottom, transparent, white ${fadeBottom}),
+          linear-gradient(to left, transparent, white ${fadeLeft}),
+          linear-gradient(to right, transparent, white ${fadeRight})
+        `,
+        WebkitMaskImage: `
+          linear-gradient(to top, transparent, white ${fadeTop}),
+          linear-gradient(to bottom, transparent, white ${fadeBottom}),
+          linear-gradient(to left, transparent, white ${fadeLeft}),
+          linear-gradient(to right, transparent, white ${fadeRight})
+        `,
+      }}
     >
       <defs>
         <pattern

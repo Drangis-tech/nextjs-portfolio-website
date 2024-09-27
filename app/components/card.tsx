@@ -44,11 +44,11 @@ export const Card: React.FC<CardProps> = ({
     <div
       onMouseMove={onMouseMove || handleMouseMove}  // Use passed onMouseMove or fallback to local one
       onClick={onClick}
-      className={`relative overflow-hidden border rounded-xl ${className}`}
+      className={`relative overflow-hidden border border-gray-600 rounded-xl ${className}`} // Changed border color to border-gray-600
       style={{
         ...style,
         backdropFilter: 'blur(0.5px)', // Add blur effect
-        backgroundColor: 'rgba(0, 0, 0, 0.3)' // Adjust color and opacity to suit your design
+        backgroundColor: 'rgba(0, 0, 0, 0.1)' // Adjust color and opacity to suit your design
       }}
     >
       {/* Canvas for the particle effect */}
