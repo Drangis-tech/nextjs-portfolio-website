@@ -34,8 +34,8 @@ export default function RootLayout({
           <GridPattern
             width={40}
             height={40}
-            className="opacity-30" // Set GridPattern to cover the entire background
-            strokeDasharray="2,2"
+            className="absolute inset-0 z-10 opacity-10 pointer-events-none"
+            strokeDasharray="0"
           />
         </div>
 

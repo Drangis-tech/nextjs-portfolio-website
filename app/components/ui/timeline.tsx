@@ -1,7 +1,6 @@
 "use client";
 import { useMotionValueEvent, useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import GridPattern from "../grid-pattern"; // Import the GridPattern component
 
 interface TimelineEntry {
   title: string;
@@ -43,15 +42,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div className="relative w-full font-sans md:px-10" ref={containerRef}>
-      {/* Grid Pattern Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <GridPattern
-          width={40}
-          height={40}
-          className="opacity-20"
-          strokeDasharray="0"
-        />
-      </div>
+
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20 z-10">
         {data.map((item, index) => {
