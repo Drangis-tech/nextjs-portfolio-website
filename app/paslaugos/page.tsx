@@ -140,7 +140,7 @@ const Paslaugos = () => {
       <GridPattern
         width={40}
         height={40}
-        className="absolute inset-0 z-10 opacity-15 pointer-events-none"
+        className="absolute inset-0 z-10 opacity-10 pointer-events-none"
         strokeDasharray="0"
       />
 
