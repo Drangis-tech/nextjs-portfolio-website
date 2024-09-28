@@ -6,6 +6,7 @@ import { Dialog } from "@headlessui/react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import GridPattern from '../components/grid-pattern'; // Import GridPattern component
+import Footer from '../components/Footer'; // Import Footer component
 
 const projects = [
   {
@@ -179,6 +180,11 @@ const AtliktiDarbai: React.FC = () => {
           </div>
         </Dialog>
       )}
+
+      {/* Footer with a gap */}
+      <div className="mt-16"> {/* Add a gap before the footer */}
+        <Footer />
+      </div>
     </div>
   );
 };

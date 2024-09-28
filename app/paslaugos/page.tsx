@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card"; // Import the Card component
 import GridPattern from '../components/grid-pattern'; // Import GridPattern component
+import Footer from '../components/Footer'; // Import the Footer component
 
 // Service Data with Images
 const services = [
@@ -257,6 +258,11 @@ const Paslaugos = () => {
               Susisiekite
             </a>
           </div>
+        </div>
+
+        {/* Add Footer with margin above */}
+        <div className="mb-16"> {/* Adjust margin as needed */}
+          <Footer />
         </div>
       </div>
     </div>

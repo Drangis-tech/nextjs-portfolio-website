@@ -1,12 +1,10 @@
 "use client";
 
-import "../global.css";
+import "../global.css"; // Ensure this imports your CSS with the necessary styles
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Analytics } from "./components/analytics";
 import Script from "next/script"; // Import Script from next/script
-import Footer from "./components/Footer"; // Import the Footer component
-import GridPattern from "./components/grid-pattern"; // Import GridPattern component
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,23 +27,10 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body className={`bg-black min-h-screen flex flex-col relative`}>
-        {/* Grid Pattern Background */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <GridPattern
-            width={40}
-            height={40}
-            className="absolute inset-0 z-10 opacity-10 pointer-events-none"
-            strokeDasharray="0"
-          />
-        </div>
-
         {/* Main Content Area */}
-        <main className="flex-1 relative z-10">{children}</main>
-
-        {/* Footer */}
-        <div className="relative z-20">
-          <Footer /> {/* Footer will now be unaffected by the grid */}
-        </div>
+        <main className="flex-1 relative z-10 pb-16"> {/* Add bottom padding to ensure footer visibility */}
+          {children}
+        </main>
 
         {/* Add Cookiebot Script */}
         <Script

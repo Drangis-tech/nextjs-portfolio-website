@@ -83,36 +83,11 @@ export const Navigation: React.FC = () => {
 
           <div className="flex-grow flex items-center justify-center">
             <div className="hidden md:flex gap-8">
-              <Link
-                href="/atlikti-darbai"
-                className="nav-link"
-              >
-                Atlikti Darbai
-              </Link>
-              <Link
-                href="/paslaugos"
-                className="nav-link"
-              >
-                Paslaugos
-              </Link>
-              <Link
-                href="/apie-mus"
-                className="nav-link"
-              >
-                Apie Mus
-              </Link>
-              <Link
-                href="/kainos"
-                className="nav-link"
-              >
-                Kainos
-              </Link>
-              <Link
-                href="/contact"
-                className="nav-link"
-              >
-                Kontaktai
-              </Link>
+              <Link href="/atlikti-darbai" className="nav-link">Atlikti Darbai</Link>
+              <Link href="/paslaugos" className="nav-link">Paslaugos</Link>
+              <Link href="/apie-mus" className="nav-link">Apie Mus</Link>
+              <Link href="/kainos" className="nav-link">Kainos</Link>
+              <Link href="/contact" className="nav-link">Kontaktai</Link>
             </div>
           </div>
 
@@ -128,14 +103,14 @@ export const Navigation: React.FC = () => {
       {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-30`}
+        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-40`}  
         onClick={() => isOpen && setIsOpen(false)}
       ></div>
 
       {/* Side Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
         <div className="relative w-full h-full flex flex-col">
-        <div className="flex items-center justify-between p-6 border-b border-gray-700">
+          <div className="flex items-center justify-between p-6 border-b border-gray-700">
             {/* Language Selector */}
             <LanguageSelector
               language="LT" // Set the default language
@@ -150,36 +125,22 @@ export const Navigation: React.FC = () => {
           </div>
 
           <nav className="flex flex-col items-start space-y-6 p-6 flex-grow">
-            <Link href="/atlikti-darbai" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
-              Atlikti Darbai
-            </Link>
-            <Link href="/paslaugos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
-              Paslaugos
-            </Link>
-            <Link href="/apie-mus" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
-              Apie Mus
-            </Link>
-            <Link href="/kainos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
-              Kainos
-            </Link>
-            <Link href="/contact" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>
-              Kontaktai
-            </Link>
+            <Link href="/atlikti-darbai" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Atlikti Darbai</Link>
+            <Link href="/paslaugos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Paslaugos</Link>
+            <Link href="/apie-mus" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Apie Mus</Link>
+            <Link href="/kainos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Kainos</Link>
+            <Link href="/contact" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Kontaktai</Link>
           </nav>
 
           {/* Contact Information */}
           <div className="flex flex-col items-start space-y-4 text-gray-400 text-sm p-6 mt-auto">
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
-              <a href="mailto:info@brandforge.lt" className="text-gray-500">
-                info@brandforge.lt
-              </a>
+              <a href="mailto:info@brandforge.lt" className="text-gray-500">info@brandforge.lt</a>
             </div>
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faPhone} className="text-xl" />
-              <a href="tel:+37000000000" className="text-gray-500">
-                +370 000 00009
-              </a>
+              <a href="tel:+37000000000" className="text-gray-500">+370 000 00009</a>
             </div>
           </div>
         </div>

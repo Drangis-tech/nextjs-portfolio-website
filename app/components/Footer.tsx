@@ -4,7 +4,7 @@ import { EnvelopeFill, TelephoneFill, Facebook, Instagram, Linkedin } from 'reac
 
 const Footer: React.FC = () => {
   return (
-    <div className="border-t border-[#27272a] z-20 relative bg-black"> {/* Added z-20 and relative */}
+    <div className="border-t border-[#27272a] z-20 relative bg-black pt-4">
       <footer className="bg-transparent text-white pt-8 pb-12 mt-16">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">

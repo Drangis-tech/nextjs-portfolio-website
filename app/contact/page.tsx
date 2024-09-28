@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import GridPattern from '../components/grid-pattern'; // Import the GridPattern component
+import Footer from '../components/Footer'; // Import the Footer component
 
 const socials = [
   {
@@ -87,6 +88,11 @@ export default function Contact() {
             </Card>
           ))}
         </div>
+      </div>
+
+      {/* Add Footer with margin above */}
+      <div className="mb-16"> {/* Adjust margin as needed */}
+        <Footer />
       </div>
     </div>
   );

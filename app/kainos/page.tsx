@@ -11,6 +11,7 @@ import IOSSlider from './IOSSlider'; // Import the IOSSlider component
 import EmailInput from './EmailInput'; // Import the EmailInput component
 import SubHandler from './SubHandler'; // Import the SubHandler component
 import GridPattern from '../components/grid-pattern'; // Import the GridPattern component
+import Footer from '../components/Footer'; // Import the Footer component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -191,7 +192,6 @@ const KainosPage: React.FC = () => {
         <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent" />
       </div>
 
-
       <Head>
         <title>Kainos - Apskaičiuokite</title>
       </Head>
@@ -209,6 +209,11 @@ const KainosPage: React.FC = () => {
 
         {/* Pricing Calculator Component */}
         <PricingCalculator />
+      </div>
+
+      {/* Add Footer with margin above */}
+      <div className="mb-16"> {/* Adjust margin as needed */}
+        <Footer />
       </div>
     </div>
   );

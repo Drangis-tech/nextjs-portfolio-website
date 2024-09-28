@@ -8,6 +8,7 @@ import { TypewriterEffect } from './components/ui/typewriter-effect';
 import { Timeline } from './components/ui/timeline';
 import { Spotlight } from './components/ui/Spotlight'; // Ensure this import is correct
 import GridPattern from './components/grid-pattern'; // Import GridPattern component
+import Footer from './components/Footer'; // Import the Footer component
 
 export default function Home() {
   useEffect(() => {
@@ -144,6 +145,12 @@ export default function Home() {
             />
           </div>
         </section>
+
+        {/* Add a gap before the footer */}
+        <div className="mb-16"></div> {/* This div adds space below the last section */}
+
+        {/* Footer Component */}
+        <Footer />
       </div>
     </>
   );
