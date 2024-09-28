@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Dialog } from "@headlessui/react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import GridPattern from '../components/grid-pattern'; // Import GridPattern component
 
 const projects = [
   {
@@ -76,13 +77,36 @@ const AtliktiDarbai: React.FC = () => {
     // Set the document title
     document.title = "Atlikti darbai | Brandforge.lt";
   }, []);
+
   return (
-    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+    <div className="relative min-h-screen bg-black"> {/* Set the background to black */}
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0">
+        <GridPattern
+          width={40}
+          height={40}
+          className="w-full h-full opacity-20 pointer-events-none"
+          strokeDasharray="0"
+        />
+      </div>
+
+      {/* Fading Effect at the Edges - Creating a border effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top Fade */}
+        <div className="absolute top-0 left-0 right-0 h-1/6 bg-gradient-to-b from-black to-transparent" />
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-black to-transparent" />
+        {/* Left Fade */}
+        <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent" />
+        {/* Right Fade */}
+        <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent" />
+      </div>
+
       {/* Navigation */}
       <Navigation />
 
       {/* Header Section */}
-      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-10">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Atlikti Projektai
@@ -95,7 +119,7 @@ const AtliktiDarbai: React.FC = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="px-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-7xl">
+      <div className="px-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-7xl relative z-10">
         {projects.map((project, index) => (
           <Card
             key={index}

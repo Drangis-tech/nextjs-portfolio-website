@@ -6,7 +6,7 @@ import { Card } from '../components/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../components/Footer'; // Import Footer Component
-
+import GridPattern from '../components/grid-pattern'; // Import GridPattern component
 
 // Team Data
 const teamData = [
@@ -55,8 +55,32 @@ const ApieMus: React.FC = () => {
     // Set the document title
     document.title = "Apie mus | Brandforge.lt";
   }, []);
+  
   return (
-    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+    <div className="relative min-h-screen bg-black"> {/* Set the background to black */}
+
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0">
+        <GridPattern
+          width={40}
+          height={40}
+          className="w-full h-full opacity-20 pointer-events-none"
+          strokeDasharray="0"
+        />
+      </div>
+
+      {/* Fading Effect at the Edges */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top Fade */}
+        <div className="absolute top-0 left-0 right-0 h-1/6 bg-gradient-to-b from-black to-transparent" />
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-black to-transparent" />
+        {/* Left Fade */}
+        <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent" />
+        {/* Right Fade */}
+        <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent" />
+      </div>
+
       <Navigation />
 
       {/* Hero Section */}

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-
 import Image from "next/image";
 import Link from "next/link";
 import { FlipWords } from "./flip-words"; // Ensure the correct path
+import { HelpCircle } from "lucide-react";
 
 // Import images (update paths if needed)
 import scanstrutComImage from "../../public/projektai/scanstrut_com.jpg";
@@ -103,13 +104,16 @@ export const HeroParallax: React.FC<{ products: { title: string; link: string; t
 
       {/* New Section with Header and Description */}
       <div className="absolute bottom-0 w-full bg-black text-left z-40 pt-32 px-8"> {/* Set text alignment to left and added padding */}
-        <div className="max-w-4xl mx-auto"> {/* Center the content horizontally */}
-          <h2 className="text-white text-2xl md:text-4xl font-bold mb-4">
-            Kaip atrodo puslapio kurimo darbo eiga?
-          </h2>
-          <p className="text-zinc-400 text-lg md:text-xl">
-            Puslapio kūrimas yra nuoseklus procesas, apimantis svarbius etapus nuo idėjų iki galutinio produkto. Kiekvienas etapas užtikrina, kad svetainė atitiktų jūsų lūkesčius ir poreikius.
-          </p>
+        <div className="max-w-4xl mx-auto flex items-start"> {/* Use flex for icon and text alignment */}
+          <HelpCircle className="text-white h-12 w-12 mr-4" /> {/* Increased icon size */}
+          <div> {/* Container for text */}
+            <h2 className="text-white text-2xl md:text-4xl font-bold mb-4">
+              Kaip atrodo puslapio kurimo darbo eiga?
+            </h2>
+            <p className="text-zinc-400 text-lg md:text-xl">
+              Puslapio kūrimas yra nuoseklus procesas, apimantis svarbius etapus nuo idėjų iki galutinio produkto. Kiekvienas etapas užtikrina, kad svetainė atitiktų jūsų lūkesčius ir poreikius.
+            </p>
+          </div>
         </div>
       </div>
     </div>

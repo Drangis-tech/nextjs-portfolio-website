@@ -10,6 +10,7 @@ import Switch from './Switch'; // Ensure this import is included
 import IOSSlider from './IOSSlider'; // Import the IOSSlider component
 import EmailInput from './EmailInput'; // Import the EmailInput component
 import SubHandler from './SubHandler'; // Import the SubHandler component
+import GridPattern from '../components/grid-pattern'; // Import the GridPattern component
 
 const PricingCalculator: React.FC = () => {
   const [pages, setPages] = useState<number>(1);
@@ -25,10 +26,9 @@ const PricingCalculator: React.FC = () => {
 
   const calculatePrice = () => {
     let basePrice = pages * 50 + (design === 'Paprastas' ? 450 : design === 'Vidutinis' ? 650 : 950);
-    if (ecommerce) basePrice += 2000;
+    if (ecommerce) basePrice += 1000;
     if (seo) basePrice += 300;
     if (contentCreation) basePrice += 150;
-    if (mobileResponsive) basePrice += 150;
     return basePrice;
   };
 
@@ -129,13 +129,6 @@ const PricingCalculator: React.FC = () => {
           </label>
         </div>
 
-        <div className="mb-6 flex items-center">
-          <Switch id="mobileResponsive" checked={mobileResponsive} onChange={setMobileResponsive} />
-          <label htmlFor="mobileResponsive" className="ml-2 text-sm font-medium text-zinc-100">
-            Mobilios versijos
-          </label>
-        </div>
-
         <div className="mb-6">
           <label htmlFor="comments" className="block text-sm font-medium text-zinc-100 mb-1">
             Papildomi komentarai:
@@ -172,8 +165,33 @@ const KainosPage: React.FC = () => {
     // Set the document title
     document.title = "Kainos | Brandforge.lt";
   }, []);
+  
   return (
-    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+    <div className="relative min-h-screen bg-black"> {/* Set the background to black */}
+      
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0">
+        <GridPattern
+          width={40}
+          height={40}
+          className="w-full h-full opacity-20 pointer-events-none"
+          strokeDasharray="0"
+        />
+      </div>
+
+      {/* Fading Effect at the Edges */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top Fade */}
+        <div className="absolute top-0 left-0 right-0 h-1/6 bg-gradient-to-b from-black to-transparent" />
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-black to-transparent" />
+        {/* Left Fade */}
+        <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent" />
+        {/* Right Fade */}
+        <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent" />
+      </div>
+
+
       <Head>
         <title>Kainos - Apskaičiuokite</title>
       </Head>
