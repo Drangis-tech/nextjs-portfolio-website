@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card"; // Import the Card component
+import GridPattern from '../components/grid-pattern'; // Import GridPattern component
 
 // Service Data with Images
 const services = [
@@ -133,8 +134,15 @@ const Paslaugos = () => {
   }, []);
 
   return (
-    <div className="relative pb-16 bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+    <div className="relative min-h-screen bg-black"> {/* Set the background to black */}
 
+      {/* Grid Pattern Overlay */}
+      <GridPattern
+        width={40}
+        height={40}
+        className="absolute inset-0 z-10 opacity-15 pointer-events-none"
+        strokeDasharray="0"
+      />
 
       <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-10">
