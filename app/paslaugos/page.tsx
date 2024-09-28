@@ -135,14 +135,28 @@ const Paslaugos = () => {
 
   return (
     <div className="relative min-h-screen bg-black"> {/* Set the background to black */}
-
+      
       {/* Grid Pattern Overlay */}
-      <GridPattern
-        width={40}
-        height={40}
-        className="absolute inset-0 z-10 opacity-10 pointer-events-none"
-        strokeDasharray="0"
-      />
+      <div className="absolute inset-0">
+        <GridPattern
+          width={40}
+          height={40}
+          className="w-full h-full opacity-15 pointer-events-none"
+          strokeDasharray="0"
+        />
+      </div>
+
+      {/* Fading Effect at the Edges - Creating a border effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top Fade */}
+        <div className="absolute top-0 left-0 right-0 h-1/6 bg-gradient-to-b from-black to-transparent" />
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-black to-transparent" />
+        {/* Left Fade */}
+        <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent" />
+        {/* Right Fade */}
+        <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent" />
+      </div>
 
       <Navigation />
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-10">
