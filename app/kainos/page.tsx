@@ -175,7 +175,7 @@ const KainosPage: React.FC = () => {
         <GridPattern
           width={40}
           height={40}
-          className="w-full h-full opacity-20 pointer-events-none"
+          className="w-full h-full opacity-10 pointer-events-none"
           strokeDasharray="0"
         />
       </div>

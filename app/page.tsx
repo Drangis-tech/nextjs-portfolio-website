@@ -78,10 +78,15 @@ export default function Home() {
       <div className="bg-black min-h-screen relative overflow-hidden">
         {/* Hero Section */}
         <div className="relative min-h-screen flex items-center justify-center w-screen bg-black overflow-hidden">
-          {/* Spotlight SVG */}
-          <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-            <Spotlight className="w-[120%] h-[120%]" fill="white" />
-          </div>
+  {/* Spotlight SVG */}
+  <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
+    <Spotlight 
+      className="w-[160vw] h-[160vh] md:w-[120vw] md:h-[120vh] lg:w-[100vw] lg:h-[100vh] 
+                 transform translate-y-[15%] md:translate-y-[5%] lg:translate-y-[0%] 
+                 transition-all duration-[8s] ease-in-out motion-safe:animate-moveSpotlight"
+      fill="white"
+    />
+  </div>
           
           {/* Grid Pattern Overlay */}
           <GridPattern
