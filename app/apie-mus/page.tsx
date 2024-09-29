@@ -155,7 +155,7 @@ const ApieMus: React.FC = () => {
       </div>
 
       {/* Add Footer with margin-top */}
-      <div className="mt-16"> {/* Creates a gap below the last content */}
+      <div className="mt-40"> {/* Creates a gap below the last content */}
         <Footer />
       </div>
     </div>

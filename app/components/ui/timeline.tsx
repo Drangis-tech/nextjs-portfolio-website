@@ -148,6 +148,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           }
         }
       `}</style>
+              <div className="mb-20"></div> {/* This div adds space below the last section */}
+
     </div>
   );
 };

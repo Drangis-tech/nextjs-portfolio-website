@@ -91,7 +91,7 @@ export default function Contact() {
       </div>
 
       {/* Add Footer with margin above */}
-      <div className="mb-16"> {/* Adjust margin as needed */}
+      <div className="mb-40"> {/* Adjust margin as needed */}
         <Footer />
       </div>
     </div>

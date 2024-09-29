@@ -208,13 +208,16 @@ const KainosPage: React.FC = () => {
         </div>
 
         {/* Pricing Calculator Component */}
-        <PricingCalculator />
-      </div>
+{/* Adjust margin below the Pricing Calculator */}
+<div className="mb-26"> {/* This increases the space below the calculator */}
+  <PricingCalculator />
+</div>
 
       {/* Add Footer with margin above */}
-      <div className="mb-16"> {/* Adjust margin as needed */}
+      <div className="mb-30"> {/* Adjust margin as needed */}
         <Footer />
       </div>
+    </div>
     </div>
   );
 };

@@ -63,12 +63,6 @@ const projects = [
     description: "Tai yra devinto projekto aprašymas. Tai apima UX/UI dizainą.",
     technologies: "Figma, Sketch",
   },
-  {
-    title: "Projektas 10",
-    image: "/images/project10.jpg",
-    description: "Tai yra dešimto projekto aprašymas. Tai apima elektroninės komercijos sprendimus.",
-    technologies: "Magento, WooCommerce",
-  },
 ];
 
 const AtliktiDarbai: React.FC = () => {
@@ -182,7 +176,7 @@ const AtliktiDarbai: React.FC = () => {
       )}
 
       {/* Footer with a gap */}
-      <div className="mt-16"> {/* Add a gap before the footer */}
+      <div className="mt-40"> {/* Add a gap before the footer */}
         <Footer />
       </div>
     </div>
