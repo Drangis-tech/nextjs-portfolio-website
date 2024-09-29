@@ -166,16 +166,16 @@ const KainosPage: React.FC = () => {
     // Set the document title
     document.title = "Kainos | Brandforge.lt";
   }, []);
-  
+
   return (
     <div className="relative min-h-screen bg-black"> {/* Set the background to black */}
-      
+
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0">
         <GridPattern
           width={40}
           height={40}
-          className="w-full h-full opacity-10 pointer-events-none"
+          className="w-full h-full opacity-15 pointer-events-none"
           strokeDasharray="0"
         />
       </div>
@@ -196,9 +196,10 @@ const KainosPage: React.FC = () => {
         <title>Kainos - Apskaičiuokite</title>
       </Head>
       <Navigation />
+
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
         {/* Hero Section */}
-        <div className="max-w-2xl mx-auto lg:mx-0">
+        <div className="max-w-2xl mx-auto lg:mx-0 relative z-10"> {/* Added z-index to keep above other elements */}
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Kainos
           </h2>
@@ -208,16 +209,15 @@ const KainosPage: React.FC = () => {
         </div>
 
         {/* Pricing Calculator Component */}
-{/* Adjust margin below the Pricing Calculator */}
-<div className="mb-26"> {/* This increases the space below the calculator */}
-  <PricingCalculator />
-</div>
+        <div className="flex justify-center mb-40 relative z-10"> {/* Ensure it's above other elements */}
+          <PricingCalculator />
+        </div>
 
-      {/* Add Footer with margin above */}
-      <div className="mb-30"> {/* Adjust margin as needed */}
-        <Footer />
+        {/* Add Footer with margin above */}
+        <div className="mb-50"> {/* Adjust margin as needed */}
+          <Footer />
+        </div>
       </div>
-    </div>
     </div>
   );
 };

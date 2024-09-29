@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect } from 'react';  // Add useEffect import
-import { Navigation } from '../components/nav';
-import { Card } from '../components/card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faEye, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
-import Footer from '../components/Footer'; // Import Footer Component
-import GridPattern from '../components/grid-pattern'; // Import GridPattern component
+import React, { useEffect } from "react";
+import { Navigation } from "../components/nav";
+import { Card } from "../components/card";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers, faEye, faBalanceScale } from "@fortawesome/free-solid-svg-icons";
+import Footer from "../components/Footer"; // Import Footer Component
+import GridPattern from "../components/grid-pattern"; // Import GridPattern component
 
 // Team Data
 const teamData = [
@@ -28,7 +28,6 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/alicejohnson",
     twitter: "https://twitter.com/alicejohnson",
   },
-  // Add more team members as needed
 ];
 
 // About Us Data
@@ -55,7 +54,7 @@ const ApieMus: React.FC = () => {
     // Set the document title
     document.title = "Apie mus | Brandforge.lt";
   }, []);
-  
+
   return (
     <div className="relative min-h-screen bg-black"> {/* Set the background to black */}
 
@@ -64,7 +63,7 @@ const ApieMus: React.FC = () => {
         <GridPattern
           width={40}
           height={40}
-          className="w-full h-full opacity-10 pointer-events-none"
+          className="w-full h-full opacity-15 pointer-events-none"
           strokeDasharray="0"
         />
       </div>
@@ -84,7 +83,7 @@ const ApieMus: React.FC = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-10"> {/* Ensure Hero Section has a higher z-index */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Apie Mus
@@ -142,19 +141,25 @@ const ApieMus: React.FC = () => {
                   <span>{member.role}</span>
                 </div>
 
-                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white">
                   {member.name}
                 </h3>
-                <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300">
-                  <a href={member.linkedIn} className="text-blue-400 hover:text-blue-300">LinkedIn</a> | <a href={member.twitter} className="text-blue-400 hover:text-blue-300">Twitter</a>
-                </p>
+
+                <div className="flex space-x-3 mt-4">
+                  <a href={member.linkedIn} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={["fab", "linkedin"]} className="text-zinc-400 hover:text-zinc-300" />
+                  </a>
+                  <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={["fab", "twitter"]} className="text-zinc-400 hover:text-zinc-300" />
+                  </a>
+                </div>
               </article>
             </Card>
           ))}
         </div>
       </div>
 
-      {/* Add Footer with margin-top */}
+      {/* Add Footer with margin above */}
       <div className="mt-40"> {/* Creates a gap below the last content */}
         <Footer />
       </div>
