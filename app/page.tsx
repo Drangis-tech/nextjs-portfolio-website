@@ -81,13 +81,14 @@ export default function Home() {
     
     {/* Spotlight SVG */}
     <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-      <Spotlight 
-        className="w-[160vw] h-[160vh] md:w-[120vw] md:h-[120vh] lg:w-[100vw] lg:h-[100vh] 
-                   transform translate-y-[15%] md:translate-y-[5%] lg:translate-y-[0%] 
-                   transition-all duration-[8s] ease-in-out motion-safe:animate-moveSpotlight"
-        fill="white"
-      />
-    </div>
+  <Spotlight 
+    className="w-[160vw] h-[160vh] transform translate-y-[15%] translate-x-[-25%] 
+               md:w-[120vw] md:h-[120vh] md:translate-x-[-10%] md:translate-y-[5%] 
+               lg:w-[100vw] lg:h-[100vh] lg:translate-x-[0%] lg:translate-y-[0%] 
+               transition-all duration-[8s] ease-in-out motion-safe:animate-moveSpotlight"
+    fill="white"
+  />
+</div>
           
           {/* Grid Pattern Overlay */}
           <GridPattern
