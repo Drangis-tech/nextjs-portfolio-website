@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             
             {/* Company Logo */}
             <div className="flex flex-col items-center space-y-6">
-            <img src="/logopilnas.svg" alt="Company Logo" className="w-15" />              <div className="text-center text-zinc-400">
+            <img src="/logopilnas.svg" alt="Company Logo" className="w-10" />              <div className="text-center text-zinc-400">
                 <p>© 2024 Brandforge</p>
               </div>
             </div>
