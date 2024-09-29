@@ -6,6 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image'; // Import Image for logo
 import LanguageSelector from './LanguageSelector';
 
 export const Navigation: React.FC = () => {
@@ -69,20 +70,17 @@ export const Navigation: React.FC = () => {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between p-6">
-          {/* Back Button */}
-          {pathname === '/' ? (
-            <div className="w-8 h-8 md:w-10 md:h-10" />  // Invisible space for the back button
-          ) : (
-            <Link
-              href="/"
-              className={`flex items-center text-zinc-300 hover:text-zinc-100 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
-            >
-              <ArrowLeft className="w-8 h-8 md:w-10 md:h-10" />
-            </Link>
-          )}
+          {/* Logo */}
+          <Link
+            href="/"
+            className={`flex items-center text-zinc-300 hover:text-zinc-100 transition-opacity duration-300 ease-in-out`}
+          >
+            <Image src="/logo.png" alt="Brand Logo" width={48} height={48} className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+          </Link>
 
+          {/* Navigation Links (center-aligned) */}
           <div className="flex-grow flex items-center justify-center">
-            <div className="hidden md:flex gap-8">
+            <div className="hidden md:flex gap-8 items-center">
               <Link href="/atlikti-darbai" className="nav-link">Atlikti Darbai</Link>
               <Link href="/paslaugos" className="nav-link">Paslaugos</Link>
               <Link href="/apie-mus" className="nav-link">Apie Mus</Link>
@@ -91,6 +89,7 @@ export const Navigation: React.FC = () => {
             </div>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button
             className={`flex items-center text-zinc-300 hover:text-zinc-100 md:hidden transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}
             onClick={toggleMenu}
