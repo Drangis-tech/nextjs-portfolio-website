@@ -7,18 +7,19 @@ const Footer: React.FC = () => {
     <div className="border-t border-[#27272a] z-20 relative bg-black pt-4">
       <footer className="bg-transparent text-white pt-8 pb-12 mt-16">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8"> {/* Reduced gap for uniform spacing */}
+          {/* Use flex for better control over horizontal spacing */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:space-x-12 lg:space-x-16"> 
             
             {/* Company Logo Section */}
-            <div className="flex flex-col items-center">
+            <div className="flex-1 flex flex-col space-y-3 space-x-9 md:items-start"> {/* Equal space allocation */}
               <img src="/logopilnas.svg" alt="Company Logo" className="w-48" />
-              <div className="text-center text-zinc-400 mt-4">
+              <div className="text-center md:text-left text-zinc-400 mt-4">
                 <p>© 2024 Brandforge</p>
               </div>
             </div>
             
             {/* Let's Connect Section */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex-1 flex flex-col space-y-4"> {/* Equal space allocation */}
               <h4 className="font-bold text-lg text-white">Susirašom?</h4>
               <div className="flex items-center space-x-3">
                 <EnvelopeFill className="text-xl text-white" />
@@ -31,7 +32,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Links Section */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex-1 flex flex-col space-y-4"> {/* Equal space allocation */}
               <h4 className="font-bold text-lg text-white">Nuorodos</h4>
               <ul className="space-y-2">
                 <li><Link href="/atlikti-darbai" className="text-zinc-400 hover:text-zinc-300">Mūsų atlikti darbai</Link></li>
@@ -43,7 +44,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Follow Us Section */}
-            <div className="flex flex-col space-y-4">
+            <div className="flex-2 flex flex-col space-y-4 md:items-end"> {/* Equal space allocation */}
               <h4 className="font-bold text-lg text-white">Sekite mus per:</h4>
               <div className="flex items-center space-x-6">
                 <Link href="https://linkedin.com/company/brandforge-lt" aria-label="Linkedin">
