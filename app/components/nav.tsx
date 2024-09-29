@@ -2,12 +2,28 @@
 
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo } from "react"; // Import memo
 import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image'; // Import Image for logo
 import LanguageSelector from './LanguageSelector';
+
+// Memoized Logo Component
+const Logo = memo(() => (
+  <Link
+    href="/"
+    className={`flex items-center text-zinc-300 hover:text-zinc-100 transition-opacity duration-300 ease-in-out`}
+  >
+    <Image 
+      src="/logo.png" 
+      alt="Brand Logo" 
+      width={48} 
+      height={48} 
+      className="w-10 h-10 md:w-12 md:h-12 object-contain" 
+    />
+  </Link>
+));
 
 export const Navigation: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
@@ -71,12 +87,7 @@ export const Navigation: React.FC = () => {
       >
         <div className="container mx-auto flex items-center justify-between p-6">
           {/* Logo */}
-          <Link
-            href="/"
-            className={`flex items-center text-zinc-300 hover:text-zinc-100 transition-opacity duration-300 ease-in-out`}
-          >
-            <Image src="/logo.png" alt="Brand Logo" width={48} height={48} className="w-10 h-10 md:w-12 md:h-12 object-contain" />
-          </Link>
+          <Logo /> {/* Use memoized Logo component */}
 
           {/* Navigation Links (center-aligned) */}
           <div className="flex-grow flex items-center justify-center">
