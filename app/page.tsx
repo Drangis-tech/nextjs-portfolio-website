@@ -74,22 +74,21 @@ export default function Home() {
         <Navigation />
       </header>
 
-{/* Main Page Container with Global Background */}
-<div className="bg-black min-h-screen relative overflow-hidden">
-  {/* Hero Section */}
-  <div className="relative min-h-screen flex items-center justify-center w-screen bg-black overflow-hidden">
-    
-    {/* Spotlight SVG */}
-    <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-  <Spotlight 
-    className="w-[160vw] h-[160vh] transform translate-y-[15%] translate-x-[-65%] 
-               md:w-[120vw] md:h-[120vh] md:translate-x-[-15%] md:translate-y-[5%] 
-               lg:w-[100vw] lg:h-[100vh] lg:translate-x-[0%] lg:translate-y-[0%] 
-               transition-all duration-[8s] ease-in-out motion-safe:animate-moveSpotlight"
-    fill="white"
-  />
-</div>
-          
+      {/* Main Page Container with Global Background */}
+      <div className="bg-black min-h-screen relative overflow-hidden">
+        {/* Hero Section */}
+        <div className="relative min-h-screen flex items-center justify-center w-screen bg-black overflow-hidden">
+          {/* Spotlight SVG */}
+          <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
+            <Spotlight 
+              className="w-[160vw] h-[160vh] transform translate-y-[15%] translate-x-[-65%] 
+                         md:w-[120vw] md:h-[120vh] md:translate-x-[-15%] md:translate-y-[5%] 
+                         lg:w-[100vw] lg:h-[100vh] lg:translate-x-[0%] lg:translate-y-[0%] 
+                         transition-all duration-[8s] ease-in-out motion-safe:animate-moveSpotlight"
+              fill="white"
+            />
+          </div>
+
           {/* Grid Pattern Overlay */}
           <GridPattern
             width={40}
@@ -127,10 +126,35 @@ export default function Home() {
               Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
             </p>
             <div className="mb-2 md:mb-4">
-              <Link href="/paslaugos" className="px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition inline-flex items-center">
-                Mūsų paslaugas
-                <span className="ml-2">→</span>
-              </Link>
+              {/* Updated Button with Increased Size */}
+<Link href="/paslaugos">
+  <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-base font-semibold leading-6 text-white inline-block">
+    <span className="absolute inset-0 overflow-hidden rounded-full">
+      <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(247,167,27,0.6)_0%,rgba(228,77,38,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+    </span>
+    <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10 ">
+      <span>
+        Mūsų paslaugos
+      </span>
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.75 8.75L14.25 12L10.75 15.25"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+        />
+      </svg>
+    </div>
+    <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-red-100/0 via-orange-400/100 to-orange-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+  </button>
+</Link>
             </div>
           </div>
         </div>
