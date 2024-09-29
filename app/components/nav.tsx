@@ -63,11 +63,11 @@ export const Navigation: React.FC = () => {
     <header ref={ref} className="relative">
       {/* Main Header */}
       <div
-        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-sm duration-200 border-b ${
+        className={`fixed inset-x-0 top-0 z-50 duration-200 border-b ${
           isIntersecting
             ? "bg-zinc-900/0 border-transparent"
             : "bg-zinc-900/500 border-zinc-800"
-        }`}
+        } backdrop-blur-sm`} // Adjusted to keep the blur effect
       >
         <div className="container mx-auto flex items-center justify-between p-6">
           {/* Logo */}
@@ -102,9 +102,12 @@ export const Navigation: React.FC = () => {
       {/* Backdrop Blur Overlay */}
       <div
         ref={overlayRef}
-        className={`fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-40`}  
+        className={`fixed inset-0 bg-black bg-opacity-70 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} z-40`}  
         onClick={() => isOpen && setIsOpen(false)}
-      ></div>
+      >
+        {/* Blur the navigation bar without affecting the logo */}
+        <div className={`absolute inset-x-0 top-0 z-50 backdrop-blur-sm pointer-events-none`} />
+      </div>
 
       {/* Side Menu */}
       <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
@@ -131,7 +134,7 @@ export const Navigation: React.FC = () => {
             <Link href="/contact" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Kontaktai</Link>
           </nav>
 
-          {/* Contact Information */}
+          {/* Update the contact information section to reflect the color change */}
           <div className="flex flex-col items-start space-y-4 text-gray-400 text-sm p-6 mt-auto">
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon={faEnvelope} className="text-xl" />

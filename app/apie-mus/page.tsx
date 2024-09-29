@@ -83,7 +83,7 @@ const ApieMus: React.FC = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-10"> {/* Ensure Hero Section has a higher z-index */}
+      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-20"> {/* Ensure Hero Section has a higher z-index */}
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Apie Mus
@@ -97,7 +97,7 @@ const ApieMus: React.FC = () => {
       </div>
 
       {/* About Us Sections */}
-      <div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto">
+      <div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto relative z-20"> {/* Adjusted z-index */}
         {aboutUsData.map((section, index) => (
           <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
             <Card className="w-full md:w-1/2 flex-shrink-0">
@@ -128,7 +128,7 @@ const ApieMus: React.FC = () => {
       <div className="w-full h-px bg-zinc-800 mt-12" />
 
       {/* Team Section */}
-      <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto">
+      <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto relative z-20"> {/* Adjusted z-index */}
         <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
           Komanda
         </h2>
