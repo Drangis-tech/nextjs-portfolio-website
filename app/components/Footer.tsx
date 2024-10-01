@@ -7,19 +7,19 @@ const Footer: React.FC = () => {
     <div className="border-t border-[#27272a] z-20 relative bg-black pt-4">
       <footer className="bg-transparent text-white pt-8 pb-12 mt-16">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 lg:gap-16 justify-between items-start"> 
-            {/* Adjusted gap and alignment for uniformity */}
+          {/* Grid for larger screens, stacked for mobile */}
+          <div className="grid grid-cols-1 gap-y-8 md:grid-cols-4 md:gap-x-12 lg:gap-x-16 justify-between items-start"> 
             
             {/* Company Logo Section */}
-            <div className="flex flex-col items-center md:items-start"> {/* Align left on larger screens */}
-              <img src="/logopilnas.svg" alt="Company Logo" className="w-48" />
-              <div className="text-center md:text-left text-zinc-400 mt-4">
+            <div className="flex flex-col items-center md:items-start md:mr-8"> {/* Added margin-right for space */}
+              <img src="/logopilnas.svg" alt="Company Logo" className="w-36 md:w-48 mb-6" /> {/* Adjusted size for mobile */}
+              <div className="text-center md:text-left text-zinc-400">
                 <p>© 2024 Brandforge</p>
               </div>
             </div>
             
             {/* Let's Connect Section */}
-            <div className="flex flex-col space-y-4"> {/* Removed justify-between */}
+            <div className="flex flex-col space-y-4 md:ml-12 lg:ml-16"> {/* Left margin for larger screens */}
               <h4 className="font-bold text-lg text-white">Susirašom?</h4>
               <div className="flex items-center space-x-3">
                 <EnvelopeFill className="text-xl text-white" />
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Links Section */}
-            <div className="flex flex-col space-y-4"> {/* Removed justify-between */}
+            <div className="flex flex-col space-y-4 md:ml-12 lg:ml-16"> {/* Left margin for larger screens */}
               <h4 className="font-bold text-lg text-white">Nuorodos</h4>
               <ul className="space-y-2">
                 <li><Link href="/atlikti-darbai" className="text-zinc-400 hover:text-zinc-300">Mūsų atlikti darbai</Link></li>
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Follow Us Section */}
-            <div className="flex flex-col space-y-4 md:items-end"> {/* Align right on larger screens */}
+            <div className="flex flex-col space-y-4 md:items-end md:ml-8"> {/* Right alignment for larger screens */}
               <h4 className="font-bold text-lg text-white">Sekite mus per:</h4>
               <div className="flex items-center space-x-6">
                 <Link href="https://linkedin.com/company/brandforge-lt" aria-label="Linkedin">
