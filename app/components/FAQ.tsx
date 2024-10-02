@@ -15,8 +15,8 @@ const FAQ = () => {
     } else {
       setOpenFAQ(index);
       setHeights(prevHeights => {
-        const newHeights = [...prevHeights];
-        newHeights[index] = 200; // Adjust to the max height you want for the opened item
+        const newHeights = Array(5).fill(0); // Reset all heights to 0
+        newHeights[index] = 200; // Set height for the opened item
         return newHeights;
       });
     }
