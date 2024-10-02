@@ -2,22 +2,22 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const FAQ = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [height, setHeight] = useState<number>(0); // Changed to number to avoid null assignment
-  const contentRef = useRef<HTMLDivElement>(null);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]); // Store multiple refs for each content
+  const [heights, setHeights] = useState<number[]>(Array(5).fill(0)); // Array to store heights of each item
 
   const toggleFAQ = (index: number) => {
     if (openFAQ === index) {
-      setHeight(0); // Set height to 0 when closing
       setOpenFAQ(null);
     } else {
-      setHeight(contentRef.current?.scrollHeight || 0);
       setOpenFAQ(index);
     }
   };
 
   useEffect(() => {
-    if (openFAQ !== null && contentRef.current) {
-      setHeight(contentRef.current.scrollHeight);
+    if (openFAQ !== null && contentRefs.current[openFAQ]) {
+      const newHeights = [...heights];
+      newHeights[openFAQ] = contentRefs.current[openFAQ]?.scrollHeight || 0;
+      setHeights(newHeights);
     }
   }, [openFAQ]);
 
@@ -38,7 +38,7 @@ const FAQ = () => {
 
         <div className="md:col-span-3">
           {/* Accordion Container */}
-          <div className="max-h-[500px] overflow-y-auto divide-y divide-gray-200 dark:divide-neutral-700">
+          <div className="divide-y divide-gray-200 dark:divide-neutral-700">
             {Array.from({ length: 5 }, (_, index) => (
               <div key={index} className={`pt-6 pb-3 ${index === 0 ? 'pt-0' : ''}`}>
                 <button
@@ -89,11 +89,11 @@ const FAQ = () => {
                   </svg>
                 </button>
                 <div
-                  ref={contentRef}
+                  ref={(el) => (contentRefs.current[index] = el)} // Assign each ref dynamically
                   className={`overflow-hidden transition-[max-height] duration-500 ease-in-out transform ${
-                    openFAQ === index ? 'opacity-100 max-h-[300px] translate-y-0' : 'opacity-0 max-h-0 -translate-y-4'
+                    openFAQ === index ? 'opacity-100 max-h-[200px] translate-y-0' : 'opacity-0 max-h-0 -translate-y-4'
                   }`}
-                  style={{ maxHeight: openFAQ === index ? height : 0 }} // No null assignment
+                  style={{ maxHeight: openFAQ === index ? heights[index] : 0 }} // Set max height based on the individual item
                 >
                   <p className="text-gray-600 dark:text-neutral-400">
                     {index === 0 &&
