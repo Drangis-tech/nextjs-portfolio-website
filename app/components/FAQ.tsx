@@ -38,7 +38,7 @@ const FAQ = () => {
 
         <div className="md:col-span-3">
           {/* Accordion Container */}
-          <div className="h-[500px] overflow-y-auto divide-y divide-gray-200 dark:divide-neutral-700">
+          <div className="max-h-[500px] overflow-y-auto divide-y divide-gray-200 dark:divide-neutral-700">
             {Array.from({ length: 5 }, (_, index) => (
               <div key={index} className={`pt-6 pb-3 ${index === 0 ? 'pt-0' : ''}`}>
                 <button
@@ -91,7 +91,7 @@ const FAQ = () => {
                 <div
                   ref={contentRef}
                   className={`overflow-hidden transition-[max-height] duration-500 ease-in-out transform ${
-                    openFAQ === index ? 'opacity-100 max-h-[200px] translate-y-0' : 'opacity-0 max-h-0 -translate-y-4'
+                    openFAQ === index ? 'opacity-100 max-h-[300px] translate-y-0' : 'opacity-0 max-h-0 -translate-y-4'
                   }`}
                   style={{ maxHeight: openFAQ === index ? height : 0 }} // No null assignment
                 >
