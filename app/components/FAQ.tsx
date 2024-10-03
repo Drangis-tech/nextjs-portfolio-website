@@ -2,28 +2,13 @@ import React, { useState } from 'react';
 
 const FAQ = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [heights, setHeights] = useState<number[]>(Array(5).fill(0)); // Array to store heights
 
   const toggleFAQ = (index: number) => {
-    if (openFAQ === index) {
-      setOpenFAQ(null);
-      setHeights(prevHeights => {
-        const newHeights = [...prevHeights];
-        newHeights[index] = 0; // Set height to 0 when closing
-        return newHeights;
-      });
-    } else {
-      setOpenFAQ(index);
-      setHeights(prevHeights => {
-        const newHeights = Array(5).fill(0); // Reset all heights to 0
-        newHeights[index] = 200; // Set height for the opened item
-        return newHeights;
-      });
-    }
+    setOpenFAQ(openFAQ === index ? null : index);
   };
 
   return (
-    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto min-h-[80vh]"> {/* Added min-height */}
       {/* Grid */}
       <div className="grid md:grid-cols-5 gap-10">
         <div className="md:col-span-2">
@@ -39,7 +24,7 @@ const FAQ = () => {
 
         <div className="md:col-span-3">
           {/* Accordion Container */}
-          <div className="overflow-hidden divide-y divide-gray-200 dark:divide-neutral-700">
+          <div className="divide-y divide-gray-200 dark:divide-neutral-700">
             {Array.from({ length: 5 }, (_, index) => (
               <div key={index} className={`pt-6 pb-3 ${index === 0 ? 'pt-0' : ''}`}>
                 <button
@@ -90,12 +75,16 @@ const FAQ = () => {
                   </svg>
                 </button>
                 <div
-                  className={`overflow-hidden transition-[max-height] duration-500 ease-in-out transform ${
-                    openFAQ === index ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+                  className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                    openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
-                  style={{ maxHeight: heights[index] }} // Set max height based on state
+                  style={{
+                    maxHeight: openFAQ === index ? '300px' : '0', // Adjust max-height for smooth expand/collapse
+                    opacity: openFAQ === index ? '1' : '0',
+                    transition: 'max-height 0.5s ease, opacity 0.5s ease',
+                  }}
                 >
-                  <p className="text-gray-600 dark:text-neutral-400">
+                  <p className="text-zinc-400 p-2">
                     {index === 0 &&
                       'Šablonas yra iš anksto sukurtas dizainas, kuris gali būti pritaikytas jūsų turiniui. Individualus sprendimas yra sukurtas būtent jums, atsižvelgiant į jūsų poreikius ir pageidavimus.'}
                     {index === 1 &&
