@@ -10,6 +10,8 @@ import { Spotlight } from './components/ui/Spotlight'; // Ensure this import is 
 import GridPattern from './components/grid-pattern'; // Import GridPattern component
 import Footer from './components/Footer'; // Import the Footer component
 import FAQ from './components/FAQ'; // Import the FAQ component
+import AOS from './components/AOS'; // Import the AOS component
+
 
 
 export default function Home() {
@@ -165,6 +167,13 @@ export default function Home() {
         <section className="w-full mt-4">
           <HeroParallax products={products} />
         </section>
+
+      {/* AOS (Text Animation) Section */}
+      <section className="w-full bg-black py-8">
+        <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8">
+          <AOS /> {/* Animated scrolling text */}
+        </div>
+      </section>
 
         {/* Timeline Section */}
         <section className="w-full bg-black py-8">
