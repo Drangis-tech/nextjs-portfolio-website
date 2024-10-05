@@ -47,19 +47,18 @@ const ServiceCarousel: React.FC = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 800, // Smooth transition speed
+    speed: 500, // Faster transition speed
     slidesToShow: 1, // Default to 1 card for small screens
     slidesToScroll: 1,
     autoplay: true, // Enable automatic scrolling
     autoplaySpeed: 3000, // Autoplay interval (3 seconds)
     cssEase: 'ease-in-out', // Smooth easing
-    arrows: true,
+    arrows: true, // Keep arrows visible on all devices
     responsive: [
       {
         breakpoint: 640, // Small screens (mobile)
         settings: {
           slidesToShow: 1, // Show 1 card on mobile
-          arrows: false, // No arrows on mobile
         },
       },
       {
