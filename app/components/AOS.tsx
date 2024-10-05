@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 // Service Data with Images
 const services = [
   {
-    title: "WEB DEVELOPMENT",
+    title: "E. Svetainių kūrimu",
     description:
       "We create modern and user-friendly websites using the latest technologies like React, Vue.js, and WordPress.",
     image: "/paslaugos/WEB_DEVELOPMENT.png", // Image for Web Development
@@ -47,26 +47,37 @@ const ServiceCarousel: React.FC = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1, // Show one card on small devices
+    speed: 800, // Smooth transition speed
+    slidesToShow: 1, // Default to 1 card for small screens
     slidesToScroll: 1,
+    autoplay: true, // Enable automatic scrolling
+    autoplaySpeed: 3000, // Autoplay interval (3 seconds)
+    cssEase: 'ease-in-out', // Smooth easing
+    arrows: true,
     responsive: [
       {
-        breakpoint: 640, // Tailwind's sm breakpoint
+        breakpoint: 640, // Small screens (mobile)
         settings: {
-          slidesToShow: 1, // One card on mobile
+          slidesToShow: 1, // Show 1 card on mobile
+          arrows: false, // No arrows on mobile
         },
       },
       {
-        breakpoint: 768, // Tailwind's md breakpoint
+        breakpoint: 1024, // Medium screens (tablets)
         settings: {
-          slidesToShow: 2, // Two cards on small tablets
+          slidesToShow: 2, // Show 2 cards on tablets
         },
       },
       {
-        breakpoint: 1024, // Tailwind's lg breakpoint
+        breakpoint: 1440, // Large screens (laptops)
         settings: {
-          slidesToShow: 3, // Three cards on larger screens
+          slidesToShow: 3, // Show 3 cards on larger screens
+        },
+      },
+      {
+        breakpoint: 1920, // Very large screens (wide monitors)
+        settings: {
+          slidesToShow: 4, // Show 4 cards on very large screens
         },
       },
     ],
@@ -74,7 +85,7 @@ const ServiceCarousel: React.FC = () => {
 
   return (
     <div className="relative w-full bg-black text-white py-16">
-      <h2 className="text-4xl font-bold text-center mb-8">Our Services</h2>
+      <h2 className="text-4xl font-bold text-center mb-8">Mes Jūsų verslui galime padėti su:</h2>
       <Slider {...settings} className="relative">
         {services.map((service, index) => (
           <div key={index} className="p-4">
@@ -134,9 +145,20 @@ const ServiceCarousel: React.FC = () => {
           color: white;
         }
 
-        /* Hide default arrows */
-        .slick-arrow {
-          display: none;
+        /* Ensure arrows fit within the screen */
+        @media (max-width: 640px) {
+          .slick-prev, .slick-next {
+            width: 30px;
+            height: 30px;
+          }
+
+          .slick-prev {
+            left: 5px;
+          }
+
+          .slick-next {
+            right: 5px;
+          }
         }
       `}</style>
     </div>
