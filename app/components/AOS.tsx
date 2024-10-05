@@ -123,21 +123,21 @@ const ServiceCarousel: React.FC = () => {
         .slick-prev,
         .slick-next {
           z-index: 1;
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.7);
           border-radius: 50%;
           width: 40px;
           height: 40px;
           color: white;
         }
-        
+
         .slick-prev {
-          left: 10px;
+          left: 20px; /* Adjust to keep arrows more inside */
         }
-        
+
         .slick-next {
-          right: 10px;
+          right: 20px; /* Adjust to keep arrows more inside */
         }
-        
+
         .slick-prev:before,
         .slick-next:before {
           font-size: 24px;
@@ -146,17 +146,28 @@ const ServiceCarousel: React.FC = () => {
 
         /* Ensure arrows fit within the screen */
         @media (max-width: 640px) {
-          .slick-prev, .slick-next {
+          .slick-prev,
+          .slick-next {
             width: 30px;
             height: 30px;
+            top: 50%; /* Center the arrows vertically */
+            transform: translateY(-50%); /* Adjust to vertically center */
           }
 
           .slick-prev {
-            left: 5px;
+            left: 15px; /* Adjust for better visibility on mobile */
           }
 
           .slick-next {
-            right: 5px;
+            right: 15px; /* Adjust for better visibility on mobile */
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .slick-prev,
+          .slick-next {
+            width: 35px; /* Slightly larger arrows for tablet */
+            height: 35px; /* Slightly larger arrows for tablet */
           }
         }
       `}</style>
