@@ -71,25 +71,22 @@ const AtliktiDarbai: React.FC = () => {
         </div>
         <div className="w-full h-px bg-zinc-800" />
         <div className="flex justify-center mt-6">
-  <div className="flex space-x-4 p-1 border border-[#4a4a4a] rounded-full bg-black">
-    {["Visi", "Puslapiu kurimas", "Branding'as", "E-shop'ai"].map((category) => (
-      <button // Changed from <a> to <button> to prevent text selection
-        key={category}
-        className={`filter-button is-font-correction px-4 py-1 h-10 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
-          filter === category ? "bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] text-white" : "bg-zinc-800 text-white"
-        }`}
-        onClick={() => handleFilterChange(category)}
-        style={{ position: 'relative', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} // Added styles for text handling
-        type="button" // Ensure it's a button
-      >
-        {category}
-        {filter === category && (
-          <span className="absolute inset-0 border-2 border-[#f7a71b] rounded-full animate-pulse"></span> // Pulsing border color for selected button
-        )}
-      </button>
-    ))}
-  </div>
-</div>
+          <div className="flex space-x-2 p-1 border border-[#4a4a4a] rounded-full bg-black overflow-x-auto"> {/* Updated for overflow */}
+            {["Visi", "Puslapiu kurimas", "Branding'as", "E-shop'ai"].map((category) => (
+              <button // Changed from <a> to <button> to prevent text selection
+                key={category}
+                className={`filter-button is-font-correction px-4 py-1 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
+                  filter === category ? "bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] text-white" : "bg-zinc-800 text-white"
+                }`}
+                onClick={() => handleFilterChange(category)}
+                style={{ whiteSpace: 'nowrap' }} // Updated for text handling
+                type="button" // Ensure it's a button
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-16 max-w-[85vw] relative z-10">
