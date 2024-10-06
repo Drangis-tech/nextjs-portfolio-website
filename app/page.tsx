@@ -6,7 +6,8 @@ import { Navigation } from './components/nav';
 import { HeroParallax } from './components/ui/hero-parallax';
 import { TypewriterEffect } from './components/ui/typewriter-effect';
 import { Timeline } from './components/ui/timeline';
-import { Spotlight } from './components/ui/Spotlight'; // Ensure this import is correct
+import { Spotlight } from './components/ui/Spotlight';
+import { HoverBorderGradient } from './components/ui/hover-border-gradient'; // Import the HoverBorderGradient component
 import GridPattern from './components/grid-pattern'; // Import GridPattern component
 import Footer from './components/Footer'; // Import the Footer component
 import FAQ from './components/FAQ'; // Import the FAQ component
@@ -93,74 +94,66 @@ export default function Home() {
             />
           </div>
 
-          {/* Grid Pattern Overlay */}
-          <GridPattern
-            width={40}
-            height={40}
-            className="absolute inset-0 z-10 opacity-10 pointer-events-none"
-            strokeDasharray="0"
-          />
+{/* Grid Pattern Overlay */}
+<GridPattern
+  width={40}
+  height={40}
+  className="absolute inset-0 z-10 opacity-10 pointer-events-none"
+/>
 
-          <div className="flex flex-col items-center justify-center text-center text-white px-4 md:px-8 z-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight min-h-[100px] md:min-h-[120px]">
-              <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">Idėja</span>
-              <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
-              <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Strategija</span>
-              <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
-              <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
-              <br className="hidden md:block" />
-              <span className="block mt-1 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <div className="min-h-[30px]">
-                  <TypewriterEffect
-                    words={[
-                      { text: 'Tai' },
-                      { text: 'viskas' },
-                      { text: 'ko' },
-                      { text: 'reikia' },
-                      { text: 'Jūsų' },
-                      { text: 'verslui.' }
-                    ]}
-                    className="text-white text-4xl md:text-5xl lg:text-6xl"
-                    cursorClassName="bg-blue-500"
-                  />
-                </div>
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 mb-2 md:mb-4">
-              Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
-            </p>
-            <div className="mb-2 md:mb-4">
-              {/* Updated Button with Increased Size */}
-<Link href="/paslaugos">
-  <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-base font-semibold leading-6 text-white inline-block">
-    <span className="absolute inset-0 overflow-hidden rounded-full">
-      <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(247,167,27,0.6)_0%,rgba(228,77,38,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-    </span>
-    <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10 ">
-      <span>
-        Mūsų paslaugos
-      </span>
-      <svg
-        fill="none"
-        height="20"
-        viewBox="0 0 24 24"
-        width="20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10.75 8.75L14.25 12L10.75 15.25"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="1.5"
+<div className="flex flex-col items-center justify-center text-center text-white px-4 md:px-8 z-20">
+  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 md:mb-4 leading-tight min-h-[100px] md:min-h-[120px]">
+    <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">Idėja</span>
+    <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
+    <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Strategija</span>
+    <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent">,</span>
+    <span className="bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] bg-clip-text text-transparent"> Kodas</span>
+    <br className="hidden md:block" />
+    <span className="block mt-1 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+      <div className="min-h-[30px]">
+        <TypewriterEffect
+          words={[
+            { text: 'Tai' },
+            { text: 'viskas' },
+            { text: 'ko' },
+            { text: 'reikia' },
+            { text: 'Jūsų' },
+            { text: 'verslui.' }
+          ]}
+          className="text-white text-4xl md:text-5xl lg:text-6xl"
+          cursorClassName="bg-blue-500"
         />
-      </svg>
-    </div>
-    <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-red-100/0 via-orange-400/100 to-orange-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-  </button>
+      </div>
+    </span>
+  </h2>
+  <p className="text-lg md:text-xl text-gray-400 mb-2 md:mb-4">
+    Paverčiame jūsų idėjas veikiančiais sprendimais, o svetaines – įrankiais, kurie augina jūsų verslą ir prekės ženklą.
+  </p>
+  <div className="mb-2 md:mb-4">
+    {/* New Button */}
+{/* Button with Arrow */}
+<Link href="/paslaugos">
+  <HoverBorderGradient
+    containerClassName="rounded-full"
+    as="button"
+    className="flex items-center justify-center text-white dark:bg-white dark:text-black space-x-2 p-2"
+    duration={0.75} // Adjust duration for hover effect
+  >
+    <span>Mūsų paslaugos</span>
+    {/* Right-Facing Arrow Icon */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h12m0 0l-4 4m4-4l-4-4" />
+    </svg>
+  </HoverBorderGradient>
 </Link>
-            </div>
-          </div>
+  </div>
+</div>
         </div>
 
         {/* HeroParallax Component */}
@@ -170,18 +163,24 @@ export default function Home() {
 
       {/* AOS (Text Animation) Section */}
       <section className="w-full bg-black py-8">
-        <div className="max-w-5xl mx-auto py-6 px-8 md:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto py-8 px-8 md:px-6 lg:px-8">
           <AOS /> {/* Animated scrolling text */}
         </div>
       </section>
 
+      <div className="max-w-7xl mx-auto py-8 px-4 md:px-6 lg:px-8">
+            <h1 className="text-2xl md:text-5xl font-bold text-white text-center"> {/* Adjusted font size */}
+              Kaip atrodo puslapio kurimo darbo eiga?
+            </h1>
+          </div>
+
         {/* Timeline Section */}
         <section className="w-full bg-black py-8">
-          <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-16">
+          <div className="px-6 pt-8 mx-auto space-y-4 max-w-7xl lg:px-8 md:space-y-6 md:pt-12 lg:pt-0">
             <div className="w-full h-px bg-zinc-800" />
           </div>
 
-          <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto py-8 px-4 md:px-6 lg:px-8">
             <Timeline
               data={timelineData}
             />
@@ -190,7 +189,7 @@ export default function Home() {
 
                 {/* FAQ Section */}
                 <section className="w-full bg-black py-8">
-          <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto py-8 px-4 md:px-6 lg:px-8">
             <FAQ /> {/* FAQ component inserted here */}
           </div>
         </section>
