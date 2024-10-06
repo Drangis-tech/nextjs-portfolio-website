@@ -47,36 +47,38 @@ const ServiceCarousel: React.FC = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500, // Faster transition speed
-    slidesToShow: 1, // Default to 1 card for small screens
+    speed: 500,
+    slidesToShow: 1, 
     slidesToScroll: 1,
-    autoplay: true, // Enable automatic scrolling
-    autoplaySpeed: 3000, // Autoplay interval (3 seconds)
-    cssEase: 'ease-in-out', // Smooth easing
-    arrows: true, // Keep arrows visible on all devices
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: 'ease-in-out',
+    arrows: true,
+    touchMove: true, // Enable smooth touch scrolling
+    swipeToSlide: true, // Improves responsiveness for mobile
     responsive: [
       {
-        breakpoint: 640, // Small screens (mobile)
+        breakpoint: 640,
         settings: {
-          slidesToShow: 1, // Show 1 card on mobile
+          slidesToShow: 1, 
         },
       },
       {
-        breakpoint: 1024, // Medium screens (tablets)
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 2, // Show 2 cards on tablets
+          slidesToShow: 2, 
         },
       },
       {
-        breakpoint: 1440, // Large screens (laptops)
+        breakpoint: 1440,
         settings: {
-          slidesToShow: 3, // Show 3 cards on larger screens
+          slidesToShow: 3, 
         },
       },
       {
-        breakpoint: 1920, // Very large screens (wide monitors)
+        breakpoint: 1920,
         settings: {
-          slidesToShow: 4, // Show 4 cards on very large screens
+          slidesToShow: 4, 
         },
       },
     ],
@@ -118,59 +120,59 @@ const ServiceCarousel: React.FC = () => {
         ))}
       </Slider>
 
-      {/* Custom Arrows */}
-      <style jsx>{`
-        .slick-prev,
-        .slick-next {
-          z-index: 1;
-          background: rgba(0, 0, 0, 0.7);
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          color: white;
-        }
+<style jsx>{`
+  .slick-prev,
+  .slick-next {
+    z-index: 10;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
 
-        .slick-prev {
-          left: 20px; /* Adjust to keep arrows more inside */
-        }
+  .slick-prev {
+    left: 10px; /* Move the arrows fully inside */
+  }
 
-        .slick-next {
-          right: 20px; /* Adjust to keep arrows more inside */
-        }
+  .slick-next {
+    right: 10px; /* Move the arrows fully inside */
+  }
 
-        .slick-prev:before,
-        .slick-next:before {
-          font-size: 24px;
-          color: white;
-        }
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 24px;
+    color: white;
+  }
 
-        /* Ensure arrows fit within the screen */
-        @media (max-width: 640px) {
-          .slick-prev,
-          .slick-next {
-            width: 30px;
-            height: 30px;
-            top: 50%; /* Center the arrows vertically */
-            transform: translateY(-50%); /* Adjust to vertically center */
-          }
+  /* For mobile devices */
+  @media (max-width: 640px) {
+    .slick-prev,
+    .slick-next {
+      width: 30px;
+      height: 30px;
+    }
 
-          .slick-prev {
-            left: 15px; /* Adjust for better visibility on mobile */
-          }
+    .slick-prev {
+      left: 5px; /* Move arrows further inside for mobile */
+    }
 
-          .slick-next {
-            right: 15px; /* Adjust for better visibility on mobile */
-          }
-        }
+    .slick-next {
+      right: 5px; /* Move arrows further inside for mobile */
+    }
+  }
 
-        @media (max-width: 1024px) {
-          .slick-prev,
-          .slick-next {
-            width: 35px; /* Slightly larger arrows for tablet */
-            height: 35px; /* Slightly larger arrows for tablet */
-          }
-        }
-      `}</style>
+  /* Ensure overflow is hidden to prevent arrows from going off-screen */
+  .slick-list {
+    overflow: hidden;
+  }
+`}</style>
     </div>
   );
 };
