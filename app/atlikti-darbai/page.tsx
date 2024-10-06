@@ -72,7 +72,7 @@ const AtliktiDarbai: React.FC = () => {
         <div className="w-full h-px bg-zinc-800" />
         <div className="flex justify-center mt-6">
           <div className="flex space-x-2 p-1 border border-[#4a4a4a] rounded-full bg-black overflow-x-auto"> {/* Updated for overflow */}
-            {["Visi", "Puslapiu kurimas", "Branding'as", "E-shop'ai"].map((category) => (
+            {["Visi", "Puslapiu kurimas", "E-shop'ai"].map((category) => (
               <button // Changed from <a> to <button> to prevent text selection
                 key={category}
                 className={`filter-button is-font-correction px-4 py-1 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
