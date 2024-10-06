@@ -170,7 +170,7 @@ export default function Home() {
 
       {/* AOS (Text Animation) Section */}
       <section className="w-full bg-black py-8">
-        <div className="max-w-7xl mx-auto py-6 px-4 md:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto py-6 px-10 md:px-6 lg:px-8">
           <AOS /> {/* Animated scrolling text */}
         </div>
       </section>

@@ -120,59 +120,64 @@ const ServiceCarousel: React.FC = () => {
         ))}
       </Slider>
 
-<style jsx>{`
-  .slick-prev,
-  .slick-next {
-    z-index: 10;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
+      <style jsx>{`
+        .slick-prev,
+        .slick-next {
+          z-index: 10;
+          position: absolute;
+          background: rgba(0, 0, 0, 0.7);
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
 
-  .slick-prev {
-    left: 10px; /* Move the arrows fully inside */
-  }
+        .slick-prev {
+          left: 10%; /* Moved further inside (adjust this value if needed) */
+        }
 
-  .slick-next {
-    right: 10px; /* Move the arrows fully inside */
-  }
+        .slick-next {
+          right: 10%; /* Moved further inside (adjust this value if needed) */
+        }
 
-  .slick-prev:before,
-  .slick-next:before {
-    font-size: 24px;
-    color: white;
-  }
+        .slick-prev:before,
+        .slick-next:before {
+          font-size: 20px;
+          color: white;
+        }
 
-  /* For mobile devices */
-  @media (max-width: 640px) {
-    .slick-prev,
-    .slick-next {
-      width: 30px;
-      height: 30px;
-    }
+        @media (max-width: 640px) {
+          .slick-prev,
+          .slick-next {
+            width: 30px;
+            height: 30px;
+          }
 
-    .slick-prev {
-      left: 5px; /* Move arrows further inside for mobile */
-    }
+          .slick-prev {
+            left: 10%; /* Adjusted for mobile devices */
+          }
 
-    .slick-next {
-      right: 5px; /* Move arrows further inside for mobile */
-    }
-  }
+          .slick-next {
+            right: 10%; /* Adjusted for mobile devices */
+          }
+        }
 
-  /* Ensure overflow is hidden to prevent arrows from going off-screen */
-  .slick-list {
-    overflow: hidden;
-  }
-`}</style>
+        .slick-list {
+          overflow: visible; /* Ensures arrows aren't cut off */
+          padding: 0 40px; /* Extra padding to accommodate arrows */
+        }
+
+        @media (max-width: 640px) {
+          .slick-list {
+            padding: 0 20px; /* Adjust for smaller screens */
+          }
+        }
+      `}</style>
     </div>
   );
 };
