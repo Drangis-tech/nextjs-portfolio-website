@@ -142,7 +142,7 @@ const Paslaugos = () => {
         <GridPattern
           width={40}
           height={40}
-          className="w-full h-full opacity-10 pointer-events-none"
+          className="w-full h-full opacity-15 pointer-events-none"
           strokeDasharray="0"
         />
       </div>

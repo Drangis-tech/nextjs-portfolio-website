@@ -117,11 +117,11 @@ export const Navigation: React.FC = () => {
         onClick={() => isOpen && setIsOpen(false)}
       >
         {/* Blur the navigation bar without affecting the logo */}
-        <div className={`absolute inset-x-0 top-0 z-50 backdrop-blur-sm pointer-events-none`} />
+        <div className={`absolute inset-x-0 top-0 z-50 backdrop-blur-lg pointer-events-none`} /> {/* Increased blur level */}
       </div>
 
       {/* Side Menu */}
-      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-none transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}>
+      <div className={`fixed inset-y-0 right-0 w-3/4 bg-black bg-opacity-80 backdrop-blur-md transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 menu-content`}> {/* Adjusted blur for side menu */}
         <div className="relative w-full h-full flex flex-col">
           <div className="flex items-center justify-between p-6 border-b border-gray-700">
             {/* Language Selector */}

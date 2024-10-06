@@ -45,62 +45,87 @@ const AtliktiDarbai: React.FC = () => {
         />
       </div>
 
+      {/* Fading Effect at the Edges - Creating a border effect */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top Fade */}
+        <div className="absolute top-0 left-0 right-0 h-1/6 bg-gradient-to-b from-black to-transparent" />
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-black to-transparent" />
+        {/* Left Fade */}
+        <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent" />
+        {/* Right Fade */}
+        <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent" />
+      </div>
+
       <Navigation />
 
       <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-10">
-        <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">Atlikti Projektai</h2>
-        <p className="mt-4 text-zinc-400">
-          Sužinokite daugiau apie mūsų atliktus darbus, kurie atspindi mūsų kompetenciją ir patirtį.
-        </p>
-        <div className="flex justify-center mt-6">
-          <div className="flex space-x-4 border border-zinc-600 rounded-lg p-2">
-            {["Visi", "Puslapiu kurimas", "Branding'as", "E-shop'ai"].map((category) => (
-              <button
-                key={category}
-                className={`px-4 py-2 rounded-lg ${filter === category ? "bg-blue-500 text-white" : "bg-zinc-600 text-white"}`}
-                onClick={() => handleFilterChange(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+        {/* Hero Section */}
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            Atlikti Projektai
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            Sužinokite daugiau apie mūsų atliktus darbus, kurie atspindi mūsų kompetenciją ir patirtį.
+          </p>
         </div>
+        <div className="w-full h-px bg-zinc-800" />
+        <div className="flex justify-center mt-6">
+  <div className="flex space-x-4 p-1 border border-[#4a4a4a] rounded-full bg-black">
+    {["Visi", "Puslapiu kurimas", "Branding'as", "E-shop'ai"].map((category) => (
+      <button // Changed from <a> to <button> to prevent text selection
+        key={category}
+        className={`filter-button is-font-correction px-4 py-1 h-10 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
+          filter === category ? "bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] text-white" : "bg-zinc-800 text-white"
+        }`}
+        onClick={() => handleFilterChange(category)}
+        style={{ position: 'relative', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} // Added styles for text handling
+        type="button" // Ensure it's a button
+      >
+        {category}
+        {filter === category && (
+          <span className="absolute inset-0 border-2 border-[#f7a71b] rounded-full animate-pulse"></span> // Pulsing border color for selected button
+        )}
+      </button>
+    ))}
+  </div>
+</div>
       </div>
 
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-16 max-w-[85vw] relative z-10"> 
-  {filteredProjects.map((project, index) => (
-    <Card
-      key={index}
-      className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300 transform hover:scale-105" // Scaling effect on hover
-      onClick={() => setSelectedProject(index)}
-    >
-      <div className="relative h-[550px] w-full"> {/* Increased card height */}
-        <Image
-          src={project.image}
-          alt={project.title}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-500 transform group-hover:scale-110"
-        />
+      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-16 max-w-[85vw] relative z-10">
+        {filteredProjects.map((project, index) => (
+          <Card
+            key={index}
+            className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300 transform hover:scale-105" // Scaling effect on hover
+            onClick={() => setSelectedProject(index)}
+          >
+            <div className="relative h-[550px] w-full"> {/* Increased card height */}
+              <Image
+                src={project.image}
+                alt={project.title}
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-500 transform group-hover:scale-110"
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-6 text-center">
+              <h2 className="text-2xl text-zinc-100">{project.title}</h2>
+              <p className="text-sm text-zinc-400">{project.category}</p>
+              <div className="flex justify-center mt-2 space-x-2">
+                {project.tags && project.tags.length > 0 ? (
+                  project.tags.map((tag: string, tagIndex: number) => (
+                    <span key={tagIndex} className="bg-zinc-600 text-white px-2 py-1 rounded-full text-xs">
+                      {tag}
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-sm text-zinc-400">No tags available</span>
+                )}
+              </div>
+            </div>
+          </Card>
+        ))}
       </div>
-      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-6 text-center">
-        <h2 className="text-2xl text-zinc-100">{project.title}</h2>
-        <p className="text-sm text-zinc-400">{project.category}</p>
-        <div className="flex justify-center mt-2 space-x-2">
-          {project.tags && project.tags.length > 0 ? (
-            project.tags.map((tag: string, tagIndex: number) => (
-              <span key={tagIndex} className="bg-zinc-600 text-white px-2 py-1 rounded-full text-xs">
-                {tag}
-              </span>
-            ))
-          ) : (
-            <span className="text-sm text-zinc-400">No tags available</span>
-          )}
-        </div>
-      </div>
-    </Card>
-  ))}
-</div>
 
       {selectedProject !== null && (
         <Dialog
