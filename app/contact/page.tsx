@@ -47,7 +47,7 @@ export default function Contact() {
         />
       </div>
 
-      {/* Fading Effect at the Edges - Creating a border effect */}
+      {/* Fading Effect at the Edges */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top Fade */}
         <div className="absolute top-0 left-0 right-0 h-1/6 bg-gradient-to-b from-black to-transparent" />

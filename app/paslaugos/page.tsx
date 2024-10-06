@@ -239,9 +239,9 @@ const Paslaugos = () => {
           ))}
         </div>
 
+        {/* Call to Action */}
         <div className="w-full h-px bg-zinc-800" />
 
-        {/* Call to Action */}
         <div className="text-center mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Susisiekite su Mumis
@@ -260,11 +260,10 @@ const Paslaugos = () => {
           </div>
         </div>
 
-        {/* Add Footer with margin above */}
-        <div className="mb-40"> {/* Adjust margin as needed */}
-          <Footer />
-        </div>
       </div>
+      <div className="mb-40"></div> {/* This div adds space below the last section */}
+
+      <Footer /> {/* Footer component */}
     </div>
   );
 };

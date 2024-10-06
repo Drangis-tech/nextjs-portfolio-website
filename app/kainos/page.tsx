@@ -193,31 +193,27 @@ const KainosPage: React.FC = () => {
       </div>
 
       <Head>
-        <title>Kainos - Apskaičiuokite</title>
-      </Head>
-      <Navigation />
+  <title>Kainos - Apskaičiuokite</title>
+</Head>
+<Navigation />
 
-      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40">
+<div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-10">
         {/* Hero Section */}
-        <div className="max-w-2xl mx-auto lg:mx-0 relative z-10"> {/* Added z-index to keep above other elements */}
+        <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Kainos
+          Kainos
           </h2>
-          <p className="mt-4 text-zinc-400 text-base">
-            Sužinokite apytikslę savo svetainės kainą pagal norimus parametrus.
+          <p className="mt-4 text-zinc-400">
+          Sužinokite apytikslę savo svetainės kainą pagal norimus parametrus.
           </p>
         </div>
+        <div className="w-full h-px bg-zinc-800" />
 
-        {/* Pricing Calculator Component */}
-        <div className="flex justify-center mb-40 relative z-10"> {/* Ensure it's above other elements */}
-          <PricingCalculator />
-        </div>
+  <PricingCalculator />
+</div>
+<div className="mb-40"></div> {/* This div adds space below the last section */}
 
-        {/* Add Footer with margin above */}
-        <div className="mb-50"> {/* Adjust margin as needed */}
-          <Footer />
-        </div>
-      </div>
+<Footer />
     </div>
   );
 };
