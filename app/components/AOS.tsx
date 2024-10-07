@@ -78,7 +78,13 @@ const ServiceCarousel: React.FC = () => {
       {
         breakpoint: 1920,
         settings: {
-          slidesToShow: 4, 
+          slidesToShow: 3, // Shows 3 services for 1920px and above
+        },
+      },
+      {
+        breakpoint: 2560, // For ultra-large screens, ensure it shows only 3
+        settings: {
+          slidesToShow: 3,
         },
       },
     ],
