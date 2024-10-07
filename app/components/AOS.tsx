@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import GridPattern from '../components/grid-pattern'; // Import GridPattern component
 
 // Service Data with Images
 const services = [
@@ -92,8 +93,34 @@ const ServiceCarousel: React.FC = () => {
 
   return (
     <div className="relative w-full bg-black text-white py-16">
-      <h2 className="text-4xl font-bold text-center mb-8">Mes Jūsų verslui galime padėti su:</h2>
-      <Slider {...settings} className="relative">
+      {/* Service Heading */}
+      <h2 className="relative z-20 text-4xl font-bold text-center mb-8">
+        Mes Jūsų verslui galime padėti su:
+      </h2>
+
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 z-10">
+        <GridPattern
+          width={40}
+          height={40}
+          className="w-full h-full opacity-15 pointer-events-none"
+          strokeDasharray="0"
+        />
+      </div>
+
+      {/* Fading Effect at the Edges - Creating a border effect */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        {/* Top Fade */}
+        <div className="absolute top-0 left-0 right-0 h-1/6 bg-gradient-to-b from-black to-transparent" />
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/6 bg-gradient-to-t from-black to-transparent" />
+        {/* Left Fade */}
+        <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-black to-transparent" />
+        {/* Right Fade */}
+        <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-black to-transparent" />
+      </div>
+
+      <Slider {...settings} className="relative z-10">
         {services.map((service, index) => (
           <div key={index} className="p-4">
             <div className="relative p-6 bg-transparent hover:bg-zinc-800/10 h-[396px] transition-all duration-300">
