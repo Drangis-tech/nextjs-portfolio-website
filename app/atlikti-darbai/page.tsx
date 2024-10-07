@@ -113,7 +113,7 @@ const AtliktiDarbai: React.FC = () => {
                 transition: 'opacity 0.3s ease-out, transform 0.3s ease-out', // Shortened duration for faster animation
               }}
             >
-              <Card
+              <Card disableParticles={true}
                 className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300 transform hover:scale-105"
               >
                 <div className="relative h-[550px] w-full">
