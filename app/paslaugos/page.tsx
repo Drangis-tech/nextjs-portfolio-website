@@ -240,7 +240,7 @@ const Paslaugos = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="w-full h-px bg-zinc-800" />
+        <div className="w-full h-px bg-zinc-800 mb-12" style={{ marginBottom: '120px' }} /> {/* Using both Tailwind and inline styles */}
 
         <div className="text-center mt-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">

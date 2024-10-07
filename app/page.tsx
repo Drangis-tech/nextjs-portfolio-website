@@ -156,10 +156,10 @@ export default function Home() {
 </div>
         </div>
 
-        {/* HeroParallax Component */}
-        <section className="w-full mt-4">
-          <HeroParallax products={products} />
-        </section>
+{/* HeroParallax Component */}
+<section className="w-full mt-4 min-h-[110vh] md:min-h-[130vh] lg:min-h-[150vh]">
+  <HeroParallax products={products} />
+</section>
 
       {/* AOS (Text Animation) Section */}
       <section className="w-full bg-black py-8">
