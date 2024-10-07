@@ -29,7 +29,7 @@ export default function Home() {
     { title: 'Miracleexperience.co.tz', link: '/atlikti-darbai', thumbnail: '/projektai/miracleexperience_co_tz.jpg' },
     { title: 'Entsav.co.uk', link: '/atlikti-darbai', thumbnail: '/projektai/entsav_co_uk.jpg' },
     { title: 'Estlighting.com.au', link: '/atlikti-darbai', thumbnail: '/projektai/estlighting_com_au.jpg' },
-    { title: 'Scanstrut.com', link: '/satlikti-darbai', thumbnail: '/projektai/scanstrut_com.jpg' },
+    { title: 'Scanstrut.com', link: '/atlikti-darbai', thumbnail: '/projektai/scanstrut_com.jpg' },
   ];
 
   const timelineData = [
@@ -156,10 +156,10 @@ export default function Home() {
 </div>
         </div>
 
-{/* HeroParallax Component */}
-<section className="w-full mt-4 min-h-[110vh] md:min-h-[130vh] lg:min-h-[150vh]">
-  <HeroParallax products={products} />
-</section>
+        {/* HeroParallax Component */}
+        <section className="w-full mt-4">
+          <HeroParallax products={products} />
+        </section>
 
       {/* AOS (Text Animation) Section */}
       <section className="w-full bg-black py-8">
