@@ -86,14 +86,17 @@ export default function Contact() {
                 </div>
               </Link>
             </Card>
+            
           ))}
+
+
+        </div>
+        <div className="mb-40"> {/* Adjust margin as needed */}
         </div>
       </div>
 
       {/* Add Footer with margin above */}
-      <div className="mb-40"> {/* Adjust margin as needed */}
         <Footer />
       </div>
-    </div>
   );
 }

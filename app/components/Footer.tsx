@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                 <li><Link href="/paslaugos" className="text-zinc-400 hover:text-zinc-300">Paslaugos</Link></li>
                 <li><Link href="/apie-mus" className="text-zinc-400 hover:text-zinc-300">Apie mus</Link></li>
                 <li><Link href="/kainos" className="text-zinc-400 hover:text-zinc-300">Kainos</Link></li>
-                <li><Link href="/contact" className="text-zinc-400 hover:text-zinc-300">Susisiekite su mumis</Link></li>
+                <li><Link href="/kontaktai" className="text-zinc-400 hover:text-zinc-300">Susisiekite su mumis</Link></li>
               </ul>
             </div>
 

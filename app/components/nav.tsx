@@ -96,7 +96,7 @@ export const Navigation: React.FC = () => {
               <Link href="/paslaugos" className="nav-link">Paslaugos</Link>
               <Link href="/apie-mus" className="nav-link">Apie Mus</Link>
               <Link href="/kainos" className="nav-link">Kainos</Link>
-              <Link href="/contact" className="nav-link">Kontaktai</Link>
+              <Link href="/kontaktai" className="nav-link">Kontaktai</Link>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ export const Navigation: React.FC = () => {
             <Link href="/paslaugos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Paslaugos</Link>
             <Link href="/apie-mus" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Apie Mus</Link>
             <Link href="/kainos" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Kainos</Link>
-            <Link href="/contact" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Kontaktai</Link>
+            <Link href="/kontaktai" className="nav-link text-xl md:text-lg lg:text-xl" onClick={toggleMenu}>Kontaktai</Link>
           </nav>
 
           {/* Update the contact information section to reflect the color change */}
