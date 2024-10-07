@@ -27,7 +27,6 @@ const AtliktiDarbai: React.FC = () => {
   }, []);
 
   const handleFilterChange = (category: string) => {
-    // Start animation
     setIsAnimating(true);
     
     setTimeout(() => {
@@ -38,16 +37,15 @@ const AtliktiDarbai: React.FC = () => {
         const newFilteredProjects = projects.filter((project) => project.category === category);
         setFilteredProjects(newFilteredProjects);
       }
-      // Stop animation after update
       setIsAnimating(false);
-    }, 500); // Match this duration with CSS animation duration
+    }, 300); // Shortened duration for animation
   };
 
   const renderFilters = (filters: string[]) => {
     return filters.map((category) => (
       <button
         key={category}
-        className={`filter-button is-font-correction px-4 py-1 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
+        className={`filter-button is-font-correction px-6 py-2 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
           filter === category
             ? "bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] text-white"
             : "text-white bg-zinc-800"
@@ -92,7 +90,7 @@ const AtliktiDarbai: React.FC = () => {
         </div>
         <div className="w-full h-px bg-zinc-800" />
         <div className="flex justify-center mt-6">
-          <div className="flex space-x-2 p-1 border border-[#4a4a4a] rounded-full bg-black overflow-x-auto">
+          <div className="flex space-x-2 p-2 border border-[#4a4a4a] rounded-full bg-black overflow-x-auto"> {/* Increased padding */}
             {renderFilters(allFilters)}
           </div>
         </div>
@@ -112,7 +110,7 @@ const AtliktiDarbai: React.FC = () => {
               style={{
                 opacity: isAnimating ? 0 : 1,
                 transform: isAnimating ? 'scale(0.95)' : 'scale(1)',
-                transition: 'opacity 0.5s ease-out, transform 0.5s ease-out',
+                transition: 'opacity 0.3s ease-out, transform 0.3s ease-out', // Shortened duration for faster animation
               }}
             >
               <Card
