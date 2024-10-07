@@ -13,6 +13,9 @@ const AtliktiDarbai: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<any[]>([]);
   const [filter, setFilter] = useState("Visi");
+  const [showMoreFilters, setShowMoreFilters] = useState(false); // For showing more filters in mobile view
+
+  const allFilters = ["Visi", "Puslapiu kurimas", "Branding'as", "E-shop'ai", "Marketingas", "SEO", "UX/UI"]; // Add more categories if needed
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -32,6 +35,28 @@ const AtliktiDarbai: React.FC = () => {
     } else {
       setFilteredProjects(projects.filter((project) => project.category === category));
     }
+  };
+
+  const handleMoreFilters = () => {
+    setShowMoreFilters(!showMoreFilters); // Toggle the visibility of extra filters
+  };
+
+  const renderFilters = (filters: string[]) => {
+    return filters.map((category) => (
+      <button
+        key={category}
+        className={`filter-button is-font-correction px-4 py-1 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
+          filter === category
+            ? "bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] text-white"
+            : "border border-gray-500 text-white bg-zinc-800" // Lower opacity for unselected filters
+        }`}
+        onClick={() => handleFilterChange(category)}
+        style={{ whiteSpace: "nowrap", opacity: filter === category ? 1 : 0.5 }} // Lower opacity for unselected filters
+        type="button"
+      >
+        {category}
+      </button>
+    ));
   };
 
   return (
@@ -72,20 +97,30 @@ const AtliktiDarbai: React.FC = () => {
         <div className="w-full h-px bg-zinc-800" />
         <div className="flex justify-center mt-6">
           <div className="flex space-x-2 p-1 border border-[#4a4a4a] rounded-full bg-black overflow-x-auto"> {/* Updated for overflow */}
-            {["Visi", "Puslapiu kurimas", "E-shop'ai"].map((category) => (
-              <button // Changed from <a> to <button> to prevent text selection
-                key={category}
-                className={`filter-button is-font-correction px-4 py-1 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg ${
-                  filter === category ? "bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] text-white" : "bg-zinc-800 text-white"
-                }`}
-                onClick={() => handleFilterChange(category)}
-                style={{ whiteSpace: 'nowrap' }} // Updated for text handling
-                type="button" // Ensure it's a button
+            {/* On mobile view, show "..." button */}
+            <div className="hidden md:flex space-x-2">
+              {renderFilters(allFilters)}
+            </div>
+
+            <div className="md:hidden flex space-x-2">
+              {renderFilters(allFilters.slice(0, 3))} {/* Show only first 3 filters on mobile */}
+
+              {/* Show "..." if more filters exist */}
+              <button
+                className="filter-button is-font-correction px-4 py-1 rounded-full transition-colors duration-300 flex items-center justify-center text-sm md:text-base lg:text-lg text-white border border-gray-500"
+                onClick={handleMoreFilters}
               >
-                {category}
+                ...
               </button>
-            ))}
+            </div>
           </div>
+
+          {/* Additional filters when "..." is clicked */}
+          {showMoreFilters && (
+            <div className="md:hidden flex space-x-2 mt-4">
+              {renderFilters(allFilters.slice(3))} {/* Show the rest of the filters */}
+            </div>
+          )}
         </div>
       </div>
 
@@ -149,11 +184,20 @@ const AtliktiDarbai: React.FC = () => {
             </div>
             <h2 className="text-3xl text-white mt-4">{filteredProjects[selectedProject].title}</h2>
             <p className="text-gray-300 mt-4 text-lg">{filteredProjects[selectedProject].description}</p>
-            <p className="text-gray-400 mt-2 text-sm">{`Technologies: ${filteredProjects[selectedProject].technologies}`}</p>
+            <div className="flex justify-center mt-6 space-x-2">
+              {filteredProjects[selectedProject].tags && filteredProjects[selectedProject].tags.length > 0 ? (
+                filteredProjects[selectedProject].tags.map((tag: string, tagIndex: number) => (
+                  <span key={tagIndex} className="bg-zinc-600 text-white px-2 py-1 rounded-full text-xs">
+                    {tag}
+                  </span>
+                ))
+              ) : (
+                <span className="text-sm text-zinc-400">No tags available</span>
+              )}
+            </div>
           </div>
         </Dialog>
       )}
-      <div className="mb-40"></div> {/* This div adds space below the last section */}
 
       <Footer />
     </div>
