@@ -5,44 +5,51 @@ import { Navigation } from "../components/nav";
 import { Card } from "../components/card"; // Import the Card component
 import GridPattern from '../components/grid-pattern'; // Import GridPattern component
 import Footer from '../components/Footer'; // Import the Footer component
+import Link from 'next/link';
 
 // Service Data with Images
 const services = [
   {
-    title: "WEB DEVELOPMENT",
+    title: "SVETAINIŲ KŪRIMAS",
     description:
-      "We create modern and user-friendly websites using the latest technologies like React, Vue.js, and WordPress.",
+      "Kuriame šiuolaikines ir naudotojui patogias svetaines, naudodami naujausias technologijas, tokias kaip Wordpress, Wix ir Shopify.",
     image: "/paslaugos/WEB_DEVELOPMENT.png", // Image for Web Development
+    link: "/paslaugos/svetainiu-kurimas" // Link to Web Development
   },
   {
-    title: "BRANDING",
+    title: "BRANDING'AS",
     description:
-      "Unique brand identity solutions, including logos, business cards, and creative design services.",
+      "Unikalūs prekės ženklo tapatumo sprendimai, įskaitant logotipus, vizitines korteles ir kūrybinius dizaino paslaugas.",
     image: "/paslaugos/BRANDING.png", // Image for Branding
+    link: "/paslaugos/brandingas" // Link to Branding
   },
   {
-    title: "ADS MANAGEMENT",
+    title: "REKLAMA IR JOS VALDYMAS",
     description:
-      "Manage effective campaigns on Google and Facebook platforms, targeting the right audience and analyzing results.",
+      "Valdykite efektyvias kampanijas „Google“ ir „Facebook“ platformose, taikydami tinkamą auditoriją ir analizuodami rezultatus.",
     image: "/paslaugos/ADS_MANAGEMENT.png", // Image for Ads Management
+    link: "/paslaugos/reklama" // Link to Ads Management
   },
   {
-    title: "SEO OPTIMIZATION",
+    title: "SEO OPTIMIZACIJA",
     description:
-      "Optimize your website for search engines to increase visibility and traffic with on-page and off-page SEO.",
+      "Optimizuokite savo svetainę paieškos sistemoms, kad padidintumėte matomumą ir srautą, naudodami on-page ir off-page SEO.",
     image: "/paslaugos/SEO_OPTIMIZATION.png", // Image for SEO Optimization
+    link: "/paslaugos/seo-optimizacija" // Link to SEO Optimization
   },
   {
-    title: "CUSTOM SOLUTIONS",
+    title: "INDIVIDUALŪS SPRENDIMAI",
     description:
-      "Tailored programming solutions and API integrations to meet your unique needs, with expert consultation and support.",
+      "Prieš tai pritaikyti programavimo sprendimai ir API integracijos, atitinkančios jūsų unikalius poreikius, su ekspertų konsultacijomis ir parama.",
     image: "/paslaugos/Custom_Solutions.png", // Image for Custom Solutions
+    link: "/paslaugos/individualus-sprendimai" // Link to Custom Solutions
   },
   {
-    title: "IT CONSULTING",
+    title: "IT KONSULTAVIMAS",
     description:
-      "Consultation on IT strategies, system analysis, and recommendations to optimize technology usage for your business.",
+      "Konsultacijos IT strategijomis, sistemų analize ir rekomendacijomis, skirtomis optimizuoti technologijų naudojimą jūsų verslui.",
     image: "/paslaugos/IT_Consulting.png", // Image for IT Consulting
+    link: "/paslaugos/it-konsultacijos" // Link to IT Consulting
   },
 ];
 
@@ -198,16 +205,14 @@ const Paslaugos = () => {
               <p className="text-zinc-400 mb-6">{service.description}</p>
 
               {/* Learn More Button - Positioned Bottom Left */}
-              <a
-                href="#"
-                className="absolute bottom-6 left-6 border-2 border-zinc-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-transparent border-gray-600 hover:bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] hover:text-white"
-              >
-                Sužinokite daugiau
-              </a>
+              <Link href={service.link}> {/* Use Link for navigation */}
+                <a className="absolute bottom-6 left-6 border-2 border-zinc-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-transparent border-gray-600 hover:bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] hover:text-white">
+                  Sužinokite daugiau
+                </a>
+              </Link>
             </Card>
           ))}
-                <div className="mb-40"></div> {/* This div adds space below the last section */}
-
+          <div className="mb-40"></div> {/* This div adds space below the last section */}
         </div>
 
 
