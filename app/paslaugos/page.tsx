@@ -206,20 +206,23 @@ const Paslaugos = () => {
               </a>
             </Card>
           ))}
+                <div className="mb-40"></div> {/* This div adds space below the last section */}
+
         </div>
 
-        <div className="w-full h-px bg-zinc-800" />
+
 
         {/* Technology Stack */}
-        <div className="text-center">
+        <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Naudojamos Technologijos
           </h2>
           <p className="mt-4 text-zinc-400">
-            Mes dirbame su įvairiomis pažangiomis technologijomis, kurios
-            užtikrina mūsų projektų kokybę ir efektyvumą.
+          Mes dirbame su įvairiomis pažangiomis technologijomis, kurios
+          užtikrina mūsų projektų kokybę ir efektyvumą.
           </p>
         </div>
+        <div className="w-full h-px bg-zinc-800" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           {technologies.map((tech, index) => (
             <div key={index} className="flex items-center space-x-4">

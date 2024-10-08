@@ -96,42 +96,47 @@ const ApieMus: React.FC = () => {
         <div className="w-full h-px bg-zinc-800" />
       </div>
 
-      {/* About Us Sections */}
-      <div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto relative z-20"> {/* Adjusted z-index */}
-      {aboutUsData.map((section, index) => (
-  <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
-    <Card className="w-full md:w-1/2 flex-shrink-0">
-      <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-        <div className="text-4xl text-zinc-100">
-          {section.title === "Mūsų Komanda" && <PersonLinesFill />} {/* Updated icon */}
-          {section.title === "Mūsų Vizija" && <Eye />} {/* Updated icon */}
-          {section.title === "Mūsų Vertybės" && <Shield />} {/* Updated icon to Scale */}
-        </div>
-        <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
-          {section.title}
-        </h3>
-        <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300 text-base sm:text-lg">
-          {section.description}
+{/* About Us Sections */}
+<div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto relative z-20"> {/* Adjusted z-index */}
+  {aboutUsData.map((section, index) => (
+    <div key={index} className="flex flex-col items-start text-left md:flex-row md:items-start md:space-x-12"> {/* Changed items-center to items-start and text-center to text-left */}
+      <Card className="w-full md:w-1/2 flex-shrink-0">
+        <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+          <div className="text-4xl text-zinc-100">
+            {section.title === "Mūsų Komanda" && <PersonLinesFill />} {/* Updated icon */}
+            {section.title === "Mūsų Vizija" && <Eye />} {/* Updated icon */}
+            {section.title === "Mūsų Vertybės" && <Shield />} {/* Updated icon */}
+          </div>
+          <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+            {section.title}
+          </h3>
+          <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300 text-base sm:text-lg">
+            {section.description}
+          </p>
+        </article>
+      </Card>
+      <div className="w-full mt-6 md:mt-0 md:w-1/2">
+        <p className="mt-2 text-zinc-400 text-base sm:text-lg">
+          {section.detailedText}
         </p>
-      </article>
-    </Card>
-    <div className="w-full mt-6 md:mt-0 md:w-1/2">
-      <p className="mt-2 text-zinc-400 text-base sm:text-lg">
-        {section.detailedText}
-      </p>
-    </div>
-  </div>
-))}
       </div>
-
-      {/* Divider Line Between "Komanda" Heading and Team Grid */}
-      <div className="w-full h-px bg-zinc-800 mt-12" />
+    </div>
+  ))}
 
       {/* Team Section */}
-      <div className="mt-16 px-6 max-w-7xl lg:px-8 mx-auto relative z-20"> {/* Adjusted z-index */}
-        <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-          Komanda
-        </h2>
+      <div className="px-6 pt-24 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-32 lg:pt-40 relative z-20"> {/* Ensure Hero Section has a higher z-index */}
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+            Komanda
+          </h1>
+          <p className="mt-4 text-zinc-400">
+            Sužinokite daugiau apie mūsų komandos narius.
+          </p>
+        </div>
+        {/* Divider Line */}
+        <div className="w-full h-px bg-zinc-800" />
+      </div>
+        
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16 mt-12">
   {teamData.map((member, index) => (
