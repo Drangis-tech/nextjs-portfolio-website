@@ -34,7 +34,7 @@ const aboutUsData = [
     title: "Mūsų Komanda",
     description: "Susipažinkite su mūsų talentinga ir atsidavusia komanda, kuri deda visas pastangas, kad pasiektų išskirtinių rezultatų.",
     detailedText: "Mūsų komandoje dirba įvairių sričių specialistai, kurie kartu kuria inovatyvius sprendimus ir siekia aukščiausių kokybės standartų. Kiekvienas narys įneša savo unikalų indėlį, prisidėdamas prie mūsų bendrų tikslų įgyvendinimo.",
-    image: "/apie mus/musukomanda.png", // Add image path
+    image: "/apie-mus/musukomanda.png", // Add image path
     width: 64, // Add image width
     height: 64, // Add image height
   },
@@ -42,7 +42,7 @@ const aboutUsData = [
     title: "Mūsų Vizija",
     description: "Siekiame revoliucionuoti pramonę su inovatyviais sprendimais ir neprilygstamu aptarnavimu.",
     detailedText: "Mūsų vizija yra tapti rinkos lyderiais, kurie nuolat plečiasi ir tobulėja. Mes siekiame kurti vertę savo klientams, darbuotojams ir bendruomenei, naudodamiesi pažangiausiomis technologijomis ir metodikomis.",
-    image: "/apie mus/musuvizija.png", // Add image path
+    image: "/apie-mus/musuvizija.png", // Add image path
     width: 64, // Add image width
     height: 64, // Add image height
   },
@@ -50,7 +50,7 @@ const aboutUsData = [
     title: "Mūsų Vertybės",
     description: "Sąžiningumas, Tobulumas ir Bendradarbiavimas yra pagrindinės vertybės, kurios veda mus į sėkmę.",
     detailedText: "Mūsų vertybės yra mūsų veiklos pagrindas. Mes siekiame sąžiningumo visuose santykiuose, tobulumo kiekviename projekte ir bendradarbiavimo visose veiklos srityse. Šios vertybės padeda mums kurti stiprius ir ilgalaikius ryšius su klientais ir partneriais.",
-    image: "/apie mus/musuvertybes.png", // Add image path
+    image: "/apie-mus/musuvertybes.png", // Add image path
     width: 64, // Add image width
     height: 64, // Add image height
   },
