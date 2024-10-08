@@ -7,6 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faEye, faBalanceScale } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer"; // Import Footer Component
 import GridPattern from "../components/grid-pattern"; // Import GridPattern component
+import Image from 'next/image'; // Import Image from next.js
+import { Linkedin, PersonLinesFill, Eye, Shield } from 'react-bootstrap-icons'; // Import Linkedin icon
+
+
 
 // Team Data
 const teamData = [
@@ -14,19 +18,15 @@ const teamData = [
     name: "Nojus Mykolaitis",
     role: "CEO",
     linkedIn: "https://www.linkedin.com/in/johndoe",
-    twitter: "https://twitter.com/johndoe",
   },
   {
     name: "Lana K.",
     role: "Wordpress & Shopify Developer",
-    linkedIn: "https://www.linkedin.com/in/janesmith",
-    twitter: "https://twitter.com/janesmith",
+    flag: '/flags/ukraine.svg' // Add flag for Lana K.
   },
   {
-    name: "Alice Johnson",
-    role: "Lead Developer",
-    linkedIn: "https://www.linkedin.com/in/alicejohnson",
-    twitter: "https://twitter.com/alicejohnson",
+    name: "Kajus D.",
+    role: "Projects Manager",
   },
 ];
 
@@ -98,30 +98,30 @@ const ApieMus: React.FC = () => {
 
       {/* About Us Sections */}
       <div className="px-6 pt-12 space-y-12 max-w-7xl lg:px-8 md:space-y-16 md:pt-16 lg:pt-20 mx-auto relative z-20"> {/* Adjusted z-index */}
-        {aboutUsData.map((section, index) => (
-          <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
-            <Card className="w-full md:w-1/2 flex-shrink-0">
-              <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                <div className="text-4xl text-zinc-100">
-                  {section.title === "Mūsų Komanda" && <FontAwesomeIcon icon={faUsers} />}
-                  {section.title === "Mūsų Vizija" && <FontAwesomeIcon icon={faEye} />}
-                  {section.title === "Mūsų Vertybės" && <FontAwesomeIcon icon={faBalanceScale} />}
-                </div>
-                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
-                  {section.title}
-                </h3>
-                <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300 text-base sm:text-lg">
-                  {section.description}
-                </p>
-              </article>
-            </Card>
-            <div className="w-full mt-6 md:mt-0 md:w-1/2">
-              <p className="mt-2 text-zinc-400 text-base sm:text-lg">
-                {section.detailedText}
-              </p>
-            </div>
-          </div>
-        ))}
+      {aboutUsData.map((section, index) => (
+  <div key={index} className="flex flex-col items-center text-center md:flex-row md:text-left md:items-start md:space-x-12">
+    <Card className="w-full md:w-1/2 flex-shrink-0">
+      <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+        <div className="text-4xl text-zinc-100">
+          {section.title === "Mūsų Komanda" && <PersonLinesFill />} {/* Updated icon */}
+          {section.title === "Mūsų Vizija" && <Eye />} {/* Updated icon */}
+          {section.title === "Mūsų Vertybės" && <Shield />} {/* Updated icon to Scale */}
+        </div>
+        <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl">
+          {section.title}
+        </h3>
+        <p className="mt-2 leading-6 text-zinc-400 group-hover:text-zinc-300 text-base sm:text-lg">
+          {section.description}
+        </p>
+      </article>
+    </Card>
+    <div className="w-full mt-6 md:mt-0 md:w-1/2">
+      <p className="mt-2 text-zinc-400 text-base sm:text-lg">
+        {section.detailedText}
+      </p>
+    </div>
+  </div>
+))}
       </div>
 
       {/* Divider Line Between "Komanda" Heading and Team Grid */}
@@ -134,29 +134,40 @@ const ApieMus: React.FC = () => {
         </h2>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16 mt-12">
-          {teamData.map((member, index) => (
-            <Card key={index} className="w-full">
-              <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
-                <div className="text-xs text-zinc-100">
-                  <span>{member.role}</span>
-                </div>
-
-                <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white">
-                  {member.name}
-                </h3>
-
-                <div className="flex space-x-3 mt-4">
-                  <a href={member.linkedIn} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "linkedin"]} className="text-zinc-400 hover:text-zinc-300" />
-                  </a>
-                  <a href={member.twitter} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={["fab", "twitter"]} className="text-zinc-400 hover:text-zinc-300" />
-                  </a>
-                </div>
-              </article>
-            </Card>
-          ))}
+  {teamData.map((member, index) => (
+    <Card key={index} className="w-full">
+      <article className="relative w-full h-full p-6 group bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)]">
+        
+        <div className="flex justify-between items-center text-xs text-zinc-100">
+          <span>{member.role}</span>
+          
+          {member.name === "Lana K." && (
+            <img
+              src="/flags/ukraine.svg"
+              alt="Ukraine Flag"
+              className="h-4 w-6"
+            />
+          )}
         </div>
+
+        <h3 className="mt-4 text-2xl font-bold text-zinc-100 group-hover:text-white">
+          {member.name}
+        </h3>
+
+        <div className="flex space-x-3 mt-4">
+          <a href={member.linkedIn} target="_blank" rel="noopener noreferrer">
+            {/* Conditionally render Linkedin icon for Nojus */}
+            {member.name === "Nojus Mykolaitis" ? (
+              <Linkedin className="text-zinc-400 hover:text-zinc-300" />
+            ) : (
+              <FontAwesomeIcon icon={["fab", "linkedin"]} className="text-zinc-400 hover:text-zinc-300" />
+            )}
+          </a>
+        </div>
+      </article>
+    </Card>
+  ))}
+</div>
       </div>
 
       {/* Add Footer with margin above */}

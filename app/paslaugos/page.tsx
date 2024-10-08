@@ -202,7 +202,7 @@ const Paslaugos = () => {
                 href="#"
                 className="absolute bottom-6 left-6 border-2 border-zinc-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-transparent border-gray-600 hover:bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] hover:text-white"
               >
-                Learn More
+                Sužinokite daugiau
               </a>
             </Card>
           ))}
@@ -252,7 +252,7 @@ const Paslaugos = () => {
           </p>
           <div className="mt-6">
             <a
-              href="/contact"
+              href="/kontaktai"
               className="w-full py-2 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-500 hover:to-orange-700 active:from-orange-600 active:to-orange-800 focus:outline-none focus:ring focus:ring-orange-400 transition duration-200"
             >
               Susisiekite
