@@ -17,8 +17,8 @@ const teamData = [
     twitter: "https://twitter.com/johndoe",
   },
   {
-    name: "Jane Smith",
-    role: "CTO",
+    name: "Lana K.",
+    role: "Wordpress & Shopify Developer",
     linkedIn: "https://www.linkedin.com/in/janesmith",
     twitter: "https://twitter.com/janesmith",
   },

@@ -146,7 +146,7 @@ const ServiceCarousel: React.FC = () => {
                 href="#"
                 className="absolute bottom-6 left-6 border-2 border-zinc-800 text-white font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-transparent border-gray-600 hover:bg-gradient-to-r from-[#f7a71b] via-[#f16529] to-[#e44d26] hover:text-white"
               >
-                Learn More
+                Sužinokite daugiau
               </a>
             </div>
           </div>
