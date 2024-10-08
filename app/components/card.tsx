@@ -105,6 +105,25 @@ export const Card: React.FC<CardProps> = ({
     setIsVisible(true);
   }
 
+  function handleTouchMove({ currentTarget, touches }: any) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    const x = touches[0].clientX - left;
+    const y = touches[0].clientY - top;
+
+    // Update touch position
+    mouseX.set(x);
+    mouseY.set(y); // Update mouseX and mouseY for the particle
+    updateParticlePosition(x, y);
+
+    // Set particle visibility to true when touching the card
+    setIsVisible(true);
+  }
+
+  function handleTouchStart() {
+    // Set particle visibility to true when touching the card
+    setIsVisible(true);
+  }
+
   function handleMouseLeave() {
     // Keep the last position and make the particle visible
     // But the opacity is controlled by the isVisible state
@@ -117,6 +136,8 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       onMouseMove={onMouseMove || handleMouseMove}
+      onTouchStart={handleTouchStart} // Add touch start handler for mobile
+      onTouchMove={handleTouchMove} // Add touch move handler for mobile
       onMouseLeave={handleMouseLeave} // Keep mouse leave handler
       onClick={onClick}
       className={`relative overflow-hidden border border-gray-600 rounded-xl ${className}`}
