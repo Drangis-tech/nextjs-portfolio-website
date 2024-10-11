@@ -97,6 +97,7 @@ const ServiceCarousel: React.FC = () => {
       <h2 className="relative z-20 text-4xl font-bold text-center mb-8">
         Mes Jūsų verslui galime padėti su:
       </h2>
+      
 
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 z-10">
