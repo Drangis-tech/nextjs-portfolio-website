@@ -137,9 +137,11 @@ export const ProductCard = ({
       }}
       key={product.title}
       className="group/product relative flex-shrink-0 
-        h-[25rem] w-[50rem]    // Default size for large screens
-        md:h-[20rem] md:w-[40rem]   // Medium size for tablets
-        sm:h-[10rem] sm:w-[20rem]   // Smaller size for mobile devices
+        w-[40rem] h-[20rem]    // Default size for large desktop screens (e.g., 16-inch MacBook Pro)
+        xl:w-[40rem] xl:h-[20rem]   // Adjust for smaller laptops or large tablets
+        lg:w-[30rem] lg:h-[15rem]   // Medium-sized screens like tablets
+        md:w-[28rem] md:h-[14rem]   // Smaller tablets or larger mobile devices
+        sm:w-[24rem] sm:h-[12rem]    // Mobile phones (e.g., iPhone 13)
       "
     >
       <Link
