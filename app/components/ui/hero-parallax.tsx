@@ -21,7 +21,6 @@ export const HeroParallax = ({
 }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -57,7 +56,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[200vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -69,7 +68,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 mb-20">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -78,20 +77,11 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row  mb-20 space-x-10 ">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
               key={product.title}
             />
           ))}
@@ -137,7 +127,7 @@ export const ProductCard = ({
       }}
       key={product.title}
       className="group/product relative flex-shrink-0 
-        w-[40rem] h-[20rem]    // Default size for large desktop screens (e.g., 16-inch MacBook Pro)
+        w-[30rem] h-[15rem]    // Default size for large desktop screens (e.g., 16-inch MacBook Pro)
         xl:w-[40rem] xl:h-[20rem]   // Adjust for smaller laptops or large tablets
         lg:w-[30rem] lg:h-[15rem]   // Medium-sized screens like tablets
         md:w-[28rem] md:h-[14rem]   // Smaller tablets or larger mobile devices
