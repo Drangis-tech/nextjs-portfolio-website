@@ -136,17 +136,21 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-[20rem] w-[40rem] relative flex-shrink-0" // Adjusted width and height
+      className="group/product relative flex-shrink-0 
+        h-[25rem] w-[50rem]    // Default size for large screens
+        md:h-[20rem] md:w-[40rem]   // Medium size for tablets
+        sm:h-[10rem] sm:w-[20rem]   // Smaller size for mobile devices
+      "
     >
       <Link
         href={product.link}
-        className="block group-hover/product:shadow-2xl "
+        className="block group-hover/product:shadow-2xl"
       >
         <Image
           src={product.thumbnail}
-          height="1920" // Adjusted height to match the image aspect ratio
-          width="1920" // Adjusted width to match the image aspect ratio
-          className="object-contain object-center absolute h-full w-full inset-0" // Changed to object-contain
+          height="1920" // Keeping aspect ratio
+          width="1920"
+          className="object-contain object-center absolute h-full w-full inset-0"
           alt={product.title}
         />
       </Link>
