@@ -22,7 +22,7 @@ const SubHandler: React.FC<SubHandlerProps> = ({ formData }) => {
         setMessage('Užklausa sėkmingai buvo išsiųsta.');
       } catch (error) {
         console.error('Failed to send email:', error);
-        setMessage('Nepavyko išsiųsti užklausos. Pabandykite dar karta vėliau.');
+        setMessage('Nepavyko išsiųsti užklausos. Pabandykite dar karta vėliau arba susisiekite per el. paštą - info@brandforge.lt');
       }
     };
 
