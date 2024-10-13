@@ -195,7 +195,6 @@ export default function Home() {
         </section>
 
         {/* Add a gap before the footer */}
-        <div className="mb-40"></div> {/* This div adds space below the last section */}
 
         {/* Footer Component */}
         <Footer />
