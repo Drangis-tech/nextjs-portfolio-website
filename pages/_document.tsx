@@ -28,6 +28,12 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@1.8.1/build/cookieconsent.min.css"
           />
+
+          {/* Include Alpine.js */}
+          <script
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.3/cdn.min.js"
+            defer
+          ></script>
         </Head>
         <body>
           <Main />
