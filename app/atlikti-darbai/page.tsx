@@ -130,15 +130,15 @@ const AtliktiDarbai: React.FC = () => {
               <Card disableParticles={true}
                 className="relative overflow-hidden rounded-lg bg-[rgba(28, 28, 30, 0.8)] hover:bg-[rgba(44, 44, 46, 0.8)] cursor-pointer transition-transform duration-300 transform hover:scale-105"
               >
-                <div className="relative h-[550px] w-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-500 transform group-hover:scale-110"
-                  />
-                </div>
+<div className="relative h-[550px] w-full"> {/* Increased the height */}
+  <Image
+    src={project.image}
+    alt={project.title}
+    layout="fill"
+    objectFit="cover" 
+    className="transition-transform duration-500 transform group-hover:scale-110"
+  />
+</div>
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-6 text-center">
                   <h2 className="text-2xl text-zinc-100">{project.title}</h2>
                   <p className="text-sm text-zinc-400">{project.category}</p>
