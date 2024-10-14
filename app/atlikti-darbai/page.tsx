@@ -14,14 +14,14 @@ const AtliktiDarbai: React.FC = () => {
   const [filteredProjects, setFilteredProjects] = useState<any[]>([]);
   const [filter, setFilter] = useState("Visi");
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isUnderConstruction, setIsUnderConstruction] = useState(true); // State to toggle the construction mode
+  const [isUnderConstruction, setIsUnderConstruction] = useState(false); // State to toggle the construction mode
 
-  const allFilters = ["Visi", "Puslapiu kurimas", "Branding'as", "E-shop'ai", "Marketing'as", "SEO"];
+  const allFilters = ["Visi", "Svetainių kūrimas", "Branding'as", "E-shop'ai", "Marketing'as", "SEO"];
 
   // Toggle the construction mode when component mounts
   useEffect(() => {
     // Set under construction to true based on any logic
-    setIsUnderConstruction(true);  // Change this condition as needed
+    setIsUnderConstruction(false);  // Change this condition as needed
   }, []);
 
   // If the site is under construction, display the UnderConstruction component
